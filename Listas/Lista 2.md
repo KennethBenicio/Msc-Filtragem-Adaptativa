@@ -152,13 +152,11 @@ $$\begin{align}
 ## Problema 3
 
 Em várias aplicações práticas há uma necessidade de cancelar ruído que foi adicionado a um sinal. Por exemplo, se estamos usando o telefone celular dentro de um ruído e o ruído do carro ou rádio é adicionado 
-à mensagem que estamos tentando transmitir. A Figura~\ref{Fig:Cancelamento_ruido} ilustra as situações de contaminação de ruído. Calcule o filtro de Wiener (filtro ótimo) de tal configuração em relação às estatísticas dos sinais envolvidos que você dispõe (conhece).
+à mensagem que estamos tentando transmitir. A Figura abaixo ilustra as situações de contaminação de ruído. Calcule o filtro de Wiener (filtro ótimo) de tal configuração em relação às estatísticas dos sinais envolvidos que você dispõe (conhece).
 
-\begin{figure}[h!]
-    \centering
-    \includegraphics[width = 0.7\textwidth]{images/Cancelamento_ruido.png}
-    \caption{Esquema de cancelamento de ruído.}\label{Fig:Cancelamento_ruido}
-\end{figure}
+<p align="center">
+<img src="https://github.com/KennethBenicio/Msc-Filtragem-Adaptativa/blob/main/Imagens/cancelamento_ruido.png?raw=true" title="Estrutura de Cancelamento de Ruído" width="512" />
+</p>
 
 SOLUÇÃO:
 
@@ -271,8 +269,6 @@ $$\begin{align}
 
 Utilizando um software é possível facilmente traçar a superfície por meio da variação dos coeficientes de filtro:
 
-\begin{figure}[h!]
-    \centering
-    \includegraphics[width = 0.7\textwidth]{images/Figura_01.pdf}
-    \caption{Superfície Definida por $\mathbf{J}(w_{0},w_{1})$}
-\end{figure}
+<p align="center">
+<img src="https://github.com/KennethBenicio/Msc-Filtragem-Adaptativa/blob/main/Imagens/superficie-de-erro.png?raw=true" title="Estrutura de Cancelamento de Ruído" width="512" />
+</p>
