@@ -2,7 +2,8 @@
 
     Kenneth Brenner dos Anjos Benicio - 519189
 
-    Professores: André e Henrique
+    Professores: Charles Casimiro e Guilherme Barreto
+    
 ---
 
 # Lista de Exercícios 01: Estatísticas de Segunda Ordem <!-- omit in toc -->
@@ -143,7 +144,7 @@ $$\begin{align}
 
 Sendo as estatísticas de primeira e de segunda ordem independentes quanto ao tempo para os dois processos então é possível afirmar que eles são WSS.
 
-(b) Qual é a função de correlação cruzada $r_{xy}(n_1,n_0)$? Estes processos são conjuntamente estacion\'{a}rios (no sentido amplo)? Justifique.
+(b) Qual é a função de correlação cruzada $r_{xy}(n_1,n_0)$? Estes processos são conjuntamente estacionários (no sentido amplo)? Justifique.
 
 SOLUÇÃO:
 
@@ -173,60 +174,61 @@ Sendo assim, os processos não podem ser considerados conjuntamente estacionári
 Quais as condições que os elementos de uma matriz
 
 $$\begin{align}
-    \mathbf{R} = \left[
+    \boldsymbol{R} = \left[
     \begin{matrix}
     a & b  \\
     c & d  \\
     \end{matrix} \right]
 \end{align}$$
 
-devem satisfazer tal que $\mathbf{R}$ seja uma matriz de autocorrelação v\'{a}lida de
+devem satisfazer tal que $\boldsymbol{R}$ seja uma matriz de autocorrelação válida de
 
 (a) Um vetor aleatório bidimensional?
 
 SOLUÇÃO:
 
-De forma breve, as principais propriedades de que precisamos estar atentos são:
+Resumidamente precisamos estar atentos às seguintes propriedades para garantir que temos em mãos uma matriz de autocorrelação válida
                 
 
-- $\mathbf{R_{x}} = \mathbf{R^{H}_{x}}$
+- $\boldsymbol{R_{x}} = \boldsymbol{R^{H}_{x}}$
 
-- $\mathbf{a^{H}} \mathbf{R_{xa}} \geq 0$
+- $\boldsymbol{a^{H}} \boldsymbol{R_{xa}} \geq 0$
 
-- Todos os autovalores são reais e não-negativos. Além disso os autovetores são reais.
+- $\boldsymbol{Ax} = \lambda \boldsymbol{x}, \forall \lambda \geq 0 \text{ and } \boldsymbol{x} \in \mathbb{R}$
 
-Considerando um vetor aleatório bidimensional do tipo Z(X,Y) = ($c_{1}$x,$c_{2}$y):
+Desse modo, considerando um vetor aleatório bidimensional descrito por $\boldsymbol{X} = (x_{1},x_{2})$ podemos então
 
 $$\begin{align}
-    \mathbf{R} = \left[ 
+    \boldsymbol{R} = \left[ 
     \begin{matrix}
-    c^{2}_{1}E\{[x^{2}]\} & c_{1}c_{2}E\{[xy^{*}]\}  \\
-    c_{1}c_{2}E\{[yx^{*}]\} & c^{2}_{2}E\{[y^{2}]\}  \\
+    E\{[x^{2}_{1}]\} & E\{[x_{1}x^{*}_{2}]\}  \\
+    E\{[x_{2}x^{*}_{1}]\} & E\{[x^{2}_{2}]\}  \\
     \end{matrix} \right]
 \end{align}$$
 
 Para garantir a primeira propriedade é necessário a seguinte relação:
 
 $$\begin{align}
-    &c_{1}c_{2}E\{[xy^{*}]\} \overset{\Delta}{=} c_{1}c_{2}E\{[yx^{*}]\}, \\
-    &E\{[xy^{*}]\} \overset{\Delta}{=} E\{[yx^{*}]\}.
+    &E\{[x_{1}x^{*}_{2}]\} \overset{\Delta}{=} E\{[x_{2}x^{*}_{1}]\}, \\
+    &E\{[x_{1}x^{*}_{2}]\} \overset{\Delta}{=} E\{[x_{2}x^{*}_{1}]\}.
 \end{align}$$
 
 Já considerando a segunda e terceira propriedade é necessário que o determinante da matriz seja maior que zero uma vez que existe uma relação advinda da álgebra linear que relaciona o produto dos autovalores de uma matriz ao valor numérico do seu determinante:
 
 $$\begin{align}
-    &c^{2}_{1}E\{[x^{2}]\} c^{2}_{2}E\{[y^{2}]\} - c_{1}c_{2}E\{[xy]\} c_{1}c_{2}E\{[yx]\} > 0, \\
-    &E\{[x^{2}]\} E\{[y^{2}]\} > E\{[xy]\} E\{[yx]\}.
+    &E\{[x^{2}_{1}]\} E\{[x^{2}_{1}]\} - E\{[x_{1}x_{2}]\} E\{[x_{2}x_{1}]\} > 0, \\
+    &E\{[x_{1}^{2}]\} E\{[x^{2}_{2}]\} > E\{[x_{1}x_{2}]\} E\{[x_{2}x_{1}]\}.
 \end{align}$$
 
-(b) Um processo estoc\'{a}stico estacion\'{a}rio escalar?
+(b) Um processo estocástico estacionário escalar?
 
 SOLUÇÃO:
 
-Considerando um processo estocástico escalar do tipo$\mathbf{X} = [x1, x2]$
+Considerando um processo estocástico estacionário escalar do tipo $\boldsymbol{X}_{t} = x(t)$ e uma versão atrasada desse
+processo definida por $\boldsymbol{X}_{t + \tau} = x(t + \tau)$
                 
 $$\begin{align}
-    \mathbf{R} = \left[ 
+    \boldsymbol{R} = \left[ 
     \begin{matrix}
     E\{[x^{2}_{1}\} & E\{[x_{1}x^{*}_{2}]\}  \\
     E\{[x_{2}x^{*}_{1}]\} & E\{[x^{2}_{2}]\}  \\
@@ -250,10 +252,10 @@ $$\begin{align}
 ---
 ## Problema 4
 
-(a) Assuma que a inversa $\mathbf{R}_{\mathbf{x}}^{-1}$ da matriz de autocorrelação de um vetor coluna $N$-dimensional exista. Mostre que
+(a) Assuma que a inversa $\boldsymbol{R}_{\boldsymbol{x}}^{-1}$ da matriz de autocorrelação de um vetor coluna $N$-dimensional exista. Mostre que
         
 $$\begin{align}
-    \mathbb{E}\left\{\mathbf{x}^H \mathbf{R}_{\mathbf{x}}^{-1} \mathbf{x} \right\} = N
+    \mathbb{E}\left\{\boldsymbol{x}^H \boldsymbol{R}_{\boldsymbol{x}}^{-1} \boldsymbol{x} \right\} = N
 \end{align}$$
 
 SOLUÇÃO:
@@ -263,7 +265,7 @@ SOLUÇÃO:
 
 Mostre que as matrizes de correlação e covariância satisfazem as relações abaixo:
 
-(a) $\mathbf{R}_\mathbf{x} = \mathbf{C}_\mathbf{x} + {\bm{\mu}}_{\mathbf{x}}{\bm{\mu}}_{\mathbf{x}}^H$
+(a) $\boldsymbol{R}_\boldsymbol{x} = \boldsymbol{C}_\boldsymbol{x} + {\bm{\mu}}_{\boldsymbol{x}}{\bm{\mu}}_{\boldsymbol{x}}^H$
 
 SOLUÇÃO:
 
@@ -283,38 +285,38 @@ $$\begin{align}
     &R_{X} = C_{X} + \mu \mu^{H}.
 \end{align}$$
 
-(b)  $\mathbf{C}_{\mathbf{x} + \mathbf{y}} = \mathbf{C}_{\mathbf{x}} +
-\mathbf{C}_{\mathbf{y}}$, para $\mathbf{x}$ e $\mathbf{y}$ descorrelacionados
+(b)  $\boldsymbol{C}_{\boldsymbol{x} + \boldsymbol{y}} = \boldsymbol{C}_{\boldsymbol{x}} +
+\boldsymbol{C}_{\boldsymbol{y}}$, para $\boldsymbol{x}$ e $\boldsymbol{y}$ descorrelacionados
 
 SOLUÇÃO:
 
 $$\begin{align}
-    &\mathbf{C}_{\mathbf{x} + \mathbf{y}} = \mathbf{C}_{\mathbf{x}} + \mathbf{C}_{\mathbf{xy}} + \mathbf{C}_{\mathbf{yx}} + \mathbf{C}_{\mathbf{y}}.
+    &\boldsymbol{C}_{\boldsymbol{x} + \boldsymbol{y}} = \boldsymbol{C}_{\boldsymbol{x}} + \boldsymbol{C}_{\boldsymbol{xy}} + \boldsymbol{C}_{\boldsymbol{yx}} + \boldsymbol{C}_{\boldsymbol{y}}.
 \end{align}$$
 
 Considerando que a única alteração nessa fórmula comparada ao objetivo são os termos centrais então irei focar na demonstração de que ambos os termos serão nulos:
 
 $$\begin{align}
-    &\mathbf{C_{xy}} = E\{[x - \mu_{x}][y - \mu_{y}]\}, \\
-    &\mathbf{C_{xy}} = E\{[xy]\} - E\{[x\mu_{y}]\} - E\{[\mu_{x} y]\} + E\{[\mu_{x} \mu_{y}]\}, \\
-    &\mathbf{C_{xy}} = E\{[xy]\} - \mu_{y} \mu_{x} - \mu_{x} \mu_{y} + \mu_{x} \mu_{y}, \\
-    &\mathbf{C_{xy}} = E\{[xy]\} + \mu_{x} \mu_{y}, \\
-    &\mathbf{C_{xy}} = \mu_{x} \mu_{y}, \\
+    &\boldsymbol{C_{xy}} = E\{[x - \mu_{x}][y - \mu_{y}]\}, \\
+    &\boldsymbol{C_{xy}} = E\{[xy]\} - E\{[x\mu_{y}]\} - E\{[\mu_{x} y]\} + E\{[\mu_{x} \mu_{y}]\}, \\
+    &\boldsymbol{C_{xy}} = E\{[xy]\} - \mu_{y} \mu_{x} - \mu_{x} \mu_{y} + \mu_{x} \mu_{y}, \\
+    &\boldsymbol{C_{xy}} = E\{[xy]\} + \mu_{x} \mu_{y}, \\
+    &\boldsymbol{C_{xy}} = \mu_{x} \mu_{y}, \\
 \end{align}$$
 
 $$\begin{align}
-    &\mathbf{C_{yx}} = E\{[y - \mu_{y}][x - \mu_{x}]\}, \\
-    &\mathbf{C_{yx}} = E\{[yx]\} - E\{[y\mu_{x}]\} - E\{[\mu_{y} x]\} + E\{[\mu_{y} \mu_{x}]\}, \\
-    &\mathbf{C_{yx}} = E\{[yx]\} - \mu_{y} \mu_{x} - \mu_{x} \mu_{y} + \mu_{y} \mu_{x}, \\
-    &\mathbf{C_{yx}} = E\{[yx]\} - \mu_{x} \mu_{y}, \\
-    &\mathbf{C_{yx}} = - \mu_{x} \mu_{y}.
+    &\boldsymbol{C_{yx}} = E\{[y - \mu_{y}][x - \mu_{x}]\}, \\
+    &\boldsymbol{C_{yx}} = E\{[yx]\} - E\{[y\mu_{x}]\} - E\{[\mu_{y} x]\} + E\{[\mu_{y} \mu_{x}]\}, \\
+    &\boldsymbol{C_{yx}} = E\{[yx]\} - \mu_{y} \mu_{x} - \mu_{x} \mu_{y} + \mu_{y} \mu_{x}, \\
+    &\boldsymbol{C_{yx}} = E\{[yx]\} - \mu_{x} \mu_{y}, \\
+    &\boldsymbol{C_{yx}} = - \mu_{x} \mu_{y}.
 \end{align}$$
 
 Sendo assim:
 
 $$\begin{align}
-    &\mathbf{C_{xy}} + \mathbf{C_{yx}}  = \mu_{x} \mu_{y} - \mu_{x} \mu_{y}, \\
-    &\mathbf{C_{xy}} + \mathbf{C_{yx}}  = 0.
+    &\boldsymbol{C_{xy}} + \boldsymbol{C_{yx}}  = \mu_{x} \mu_{y} - \mu_{x} \mu_{y}, \\
+    &\boldsymbol{C_{xy}} + \boldsymbol{C_{yx}}  = 0.
 \end{align}$$
 
 ---
@@ -366,7 +368,7 @@ $x(n)$.
 SOLUÇÃO:
 
 $$\begin{align}
-    \mathbf{R}_{\mathbf{x}} = \left[\\
+    \boldsymbol{R}_{\boldsymbol{x}} = \left[\\
     \begin{matrix}
         2 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
         0 & 2 & 0 & 0 & 0 & 0 & 0 & 0\\

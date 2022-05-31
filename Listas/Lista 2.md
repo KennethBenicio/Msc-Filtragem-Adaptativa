@@ -1,8 +1,9 @@
-Filtragem Adaptativa - TIP7188
+    Filtragem Adaptativa - TIP7188
 
-Kenneth Brenner dos Anjos Benicio - 519189
+    Kenneth Brenner dos Anjos Benicio - 519189
 
-Professores: André e Henrique
+    Professores: Charles Casimiro e Guilherme Barreto
+
 ---
 
 # Lista de Exercícios 02: Filtragem Linear Ótima <!-- omit in toc -->
@@ -270,5 +271,5 @@ $$\begin{align}
 Utilizando um software é possível facilmente traçar a superfície por meio da variação dos coeficientes de filtro:
 
 <p align="center">
-<img src="https://github.com/KennethBenicio/Msc-Filtragem-Adaptativa/blob/main/Imagens/superficie-de-erro.png?raw=true" title="Estrutura de Cancelamento de Ruído" width="512" />
+<img src="https://github.com/KennethBenicio/Msc-Filtragem-Adaptativa/blob/main/Imagens/superficie-de-erro.png?raw=true" title="Superficie de Erro" width="512" />
 </p>
