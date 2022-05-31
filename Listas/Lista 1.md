@@ -174,14 +174,14 @@ Sendo assim, os processos não podem ser considerados conjuntamente estacionári
 Quais as condições que os elementos de uma matriz
 
 $$\begin{align}
-    \boldsymbol{R} = \left[
+    \mathbf{R} = \left[
     \begin{matrix}
     a & b  \\
     c & d  \\
     \end{matrix} \right]
 \end{align}$$
 
-devem satisfazer tal que $\boldsymbol{R}$ seja uma matriz de autocorrelação válida de
+devem satisfazer tal que $\mathbf{R}$ seja uma matriz de autocorrelação válida de
 
 (a) Um vetor aleatório bidimensional?
 
@@ -190,16 +190,16 @@ SOLUÇÃO:
 Resumidamente precisamos estar atentos às seguintes propriedades para garantir que temos em mãos uma matriz de autocorrelação válida
                 
 
-- $\boldsymbol{R_{x}} = \boldsymbol{R^{H}_{x}}$
+- $\mathbf{R_{x}} = \mathbf{R^{H}_{x}}$
 
-- $\boldsymbol{a^{H}} \boldsymbol{R_{xa}} \geq 0$
+- $\mathbf{a^{H}} \mathbf{R_{xa}} \geq 0$
 
-- $\boldsymbol{Ax} = \lambda \boldsymbol{x}, \forall \lambda \geq 0 \text{ and } \boldsymbol{x} \in \mathbb{R}$
+- $\mathbf{Ax} = \lambda \mathbf{x}, \forall \lambda \geq 0 \text{ and } \mathbf{x} \in \mathbb{R}$
 
-Desse modo, considerando um vetor aleatório bidimensional descrito por $\boldsymbol{X} = (x_{1},x_{2})$ podemos então
+Desse modo, considerando um vetor aleatório bidimensional descrito por $\mathbf{X} = (x_{1},x_{2})$ podemos então
 
 $$\begin{align}
-    \boldsymbol{R} = \left[ 
+    \mathbf{R} = \left[ 
     \begin{matrix}
     E\{[x^{2}_{1}]\} & E\{[x_{1}x^{*}_{2}]\}  \\
     E\{[x_{2}x^{*}_{1}]\} & E\{[x^{2}_{2}]\}  \\
@@ -209,7 +209,6 @@ $$\begin{align}
 Para garantir a primeira propriedade é necessário a seguinte relação:
 
 $$\begin{align}
-    &E\{[x_{1}x^{*}_{2}]\} \overset{\Delta}{=} E\{[x_{2}x^{*}_{1}]\}, \\
     &E\{[x_{1}x^{*}_{2}]\} \overset{\Delta}{=} E\{[x_{2}x^{*}_{1}]\}.
 \end{align}$$
 
@@ -224,38 +223,36 @@ $$\begin{align}
 
 SOLUÇÃO:
 
-Considerando um processo estocástico estacionário escalar do tipo $\boldsymbol{X}_{t} = x(t)$ e uma versão atrasada desse
-processo definida por $\boldsymbol{X}_{t + \tau} = x(t + \tau)$
+Considerando um processo estocástico estacionário escalar do tipo $\mathbf{X}_{t} = x(t)$ e uma versão atrasada desse
+processo definida por $\mathbf{X}_{t + \tau} = x(t + \tau)$
                 
 $$\begin{align}
-    \boldsymbol{R} = \left[ 
+    \mathbf{R} = \left[ 
     \begin{matrix}
-    E\{[x^{2}_{1}\} & E\{[x_{1}x^{*}_{2}]\}  \\
-    E\{[x_{2}x^{*}_{1}]\} & E\{[x^{2}_{2}]\}  \\
+    E\{[x^{2}(t)_{1}]\} & E\{[x(t)x^{*}(t + \tau)]\}  \\
+    E\{[x(t + \tau)x^{*}(t)]\} & E\{[x^{2}(t + \tau)]\}  \\
     \end{matrix} \right]
 \end{align}$$
 
-Reutilizando as expressões do item anterior para garantir a primeira propriedade e considerando que o valor médio de um escalar é o próprio escalar:
+Para garantir a simetria oriunda da primeira restrição precisamos ter
 
 $$\begin{align}
-    &E\{[x1x2^{*}]\} \overset{\Delta}{=} E\{[x2x1^{*}]\}, \\
-    &x1x2^{*} \overset{\Delta}{=} x2x1^{*}.
+    &E\{[x(t)x^{*}(t + \tau)]\} \overset{\Delta}{=} E\{[x(t + \tau)x^{*}(t)]\}.
 \end{align}$$
 
 Já considerando a propriedade associada ao determinante:
 
 $$\begin{align}
-    &E\{[x^{2}_{1}\} E\{[x^{2}_{2}]\} > E\{[x_{1}x^{*}_{2}]\}  E\{[x_{2}x^{*}_{1}]\}, \\
-    &x^{2}_{1} x^{2}_{2} > x_{1}x^{*}_{2} x_{2}x^{*}_{1}.
+    &E\{[x^{2}(t)]\} E\{[x^{2}(t + \tau)]\} > E\{[x(t)x^{*}(t + \tau)]]\}  E\{[x(t + \tau)]x^{*}(t)]\}.
 \end{align}$$
 
 ---
 ## Problema 4
 
-(a) Assuma que a inversa $\boldsymbol{R}_{\boldsymbol{x}}^{-1}$ da matriz de autocorrelação de um vetor coluna $N$-dimensional exista. Mostre que
+(a) Assuma que a inversa $\mathbf{R}_{\mathbf{x}}^{-1}$ da matriz de autocorrelação de um vetor coluna $N$-dimensional exista. Mostre que
         
 $$\begin{align}
-    \mathbb{E}\left\{\boldsymbol{x}^H \boldsymbol{R}_{\boldsymbol{x}}^{-1} \boldsymbol{x} \right\} = N
+    \mathbb{E}\left\{\mathbf{x}^H \mathbf{R}_{\mathbf{x}}^{-1} \mathbf{x} \right\} = N
 \end{align}$$
 
 SOLUÇÃO:
@@ -265,7 +262,7 @@ SOLUÇÃO:
 
 Mostre que as matrizes de correlação e covariância satisfazem as relações abaixo:
 
-(a) $\boldsymbol{R}_\boldsymbol{x} = \boldsymbol{C}_\boldsymbol{x} + {\bm{\mu}}_{\boldsymbol{x}}{\bm{\mu}}_{\boldsymbol{x}}^H$
+(a) $\mathbf{R}_\mathbf{x} = \mathbf{C}_\mathbf{x} + {\bm{\mu}}_{\mathbf{x}}{\bm{\mu}}_{\mathbf{x}}^H$
 
 SOLUÇÃO:
 
@@ -285,38 +282,38 @@ $$\begin{align}
     &R_{X} = C_{X} + \mu \mu^{H}.
 \end{align}$$
 
-(b)  $\boldsymbol{C}_{\boldsymbol{x} + \boldsymbol{y}} = \boldsymbol{C}_{\boldsymbol{x}} +
-\boldsymbol{C}_{\boldsymbol{y}}$, para $\boldsymbol{x}$ e $\boldsymbol{y}$ descorrelacionados
+(b)  $\mathbf{C}_{\mathbf{x} + \mathbf{y}} = \mathbf{C}_{\mathbf{x}} +
+\mathbf{C}_{\mathbf{y}}$, para $\mathbf{x}$ e $\mathbf{y}$ descorrelacionados
 
 SOLUÇÃO:
 
 $$\begin{align}
-    &\boldsymbol{C}_{\boldsymbol{x} + \boldsymbol{y}} = \boldsymbol{C}_{\boldsymbol{x}} + \boldsymbol{C}_{\boldsymbol{xy}} + \boldsymbol{C}_{\boldsymbol{yx}} + \boldsymbol{C}_{\boldsymbol{y}}.
+    &\mathbf{C}_{\mathbf{x} + \mathbf{y}} = \mathbf{C}_{\mathbf{x}} + \mathbf{C}_{\mathbf{xy}} + \mathbf{C}_{\mathbf{yx}} + \mathbf{C}_{\mathbf{y}}.
 \end{align}$$
 
 Considerando que a única alteração nessa fórmula comparada ao objetivo são os termos centrais então irei focar na demonstração de que ambos os termos serão nulos:
 
 $$\begin{align}
-    &\boldsymbol{C_{xy}} = E\{[x - \mu_{x}][y - \mu_{y}]\}, \\
-    &\boldsymbol{C_{xy}} = E\{[xy]\} - E\{[x\mu_{y}]\} - E\{[\mu_{x} y]\} + E\{[\mu_{x} \mu_{y}]\}, \\
-    &\boldsymbol{C_{xy}} = E\{[xy]\} - \mu_{y} \mu_{x} - \mu_{x} \mu_{y} + \mu_{x} \mu_{y}, \\
-    &\boldsymbol{C_{xy}} = E\{[xy]\} + \mu_{x} \mu_{y}, \\
-    &\boldsymbol{C_{xy}} = \mu_{x} \mu_{y}, \\
+    &\mathbf{C_{xy}} = E\{[x - \mu_{x}][y - \mu_{y}]\}, \\
+    &\mathbf{C_{xy}} = E\{[xy]\} - E\{[x\mu_{y}]\} - E\{[\mu_{x} y]\} + E\{[\mu_{x} \mu_{y}]\}, \\
+    &\mathbf{C_{xy}} = E\{[xy]\} - \mu_{y} \mu_{x} - \mu_{x} \mu_{y} + \mu_{x} \mu_{y}, \\
+    &\mathbf{C_{xy}} = E\{[xy]\} + \mu_{x} \mu_{y}, \\
+    &\mathbf{C_{xy}} = \mu_{x} \mu_{y}, \\
 \end{align}$$
 
 $$\begin{align}
-    &\boldsymbol{C_{yx}} = E\{[y - \mu_{y}][x - \mu_{x}]\}, \\
-    &\boldsymbol{C_{yx}} = E\{[yx]\} - E\{[y\mu_{x}]\} - E\{[\mu_{y} x]\} + E\{[\mu_{y} \mu_{x}]\}, \\
-    &\boldsymbol{C_{yx}} = E\{[yx]\} - \mu_{y} \mu_{x} - \mu_{x} \mu_{y} + \mu_{y} \mu_{x}, \\
-    &\boldsymbol{C_{yx}} = E\{[yx]\} - \mu_{x} \mu_{y}, \\
-    &\boldsymbol{C_{yx}} = - \mu_{x} \mu_{y}.
+    &\mathbf{C_{yx}} = E\{[y - \mu_{y}][x - \mu_{x}]\}, \\
+    &\mathbf{C_{yx}} = E\{[yx]\} - E\{[y\mu_{x}]\} - E\{[\mu_{y} x]\} + E\{[\mu_{y} \mu_{x}]\}, \\
+    &\mathbf{C_{yx}} = E\{[yx]\} - \mu_{y} \mu_{x} - \mu_{x} \mu_{y} + \mu_{y} \mu_{x}, \\
+    &\mathbf{C_{yx}} = E\{[yx]\} - \mu_{x} \mu_{y}, \\
+    &\mathbf{C_{yx}} = - \mu_{x} \mu_{y}.
 \end{align}$$
 
 Sendo assim:
 
 $$\begin{align}
-    &\boldsymbol{C_{xy}} + \boldsymbol{C_{yx}}  = \mu_{x} \mu_{y} - \mu_{x} \mu_{y}, \\
-    &\boldsymbol{C_{xy}} + \boldsymbol{C_{yx}}  = 0.
+    &\mathbf{C_{xy}} + \mathbf{C_{yx}}  = \mu_{x} \mu_{y} - \mu_{x} \mu_{y}, \\
+    &\mathbf{C_{xy}} + \mathbf{C_{yx}}  = 0.
 \end{align}$$
 
 ---
@@ -368,7 +365,7 @@ $x(n)$.
 SOLUÇÃO:
 
 $$\begin{align}
-    \boldsymbol{R}_{\boldsymbol{x}} = \left[\\
+    \mathbf{R}_{\mathbf{x}} = \left[\\
     \begin{matrix}
         2 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
         0 & 2 & 0 & 0 & 0 & 0 & 0 & 0\\
