@@ -36,7 +36,7 @@ $$\begin{align*}
 
 SOLUÇÃO:
 
-Isso pode ser realizado de forma simples pelo uso da equação do filtro ótimo de wiener:
+Isso pode ser realizado de forma simples pelo uso da equação do filtro ótimo de wiener
         
 $$\begin{align}
     \mathbf{w}_{opt} &= \mathbf{R}^{-1}_{X} \mathbf{p}_{xd}, \\
@@ -53,7 +53,7 @@ $$\begin{align}
     \mathbb{E}\{e^{2}(n)\}  &=\sigma^{2}_{d} - 2\mathbf{w}^{T}\mathbf{p}_{xd} + w^{T}\mathbf{R}_{X}\mathbf{w}      
 \end{align}$$
 
-Ao aplicar o vetor descoberto no item anterior obtem-se o erro mínimo:
+Ao aplicar o vetor descoberto no item anterior obtem-se o erro mínimo
 
 $$\begin{align}
 e_{min}  &=\sigma^{2}_{d} - 2\mathbf{w}^{T}_{opt}\mathbf{p}_{xd} + w^{T}_{opt}\mathbf{R}_{X}\mathbf{w}_{opt}, \\
@@ -69,13 +69,13 @@ e de seus autovetores associados.
 
 SOLUÇÃO:
 
-Utilizando a decomposição matricial em autovalores (EVD) é possível reescrever a matrix de correlação como abaixo:
+Utilizando a decomposição matricial em autovalores (EVD) é possível reescrever a matrix de correlação como abaixo
         
 $$\begin{align}
     \mathbf{R}_{X} &= \mathbf{Q} \mathbf{\Lambda} \mathbf{Q}^{-1}.
 \end{align}$$
 
-A matriz $\mathbf{\Lambda}$ contémm os autovalores $\lambda_{i}$ e a matriz $\mathbf{Q}$ os respectivos autovetores. Em posse dessa relação é possível reescrever a equação do fitro ótimo de wiener como:
+A matriz $\mathbf{\Lambda}$ contémm os autovalores $\lambda_{i}$ e a matriz $\mathbf{Q}$ os respectivos autovetores. Em posse dessa relação é possível reescrever a equação do fitro ótimo de wiener como
 
 $$\begin{align}
     \mathbf{w}_{opt} &= \mathbf{R}^{-1}_{X} \mathbf{p}_{xd}, \\
@@ -88,7 +88,7 @@ $$\begin{align}
 ---
 ## Problema 2
 
-Mostre que a equação do erro mínimo pode se escrita da seguinte maneira:
+Mostre que a equação do erro mínimo pode se escrita da seguinte maneira
 
 $$\begin{align*}
     \mathbf{A}\left[ \begin{matrix}
@@ -114,21 +114,21 @@ em que $d(n)$ é o sinal desejado e $\mathbf{x(n)}$ é o sinal de entrada do fil
 
 SOLUÇÃO:
 
-Inicialmente deve-se calcular a matriz de correlação do vetor aumentado:
+Inicialmente deve-se calcular a matriz de correlação do vetor aumentado
     
 $$\begin{align}
     \mathbf{A} &= \mathbb{E} \{ \left[ \begin{matrix} d(n) \\ x(n) \end{matrix} \right] \left[ \begin{matrix} d(n)^{T} & x(n)^{T} \end{matrix} \right] \}, \\
     \mathbf{A} &=   \left[ \begin{matrix} \mathbb{E}\{d(n) d(n)^{T}\} & \mathbb{E}\{d(n) x(n)^{T}\} \\ \mathbb{E}\{x(n) d(n)^{T}\} & \mathbb{E}\{x(n) x(n)^{T}\} \end{matrix} \right].
 \end{align}$$
 
-Dando as devidas nomeações aos termos a expressão acima reduz-se a:
+Dando as devidas nomeações aos termos a expressão acima reduz-se a
 
 $$\begin{align}
     \mathbf{A} &=  \left[ \begin{matrix} \sigma^{2}_{d} & \mathbf{p}_{xd}^{T} \\
     \mathbf{p}_{xd} & \mathbf{R}_{X} \end{matrix} \right].
 \end{align}$$
 
-Multiplicando-se a expressão acima pelo vetor $[1 - \mathbf{w}]^{T}$:
+Multiplicando-se a expressão acima pelo vetor $[1 - \mathbf{w}]^{T}$
 
 $$\begin{align}
     \mathbf{A} \left[ \begin{matrix} 1 \\ -\mathbf{w} \end{matrix} \right] &=   \left[ \begin{matrix} \sigma^{2}_{d} & \mathbf{p}_{xd}^{T} \\
@@ -137,7 +137,7 @@ $$\begin{align}
     \mathbf{p}_{xd} - \mathbf{R}_{X}\mathbf{w} \end{matrix} \right].
 \end{align}$$
 
-Por fim, resta apenas aplica a equação ótima do filtro de wiener $\mathbf{w}_{opt} = \mathbf{R}^{-1}_{X} \mathbf{p}_{xd}$:
+Por fim, resta apenas aplica a equação ótima do filtro de wiener $\mathbf{w}_{opt} = \mathbf{R}^{-1}_{X} \mathbf{p}_{xd}$
 
 $$\begin{align}
     \mathbf{A} \left[ \begin{matrix} 1 \\ -\mathbf{w} \end{matrix} \right] &=   \left[ \begin{matrix} \sigma^{2}_{d} - \mathbf{p}_{xd}^{T}\mathbf{R}^{-1}_{X} \mathbf{p}_{xd} \\
@@ -161,27 +161,27 @@ Em várias aplicações práticas há uma necessidade de cancelar ruído que foi
 
 SOLUÇÃO:
 
-Inicialmente é necessário calcular a equação de erro do sistema aqui proposto:
+Inicialmente é necessário calcular a equação de erro do sistema aqui proposto
     
 $$\begin{align}
     e(n) &= x(n) - \hat{v_{1}} = x(n) - \mathbf{w}^{T}v_{2}(n)
 \end{align}$$
 
-Em seguida faz-necessário calcular a função mean square error(MSE) que é facilmente fornecida pela manipulação algébrica abaixo:
+Em seguida faz-necessário calcular a função mean square error(MSE) que é facilmente fornecida pela manipulação algébrica abaixo
 
 $$\begin{align}
     e^{2}(n) &= [x(n) - \mathbf{w}^{T}v_{2}(n)][x(n) - \mathbf{w}^{T}v_{2}(n)]^{T}, \\
     e^{2}(n) &= x^{2}(n) - 2x(n)\mathbf{w}^{T}v_{2}(n) + \mathbf{w}^{T}v_{2}(n)v_{2}^{T}\mathbf{w}.
 \end{align}$$
 
-Sendo considerado que o filtro apresenta coeficientes constantes é possível aplicar o operador Valor Esperado de forma a obter a seguinte relação:
+Sendo considerado que o filtro apresenta coeficientes constantes é possível aplicar o operador Valor Esperado de forma a obter a seguinte relação
 
 $$\begin{align}
     \mathbb{E}\{e^{2}(n)\} = \mathbb{E}\{x^{2}(n)\} - 2\mathbf{w}^{T}\mathbb{E}\{x(n) v_{2}(n)\} + \mathbf{w}^{T}\mathbb{E}\{v_{2}(n)v_{2}(n)^{T}\} \mathbf{w},& \\
     \mathbb{E}\{e^{2}(n)\} = \sigma^{2}_{x} - 2\mathbf{w}^{T}\mathbf{p}_{xv_{2}} + \mathbf{w}^{T}\mathbf{R}_{v_{2}} \mathbf{w}.&
 \end{align}$$
 
-Por fim, basta encontrar o $\mathbf{w}$ que minimiza o MSE acima. Para chegar a esse fim, calcula-se o gradiante quanto ao $\mathbf{w}$ igualando-se o resultado da operação a zero:
+Por fim, basta encontrar o $\mathbf{w}$ que minimiza o MSE acima. Para chegar a esse fim, calcula-se o gradiante quanto ao $\mathbf{w}$ igualando-se o resultado da operação a zero
 
 $$\begin{align}
     \nabla_{\mathbf{w}} \mathbb{E}\{e^{2}(n)\} = - 2\mathbf{p}_{xv_{2}} + 2\mathbf{R}_{v_{2}} \mathbf{w} = 0,& \\
@@ -189,7 +189,7 @@ $$\begin{align}
     \mathbf{R}_{v_{2}} \mathbf{w} = \mathbf{p}_{xv_{2}}.&
 \end{align}$$
 
-Utilizando a identidade matricial abaixo é possível resolver a equação acima para obter o seguinte resultado:
+Utilizando a identidade matricial abaixo é possível resolver a equação acima para obter o seguinte resultado
 
 $$\begin{align}
     \mathbf{R}^{-1}_{v_{2}}\mathbf{R}_{v_{2}} \mathbf{w} &= \mathbf{R}^{-1}_{v_{2}}\mathbf{p}_{xv_{2}}, \\
@@ -197,7 +197,7 @@ $$\begin{align}
     \mathbf{w} &= \mathbf{R}^{-1}_{v_{2}}\mathbf{p}_{xv_{2}}. 
 \end{align}$$
 
-Onde é possível reescrever o termo final como:
+Onde é possível reescrever o termo final como
 
 $$\begin{align}
     \mathbf{w} = \mathbf{R}^{-1}_{v_{2}}(\mathbf{p}_{d} + \mathbf{p}_{v_{1}} + \mathbf{p}_{v_{2}}) 
@@ -236,13 +236,13 @@ Suponha que foram encontrados os seguintes coeficientes de autocorrelação: $r_
 
 SOLUÇÃO:
 
-A partir dos coeficientes fornecidos é possível escrever a matrix de correlação necessário para o filtro ótimo de wiener como uma matriz identidade de ordem 2:
+A partir dos coeficientes fornecidos é possível escrever a matrix de correlação necessário para o filtro ótimo de wiener como uma matriz identidade de ordem 2
         
 $$\begin{align}
     \mathbf{R}_{X} = \left[ \begin{matrix} 1 & 0 \\ 0 & 1 \end{matrix} \right]
 \end{align}$$
 
-Ao utilizar a solução fechada do problema chega-se ao seguinte vetor resultado:
+Ao utilizar a solução fechada do problema chega-se ao seguinte vetor resultado
 
 $$\begin{align}
     \mathbf{w}_{opt} &= \mathbf{R}^{-1}_{x} \mathbf{p}_{xd}, \\
@@ -254,21 +254,21 @@ $$\begin{align}
 
 SOLUÇÃO:
 
-Para obter a expressão que define a superfície basta utilizar a equação abaixo que foi devidamente demonstrada em aulas:
+Para obter a expressão que define a superfície basta desenvolver a expressão para o erro médio
         
 $$\begin{align}
     \mathbf{J}(w) &= \mathbb{E}\{e^{2}(n)\}, \\
     \mathbf{J}(w) &= \sigma^{2}_{d} - 2\mathbf{w}^{T}\mathbf{p}_{xd} + w^{T}\mathbf{R}_{X}\mathbf{w}.   
 \end{align}$$
 
-Substituindo os valores encontrados anteriormente na expressão da superfície:
+Substituindo os valores encontrados anteriormente na expressão da superfície
 
 $$\begin{align}
     \mathbf{J}(w_{0}, w_{1}) &= 24.40 - 2 \left[ \begin{matrix} w_{0}  w_{1} \end{matrix} \right] \left[ \begin{matrix} 2 \\ 4.5 \end{matrix} \right] + \left[ \begin{matrix} w_{0}  w_{1} \end{matrix} \right] \left[ \begin{matrix} 1 & 0 \\ 0 & 1 \end{matrix} \right]  \left[ \begin{matrix} w_{0}  \\ w_{1} \end{matrix} \right], \\
     \mathbf{J}(w_{0},w_{1}) &= 24.40 - 4w_{0} - 9w_{1} + w^{2}_{0} + w^{2}_{1}.
 \end{align}$$
 
-Utilizando um software é possível facilmente traçar a superfície por meio da variação dos coeficientes de filtro:
+Utilizando um software gráfico é possível traçar a superfície variando os coeficientes de filtro dentro de um intervalo de $[-100,100]$
 
 <p align="center">
 <img src="https://github.com/KennethBenicio/Msc-Filtragem-Adaptativa/blob/main/Imagens/superficie-de-erro.png?raw=true" title="Superficie de Erro" width="512" />
