@@ -21,6 +21,15 @@
 Deseja-se minimizar a função objetivo $\mathbb{E}\{e^{4}(n)\}$ utilizando-se um algoritmo do gradiente estocástico do tipo LMS. O algoritmo resultando é chamado de algoritmo least mean
 fourth (LMF). Derive tal algoritmo. Derive também o ﬁltro ótimo para tal critério e compare as soluções.
 
+SOLUÇÃO:
+
+Podemos inicialmente definir a função erro para esse filtro como
+
+$$\begin{align}
+    \boldsymbol{e}(n) &= \boldsymbol{d}(n) - \boldsymbol{y}(n), \\
+    \boldsymbol{e}(n) &= \boldsymbol{d}(n) - \boldsymbol{w}^{\text{T}}(n)\boldsymbol{x}(n), 
+\end{align}$$
+
 ---
 ## Problema 2
 
