@@ -18,28 +18,38 @@
 ---
 ## Problema 1
 
-Deseja-se minimizar a função objetivo $\mathbb{E}\{e^{4}(n)\}$ utilizando-se um algoritmo do gradiente estocástico do tipo LMS. O algoritmo resultando é chamado de algoritmo least mean
-fourth (LMF). Derive tal algoritmo. Derive também o ﬁltro ótimo para tal critério e compare as soluções.
+Deseja-se minimizar a função objetivo $\mathbb{E}\{e^{4}(n)\}$ utilizando-se um algoritmo do gradiente estocástico do tipo LMS. O algoritmo resultando é chamado de algoritmo least mean fourth (LMF). Derive tal algoritmo. Derive também o ﬁltro ótimo para tal critério e compare as soluções.
 
 SOLUÇÃO:
 
 Podemos inicialmente definir a função erro para esse filtro como
 
 $$\begin{align}
-    \boldsymbol{e}(n) &= d(n) - y(n), \\
-    \boldsymbol{e}(n) &= d(n) - \boldsymbol{w}^{\text{T}}(n)\boldsymbol{x}(n), 
+    \mathbf{e}(n) &= d(n) - y(n), \\
+    \mathbf{e}(n) &= d(n) - \mathbf{w}^{\text{T}}(n)\mathbf{x}(n),
 \end{align}$$
 
 e em sequência define-se a seguinte função objetivo que podemos simplifcar utilizando expansão polinomial de newton em conjunto com propriedades do operador transposto
 
 $$\begin{align}
-    \notag \mathbb{E}\{e^{4}(n)\} &= \mathbb{E}\{\left[d(n) - \boldsymbol{w}^{\text{T}}(n)\boldsymbol{x}(n)\right]^{4}\}, \\
-    \notag \mathbb{E}\{e^{4}(n)\} &= \mathbb{E}\{d^{4}(n)\} - 4\mathbb{E}\{d^{3}(n)\boldsymbol{w}^{\text{T}}(n)\boldsymbol{x}(n)\} + 6\mathbb{E}\{d^{2}(n)\left[\boldsymbol{w}^{\text{T}}(n)\boldsymbol{x}(n)\right]^{2}\} - 4\mathbb{E}\{d(n)\left[\boldsymbol{w}^{\text{T}}(n)\boldsymbol{x}(n)\right]^{3}\} + \mathbb{E}\{\left[\boldsymbol{w}^{\text{T}}(n)\boldsymbol{x}(n)\right]^{4}\}, \\
-    \notag \mathbb{E}\{e^{4}(n)\} &= \mathbb{E}\{d^{4}(n)\} - 4\mathbb{E}\{d^{3}(n)\boldsymbol{w}^{\text{T}}(n)\boldsymbol{x}(n)\} + 6\mathbb{E}\{d^{2}(n)\left[\boldsymbol{w}^{\text{T}}(n)\boldsymbol{x}(n) \boldsymbol{x}^{\text{T}}(n)\boldsymbol{w}(n)\right]\} - 4 \mathbb{E}\{\boldsymbol{w}^{\text{T}}(n) d(n) \boldsymbol{x}(n) \boldsymbol{x}^{\text{T}}(n) \boldsymbol{x}(n) \boldsymbol{w}(n) \boldsymbol{w}^{\text{T}}(n) \} + \mathbb{E}\{\boldsymbol{w}^{\text{T}}(n)\boldsymbol{x}(n) \boldsymbol{x}^{\text{T}}(n) \boldsymbol{w}(n) \boldsymbol{w}^{\text{T}}(n)\boldsymbol{x}(n) \boldsymbol{x}^{\text{T}}(n)\boldsymbol{w}(n)\}, \\
-    \notag \mathbb{E}\{e^{4}(n)\} &= \mathbb{E}\{d^{4}(n)\} - 4 \boldsymbol{w}^{\text{T}}(n)\mathbb{E}\{d^{3}(n)\boldsymbol{x}(n)\} + 6 \boldsymbol{w}^{\text{T}}(n) \mathbb{E}\{d^{2}(n)\boldsymbol{x}(n) \boldsymbol{x}^{\text{T}}(n)\} \boldsymbol{w}(n) - 4\boldsymbol{w}^{\text{T}}(n) \mathbb{E}\{d(n) \boldsymbol{x}(n) \boldsymbol{x}^{\text{T}}(n) \boldsymbol{x}(n)\} \boldsymbol{w}(n) \boldsymbol{w}^{\text{T}}(n) + \boldsymbol{w}^{\text{T}}(n) \boldsymbol{w}(n) \mathbb{E}\{\boldsymbol{x}(n) \boldsymbol{x}^{\text{T}}(n) \boldsymbol{x}(n) \boldsymbol{x}^{\text{T}}(n)\} \boldsymbol{w}^{\text{T}}(n) \boldsymbol{w}(n), \\
+    \notag \mathbb{E}\{e^{4}(n)\} &= \mathbb{E}\{\left[d(n) - \mathbf{w}^{\text{T}}(n)\mathbf{x}(n)\right]^{4}\}, \\
+    \notag \mathbb{E}\{e^{4}(n)\} &= \mathbb{E}\{d^{4}(n)\} - 4\mathbb{E}\{d^{3}(n)\mathbf{w}^{\text{T}}(n)\mathbf{x}(n)\} + 6\mathbb{E}\{d^{2}(n)\left[\mathbf{w}^{\text{T}}(n)\mathbf{x}(n)\right]^{2}\} \\
+    &-4\mathbb{E}\{d(n)\left[\mathbf{w}^{\text{T}}(n)\mathbf{x}(n)\right]^{3}\} + \mathbb{E}\{\left[\mathbf{w}^{\text{T}}(n)\mathbf{x}(n)\right]^{4}\}, \\
+    \notag \mathbb{E}\{e^{4}(n)\} &= \mathbb{E}\{d^{4}(n)\} - 4\mathbb{E}\{d^{3}(n)\mathbf{w}^{\text{T}}(n)\mathbf{x}(n)\} + 6\mathbb{E}\{d^{2}(n)\left[\mathbf{w}^{\text{T}}(n)\mathbf{x}(n) \mathbf{x}^{\text{T}}(n)\mathbf{w}(n)\right]\} \\&
+    -4 \mathbb{E}\{\mathbf{w}^{\text{T}}(n) d(n) \mathbf{x}(n) \mathbf{x}^{\text{T}}(n) \mathbf{x}(n) \mathbf{w}(n) \mathbf{w}^{\text{T}}(n) \} + \mathbb{E}\{\mathbf{w}^{\text{T}}(n)\mathbf{x}(n) \mathbf{x}^{\text{T}}(n) \mathbf{w}(n) \mathbf{w}^{\text{T}}(n)\mathbf{x}(n) \mathbf{x}^{\text{T}}(n)\mathbf{w}(n)\}, \\
+    \notag \mathbb{E}\{e^{4}(n)\} &= \mathbb{E}\{d^{4}(n)\} - 4 \mathbf{w}^{\text{T}}(n)\mathbb{E}\{d^{3}(n)\mathbf{x}(n)\} + 6 \mathbf{w}^{\text{T}}(n) \mathbb{E}\{d^{2}(n)\mathbf{x}(n) \mathbf{x}^{\text{T}}(n)\} \mathbf{w}(n) \\
+    &- 4\mathbf{w}^{\text{T}}(n) \mathbb{E}\{d(n) \mathbf{x}(n) \mathbf{x}^{\text{T}}(n) \mathbf{x}(n)\} \mathbf{w}(n) \mathbf{w}^{\text{T}}(n) + \mathbf{w}^{\text{T}}(n) \mathbf{w}(n) \mathbb{E}\{\mathbf{x}(n) \mathbf{x}^{\text{T}}(n) \mathbf{x}(n) \mathbf{x}^{\text{T}}(n)\} \mathbf{w}^{\text{T}}(n) \mathbf{w}(n), \\
 \end{align}$$
 
----
+---$$\begin{align}
+    \notag \mathbb{E}\{e^{4}(n)\} &= \mathbb{E}\{\left[d(n) - \mathbf{w}^{\text{T}}(n)\mathbf{x}(n)\right]^{4}\}, \\
+    \notag \mathbb{E}\{e^{4}(n)\} &= \mathbb{E}\{d^{4}(n)\} - 4\mathbb{E}\{d^{3}(n)\mathbf{w}^{\text{T}}(n)\mathbf{x}(n)\} + 6\mathbb{E}\{d^{2}(n)\left[\mathbf{w}^{\text{T}}(n)\mathbf{x}(n)\right]^{2}\} \\
+    &-4\mathbb{E}\{d(n)\left[\mathbf{w}^{\text{T}}(n)\mathbf{x}(n)\right]^{3}\} + \mathbb{E}\{\left[\mathbf{w}^{\text{T}}(n)\mathbf{x}(n)\right]^{4}\}, \\
+    \notag \mathbb{E}\{e^{4}(n)\} &= \mathbb{E}\{d^{4}(n)\} - 4\mathbb{E}\{d^{3}(n)\mathbf{w}^{\text{T}}(n)\mathbf{x}(n)\} + 6\mathbb{E}\{d^{2}(n)\left[\mathbf{w}^{\text{T}}(n)\mathbf{x}(n) \mathbf{x}^{\text{T}}(n)\mathbf{w}(n)\right]\} \\&
+    -4 \mathbb{E}\{\mathbf{w}^{\text{T}}(n) d(n) \mathbf{x}(n) \mathbf{x}^{\text{T}}(n) \mathbf{x}(n) \mathbf{w}(n) \mathbf{w}^{\text{T}}(n) \} + \mathbb{E}\{\mathbf{w}^{\text{T}}(n)\mathbf{x}(n) \mathbf{x}^{\text{T}}(n) \mathbf{w}(n) \mathbf{w}^{\text{T}}(n)\mathbf{x}(n) \mathbf{x}^{\text{T}}(n)\mathbf{w}(n)\}, \\
+    \notag \mathbb{E}\{e^{4}(n)\} &= \mathbb{E}\{d^{4}(n)\} - 4 \mathbf{w}^{\text{T}}(n)\mathbb{E}\{d^{3}(n)\mathbf{x}(n)\} + 6 \mathbf{w}^{\text{T}}(n) \mathbb{E}\{d^{2}(n)\mathbf{x}(n) \mathbf{x}^{\text{T}}(n)\} \mathbf{w}(n) \\
+    &- 4\mathbf{w}^{\text{T}}(n) \mathbb{E}\{d(n) \mathbf{x}(n) \mathbf{x}^{\text{T}}(n) \mathbf{x}(n)\} \mathbf{w}(n) \mathbf{w}^{\text{T}}(n) + \mathbf{w}^{\text{T}}(n) \mathbf{w}(n) \mathbb{E}\{\mathbf{x}(n) \mathbf{x}^{\text{T}}(n) \mathbf{x}(n) \mathbf{x}^{\text{T}}(n)\} \mathbf{w}^{\text{T}}(n) \mathbf{w}(n), \\
+\end{align}$$
 ## Problema 2
 
 Considere o uso de um a sequência de ruído branco com média nula e variância $\sigma^{2}$ como entrada do algoritmo LMS. Avalie
@@ -60,6 +70,32 @@ Considere um sinal branco gaussiano de variância unitária transmitido por um c
 canal utiliza-se um equalizador dado por $W(z) = w_{0} + w_{1}z^{-1}$ .
 
 (a) Forneça o equalizador ótimo segundo o critério de Wiener. Esboce a posição dos zeros do canal e do equalizador no plano Z.
+
+Considerando um sinal gaussiano branco $x(n)$ a saída do canal pode ser prontamente obtida por
+
+$$\begin{align}
+    y(n) = x(n) + 1.6 x(n - 1),
+\end{align}$$
+
+e a matriz de correlação será então dada por
+
+$$\begin{align}
+    \mathbf{R}_{y} =
+    \begin{bmatrix}
+        \mathbb{E}\{y(n)y^{\text{H}}(n)\} & \mathbb{E}\{y(n)y^{\text{H}}(n - 1)\} \\
+        \mathbb{E}\{y(n - 1)y^{\text{H}}(n)\} & \mathbb{E}\{y(n - 1)y^{\text{H}}(n - 1)\}
+    \end{bmatrix},
+\end{align}$$
+
+Já o vetor de correlação cruzada 
+
+$$\begin{align}
+    \mathbf{p}_{yd} =
+    \begin{bmatrix}
+        \mathbb{E}\{y(n)d(n)\} \\
+        \mathbb{E}\{y(n - 1)d(n)\}
+    \end{bmatrix},
+\end{align}$$
 
 (b) Obtenha o ﬁltro de erro de predição direta de passo unitário, correspondente ao sinal à saída do canal. Calcule os zeros deste ﬁltro e compare com os do equalizador.
 
@@ -86,8 +122,7 @@ $$\begin{align}
     H(z) = \frac{1 - z^{-12}}{1 - z^{-1}}
 \end{align}$$
 
-O sinal de entrada é um ruído branco distribuído uniformemente com variância $\sigma^{2}_{x} = 1$, e o ruído de medida é assumido gaussiano branco descorrelacionado da entrada e com variância de entrada 
-$\sigma^{2}_{v} = 10^{-3}$ . O ﬁltro adaptativo tem 12 coeﬁcientes.
+O sinal de entrada é um ruído branco distribuído uniformemente com variância $\sigma^{2}_{x} = 1$, e o ruído de medida é assumido gaussiano branco descorrelacionado da entrada e com variância de entrada $\sigma^{2}_{v} = 10^{-3}$ . O ﬁltro adaptativo tem 12 coeﬁcientes.
 
 (a) Calcule o limite superior para $\mu$ (ou seja $\mu_{\text{max}}$) para garantir a estabilidade do algoritmo.
 
@@ -105,10 +140,7 @@ $$\begin{align}
     H(z) = 0.5 + 1.2z^{-1} + 1.5z^{-2} + z^{-3},
 \end{align}$$
 
-e deseja-se projetar um equalizar para o mesmo. A estrutura do equalizador é mostrada na Figura abaixo. Os símbolos $s(n)$ são transmitidos através de um canal e corrompidos por ruído aditivo
-gaussiano branco complexo $v(n)$. O sinal recebido $x(n)$ é processado pelo equalizador FIR para gerar estimativas $\overset{\sim}{s}(n - \delta)$, as quais são passados por um dispositivo decisor gerando símbolos $\hat{s}(n − \delta)$. O equalizador possui dois modos de operação: um modo de treinamento durante o
-qual uma versão atrasada e replicada da sequência de entrada é usada como o sinal de referência (desejado) e um modo dirigido por decisão no qual a saída do dispositivo de decisão substitui a
-sequência de referência. O sinal de entrada $s(n)$ é escolhido de uma constelação QAM (por exemplo, 4-QAM, 16-QAM, 64-QAM ou 256-QAM).
+e deseja-se projetar um equalizar para o mesmo. A estrutura do equalizador é mostrada na Figura abaixo. Os símbolos $s(n)$ são transmitidos através de um canal e corrompidos por ruído aditivo gaussiano branco complexo $v(n)$. O sinal recebido $x(n)$ é processado pelo equalizador FIR para gerar estimativas $\overset{\sim}{s}(n - \delta)$, as quais são passados por um dispositivo decisor gerando símbolos $\hat{s}(n − \delta)$. O equalizador possui dois modos de operação: um modo de treinamento durante o qual uma versão atrasada e replicada da sequência de entrada é usada como o sinal de referência (desejado) e um modo dirigido por decisão no qual a saída do dispositivo de decisão substitui a sequência de referência. O sinal de entrada $s(n)$ é escolhido de uma constelação QAM (por exemplo, 4-QAM, 16-QAM, 64-QAM ou 256-QAM).
 
 <p align="center">
 <img src="https://github.com/KennethBenicio/Msc-Filtragem-Adaptativa/blob/main/Imagens/equalizador_linear.png?raw=true" title="Superficie de Erro" width="512" />

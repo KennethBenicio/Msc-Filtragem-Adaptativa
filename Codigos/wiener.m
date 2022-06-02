@@ -1,4 +1,4 @@
-%% Wiener Filter Implementation
+%% Wiener Filter Implementation (ERRADO)
 clc;
 close all;
 clear all;

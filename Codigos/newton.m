@@ -1,4 +1,4 @@
-%% Newton Algorithm Filter Implementation
+%% Newton Algorithm Filter Implementation (ERRADO)
 clc;
 close all;
 clear all;
@@ -13,7 +13,6 @@ SNR_dB = 30;
 SNR_li = 10^(SNR_dB/10);
 var_noise = 1/SNR_li;
 
-%% A FORMA DE GERAR ESTA COMPLETAMENTE ERRADA
 signal_d = randn(Samples,1) + 1j*randn(Samples,1);
 noise = sqrt(var_noise/2).*(randn(Samples,1) + 1j*randn(Samples,1));
 signal_x(1) = randn(1).*signal_d + noise;

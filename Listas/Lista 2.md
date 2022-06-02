@@ -268,7 +268,27 @@ $$\begin{align}
     \mathbf{J}(w_{0},w_{1}) &= 24.40 - 4w_{0} - 9w_{1} + w^{2}_{0} + w^{2}_{1}.
 \end{align}$$
 
-Utilizando um software gráfico é possível traçar a superfície variando os coeficientes de filtro dentro de um intervalo de $[-100,100]$
+Utilizando um software gráfico é possível traçar a superfície variando os coeficientes de filtro dentro de um intervalo de $[-50,50]$
+
+```
+x = -50:1:50;
+y = -50:1:50;
+[X,Y] = meshgrid(x,y);
+Z = 24.40 - 4*X - 9*Y + X.^2 + Y.^2;
+
+figure
+h = surf(X,Y,Z);
+%set(h,'LineStyle','none')
+title('Superficie de Erro para Filtro Wiener')
+xlabel('w_0')
+ylabel('w_1')
+grid on;
+Ax = gca;
+Ax.ZAxis.Visible = 'off';
+Ax.Color = 'none';
+
+saveas(gcf,'superficie-de-erro.png')
+```
 
 <p align="center">
 <img src="https://github.com/KennethBenicio/Msc-Filtragem-Adaptativa/blob/main/Imagens/superficie-de-erro.png?raw=true" title="Superficie de Erro" width="512" />

@@ -276,6 +276,25 @@ $$\begin{align}
 
 SOLUÇÃO:
 
+Inicialmente podemos escrever a expressão regular para a matriz de autocorrelação e supondo que de fato existe uma inversa bem definida 
+para a matriz de autocorrelação
+
+$$\begin{align}
+    \mathbb{E}\{\mathbf{x} \mathbf{x}^{\text{H}}\} = \mathbf{R}_{x}, \\
+    \mathbb{E}\{\mathbf{x} \mathbf{x}^{\text{H}}\}\mathbf{R}^{-1}_{x} = \mathbf{R}_{x}\mathbf{R}^{-1}_{x}, \\
+    \mathbb{E}\{\mathbf{x} \mathbf{x}^{\text{H}}\mathbf{R}^{-1}_{x}\} = \mathbf{I}_{N}, \\
+\end{align}$$
+
+onde a última passagem foi possível pois consideramos que, embora de naturaze aleatória, a matriz de autocorrelação possui medicões fixas 
+após o término da coleta das amostas. Desse modo, podemos aplicar o operador traço de matriz e por meio das propriedades relevantes é possível
+alterar de forma conveniente a ordem do produto dos termos, somente ao aplicarmos uma permutação cíclica, obtendo portanto o seguinte resultado
+
+$$\begin{align}
+    \text{Tr}\{\mathbb{E}\{\mathbf{x} \mathbf{x}^{\text{H}}\mathbf{R}^{-1}_{x}\}\} = \text{Tr}\{\mathbf{I}_{N}\}, \\
+    \text{Tr}\{\mathbb{E}\{\mathbf{x}^{\text{H}}\mathbf{R}^{-1}_{x} \mathbf{x}\}\} = \text{Tr}\{\mathbf{I}_{N}\}, \\
+    \text{Tr}\{\mathbb{E}\{\mathbf{x}^{\text{H}}\mathbf{R}^{-1}_{x} \mathbf{x}\}\} = N,
+\end{align}$$
+
 ---
 ## Problema 5
 
@@ -355,6 +374,7 @@ Este é um processo WSS? Justifique.
 
 SOLUÇÃO:
 
+Para simplificar o desenvolvimento iremos considerar que os processos possuem media nula e são descorrelacionados
 $$\begin{align*}
     &r_{x} = \mathbb{E}\{x(n) x^{*}(n)\}, \\
     &r_{x} = \mathbb{E}\{[v_{1}(n) + 2v_{1}(n+1) + 3v_{2}(n-1)] [v_{1}(n) + 2v_{1}(n+1) + 3v_{2}(n-1)]^{*}(n)\}, \\
@@ -377,7 +397,7 @@ $$\begin{align}
     &r_{x}(n_{1}, n_{2})= \delta(n_{1} - n_{2}) + \delta(n_{2} - n_{1}).  
 \end{align}$$
 
-Uma vez que a correlação é dependente do tempo, esse processo não pode ser classificado como WSS.
+Uma vez que a correlação é dependente apenas de um deslocamento temporal, então podemos classificar esse processo como WSS.
 
 (b) Encontre a a matrix de correlação de um vetor aleatório consistindo de oito amostras consecutivas de
 $x(n)$.
