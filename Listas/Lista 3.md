@@ -26,8 +26,17 @@ SOLUÇÃO:
 Podemos inicialmente definir a função erro para esse filtro como
 
 $$\begin{align}
-    \boldsymbol{e}(n) &= \boldsymbol{d}(n) - \boldsymbol{y}(n), \\
-    \boldsymbol{e}(n) &= \boldsymbol{d}(n) - \boldsymbol{w}^{\text{T}}(n)\boldsymbol{x}(n), 
+    \boldsymbol{e}(n) &= d(n) - y(n), \\
+    \boldsymbol{e}(n) &= d(n) - \boldsymbol{w}^{\text{T}}(n)\boldsymbol{x}(n), 
+\end{align}$$
+
+e em sequência define-se a seguinte função objetivo que podemos simplifcar utilizando expansão polinomial de newton em conjunto com propriedades do operador transposto
+
+$$\begin{align}
+    \notag \mathbb{E}\{e^{4}(n)\} &= \mathbb{E}\{\left[d(n) - \boldsymbol{w}^{\text{T}}(n)\boldsymbol{x}(n)\right]^{4}\}, \\
+    \notag \mathbb{E}\{e^{4}(n)\} &= \mathbb{E}\{d^{4}(n)\} - 4\mathbb{E}\{d^{3}(n)\boldsymbol{w}^{\text{T}}(n)\boldsymbol{x}(n)\} + 6\mathbb{E}\{d^{2}(n)\left[\boldsymbol{w}^{\text{T}}(n)\boldsymbol{x}(n)\right]^{2}\} - 4\mathbb{E}\{d(n)\left[\boldsymbol{w}^{\text{T}}(n)\boldsymbol{x}(n)\right]^{3}\} + \mathbb{E}\{\left[\boldsymbol{w}^{\text{T}}(n)\boldsymbol{x}(n)\right]^{4}\}, \\
+    \notag \mathbb{E}\{e^{4}(n)\} &= \mathbb{E}\{d^{4}(n)\} - 4\mathbb{E}\{d^{3}(n)\boldsymbol{w}^{\text{T}}(n)\boldsymbol{x}(n)\} + 6\mathbb{E}\{d^{2}(n)\left[\boldsymbol{w}^{\text{T}}(n)\boldsymbol{x}(n) \boldsymbol{x}^{\text{T}}(n)\boldsymbol{w}(n)\right]\} - 4 \mathbb{E}\{\boldsymbol{w}^{\text{T}}(n) d(n) \boldsymbol{x}(n) \boldsymbol{x}^{\text{T}}(n) \boldsymbol{x}(n) \boldsymbol{w}(n) \boldsymbol{w}^{\text{T}}(n) \} + \mathbb{E}\{\boldsymbol{w}^{\text{T}}(n)\boldsymbol{x}(n) \boldsymbol{x}^{\text{T}}(n) \boldsymbol{w}(n) \boldsymbol{w}^{\text{T}}(n)\boldsymbol{x}(n) \boldsymbol{x}^{\text{T}}(n)\boldsymbol{w}(n)\}, \\
+    \notag \mathbb{E}\{e^{4}(n)\} &= \mathbb{E}\{d^{4}(n)\} - 4 \boldsymbol{w}^{\text{T}}(n)\mathbb{E}\{d^{3}(n)\boldsymbol{x}(n)\} + 6 \boldsymbol{w}^{\text{T}}(n) \mathbb{E}\{d^{2}(n)\boldsymbol{x}(n) \boldsymbol{x}^{\text{T}}(n)\} \boldsymbol{w}(n) - 4\boldsymbol{w}^{\text{T}}(n) \mathbb{E}\{d(n) \boldsymbol{x}(n) \boldsymbol{x}^{\text{T}}(n) \boldsymbol{x}(n)\} \boldsymbol{w}(n) \boldsymbol{w}^{\text{T}}(n) + \boldsymbol{w}^{\text{T}}(n) \boldsymbol{w}(n) \mathbb{E}\{\boldsymbol{x}(n) \boldsymbol{x}^{\text{T}}(n) \boldsymbol{x}(n) \boldsymbol{x}^{\text{T}}(n)\} \boldsymbol{w}^{\text{T}}(n) \boldsymbol{w}(n), \\
 \end{align}$$
 
 ---
