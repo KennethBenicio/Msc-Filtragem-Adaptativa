@@ -1,4 +1,4 @@
-## LMS Filter Implementation
+%% NLMS Filter Implementation
 clc;
 close all;
 clear all;
