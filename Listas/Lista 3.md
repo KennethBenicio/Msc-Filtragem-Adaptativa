@@ -41,15 +41,6 @@ $$\begin{align}
     &- 4\mathbf{w}^{\text{T}}(n) \mathbb{E}\{d(n) \mathbf{x}(n) \mathbf{x}^{\text{T}}(n) \mathbf{x}(n)\} \mathbf{w}(n) \mathbf{w}^{\text{T}}(n) + \mathbf{w}^{\text{T}}(n) \mathbf{w}(n) \mathbb{E}\{\mathbf{x}(n) \mathbf{x}^{\text{T}}(n) \mathbf{x}(n) \mathbf{x}^{\text{T}}(n)\} \mathbf{w}^{\text{T}}(n) \mathbf{w}(n), \\
 \end{align}$$
 
----$$\begin{align}
-    \notag \mathbb{E}\{e^{4}(n)\} &= \mathbb{E}\{\left[d(n) - \mathbf{w}^{\text{T}}(n)\mathbf{x}(n)\right]^{4}\}, \\
-    \notag \mathbb{E}\{e^{4}(n)\} &= \mathbb{E}\{d^{4}(n)\} - 4\mathbb{E}\{d^{3}(n)\mathbf{w}^{\text{T}}(n)\mathbf{x}(n)\} + 6\mathbb{E}\{d^{2}(n)\left[\mathbf{w}^{\text{T}}(n)\mathbf{x}(n)\right]^{2}\} \\
-    &-4\mathbb{E}\{d(n)\left[\mathbf{w}^{\text{T}}(n)\mathbf{x}(n)\right]^{3}\} + \mathbb{E}\{\left[\mathbf{w}^{\text{T}}(n)\mathbf{x}(n)\right]^{4}\}, \\
-    \notag \mathbb{E}\{e^{4}(n)\} &= \mathbb{E}\{d^{4}(n)\} - 4\mathbb{E}\{d^{3}(n)\mathbf{w}^{\text{T}}(n)\mathbf{x}(n)\} + 6\mathbb{E}\{d^{2}(n)\left[\mathbf{w}^{\text{T}}(n)\mathbf{x}(n) \mathbf{x}^{\text{T}}(n)\mathbf{w}(n)\right]\} \\&
-    -4 \mathbb{E}\{\mathbf{w}^{\text{T}}(n) d(n) \mathbf{x}(n) \mathbf{x}^{\text{T}}(n) \mathbf{x}(n) \mathbf{w}(n) \mathbf{w}^{\text{T}}(n) \} + \mathbb{E}\{\mathbf{w}^{\text{T}}(n)\mathbf{x}(n) \mathbf{x}^{\text{T}}(n) \mathbf{w}(n) \mathbf{w}^{\text{T}}(n)\mathbf{x}(n) \mathbf{x}^{\text{T}}(n)\mathbf{w}(n)\}, \\
-    \notag \mathbb{E}\{e^{4}(n)\} &= \mathbb{E}\{d^{4}(n)\} - 4 \mathbf{w}^{\text{T}}(n)\mathbb{E}\{d^{3}(n)\mathbf{x}(n)\} + 6 \mathbf{w}^{\text{T}}(n) \mathbb{E}\{d^{2}(n)\mathbf{x}(n) \mathbf{x}^{\text{T}}(n)\} \mathbf{w}(n) \\
-    &- 4\mathbf{w}^{\text{T}}(n) \mathbb{E}\{d(n) \mathbf{x}(n) \mathbf{x}^{\text{T}}(n) \mathbf{x}(n)\} \mathbf{w}(n) \mathbf{w}^{\text{T}}(n) + \mathbf{w}^{\text{T}}(n) \mathbf{w}(n) \mathbb{E}\{\mathbf{x}(n) \mathbf{x}^{\text{T}}(n) \mathbf{x}(n) \mathbf{x}^{\text{T}}(n)\} \mathbf{w}^{\text{T}}(n) \mathbf{w}(n), \\
-\end{align}$$
 ## Problema 2
 
 Considere o uso de um a sequência de ruído branco com média nula e variância $\sigma^{2}$ como entrada do algoritmo LMS. Avalie
