@@ -2,7 +2,7 @@
 
     Kenneth Brenner dos Anjos Benicio - 519189
 
-    Professores: André e Henrique
+    Professores: charles e Guilherme
 ---
 
 # Lista de Exercícios 03: Filtragem Linear Ótima <!-- omit in toc -->
@@ -62,13 +62,15 @@ canal utiliza-se um equalizador dado por $W(z) = w_{0} + w_{1}z^{-1}$ .
 
 (a) Forneça o equalizador ótimo segundo o critério de Wiener. Esboce a posição dos zeros do canal e do equalizador no plano Z.
 
+SOLUÇÃO:
+
 Considerando um sinal gaussiano branco $x(n)$ a saída do canal pode ser prontamente obtida por
 
 $$\begin{align}
     y(n) = x(n) + 1.6 x(n - 1),
 \end{align}$$
 
-e a matriz de correlação será então dada por
+e a matriz de autocorrelação será então dada por
 
 $$\begin{align}
     \mathbf{R}_{y} =
@@ -78,15 +80,66 @@ $$\begin{align}
     \end{bmatrix},
 \end{align}$$
 
-Já o vetor de correlação cruzada 
+onde podemos calcular os valores teóricos para as correlações da seguinte forma se assumirmos que existe independência entre amostras distintas e que o sinal é média nula 
+
+$$\begin{align}
+    \mathbb{E}\{y(n)y^{\text{H}}(n)\} &= \mathbb{E}\{ \mathbf{x}^{2}(n) + 1.6 \mathbf{x}(n) \mathbf{x}^{\text{H}}(n - 1) + 1.6 \mathbf{x}(n - 1) \mathbf{x}^{\text{H}} (n) + 2.56 \mathbf{x}^{2}(n - 1) \} = 3.56, \\
+    \mathbb{E}\{y(n)y^{\text{H}}(n - 1)\} &= \mathbb{E}\{ \mathbf{x}(n) \mathbf{x}^{\text{H}}(n - 1) + 1.6 \mathbf{x}(n) \mathbf{x}^{\text{H}}(n - 2) + 1.6 \mathbf{x}(n - 1) \mathbf{x}^{\text{H}} (n - 1) + 2.56 \mathbf{x}(n - 1) \mathbf{x}^{\text{H}}(n - 2) \} = 1.60, \\
+    \mathbb{E}\{y(n - 1)y^{\text{H}}(n)\} &= \mathbb{E}\{ \mathbf{x}(n - 1) \mathbf{x}^{\text{H}}(n) + 1.6 \mathbf{x}(n - 1) \mathbf{x}^{\text{H}}(n - 1) + 1.6 \mathbf{x}(n - 2) \mathbf{x}^{\text{H}} (n) + 2.56 \mathbf{x}(n - 2) \mathbf{x}^{\text{H}}(n - 1) \} = 1.60, \\
+    \mathbb{E}\{y(n - 1)y^{\text{H}}(n - 1)\} &= \mathbb{E}\{ \mathbf{x}^{2}(n - 1) + 1.6 \mathbf{x}(n - 1) \mathbf{x}^{\text{H}}(n - 2) + 1.6 \mathbf{x}(n - 2) \mathbf{x}^{\text{H}} (n - 1) + 2.56 \mathbf{x}(n - 2)^{2} \} = 3.56, \\
+\end{align}$$
+
+podendo assim descrever a matriz de autocorrelação teórica e sua inversa como
+
+$$\begin{align}
+    \mathbf{R}_{y} =
+    \begin{bmatrix}
+        3.56 & 1.60 \\
+        1.60 & 3.56
+    \end{bmatrix},
+\end{align}$$
+
+$$\begin{align}
+    \mathbf{R}^{-1}_{y} = \frac{1}{3.56^{2} - 1.6^{2}}
+    \begin{bmatrix}
+        3.56 &  -1.60 \\
+        -1.60 & 3.56
+    \end{bmatrix} =
+    \begin{bmatrix}
+        0.35 &  -0.16 \\
+        -0.16 & 0.35
+    \end{bmatrix}.
+\end{align}$$
+
+Já o vetor de correlação cruzada teórico pode ser descrito por
 
 $$\begin{align}
     \mathbf{p}_{yd} =
     \begin{bmatrix}
         \mathbb{E}\{y(n)d(n)\} \\
         \mathbb{E}\{y(n - 1)d(n)\}
+    \end{bmatrix} = 
+    \begin{bmatrix}
+        1 \\
+        0
     \end{bmatrix},
 \end{align}$$
+
+pois queremos que o sinal de saída tenha a maior correlação possivel com o sinal desejado de um mesmo instante mas continue sendo independente de um sinal de um instante temporal diferente.
+Desse modo, podemos obter o equalizador ótimo segundo o critério de Wiener como
+
+$$\begin{align}
+    \mathbf{w}_{\text{opt}} = \mathbf{R}^{-1}_{y} \mathbf{p}_{yd} = \begin{bmatrix}
+         0.35 \\
+        -0.16
+    \end{bmatrix}.
+\end{align}$$
+
+Por fim, abaixo segue o traçado para os zeros das funções de transferência tanto do canal quanto do filtro ótimo em azul e em vermelho, respectivamente.
+
+<p align="center">
+<img src="https://github.com/KennethBenicio/Msc-Filtragem-Adaptativa/blob/main/Imagens/plano_z.png?raw=true" title="Superficie de Erro" width="512" />
+</p>
 
 (b) Obtenha o ﬁltro de erro de predição direta de passo unitário, correspondente ao sinal à saída do canal. Calcule os zeros deste ﬁltro e compare com os do equalizador.
 

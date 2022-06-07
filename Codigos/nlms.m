@@ -3,58 +3,37 @@ clc;
 close all;
 clear all;
 
-mi = 0.05;
+mi = 1e-1;
+order = 30;
 Samples = 1000;
 error = zeros(Samples,1);
-weights = zeros(Samples, 1);
-weights = complex(weights,0);
+weights = zeros(order, Samples);
 
-SNR_dB = 30;
+% Effectively is as there is no noise in the system.
+SNR_dB = inf;
 SNR_li = 10^(SNR_dB/10);
 var_noise = 1/SNR_li;
 
-signal_d = randn(Samples,1) + 1j*randn(Samples,1);
-noise = sqrt(var_noise/2).*(randn(Samples,1) + 1j*randn(Samples,1));
-signal_x = randn(1).*signal_d + noise;
+signal_d = randn(Samples,1);
+noise = sqrt(var_noise/2).*randn(Samples,1);
+signal_x = signal_d + noise;
 
-for k = 2:Samples
-  mi_normalized = mi/(norm(signal_x));
-  error(k - 1) = signal_d(k - 1) - weights(k - 1)' * signal_x(k - 1); 
-  weights(k) = weights(k - 1) + mi_normalized * error(k - 1)' * signal_x(k - 1);
+% Channel
+Hz = [1 1.6];
+signal_x = filter(Hz,1,signal_x);
+Hz = [1 1];
+signal_d = filter(Hz,1,signal_d);
+
+for ss = 1:(Samples - order - 1)
+    mi_normalized = mi/(norm(signal_x));
+    error(ss) = signal_d(ss) - weights(:,ss)' * signal_x(ss:ss+order-1); 
+    weights(:,ss+1) = weights(:,ss) +  mi_normalized * error(ss) * signal_x(ss:ss+order-1);
 end
 
 figure
-error = sqrt(error.^2);
-semilogy(1:Samples, error);
-title('NLMS Behavior');
+semilogy(1:Samples, error.^2,'-','color', [0.3010 0.7450 0.9330], "linewidth", 1, "markersize", 8);
+title('LMS Behavior');
 xlabel('Samples');
-ylabel('Error');
+ylabel('MSE');
 grid on;
-
-figure 
-plot(1:Samples,real(signal_d));
-hold on;
-plot(1:Samples,real(signal_x));
-hold off;
-title('Desired Signal vs. Received Signal');
-xlabel('Sample');
-ylabel('Magnitude');
-grid on;
-
-filtered = zeros(Samples,1);
-filtered = complex(filtered,0);
-for k = 1:Samples
-  filtered(k) = weights(k)*signal_x(k); 
-end
-
-figure 
-plot(1:Samples,real(signal_d));
-hold on;
-plot(1:Samples,real(filtered));
-hold off;
-title('Desire Signal vs. Filtered Signal');
-xlabel('Sample');
-ylabel('Magnitude');
-grid on;
-
-
+saveas(gcf,'nlms_mse.png')

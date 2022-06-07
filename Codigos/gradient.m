@@ -1,4 +1,4 @@
-%% Newton Algorithm Implementation
+%% Deterministic Gradient Algorithm
 clc;
 close all;
 clear all;
@@ -23,15 +23,15 @@ Rx = [3.56, 1.60; 1.60, 3.56;];
 wopt = inv(Rx)*p;
 error(1) = (sum((wopt - weights(:,1)).^2))/length(wopt);
 for ii = 2:iterations
-    weights(:,ii) = weights(:,ii - 1) - mi*(weights(:,ii - 1) - inv(Rx)*p);
+    weights(:,ii) = weights(:,ii - 1) - 2*mi*(Rx*weights(:,ii - 1) - p);
     error(ii,1) = (sum((wopt - weights(:,ii)).^2))/length(wopt);
 end
 
 % MSE Curve
 figure
 semilogy(1:iterations, error,'-','color', [0.3010 0.7450 0.9330], "linewidth", 3, "markersize", 8);
-title('Newton Algorithm Behavior');
+title('Deterministic Gradient Algorithm Behavior');
 xlabel('Iterations');
 ylabel('MSE');
 grid on;
-saveas(gcf,'newton_mse.png')
+saveas(gcf,'gradient_mse.png')
