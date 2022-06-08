@@ -3,35 +3,77 @@ clc;
 close all;
 clear all;
 
-mi = 0.1;
+% Learning rate
+mi = 1e-3;
+% Filter order
 order = 2;
-Samples = 1000;
-iterations = 100;
-error = zeros(iterations,1);
-weights = zeros(order,iterations);
-weights = complex(weights,0);
+% Number of samples
+Samples = 10000;
+% Defining the mse error and filter coeficients vectors.
+error = zeros(Samples,1);
+weights = zeros(order, Samples);
 
-% SNR_dB = inf;
-% SNR_li = 10^(SNR_dB/10);
-% var_noise = 1/SNR_li;
-% signal_d = randn(Samples,1) + 1j*randn(Samples,1);
-% noise = sqrt(var_noise/2).*(randn(Samples,1) + 1j*randn(Samples,1));
-% signal_x = signal_d + noise;
+% Defining the energy of the noise vector.
+SNR_dB = inf;
+SNR_li = 10^(SNR_dB/10);
+variance_noise = 1/SNR_li;
+noise = sqrt(variance_noise/2).*randn(Samples,1);
 
-p = [1; 0;];
+% Generating the original signal.
+signal_d = randn(Samples,1);
+% Generating the noisy received signal.
+signal_x = signal_d + noise;
+
+% Convolving the channel and the signal.
+Hz = [1 1.6];
+signal_x = filter(Hz,1,signal_x);
+% Shifting the true signal in a similar filter to simplify the process of detection.
+Hz = [1 1];
+signal_d = filter(Hz,1,signal_d);
+% Defining the autocorrelation matrix and the cross-correlation vector.
 Rx = [3.56, 1.60; 1.60, 3.56;];
+p = [1; 0;];
+% Obtaining the optimal wiener solution.
 wopt = inv(Rx)*p;
-error(1) = (sum((wopt - weights(:,1)).^2))/length(wopt);
-for ii = 2:iterations
-    weights(:,ii) = weights(:,ii - 1) - mi*(weights(:,ii - 1) - inv(Rx)*p);
-    error(ii,1) = (sum((wopt - weights(:,ii)).^2))/length(wopt);
+
+for ss = 1:(Samples - order - 1)
+    % Error between the desired signal and the filtered signal.
+    error(ss,1) = signal_d(ss) - weights(:,ss)'*signal_x(ss:ss+order-1);
+    % Recursive expression.
+    weights(:,ss+1) = weights(:,ss) - mi*(weights(:,ss) - inv(Rx)*p);
 end
 
 % MSE Curve
 figure
-semilogy(1:iterations, error,'-','color', [0.3010 0.7450 0.9330], "linewidth", 3, "markersize", 8);
+semilogy(1:Samples, error.^2,'-','color', [0.3010 0.7450 0.9330], "linewidth", 1, "markersize", 8);
 title('Newton Algorithm Behavior');
 xlabel('Iterations');
 ylabel('MSE');
 grid on;
-saveas(gcf,'newton_mse.png')
+%saveas(gcf,'newton_mse.png')
+
+% Contour
+figure
+[W0, W1] = meshgrid (-1:0.01:1,-1:0.01:1);
+w0 = reshape(W0,[],1);
+w1 = reshape(W1,[],1);
+[aux,~] = size(w0);
+for i = 1:aux
+   w = [w0(i); w1(i)]; 
+   % We are considering that the desired signal has unitary variance.
+   % This is the expression for the MSE surface of the wiener solution.
+   Z(i) = 1 - 2*w.'*p + w.'*Rx*w;
+end
+Z = reshape(Z,size(W0));
+contour(W0,W1,Z);
+colormap('gray')
+hold on;
+for ss = 1:(Samples - order)
+   plot(weights(1,ss),weights(2,ss),".-",'color', [0.3010 0.7450 0.9330],"markersize", 8); 
+end
+hold off;
+title('Newton Algorithm Contour');
+xlabel('W_1');
+ylabel('W_0');
+grid on;
+%saveas(gcf,'newton_contour.png')

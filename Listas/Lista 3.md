@@ -45,7 +45,7 @@ $$\begin{align}
 
 Considere o uso de um a sequência de ruído branco com média nula e variância $\sigma^{2}$ como entrada do algoritmo LMS. Avalie
 
-(a) a condição para convergência do algoritmo em média quadrática.
+(a) a condição para convergência do algoritmo em média.
 
 (b) o erro em excesso em média quadrática.
 
@@ -150,12 +150,30 @@ Por fim, abaixo segue o traçado para os zeros das funções de transferência t
 - Least Means Square
 - Least Means Square Normalizado
 
+SOLUÇÃO:
+
+Antes de tudo é necessário definir a superfície de erro que servirá como referência para traçar as curvas de nível. Desse modo, podemos prontamente
+definir a superfície MSE como
+
+$$\begin{align}
+    \mathbf{J}(w) &= \mathbb{E}\{e^{2}(n)\}, \\
+    \mathbf{J}(w) &= \sigma^{2}_{d} - 2\mathbf{w}^{T}\mathbf{p}_{xd} + w^{T}\mathbf{R}_{X}\mathbf{w}.   
+\end{align}$$
+
+Desse modo, temos as seguintes curvas de nível
+
 (d) Obtenha também a evolução do erro quadrático médio para cada um dos algoritmos anteriores.
+
 
 (e) Qual o número de condicionamento para o problema em questão?
 
+VERIFICAR OS AUTOVALORES DA MATRIZ DE CORRELACAO
+
 (f) Qual deveria ser o canal para que o número de condicionamento fosse menor/maior que 5?
 Comente os resultados.
+
+LEMBRAR QUE O DETERMINANTE É O PRODUTO ENTRE OS AUTOVALORES DE UMA MATRIZ E O NUMERO DE CONDICIONAMENTO 
+ESTA ASSOCIADO COM A RAZAO MAXIMO/MINIMO DOS AUTOVALORES.
 
 ---
 ## Problema 5

@@ -1,0 +1,44 @@
+%% Newton Algorithm Implementation
+clc;
+close all;
+clear all;
+
+mi = 0.1;
+order = 2;
+Samples = 1000;
+error = zeros(Samples,1);
+weights = zeros(order,Samples);
+weights = complex(weights,0);
+
+% Effectively is as there is no noise in the system.
+SNR_dB = inf;
+SNR_li = 10^(SNR_dB/10);
+var_noise = 1/SNR_li;
+
+signal_d = randn(Samples,1);
+noise = sqrt(var_noise/2).*randn(Samples,1);
+signal_x = signal_d + noise;
+
+% Channel
+Hz = [1 1.6];
+signal_x = filter(Hz,1,signal_x);
+Hz = [1 1];
+signal_d = filter(Hz,1,signal_d);
+
+p = [1; 0;];
+Rx = [3.56, 1.60; 1.60, 3.56;];
+wopt = inv(Rx)*p;
+error(1) = (sum((wopt - weights(:,1)).^2))/length(wopt);
+for ii = 2:Samples
+    error(ii,1) = signal_d(ii) - weights(:,ii)'*signal_x;
+    weights(:,ii) = weights(:,ii ) - mi*(weights(:,ii) - inv(Rx)*p);
+end
+
+% MSE Curve
+figure
+semilogy(1:iterations, error,'-','color', [0.3010 0.7450 0.9330], "linewidth", 3, "markersize", 8);
+title('Newton Algorithm Behavior');
+xlabel('Iterations');
+ylabel('MSE');
+grid on;
+saveas(gcf,'newton_mse.png')
