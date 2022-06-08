@@ -19,7 +19,7 @@
 ---
 ## Problema 1
 
-(a) Determine a média e a função de autocorrelação para o processo aleatório em que $v(n)$ é uma sequência de variáveis aleatórias independentes com média $\mu$ e variância $\sigma^2$. $x(n)$ é estacionário? Justifique.
+Determine a média e a função de autocorrelação para o processo aleatório em que $v(n)$ é uma sequência de variáveis aleatórias independentes com média $\mu$ e variância $\sigma^2$. $x(n)$ é estacionário? Justifique.
 
 $$\begin{align}
     &x(n) = v(n) + 3 v(n-1),
@@ -268,7 +268,7 @@ $$\begin{align}
 ---
 ## Problema 4
 
-(a) Assuma que a inversa $\mathbf{R}_{\mathbf{x}}^{-1}$ da matriz de autocorrelação de um vetor coluna $N$-dimensional exista. Mostre que
+Assuma que a inversa $\mathbf{R}_{\mathbf{x}}^{-1}$ da matriz de autocorrelação de um vetor coluna $N$-dimensional exista. Mostre que
         
 $$\begin{align}
     \mathbb{E}\left\{\mathbf{x}^H \mathbf{R}_{\mathbf{x}}^{-1} \mathbf{x} \right\} = N

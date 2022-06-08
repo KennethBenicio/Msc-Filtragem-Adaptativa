@@ -5,7 +5,7 @@
     Professores: charles e Guilherme
 ---
 
-# Lista de Exercícios 03: Filtragem Linear Ótima <!-- omit in toc -->
+# Lista de Exercícios 03: Algoritmos Recursivos <!-- omit in toc -->
 
 ## Sumário <!-- omit in toc -->
 - [Problema 1](#problema-1)
@@ -46,6 +46,13 @@ $$\begin{align}
 Considere o uso de um a sequência de ruído branco com média nula e variância $\sigma^{2}$ como entrada do algoritmo LMS. Avalie
 
 (a) a condição para convergência do algoritmo em média.
+
+A condição de convergência está diretamente associada com o erro nos coeficientes do filtro adaptativo para cada iteração.
+Desse modo, podemos iniciar o estudo desse tópico com a seguinte expressão
+
+$$\begin{align}
+    \Delta \mathbf{w} = \mathbf{w}(k) - \mathbf{w}_{\text{opt}},
+\end{align}$$
 
 (b) o erro em excesso em média quadrática.
 
