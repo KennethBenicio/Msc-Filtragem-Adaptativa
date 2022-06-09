@@ -13,6 +13,9 @@ Samples = 5000;
 error = zeros(Samples,1);
 weights = zeros(order, Samples);
 
+%Wiener Solution
+wiener = [0.35;-0.15];
+
 % Defining the energy of the noise vector.
 SNR_dB = inf;
 SNR_li = 10^(SNR_dB/10);
@@ -27,21 +30,23 @@ signal_x = signal_d + noise;
 % Convolving the channel and the signal.
 Hz = [1 1.6];
 signal_x = filter(Hz,1,signal_x);
-% Shifting the true signal in a similar filter to simplify the process of detection.
-Hz = [1 1];
-signal_d = filter(Hz,1,signal_d);
 % Defining the autocorrelation matrix and the cross-correlation vector.
 Rx = [3.56, 1.60; 1.60, 3.56;];
 p = [1; 0;];
 
+% To prevent the missmatch between the filtered signal and the desired
+% signal. After some hours of debug I found out that the filtered signal
+% was a shifted version of the desired signal.
+signal_d = signal_d(order:end,1); 
 for ss = 1:(Samples - order - 1)
     % Normalized learning rate.
     mi_normalized = mi/(norm(signal_x));
     % Error between the desired signal and the filtered signal.
     error(ss) = signal_d(ss) - weights(:,ss)' * signal_x(ss:ss+order-1); 
     % Recursive expression.
-    weights(:,ss+1) = weights(:,ss) +  mi_normalized * error(ss) * signal_x(ss:ss+order-1);
+    weights(:,ss+1) = weights(:,ss) +  2 * mi_normalized * error(ss) * signal_x(ss:ss+order-1);
 end
+weights = flip(weights); 
 
 % MSE Curve
 figure
@@ -72,6 +77,7 @@ hold on;
 for ss = 1:(Samples - order)
    plot(weights(1,ss),weights(2,ss),".-",'color', [0.3010 0.7450 0.9330],"markersize", 8);  
 end
+plot(wiener(1,1),wiener(2,1),"x",'color', [0.4660 0.6740 0.1880],"markersize", 6); 
 hold off;
 title('NLMS Contour');
 xlabel('W_1');
