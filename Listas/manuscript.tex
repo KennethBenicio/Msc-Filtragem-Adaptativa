@@ -121,12 +121,12 @@
 						
 						Para a variância teremos uma resposta similar
 						
-						\begin{align}
+						\begin{align*}
 							&\mathbb{E}\{[x(n) - \mu]^{2}\} = \mathbb{E}\{[x(n) - 0]^{2}\} = \mathbb{E}\{[x(n)]^{2}\}, \\
 							&\mathbb{E}\{[x(n) - \mu]^{2}\} = \mathbb{E}\{[v_{1}(n) + 3v_{2}(n-1)]^{2}\} = \mathbb{E}\{ [v^{2}_{1}(n)] + 6[v_{1}(n)v_{2}(n-1)] + 9[v^{2}_{2}(n-1)]\}, \\
 							&\mathbb{E}\{[y(n) - \mu]^{2}\} = \mathbb{E}\{[y(n) - 0]^{2}\} = \mathbb{E}\{[y(n)]^{2}\}, \\
 							&\mathbb{E}\{[y(n) - \mu]^{2}\} = \mathbb{E}\{[v_{2}(n+1) + 3v_{1}(n-1)]^{2}\} = \mathbb{E}\{ [v^{2}_{2}(n+1)] + 6[v_{2}(n+1)v_{1}(n-1)] + 9[v^{2}_{1}(n-1)]\}.
-						\end{align}
+						\end{align*}
 						
 						Rescrevendo a expressão para obter a formula da variância e utilizando o fato dos processos de ruído serem descorrelacionados uma nova expressão é obtida
 						
@@ -139,8 +139,9 @@
 						
 						A função de autocorrelação para $X$ é calculada como se segue 
 						\begin{align}
-							&r_{x}(\tau) = \mathbb{E}\{x(n)x(n + \tau)\} = \mathbb{E}\{[v_{1}(n) + 3v_{2}(n-1)][v_{1}(n + \tau) + 3v_{2}(n-1 + \tau)]\}, \\
-							&r_{x}(\tau) = \mathbb{E}\{[v_{1}(n)v_{1}(n + \tau)] + 3[v_{1}(n)v_{2}(n-1 + \tau)] + 3[v_{2}(n-1)v_{1}(n + \tau)] + 9[v_{2}(n-1)v_{2}(n-1 + \tau)] \}.    
+							r_{x}(\tau) &= \mathbb{E}\{x(n)x(n + \tau)\} = \mathbb{E}\{[v_{1}(n) + 3v_{2}(n-1)][v_{1}(n + \tau) + 3v_{2}(n-1 + \tau)]\}, \\
+							r_{x}(\tau) &= \mathbb{E}\{[v_{1}(n)v_{1}(n + \tau)] + 3[v_{1}(n)v_{2}(n-1 + \tau)] + 3[v_{2}(n-1)v_{1}(n + \tau)] \\ 
+							&+ 9[v_{2}(n-1)v_{2}(n-1 + \tau)] \}.    
 						\end{align}
 						
 						Sabendo que amostras de um mesmo processo são descorrelacionadas e que ambos os processos também são descorrelacionados, além de termos conhecimento 
@@ -167,8 +168,9 @@
 						\textcolor{red}{Solução:}
 						
 						\begin{align}
-							&r_{x,y}(n_{1},n_{0}) = \mathbb{E}\{[x(n_{1})y^{*}(n_{0})]\} = \mathbb{E}\{[v_{1}(n_{1}) + 3v_{2}(n_{1}-1)][v_{2}(n_{0}+1) + 3v_{1}(n_{0}-1)]^{*}\}, \\
-							&r_{x,y}(n_{1},n_{0}) = \mathbb{E}\{[v_{1}(n_{1})v^{*}_{2}(n_{0}+1)] + 3[v_{1}(n_{1})v^{*}_{1}(n_{0}-1)] + 3[v_{2}(n_{1}-1)v^{*}_{2}(n_{0}+1)] + 9[v_{2}(n_{1}-1)v^{*}_{1}(n_{0}-1)]\}.  
+							r_{x,y}(n_{1},n_{0}) &= \mathbb{E}\{[x(n_{1})y^{*}(n_{0})]\} = \mathbb{E}\{[v_{1}(n_{1}) + 3v_{2}(n_{1}-1)][v_{2}(n_{0}+1) + 3v_{1}(n_{0}-1)]^{*}\}, \\
+							r_{x,y}(n_{1},n_{0}) &= \mathbb{E}\{[v_{1}(n_{1})v^{*}_{2}(n_{0}+1)] + 3[v_{1}(n_{1})v^{*}_{1}(n_{0}-1)] + 3[v_{2}(n_{1}-1)v^{*}_{2}(n_{0}+1)] \\ 
+							&+ 9[v_{2}(n_{1}-1)v^{*}_{1}(n_{0}-1)]\}.  
 						\end{align}
 						
 						Novamente considerando que os processos de ruído branco são descorrelacionadas entre si e que as amostras individuais são também independentes então podemos simplificar a expressão acima da seguinte forma
@@ -388,12 +390,12 @@
 				 		Para simplificar o desenvolvimento iremos considerar que os processos possuem media nula e são descorrelacionados
 				 		
 				 		\begin{align*}
-				 			&r_{x} = \mathbb{E}\{x(n) x^{*}(n)\}, \\
-				 			&r_{x} = \mathbb{E}\{[v_{1}(n) + 2v_{1}(n+1) + 3v_{2}(n-1)] [v_{1}(n) + 2v_{1}(n+1) + 3v_{2}(n-1)]^{*}(n)\}, \\
-				 			&r_{x} = \mathbb{E}\{[v_{1}(n)v^{*}_{1}(n) + 2v_{1}(n)v^{*}_{1}(n+1) + 3v_{1}(n)v^{*}_{2}(n-1) + 2v_{1}(n + 1)v^{*}_{1}(n) + 4v_{1}(n+1)v^{*}_{1}(n+1) +
-				 			6v_{1}(n+1)v^{*}_{2}(n-1)] + 3v_{2}(n-1)v^{*}_{1}(n) +  6v_{2}(n-1)v^{*}_{1}(n+1) + 9v_{2}(n-1)v^{*}_{2}(n-1)\}, \\
-				 			&r_{x} = r_{v}(n,n) + 2r_{v}(n,n+1) + 0 + 2r_{v}(n+1,n) + 4r_{v}(n+1,n+1) + 0 + 0 + 0 + 9r_{v}(n-1,n-1), \\
-				 			&r_{x} = r_{v}(n,n) + 2r_{v}(n,n+1) + 2r_{v}(n+1,n) + 4r_{v}(n+1,n+1) + 9r_{v}(n-1,n-1).
+				 			r_{x} &= \mathbb{E}\{x(n) x^{*}(n)\}, \\
+				 			r_{x} &= \mathbb{E}\{[v_{1}(n) + 2v_{1}(n+1) + 3v_{2}(n-1)] [v_{1}(n) + 2v_{1}(n+1) + 3v_{2}(n-1)]^{*}(n)\}, \\
+				 			r_{x} &= \mathbb{E}\{[v_{1}(n)v^{*}_{1}(n) + 2v_{1}(n)v^{*}_{1}(n+1) + 3v_{1}(n)v^{*}_{2}(n-1) + 2v_{1}(n + 1)v^{*}_{1}(n) + 4v_{1}(n+1)v^{*}_{1}(n+1) \\
+							&+6v_{1}(n+1)v^{*}_{2}(n-1)] + 3v_{2}(n-1)v^{*}_{1}(n) +  6v_{2}(n-1)v^{*}_{1}(n+1) + 9v_{2}(n-1)v^{*}_{2}(n-1)\}, \\
+				 			r_{x} &= r_{v}(n,n) + 2r_{v}(n,n+1) + 0 + 2r_{v}(n+1,n) + 4r_{v}(n+1,n+1) + 0 + 0 + 0 + 9r_{v}(n-1,n-1), \\
+				 			r_{x} &= r_{v}(n,n) + 2r_{v}(n,n+1) + 2r_{v}(n+1,n) + 4r_{v}(n+1,n+1) + 9r_{v}(n-1,n-1).
 				 		\end{align*}
 				 		
 				 		Após uma breve análise na expressão $r_{v}(n_{1},n_{0})$ é possível verificar que determinados termos anulam-se ao considerar um único momento temporal devido a presença da função degrau unitário, permitindo a seguinte simplificação:
@@ -723,12 +725,12 @@
 				e em sequência define-se a seguinte função objetivo que podemos simplifcar utilizando expansão polinomial de newton em conjunto com propriedades do operador transposto
 				
 				\begin{align*}
-					\notag \mathbb{E}\{e^{4}(n)\} &= \mathbb{E}\{\left[d(n) - \mathbf{w}^{\text{T}}(n)\mathbf{x}(n)\right]^{4}\}, \\
-					\notag \mathbb{E}\{e^{4}(n)\} &= \mathbb{E}\{d^{4}(n)\} - 4\mathbb{E}\{d^{3}(n)\mathbf{w}^{\text{T}}(n)\mathbf{x}(n)\} + 6\mathbb{E}\{d^{2}(n)\left[\mathbf{w}^{\text{T}}(n)\mathbf{x}(n)\right]^{2}\} \\
+					\mathbb{E}\{e^{4}(n)\} &= \mathbb{E}\{\left[d(n) - \mathbf{w}^{\text{T}}(n)\mathbf{x}(n)\right]^{4}\}, \\
+					\mathbb{E}\{e^{4}(n)\} &= \mathbb{E}\{d^{4}(n)\} - 4\mathbb{E}\{d^{3}(n)\mathbf{w}^{\text{T}}(n)\mathbf{x}(n)\} + 6\mathbb{E}\{d^{2}(n)\left[\mathbf{w}^{\text{T}}(n)\mathbf{x}(n)\right]^{2}\} \\
 					&-4\mathbb{E}\{d(n)\left[\mathbf{w}^{\text{T}}(n)\mathbf{x}(n)\right]^{3}\} + \mathbb{E}\{\left[\mathbf{w}^{\text{T}}(n)\mathbf{x}(n)\right]^{4}\}, \\
-					\notag \mathbb{E}\{e^{4}(n)\} &= \mathbb{E}\{d^{4}(n)\} - 4\mathbb{E}\{d^{3}(n)\mathbf{w}^{\text{T}}(n)\mathbf{x}(n)\} + 6\mathbb{E}\{d^{2}(n)\left[\mathbf{w}^{\text{T}}(n)\mathbf{x}(n) \mathbf{x}^{\text{T}}(n)\mathbf{w}(n)\right]\} \\&
+					\mathbb{E}\{e^{4}(n)\} &= \mathbb{E}\{d^{4}(n)\} - 4\mathbb{E}\{d^{3}(n)\mathbf{w}^{\text{T}}(n)\mathbf{x}(n)\} + 6\mathbb{E}\{d^{2}(n)\left[\mathbf{w}^{\text{T}}(n)\mathbf{x}(n) \mathbf{x}^{\text{T}}(n)\mathbf{w}(n)\right]\} \\&
 					-4 \mathbb{E}\{\mathbf{w}^{\text{T}}(n) d(n) \mathbf{x}(n) \mathbf{x}^{\text{T}}(n) \mathbf{x}(n) \mathbf{w}(n) \mathbf{w}^{\text{T}}(n) \} + \mathbb{E}\{\mathbf{w}^{\text{T}}(n)\mathbf{x}(n) \mathbf{x}^{\text{T}}(n) \mathbf{w}(n) \mathbf{w}^{\text{T}}(n)\mathbf{x}(n) \mathbf{x}^{\text{T}}(n)\mathbf{w}(n)\}, \\
-					\notag \mathbb{E}\{e^{4}(n)\} &= \mathbb{E}\{d^{4}(n)\} - 4 \mathbf{w}^{\text{T}}(n)\mathbb{E}\{d^{3}(n)\mathbf{x}(n)\} + 6 \mathbf{w}^{\text{T}}(n) \mathbb{E}\{d^{2}(n)\mathbf{x}(n) \mathbf{x}^{\text{T}}(n)\} \mathbf{w}(n) \\
+					\mathbb{E}\{e^{4}(n)\} &= \mathbb{E}\{d^{4}(n)\} - 4 \mathbf{w}^{\text{T}}(n)\mathbb{E}\{d^{3}(n)\mathbf{x}(n)\} + 6 \mathbf{w}^{\text{T}}(n) \mathbb{E}\{d^{2}(n)\mathbf{x}(n) \mathbf{x}^{\text{T}}(n)\} \mathbf{w}(n) \\
 					&- 4\mathbf{w}^{\text{T}}(n) \mathbb{E}\{d(n) \mathbf{x}(n) \mathbf{x}^{\text{T}}(n) \mathbf{x}(n)\} \mathbf{w}(n) \mathbf{w}^{\text{T}}(n) + \mathbf{w}^{\text{T}}(n) \mathbf{w}(n) \mathbb{E}\{\mathbf{x}(n) \mathbf{x}^{\text{T}}(n) \mathbf{x}(n) \mathbf{x}^{\text{T}}(n)\} \mathbf{w}^{\text{T}}(n) \mathbf{w}(n), \\
 				\end{align*}
 			
@@ -741,16 +743,100 @@
 						\textcolor{red}{Solução:}
 						
 						A condição de convergência está diretamente associada com o erro nos coeficientes do filtro adaptativo para cada iteração.
-						Desse modo, podemos iniciar o estudo desse tópico com a seguinte expressão
+						Desse modo, podemos iniciar o estudo desse tópico com a seguinte expressão que relaciona o erro dos coeficientes do filtro de um iteração
+						$k$ para a solução ótima
 						
 						\begin{align}
-							\Delta \mathbf{w} = \mathbf{w}(k) - \mathbf{w}_{\text{opt}},
+							\Delta \mathbf{w}(n) = \mathbf{w}(n) - \mathbf{w}_{\text{opt}},
+						\end{align}
+
+						e assim podemos reescrever a função de recurssão do LMS do seguinte modo
+
+						\begin{align}
+							\Delta \mathbf{w}(n + 1) &= \Delta \mathbf{w}(n) + 2 \mu e(n) \mathbf{x}(n), \\
+							\Delta \mathbf{w}(n + 1) &= \Delta \mathbf{w}(n) + 2 \mu \mathbf{x}(n) \left[\mathbf{x}^{\text{T}}(n)\mathbf{w}_{\text{opt}} + z(n) - \mathbf{x}^{\text{T}}(n)\mathbf{w}(n)\right], \\
+							\Delta \mathbf{w}(n + 1) &= \Delta \mathbf{w}(n) + 2 \mu \mathbf{x}(n) \left[e_{\text{opt}}(n) - \mathbf{x}^{\text{T}}(n) \Delta \mathbf{w}(n)\right], \\
+							\Delta \mathbf{w}(n + 1) &= \left[ \mathbf{I} - 2 \mu \mathbf{x}(n) \mathbf{x}^{\text{T}}(n) \right] \Delta \mathbf{w}(n) + 2 \mu e_{\text{opt}}(n) \mathbf{x}(n)
 						\end{align}
 					
-					\item o erro em excesso em média quadrática.
+						onde $z(n) \in \mathcal{N}(0,\sigma^{2})$ e $e_{\text{opt}}(n) = z(n)$. Indicando que, para o caso ideal, teríamos que nos preocupar apenas com o erro introduzido pelas componentes ruidosas do sistema.
+						Ademais, também utilizamos o fato de que $e(n) = e^{\text{T}}(n) = \mathbf{w}^{\text{T}}_{\text{opt}}\mathbf{x}(n) + z(n) - \mathbf{w}^{\text{T}}(n)\mathbf{x}(n) = \mathbf{x}^{\text{T}}(n)\mathbf{w}_{\text{opt}} + z(n) - \mathbf{x}^{\text{T}}(n)\mathbf{w}(n)$.
+						Em sequência, podemos escrever o valor esperado para o erro como
+
+						\begin{align}
+							\mathbb{E}\{\Delta \mathbf{w}(n + 1)\} &= \mathbb{E}\{\left[ \mathbf{I} - 2 \mu \mathbf{x}(n) \mathbf{x}^{\text{T}}(n) \right] \Delta \mathbf{w}(n) + 2 \mu e_{\text{opt}}(n) \mathbf{x}(n)\}, \\
+							\mathbb{E}\{\Delta \mathbf{w}(n + 1)\} &= \mathbb{E}\{\left[ \mathbf{I} - 2 \mu \mathbf{x}(n) \mathbf{x}^{\text{T}}(n) \right] \Delta \mathbf{w}(n)\} + 2 \mu \mathbb{E}\{e_{\text{opt}}(n) \mathbf{x}(n)\}
+						\end{align}
+						
+						onde utilizamos a propriedade de linearidade do operador valor esperado. Ao assumirmos que $\mathbf{x}(n)$ é simultaneamente ortogonal aos elementos $e_{\text{opt}}(n)$ e $\Delta \mathbf{w}(n)$ podemos simplificar a expressão acima por
+						
+						\begin{align}
+							\mathbb{E}\{\Delta \mathbf{w}(n + 1)\} &= \left[ \mathbf{I} - 2 \mu \mathbb{E}\{\mathbf{x}(n) \mathbf{x}^{\text{T}}(n)\} \right] \mathbb{E}\{\Delta \mathbf{w}(n)\}, \\
+							\mathbb{E}\{\Delta \mathbf{w}(n + 1)\} &= \left( \mathbf{I} - 2 \mu \mathbf{R}_{x} \right) \mathbb{E}\{\Delta \mathbf{w}(n)\},
+						\end{align}
+
+						onde podemos utilizar a noção de que $\mathbb{E}\{ \mathbf{I} \} = \mathbf{I}$ uma vez que temos um operador linear. Em continuidade, podemos supor que existe uma matriz $\mathbf{Q}$ unitária que diagonaliza $\mathbf{R}_{x}$
+						de tal modo que temos 
+
+						\begin{align}
+							\mathbb{E}\{ \mathbf{Q}^{\text{T}} \Delta \mathbf{w}(n + 1) \} &= \left( \mathbf{I} - 2 \mu \mathbf{Q}^{\text{T}} \mathbf{R}_{x} \right) \mathbf{I} \mathbb{E}\{ \Delta \mathbf{w}(n)\}, \\
+							\mathbb{E}\{ \mathbf{Q}^{\text{T}} \Delta \mathbf{w}(n + 1) \} &= \left( \mathbf{I} - 2 \mu \mathbf{Q}^{\text{T}} \mathbf{R}_{x} \right) \mathbf{Q} \mathbf{Q}^{\text{T}} \mathbb{E}\{ \Delta \mathbf{w}(n)\}, \\
+							\mathbb{E}\{ \mathbf{Q}^{\text{T}} \Delta \mathbf{w}(n + 1) \} &= \left( \mathbf{I} - 2 \mu \mathbf{Q}^{\text{T}} \mathbf{R}_{x} \mathbf{Q} \right) \mathbb{E}\{ \mathbf{Q}^{\text{T}} \Delta \mathbf{w}(n)\}, \\
+							\mathbb{E}\{\Delta \mathbf{w}'(n + 1)\} &= \left( \mathbf{I} - 2 \mu \mathbf{\Lambda} \right) \mathbb{E}\{\Delta \mathbf{w}'(n)\}.
+						\end{align}
+
+						Podemos, por fim, expandir os termos à esquerda e chegar na seguinte expressão para a análise do comportamento de convergência dos coeficientes de filtro
+
+						\begin{align}
+							\mathbb{E}\{ \Delta \mathbf{w}'(n + 1) \} &= \left( \mathbf{I} - 2 \mu \mathbf{\Lambda} \right)^{n + 1} \mathbb{E}\{\Delta \mathbf{w}'(0)\}, \\
+							\mathbb{E}\{ \Delta \mathbf{w}'(n + 1) \} &= 
+							\begin{bmatrix}
+								(1 - 2 \mu \lambda_{1})^{n + 1} & 0 & \cdots & 0 \\
+								0 & (1 - 2 \mu \lambda_{2})^{n + 1} & \cdots & \vdots \\
+								\vdots & \vdots & \ddots & \vdots \\
+								0 & 0 & \cdots & (1 - 2 \mu \lambda_{N})^{n + 1}
+							\end{bmatrix} 
+							\mathbb{E}\{ \Delta \mathbf{w}'(0)\},	
+						\end{align}
+
+						onde temos que $\lambda_{n} \forall n \in \{1, \cdots, N\}$ são os autovalores da matriz de autocorrelação. Portanto, vemos que para garantir a estabilidade da convergência é necessário 
+						apenas que o passo de aprendizado do algoritmo seja definido pela seguinte inequação
+
+						\begin{align}
+							0 < \mu < \frac{1}{\lambda}_{\text{max}},
+						\end{align}
+
+						pois desse modo conseguimos garantir que os valores da diagonal irão tender a zero a medida que o número de iterações do algoritmo tende ao infinito. Ademais, é interessante ressaltar que a escolha 
+						do valor de $\mu$ deve também levar em consideração o espalhamento de energia da matriz de correlação. Dessa forma, se não há grande diferença entre
+						os valores númericos dos autovalores, então seria aconselhável escolher um passo de aprendizado muito menor do que aquele definido pelo limite superior da expressão obtida acima.
+						
+						\item o erro em excesso em média quadrática. 
 					
 						\textcolor{red}{Solução:}
-					 
+						
+						O erro em excesso é normalmente ocasionado pelos termos ruidosos presentes no gradiente, impedindo que os coeficientes convirjam de forma exata para a solução ótima. 
+						Podemos iniciar essa análise escrevendo a equação para o erro de estimação para um determinado instante $n$ como se segue
+
+						\begin{align}
+							e(n) &= d(n) - \mathbf{w}^{\text{T}}_{\text{opt}} \mathbf{x}(n) - \Delta \mathbf{w}^{\text{T}}(n) \mathbf{x}(n), \\
+							e(n) &= e_{\text{opt}}(n) - \Delta \mathbf{w}^{\text{T}}(n) \mathbf{x}(n),
+						\end{align}
+
+						onde o erro quadrático é expresso por
+
+						\begin{align}
+							e^{2}(n) &= e^{2}_{\text{opt}}(n) - 2 e_{\text{opt}}(n) \Delta \mathbf{w}^{\text{T}}(n) \mathbf{x}(n) + \Delta \mathbf{w}^{\text{T}}(n) \mathbf{x}(n) \mathbf{x}^{\text{T}}(n) \Delta \mathbf{w}(n) ,
+						\end{align}
+
+						se definirmos o erro quadrático médio como $\xi(n) = \mathbb{E}\{e^{2}(n)\}$ e o erro ótimo, leia-se mínimo, como $\xi_{\text{min}} = \mathbb{E}\{e^{2}_{\text{opt}}(n)\}$
+						então podemos escrever
+						
+						\begin{align}
+							\xi(n) = \xi_{\text{min}} - 2 \mathbb{E}\{e_{\text{opt}}(n) \Delta \mathbf{w}^{\text{T}}(n) \mathbf{x}(n)\} + \mathbb{E}\{\Delta \mathbf{w}^{\text{T}}(n) \mathbf{x}(n) \mathbf{x}^{\text{T}}(n) \Delta \mathbf{w}(n)\},
+						\end{align}
+
+						considerando mais uma vez que $\mathbf{x}$ é ortogonal ao $\Delta \mathbf{w}^{\text{T}}(n)$ e ao $e_{\text{opt}}(n)$, simultaneamente, podemos simplificar a expressão ainda mais 
+
 				\end{enumerate}
 
 			\item Avalie a questão anterior para o caso do algoritmo LMS-Normalizado. Compare os dois casos.
@@ -785,12 +871,16 @@
 						
 						onde podemos calcular os valores teóricos para as correlações da seguinte forma se assumirmos que existe independência entre amostras distintas e que o sinal é média nula 
 						
-						\begin{align}
-							\mathbb{E}\{y(n)y^{\text{H}}(n)\} &= \mathbb{E}\{ \mathbf{x}^{2}(n) + 1.6 \mathbf{x}(n) \mathbf{x}^{\text{H}}(n - 1) + 1.6 \mathbf{x}(n - 1) \mathbf{x}^{\text{H}} (n) + 2.56 \mathbf{x}^{2}(n - 1) \} = 3.56, \\
-							\mathbb{E}\{y(n)y^{\text{H}}(n - 1)\} &= \mathbb{E}\{ \mathbf{x}(n) \mathbf{x}^{\text{H}}(n - 1) + 1.6 \mathbf{x}(n) \mathbf{x}^{\text{H}}(n - 2) + 1.6 \mathbf{x}(n - 1) \mathbf{x}^{\text{H}} (n - 1) + 2.56 \mathbf{x}(n - 1) \mathbf{x}^{\text{H}}(n - 2) \} = 1.60, \\
-							\mathbb{E}\{y(n - 1)y^{\text{H}}(n)\} &= \mathbb{E}\{ \mathbf{x}(n - 1) \mathbf{x}^{\text{H}}(n) + 1.6 \mathbf{x}(n - 1) \mathbf{x}^{\text{H}}(n - 1) + 1.6 \mathbf{x}(n - 2) \mathbf{x}^{\text{H}} (n) + 2.56 \mathbf{x}(n - 2) \mathbf{x}^{\text{H}}(n - 1) \} = 1.60, \\
-							\mathbb{E}\{y(n - 1)y^{\text{H}}(n - 1)\} &= \mathbb{E}\{ \mathbf{x}^{2}(n - 1) + 1.6 \mathbf{x}(n - 1) \mathbf{x}^{\text{H}}(n - 2) + 1.6 \mathbf{x}(n - 2) \mathbf{x}^{\text{H}} (n - 1) + 2.56 \mathbf{x}(n - 2)^{2} \} = 3.56, \\
-						\end{align}
+						\begin{align*}
+							\mathbb{E}\{y(n)y^{\text{H}}(n)\} &= \mathbb{E}\{ \mathbf{x}^{2}(n) + 1.6 \mathbf{x}(n) \mathbf{x}^{\text{H}}(n - 1) + 1.6 \mathbf{x}(n - 1) \mathbf{x}^{\text{H}} (n) \\
+							&+ 2.56 \mathbf{x}^{2}(n - 1) \} = 3.56, \\
+							\mathbb{E}\{y(n)y^{\text{H}}(n - 1)\} &= \mathbb{E}\{ \mathbf{x}(n) \mathbf{x}^{\text{H}}(n - 1) + 1.6 \mathbf{x}(n) \mathbf{x}^{\text{H}}(n - 2) + 1.6 \mathbf{x}(n - 1) \mathbf{x}^{\text{H}} (n - 1) \\ 
+							&+ 2.56 \mathbf{x}(n - 1) \mathbf{x}^{\text{H}}(n - 2) \} = 1.60, \\
+							\mathbb{E}\{y(n - 1)y^{\text{H}}(n)\} &= \mathbb{E}\{ \mathbf{x}(n - 1) \mathbf{x}^{\text{H}}(n) + 1.6 \mathbf{x}(n - 1) \mathbf{x}^{\text{H}}(n - 1) + 1.6 \mathbf{x}(n - 2) \mathbf{x}^{\text{H}} (n) \\ 
+							&+ 2.56 \mathbf{x}(n - 2) \mathbf{x}^{\text{H}}(n - 1) \} = 1.60, \\
+							\mathbb{E}\{y(n - 1)y^{\text{H}}(n - 1)\} &= \mathbb{E}\{ \mathbf{x}^{2}(n - 1) + 1.6 \mathbf{x}(n - 1) \mathbf{x}^{\text{H}}(n - 2) + 1.6 \mathbf{x}(n - 2) \mathbf{x}^{\text{H}} (n - 1) \\ 
+							&+ 2.56 \mathbf{x}(n - 2)^{2} \} = 3.56, \\
+						\end{align*}
 						
 						podendo assim descrever a matriz de autocorrelação teórica e sua inversa como
 						
@@ -850,6 +940,7 @@
 					
 						\textcolor{red}{Solução:}
 					
+					\newpage
 					\item Obtenha as trajetórias sobre as curvas de nível, tendo condições iniciais nulas para os coeﬁcientes do equalizador, para os seguintes algoritmos: (a) Algoritmo de Newton, (b) Gradiente Determinístico, (c) Least Means Square e (d) Least Means Square Normalizado
 						
 						\textcolor{red}{Solução:}
@@ -859,15 +950,16 @@
 						
 						\begin{align}
 							\mathbf{J}(w) &= \mathbb{E}\{e^{2}(n)\}, \\
-							\mathbf{J}(w) &= \sigma^{2}_{d} - 2\mathbf{w}^{T}\mathbf{p}_{xd} + w^{T}\mathbf{R}_{X}\mathbf{w}.   
+							\mathbf{J}(w) &= \sigma^{2}_{d} - 2\mathbf{w}^{T}\mathbf{p}_{xd} + w^{T}\mathbf{R}_{X}\mathbf{w}. \label{mseopt}  
 						\end{align}
 						
-						Desse modo, temos as seguintes curvas de nível
-						
+						Desse modo, nas Figuras \ref{fig:newton_contour}, \ref{fig:gradient_contour}, \ref{fig:lms_contour} e \ref{fig:nlms_contour} temos as curvas de convergência do algoritmo sobre a superficie MSE descrita na Equação (\ref{mseopt}). 
+
 					\item Obtenha também a evolução do erro quadrático médio para cada um dos algoritmos anteriores.
-					
+						
 						\textcolor{red}{Solução:}
 
+						A evolução do erro quadrático médio está disponível nas Figuras \ref{fig:newton_mse}, \ref{fig:gradient_mse}, \ref{fig:lms_mse} e \ref{fig:nlms_mse} para cada um dos algoritmos requeridos.
 					\item Qual o número de condicionamento para o problema em questão?
 					
 						\textcolor{red}{Solução:}
@@ -944,6 +1036,63 @@
 
 				\end{enumerate}
 				
+				\newpage
+				\begin{figure}[!ht]
+					\centering
+					\includegraphics[width=0.75\textwidth]{figs/newton_contour.png}
+					\caption{Caminho de convergência na superficie MSE para o Método de Newton}
+					\label{fig:newton_contour}
+				\end{figure}
+				
+				\begin{figure}[!ht]
+					\centering
+					\includegraphics[width=0.75\textwidth]{figs/gradient_contour.png}
+					\caption{Caminho de convergência na superficie MSE para o Gradiente Determinístico}
+					\label{fig:gradient_contour}
+				\end{figure}
+
+				\begin{figure}[!ht]
+					\centering
+					\includegraphics[width=0.75\textwidth]{figs/lms_contour.png}
+					\caption{Caminho de convergência na superficie MSE para o LMS}
+					\label{fig:lms_contour}
+				\end{figure}
+
+				\begin{figure}[!ht]
+					\centering
+					\includegraphics[width=0.75\textwidth]{figs/nlms_contour.png}
+					\caption{Caminho de convergência na superficie MSE para o NLMS}
+					\label{fig:nlms_contour}
+				\end{figure}
+
+				\begin{figure}[!ht]
+					\centering
+					\includegraphics[width=0.75\textwidth]{figs/newton_mse.png}
+					\caption{Caminho de convergência na superficie MSE para o Método de Newton}
+					\label{fig:newton_mse}
+				\end{figure}
+				
+				\begin{figure}[!ht]
+					\centering
+					\includegraphics[width=0.75\textwidth]{figs/gradient_mse.png}
+					\caption{Caminho de convergência na superficie MSE para o Gradiente Determinístico}
+					\label{fig:gradient_mse}
+				\end{figure}
+
+				\begin{figure}[!ht]
+					\centering
+					\includegraphics[width=0.75\textwidth]{figs/lms_mse.png}
+					\caption{Caminho de convergência na superficie MSE para o LMS}
+					\label{fig:lms_mse}
+				\end{figure}
+
+				\begin{figure}[!ht]
+					\centering
+					\includegraphics[width=0.75\textwidth]{figs/nlms_mse.png}
+					\caption{Caminho de convergência na superficie MSE para o NLMS}
+					\label{fig:nlms_mse}
+				\end{figure}
+
 		\end{enumerate}
 	
 \end{document}

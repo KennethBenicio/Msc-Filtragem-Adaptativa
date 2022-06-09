@@ -1,6 +1,6 @@
 # Fdb version 3
-["pdflatex"] 1654715423 "/home/kenneth_benicio/Projects/Github/Msc-Filtragem-Adaptativa/Listas/manuscript.tex" "manuscript.pdf" "manuscript" 1654715424
-  "/home/kenneth_benicio/Projects/Github/Msc-Filtragem-Adaptativa/Listas/manuscript.tex" 1654715423 47464 766674021fdfa2e5767a7efc148d829f ""
+["pdflatex"] 1654734040 "/home/kenneth_benicio/Projects/Github/Msc-Filtragem-Adaptativa/Listas/manuscript.tex" "manuscript.pdf" "manuscript" 1654734041
+  "/home/kenneth_benicio/Projects/Github/Msc-Filtragem-Adaptativa/Listas/manuscript.tex" 1654734040 56497 28b022568c6d2a48659edbd04dc57d0b ""
   "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1650183167 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1650183167 1004 54797486969f23fa377b128694d548df ""
   "/usr/share/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm" 1650183167 916 f87d7c45f9c908e672703b83b72241a3 ""
@@ -63,12 +63,20 @@
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1652447705 2927660 d3c8a37f6e65a821ab2eaf136b52d860 ""
   "figs/cancelamento_ruido.png" 1654010937 19792 853a118fef645f28f44775f379edd252 ""
   "figs/equalizador_linear.png" 1654171403 44996 53587424d7c498a8fff946e9b355051e ""
+  "figs/gradient_contour.png" 1654690704 19943 95c6daae733c02b255f41a4eac0437b1 ""
+  "figs/gradient_mse.png" 1654690702 28127 1e8f14f1fecca9e200df3097d20f9d36 ""
   "figs/icon.png" 1654719750 225873 bd8744586e262fc284cb39e1fe099b01 ""
+  "figs/lms_contour.png" 1654691064 18452 03f2ebf20e722cd81aa3641a6f3781b4 ""
+  "figs/lms_mse.png" 1654691047 20879 20359e6c21c05dfa72b107a01cdfc547 ""
+  "figs/newton_contour.png" 1654689315 28153 77fc63c9a1a147f029454d5199135997 ""
+  "figs/newton_mse.png" 1654689313 27974 631f9322e20b7dc2dcd8cee84aafc0bd ""
+  "figs/nlms_contour.png" 1654689288 26989 8acf1601b16e9814ab1ad01fabbc0b45 ""
+  "figs/nlms_mse.png" 1654689286 28517 717916eeb2e516c2bc9a1cd957af876c ""
   "figs/plano_z.png" 1654545830 11153 61037f67579ce082c92a6e1ae9f29465 ""
   "figs/superficie-de-erro.png" 1654178640 77850 42b157578c0ea05233901eb71b147bc2 ""
   "front.tex" 1654709719 793 a79c79316279a6c03e0210b8edcca87e ""
-  "manuscript.aux" 1654715424 727 bc989de021674f4c0372627d54839fdd "pdflatex"
-  "manuscript.tex" 1654715423 47464 766674021fdfa2e5767a7efc148d829f ""
+  "manuscript.aux" 1654734041 2382 ef92b4be1103ebc9e148c206624f376c "pdflatex"
+  "manuscript.tex" 1654734040 56497 28b022568c6d2a48659edbd04dc57d0b ""
   (generated)
   "manuscript.aux"
   "manuscript.log"
