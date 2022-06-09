@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.5.13)  8 JUN 2022 21:20
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.5.13)  8 JUN 2022 21:45
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -250,54 +250,54 @@ Overfull \hbox (32.00894pt too wide) detected at line 735
 <figs/plano_z.png, id=72, 245.718pt x 193.6836pt>
 File: figs/plano_z.png Graphic file (type png)
 <use figs/plano_z.png>
-Package pdftex.def Info: figs/plano_z.png  used on input line 935.
+Package pdftex.def Info: figs/plano_z.png  used on input line 939.
 (pdftex.def)             Requested size: 227.62204pt x 179.42935pt.
  [17] [18 <./figs/plano_z.png>]
 <figs/equalizador_linear.png, id=80, 1183.42125pt x 477.785pt>
 File: figs/equalizador_linear.png Graphic file (type png)
 <use figs/equalizador_linear.png>
-Package pdftex.def Info: figs/equalizador_linear.png  used on input line 1012.
+Package pdftex.def Info: figs/equalizador_linear.png  used on input line 1016.
 (pdftex.def)             Requested size: 386.96024pt x 156.22603pt.
  [19 <./figs/equalizador_linear.png>] [20]
 <figs/newton_contour.png, id=89, 429.2838pt x 317.5062pt>
 File: figs/newton_contour.png Graphic file (type png)
 <use figs/newton_contour.png>
-Package pdftex.def Info: figs/newton_contour.png  used on input line 1042.
+Package pdftex.def Info: figs/newton_contour.png  used on input line 1046.
 (pdftex.def)             Requested size: 341.43306pt x 252.52763pt.
 <figs/gradient_contour.png, id=90, 429.2838pt x 317.5062pt>
 File: figs/gradient_contour.png Graphic file (type png)
 <use figs/gradient_contour.png>
-Package pdftex.def Info: figs/gradient_contour.png  used on input line 1049.
+Package pdftex.def Info: figs/gradient_contour.png  used on input line 1053.
 (pdftex.def)             Requested size: 341.43306pt x 252.52763pt.
 <figs/lms_contour.png, id=91, 429.2838pt x 317.5062pt>
 File: figs/lms_contour.png Graphic file (type png)
 <use figs/lms_contour.png>
-Package pdftex.def Info: figs/lms_contour.png  used on input line 1056.
+Package pdftex.def Info: figs/lms_contour.png  used on input line 1060.
 (pdftex.def)             Requested size: 341.43306pt x 252.52763pt.
 <figs/nlms_contour.png, id=92, 429.2838pt x 317.5062pt>
 File: figs/nlms_contour.png Graphic file (type png)
 <use figs/nlms_contour.png>
-Package pdftex.def Info: figs/nlms_contour.png  used on input line 1063.
+Package pdftex.def Info: figs/nlms_contour.png  used on input line 1067.
 (pdftex.def)             Requested size: 341.43306pt x 252.52763pt.
 <figs/newton_mse.png, id=93, 429.2838pt x 317.5062pt>
 File: figs/newton_mse.png Graphic file (type png)
 <use figs/newton_mse.png>
-Package pdftex.def Info: figs/newton_mse.png  used on input line 1070.
+Package pdftex.def Info: figs/newton_mse.png  used on input line 1074.
 (pdftex.def)             Requested size: 341.43306pt x 252.52763pt.
 <figs/gradient_mse.png, id=94, 421.575pt x 316.0608pt>
 File: figs/gradient_mse.png Graphic file (type png)
 <use figs/gradient_mse.png>
-Package pdftex.def Info: figs/gradient_mse.png  used on input line 1077.
+Package pdftex.def Info: figs/gradient_mse.png  used on input line 1081.
 (pdftex.def)             Requested size: 341.43306pt x 255.98373pt.
 <figs/lms_mse.png, id=95, 429.2838pt x 317.5062pt>
 File: figs/lms_mse.png Graphic file (type png)
 <use figs/lms_mse.png>
-Package pdftex.def Info: figs/lms_mse.png  used on input line 1084.
+Package pdftex.def Info: figs/lms_mse.png  used on input line 1088.
 (pdftex.def)             Requested size: 341.43306pt x 252.52763pt.
 <figs/nlms_mse.png, id=96, 429.2838pt x 317.5062pt>
 File: figs/nlms_mse.png Graphic file (type png)
 <use figs/nlms_mse.png>
-Package pdftex.def Info: figs/nlms_mse.png  used on input line 1091.
+Package pdftex.def Info: figs/nlms_mse.png  used on input line 1095.
 (pdftex.def)             Requested size: 341.43306pt x 252.52763pt.
  [21 <./figs/newton_contour.png (PNG copy)> <./figs/gradient_contour.png (PNG copy)>] [22 <./figs/lms_contour.png (PNG copy)> <./figs/nlms_contour.png (PNG copy)>] [23 <./figs/newton_mse.png (PNG copy)> <./figs/gradient_mse.png (PNG copy)>] [24 <./figs/lms_mse.png (PNG copy)> <./figs/nlms_mse.png (PNG copy)>] (./manuscript.aux) ) 
 Here is how much of TeX's memory you used:
@@ -309,7 +309,7 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  55i,17n,62p,967b,506s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on manuscript.pdf (24 pages, 749825 bytes).
+Output written on manuscript.pdf (24 pages, 749922 bytes).
 PDF statistics:
  164 PDF objects out of 1000 (max. 8388607)
  94 compressed objects within 1 object stream
