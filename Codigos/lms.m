@@ -4,11 +4,11 @@ close all;
 clear all;
 
 % Learning rate
-mi = 5e-4;
+mi = 1e-3;
 % Filter order
 order = 2;
 % Number of samples
-Samples = 10000;
+Samples = 5000;
 % Defining the mse error and filter coeficients vectors.
 error = zeros(Samples,1);
 weights = zeros(order, Samples);
@@ -48,7 +48,7 @@ title('LMS Behavior');
 xlabel('Samples');
 ylabel('MSE');
 grid on;
-%saveas(gcf,'lms_mse.png')
+saveas(gcf,'lms_mse.png')
 
 % Contour
 figure
@@ -73,4 +73,4 @@ title('LMS Contour');
 xlabel('W_1');
 ylabel('W_0');
 grid on;
-%saveas(gcf,'lms_contour.png')
+saveas(gcf,'lms_contour.png')

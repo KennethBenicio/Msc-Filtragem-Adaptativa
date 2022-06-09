@@ -8,7 +8,7 @@ mi = 1e-3;
 % Filter order
 order = 2;
 % Number of samples
-Samples = 10000;
+Samples = 5000;
 % Defining the mse error and filter coeficients vectors.
 error = zeros(Samples,1);
 weights = zeros(order, Samples);
@@ -50,7 +50,7 @@ title('Deterministic Gradient Algorithm Behavior');
 xlabel('Iterations');
 ylabel('MSE');
 grid on;
-%saveas(gcf,'gradient_mse.png')
+saveas(gcf,'gradient_mse.png')
 
 % Contour
 figure
@@ -75,4 +75,4 @@ title('Deterministic Gradient Contour');
 xlabel('W_1');
 ylabel('W_0');
 grid on;
-%saveas(gcf,'gradient_contour.png')
+saveas(gcf,'gradient_contour.png')

@@ -841,6 +841,77 @@
 							\xi(n) = \xi_{\text{min}} - 2 \mathbb{E}\{\Delta \mathbf{w}^{\text{T}}(n)\} \mathbb{E}\{e_{\text{opt}}(n) \mathbf{x}(n)\} + \mathbb{E}\{\Delta \mathbf{w}^{\text{T}}(n) \mathbf{x}(n) \mathbf{x}^{\text{T}}(n) \Delta \mathbf{w}(n)\},
 						\end{align}
 
+						onde podemos utilizar a propriedade $\mathbb{E}\{\Delta \mathbf{w}^{\text{T}}(n) \mathbf{x}(n) \mathbf{x}^{\text{T}}(n) \Delta \mathbf{w}(n)\} = \text{tr}(\mathbb{E}\{\Delta \mathbf{w}^{\text{T}}(n) \mathbf{x}(n) \mathbf{x}^{\text{T}}(n) \Delta \mathbf{w}(n)\})$ uma vez
+						que sabemos que o traço de um escalar é o próprio escalar. Sendo assim, utilizando a propriedade cíclica do operador traço escrevemos
+
+						\begin{align}
+							\xi(n) &= \xi_{\text{min}} - 2 \mathbb{E}\{\Delta \mathbf{w}^{\text{T}}(n)\} \mathbb{E}\{e_{\text{opt}}(n) \mathbf{x}(n)\} + \text{tr}(\mathbb{E}\{\Delta \mathbf{w}^{\text{T}}(n) \mathbf{x}(n) \mathbf{x}^{\text{T}}(n) \Delta \mathbf{w}(n)\}), \\
+							\xi(n) &= \xi_{\text{min}} - 2 \mathbb{E}\{\Delta \mathbf{w}^{\text{T}}(n)\} \mathbb{E}\{e_{\text{opt}}(n)\mathbf{x}(n)\} + \mathbb{E}\{\text{tr}[\Delta \mathbf{w}^{\text{T}}(n) \mathbf{x}(n) \mathbf{x}^{\text{T}}(n) \Delta \mathbf{w}(n)]\}, \\
+							\xi(n) &= \xi_{\text{min}} - 2 \mathbb{E}\{\Delta \mathbf{w}^{\text{T}}(n)\} \mathbb{E}\{e_{\text{opt}}(n)\mathbf{x}(n)\} + \mathbb{E}\{\text{tr}[\mathbf{x}(n) \mathbf{x}^{\text{T}}(n) \Delta \mathbf{w}(n) \Delta \mathbf{w}^{\text{T}}(n)]\}, \\
+							\xi(n) &= \xi_{\text{min}} + \mathbb{E}\{\text{tr}[\mathbf{x}(n) \mathbf{x}^{\text{T}}(n) \Delta \mathbf{w}(n) \Delta \mathbf{w}^{\text{T}}(n)]\}, \\
+							\xi(n) &= \xi_{\text{min}} + \text{tr}(\mathbb{E}\{\mathbf{x}(n) \mathbf{x}^{\text{T}}(n) \Delta \mathbf{w}(n) \Delta \mathbf{w}^{\text{T}}(n)\}), \\
+							\xi(n) &= \xi_{\text{min}} + \text{tr}(\mathbb{E}\{\mathbf{x}(n) \mathbf{x}^{\text{T}}(n)\} \mathbb{E}\{\Delta \mathbf{w}(n) \Delta \mathbf{w}^{\text{T}}(n)\}), \\
+							\xi(n) &= \xi_{\text{min}} + \text{tr}(\mathbf{R}_{x} \mathbb{E}\{\Delta \mathbf{w}(n) \Delta \mathbf{w}^{\text{T}}(n)\}), \\
+							\xi(n) &= \xi_{\text{min}} + \text{tr}(\mathbb{E}\{\mathbf{R}_{x} \Delta \mathbf{w}(n) \Delta \mathbf{w}^{\text{T}}(n)\}), 
+						\end{align}
+
+						onde o processo justifica-se pela intercambialidade entre os operadores traço e valor esperador e pela ortogonalidade mencionada anteriormente. Em sequência podemos definir o erro em excesso por
+
+						\begin{align}
+							\xi(n) - \xi_{\text{min}} &= \text{tr}(\mathbb{E}\{\mathbf{R}_{x} \Delta \mathbf{w}(n) \Delta \mathbf{w}^{\text{T}}(n)\}), \\
+							\Delta \xi(n) &= \text{tr}(\mathbb{E}\{\mathbf{R}_{x} \Delta \mathbf{w}(n) \Delta \mathbf{w}^{\text{T}}(n)\}), \label{excesso1}
+						\end{align}
+
+						e adicionalmente, pela definição de uma transformação de similaridade onde garantimos que exista $\mathbf{Q} \mathbf{Q}^{\text{T}} = \mathbf{I}$ capaz de diagonalizar a matriz de autocorrelação, podemos reescrever a Equação (\ref{excesso1}) da seguinte forma
+
+						\begin{align}
+							\Delta \xi(n) &= \text{tr}(\mathbb{E}\{\mathbf{Q} \mathbf{Q}^{\text{T}} \mathbf{R}_{x} \mathbf{Q} \mathbf{Q}^{\text{T}} \Delta \mathbf{w}(n) \Delta \mathbf{w}^{\text{T}}(n) \mathbf{Q} \mathbf{Q}^{\text{T}}\}), \\
+							\Delta \xi(n) &= \text{tr}(\mathbb{E}\{\mathbf{Q} \mathbf{\Lambda} \mathbf{Q}^{\text{T}} \Delta \mathbf{w}(n) \Delta \mathbf{w}^{\text{T}}(n) \mathbf{Q} \mathbf{Q}^{\text{T}}\}), \\
+							\Delta \xi(n) &= \text{tr}(\mathbb{E}\{\mathbf{Q} \mathbf{\Lambda} \text{cov} \left[\Delta \mathbf{w}'(n)\right] \mathbf{Q}^{\text{T}}\}), \\
+							\Delta \xi(n) &= \text{tr}(\mathbb{E}\{\mathbf{\Lambda} \text{cov} \left[\Delta \mathbf{w}'(n)\right] \mathbf{Q}^{\text{T}} \mathbf{Q}\}), \\
+							\Delta \xi(n) &= \text{tr}(\mathbb{E}\{\mathbf{\Lambda} \text{cov} \left[\Delta \mathbf{w}'(n)\right]\}), \label{excesso2}
+						\end{align}
+
+						onde é sabido que $\text{cov} \left[\Delta \mathbf{w}(n)\right] = \mathbb{E}\{(\mathbf{w}(n) - \mathbf{w}_{\text{opt}}) (\mathbf{w}(n) - \mathbf{w}_{\text{opt}})^{\text{T}}\}$ e $\Delta \mathbf{w}'(n) = \mathbf{Q}^{\text{T}} \Delta \mathbf{w}(n) \Delta \mathbf{w}^{\text{T}}(n) \mathbf{Q}$.
+						Enfim, a partir das orientações presentes no livro texto da disciplina a respeito da matriz de covariância do vetor de erros é possível ainda escrever a Equação (\ref{excesso2}) como
+
+						\begin{align}
+							\Delta \xi(n) &= \sum^{N}_{i = 1} \lambda_{i} v_{i}'(n) = \mathbf{\lambda}^{\text{T}} \mathbf{v}'(n),
+						\end{align}
+
+						onde $\mathbf{\lambda}$ é um vetor contendo todos os autovalores da matriz de autocorrelação e $\mathbf{v}(n)$ é um vetor que contém os elementos da diagonal de $\text{cov} \left[\Delta \mathbf{w}'(n)\right]$. Em suma, podemos 
+						expressar o $i$th elemento do vetor diagonal $\mathbf{v}'(n + 1)$, seguindo orientações disponíveis no livro texto da disciplina, com o seguinte equacionamento
+
+						\begin{align}
+							v_{i}'(n + 1) &= (1 - 4 \mu \lambda_{i} + 8 \mu^{2} \lambda^{2}_{i}) v_{i}'(n) + 4 \mu^{2} \lambda_{i} \sum^{N}_{j = 0} \lambda_{j} v_{j}'(n) + 4 \mu^{2} \sigma^{2}_{z} \lambda_{i}.
+						\end{align}
+
+						Entretanto, se considerarmos que $v_{i}'(n + 1) \approx v_{i}'(n)$ quando $n \rightarrow \infty$ podemos simplificar a expressão, além de que 
+						também podemos realizar uma operação de soma total dos parâmetros para obter o erro em excesso total
+
+						\begin{align}
+							\notag &\sum^{N}_{i = 1} v_{i}'(n) = \sum^{N}_{i = 1} (1 - 4 \mu \lambda_{i} + 8 \mu^{2} \lambda^{2}_{i}) v_{i}'(n) + 4 \mu^{2} \sum^{N}_{i = 1} \lambda_{i} \sum^{N}_{j = 0} \lambda_{j} v_{j}'(n) + 4 \mu^{2} \sigma^{2}_{z} \sum^{N}_{i = 1} \lambda_{i}, \\
+							\notag &\sum^{N}_{i = 1} v_{i}'(n) = \sum^{N}_{i = 1} v_{i}'(n) - 4 \mu \sum^{N}_{i = 1} \lambda_{i} v_{i}'(n)  + 8 \mu^{2} \sum^{N}_{i = 1} \lambda^{2}_{i} v_{i}'(n) + 4 \mu^{2} \sum^{N}_{i = 1} \lambda_{i} \sum^{N}_{j = 0} \lambda_{j} v_{j}'(n) + 4 \mu^{2} \sigma^{2}_{z} \sum^{N}_{i = 1} \lambda_{i}, \\
+							\notag &\sum^{N}_{i = 1} v_{i}'(n) - \sum^{N}_{i = 1} v_{i}'(n) + 4 \mu \sum^{N}_{i = 1} \lambda_{i} v_{i}'(n) - 4 \mu^{2} \sum^{N}_{i = 1} \lambda_{i} \sum^{N}_{j = 0} \lambda_{j} v_{j}'(n) = 4 \mu^{2} \sigma^{2}_{z} \sum^{N}_{i = 1} \lambda_{i} + 8 \mu^{2} \sum^{N}_{i = 1} \lambda^{2}_{i} v_{i}'(n), \\
+							\notag &4 \mu \sum^{N}_{j = 1} \lambda_{j} v_{j}'(n)(1 - \mu \sum^{N}_{i = 1} \lambda_{i}) = 4 \mu (\mu \sigma^{2}_{z} \sum^{N}_{i = 1} \lambda_{i} + 2 \mu \sum^{N}_{i = 1} \lambda^{2}_{i} v_{i}'(n)), \\
+							\notag &\sum^{N}_{j = 1} \lambda_{j} v_{j}'(n) = \frac{\mu \sigma^{2}_{z} \sum^{N}_{i = 1} \lambda_{i} + 2 \mu \sum^{N}_{i = 1} \lambda^{2}_{i} v_{i}'(n)}{1 - \mu \sum^{N}_{i = 1} \lambda_{i}}, \\
+							\notag &\sum^{N}_{j = 1} \lambda_{j} v_{j}'(n) \approx \frac{\mu \sigma^{2}_{z} \sum^{N}_{i = 1} \lambda_{i} }{1 - \mu \sum^{N}_{i = 1} \lambda_{i}}, \\
+							&\sum^{N}_{j = 1} \lambda_{j} v_{j}'(n) = \frac{\mu \sigma^{2}_{z} \text{tr}(\mathbf{R}_{x})}{1 - \mu \text{tr}(\mathbf{R}_{x})},
+						\end{align}
+
+						onde foi considerado que o termo $2 \mu \sum^{N}_{i = 1} \lambda^{2}_{i} v_{i}'(n)$ apresenta contribuição insignificante para o valor absoluto do numerador. Entretanto, é mencionado no livro texto que tal aproximação é de prova complexa, mas que normalmente 
+						se verifica verdadeira para pequenos valores do passo de aprendizado $\mu$. Portanto, o erro em excesso pode ser prontamente descrito pela expressão que se segue
+
+						\begin{align}
+							\xi_{\text{excesso}} &= \underset{n \rightarrow \infty}{\text{lim}} \Delta \xi(n) \approx \frac{\mu \sigma^{2}_{z} \text{tr}(\mathbf{R}_{x})}{1 - \mu \text{tr}(\mathbf{R}_{x})}.
+						\end{align}
+
+						Vale ainda expor que podemos considerar $1 - \mu \text{tr}(\mathbf{R}_{x}) \approx 1$ para valores muito pequenos de $\mu$, obtendo assim uma versão aproximada para o erro em excesso dada por
+						
+						\begin{align}
+							\xi_{\text{excesso}} &= \underset{n \rightarrow \infty}{\text{lim}} \Delta \xi(n) \approx \mu \sigma^{2}_{z} \text{tr}(\mathbf{R}_{x}).
+						\end{align}
+
 				\end{enumerate}
 
 			\item Avalie a questão anterior para o caso do algoritmo LMS-Normalizado. Compare os dois casos.
@@ -943,6 +1014,8 @@
 					\item Obtenha o ﬁltro de erro de predição direta de passo unitário, correspondente ao sinal à saída do canal. Calcule os zeros deste ﬁltro e compare com os do equalizador.
 					
 						\textcolor{red}{Solução:}
+
+						SLIDES 04.
 					
 					\newpage
 					\item Obtenha as trajetórias sobre as curvas de nível, tendo condições iniciais nulas para os coeﬁcientes do equalizador, para os seguintes algoritmos: (a) Algoritmo de Newton, (b) Gradiente Determinístico, (c) Least Means Square e (d) Least Means Square Normalizado
@@ -964,17 +1037,73 @@
 						\textcolor{red}{Solução:}
 
 						A evolução do erro quadrático médio está disponível nas Figuras \ref{fig:newton_mse}, \ref{fig:gradient_mse}, \ref{fig:lms_mse} e \ref{fig:nlms_mse} para cada um dos algoritmos requeridos.
+					
 					\item Qual o número de condicionamento para o problema em questão?
 					
 						\textcolor{red}{Solução:}
-						VERIFICAR OS AUTOVALORES DA MATRIZ DE CORRELACAO
+						
+						o número de condicionamento pode ser prontamente obtido pela expressão
+
+						\begin{align}
+							\mathbb{C} (\mathbf{R}_{x}) = \frac{\lambda_{\text{max}}}{\lambda_{\text{min}}},
+						\end{align}
 					
+						onde $\lambda_{\text{max}}$ e $\lambda_{\text{min}}$ são os autovalores máximo e mínimo da matriz de autocorrelação, respectivamente. Por meio de um software
+						matemático foi possível obter os seguinte autovalores para a matriz de autocorrelação teórica
+
+						\begin{align}
+							\mathbb{C} (\mathbf{R}_{x}) = \frac{5.16}{1.96} = 2.63,
+						\end{align}
+
+						onde talvez seja importante ressaltar que também poderiamos ter obtido os autovalores resolvendo a equação do polinômio
+						característico da matriz de autocorrelação que é dada por
+
+						\begin{align}
+							\lambda^{2} - 7.12 \lambda + 10.11 = 0. 
+						\end{align}
+
 					\item Qual deveria ser o canal para que o número de condicionamento fosse menor/maior que 5?
 					Comente os resultados.
 					
 						\textcolor{red}{Solução:}
-						LEMBRAR QUE O DETERMINANTE É O PRODUTO ENTRE OS AUTOVALORES DE UMA MATRIZ E O NUMERO DE CONDICIONAMENTO ESTA ASSOCIADO COM A RAZAO MAXIMO/MINIMO DOS AUTOVALORES.
 						
+						Inicialmente podemos escrever a matriz de correlação contabilizando a contribuição dos coeficientes do canal para os elementos individuais
+						
+						\begin{align}
+							\mathbf{R}_{y} =
+							\begin{bmatrix}
+								a_{0} + a^{2}_{1} & a_{1}\\
+								a_{1} & a_{0} + a^{2}_{1}
+							\end{bmatrix},
+						\end{align}
+
+						onde a função de transferência do canal seria dada por $H(z) = a_{0} + a_{1}z^{-1}$. A partir dessa matriz de autocorrelação genérica podemos então 
+						definir o seguinte polinômio característico
+
+						\begin{align}
+							&(\lambda - a_{0} + a^{2}_{1})^{2} - a^{2}_{1} = 0, \\
+							&\lambda^{2} \underbrace{- 2 (a_{0} + a^{2}_{1})}_{b} \lambda + \underbrace{(a_{0} + a^{2}_{1})^{2} - a^{2}_{1}}_{c} = 0, \\
+							&\lambda^{2} + b \lambda + c = 0,
+						\end{align}
+
+						onde sabemos que a solução é facilmente obtida pela fórmula de Bháskara. A partir disso podemos definir o número de condicionamento como
+
+						\begin{align}
+							\mathbb{C} (\mathbf{R}_{x}) &= \frac{\lambda_{\text{max}}}{\lambda_{\text{min}}}, \\
+							\mathbb{C} (\mathbf{R}_{x}) &= \frac{- b + \sqrt{b^{2} - 4c}}{- b - \sqrt{b^{2} - 4c}}, \\
+							\mathbb{C} (\mathbf{R}_{x}) &= \frac{2 (a_{0} + a^{2}_{1}) + \sqrt{4 (a_{0} + a^{2}_{1})^{2} - 4 (a_{0} + a^{2}_{1})^{2} + 4 a^{2}_{1}}}{2 (a_{0} + a^{2}_{1}) - \sqrt{4 (a_{0} + a^{2}_{1})^{2} - 4 (a_{0} + a^{2}_{1})^{2} + 4 a^{2}_{1}}}, \\
+							\mathbb{C} (\mathbf{R}_{x}) &= \frac{2 (a_{0} + a^{2}_{1}) + 2a_{1}}{2 (a_{0} + a^{2}_{1}) - 2a_{1}}, \\
+							\mathbb{C} (\mathbf{R}_{x}) &= \frac{a_{0} + a^{2}_{1} + a_{1}}{a_{0} + a^{2}_{1} - a_{1}},
+						\end{align}
+
+						assim temos agora uma fórmula para o número de condicionamento da matriz de autocorrelação com base nos coeﬁcientes de canal. A partir disso basta que as seguintes inequações sejam atendidas para que
+						obtenhamos um número de condicionamento maior ou menor do que o requerido
+
+						\begin{align}
+							a_{0} + a^{2}_{1} + a_{1} &\geq 5 (a_{0} + a^{2}_{1} - a_{1}), \\
+							a_{0} + a^{2}_{1} + a_{1} &\leq 5 (a_{0} + a^{2}_{1} - a_{1}).
+						\end{align}
+
 				\end{enumerate}
 			
 			\item Utilize o algoritmo LMS para identiﬁcar um sistema com a função de transferência dada abaixo.

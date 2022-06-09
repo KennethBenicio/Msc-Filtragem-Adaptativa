@@ -4,11 +4,11 @@ close all;
 clear all;
 
 % Learning rate
-mi = 1e-1;
+mi = 0.5;
 % Filter order
 order = 2;
 % Number of samples
-Samples = 10000;
+Samples = 5000;
 % Defining the mse error and filter coeficients vectors.
 error = zeros(Samples,1);
 weights = zeros(order, Samples);
@@ -46,11 +46,11 @@ end
 % MSE Curve
 figure
 semilogy(1:Samples, error.^2,'-','color', [0.3010 0.7450 0.9330], "linewidth", 1, "markersize", 8);
-title('LMS Behavior');
+title('NLMS Behavior');
 xlabel('Samples');
 ylabel('MSE');
 grid on;
-%saveas(gcf,'nlms_mse.png')
+saveas(gcf,'nlms_mse.png')
 
 % Contour
 figure
@@ -77,4 +77,4 @@ title('NLMS Contour');
 xlabel('W_1');
 ylabel('W_0');
 grid on;
-%saveas(gcf,'nlms_contour.png')
+saveas(gcf,'nlms_contour.png')
