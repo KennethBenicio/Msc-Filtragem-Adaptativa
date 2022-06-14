@@ -53,7 +53,7 @@ title('LMS Behavior');
 xlabel('Samples');
 ylabel('MSE');
 grid on;
-saveas(gcf,'lms_mse.png')
+%saveas(gcf,'lms_mse.png')
 
 % Contour
 figure
@@ -79,4 +79,4 @@ title('LMS Contour');
 xlabel('W_1');
 ylabel('W_0');
 grid on;
-saveas(gcf,'lms_contour.png')
+%saveas(gcf,'lms_contour.png')

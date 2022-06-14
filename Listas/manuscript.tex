@@ -641,14 +641,111 @@
 					\item Calcule o filtro, com dois coeficientes, que fornece a solução ótima em relação ao erro médio quadrático.
 					
 						\textcolor{red}{Solução:}
+
+						O filtro linear ótimo que minimiza o erro médio quadrático é descrito pela solução das equações de Wiener. Portanto, inicialmente definir a matriz de autocorrelação para o processo descrito por $x(n)$
+
+						\begin{align} 
+							\mathbf{R}_{x} = 
+							\begin{bmatrix}
+								\mathbb{E}\{x(n)x^{*}(n)\} & \mathbb{E}\{x(n-1)x^{*}(n)\} \\
+								\mathbb{E}\{x(n)x^{*}(n-1)\}  & \mathbb{E}\{x(n-1)x^{*}(n-1)\} 
+							\end{bmatrix},
+						\end{align}
 					
+						se considerarmos que o processo $S(n)$ é WSS com variância $\sigma^{2}_{s}$ podemos calcular as correlações como se segue
+
+						\begin{align*} 
+							\mathbb{E}\{x(n)x^{*}(n)\} &= \mathbb{E}\{ s(n - a) s^{*}(n - a) + s(n - a) s^{*}(n - 4a) + s(n - 4a) s^{*}(n - a) \\
+							&+ s(n - 4a) s^{*}(n - 4a) \} = \sigma^{2}_{s} + 0 + 0 + \sigma^{2}_{s} = 2\sigma^{2}_{s} , \\
+							\mathbb{E}\{x(n-1)x^{*}(n)\} &= \mathbb{E}\{ s(n - 1 -a) s^{*}(n - a) + s(n - 1 - a) s^{*}(n - 4a) + s(n - 1 - 4a) s^{*}(n - a) \\
+							&+ s(n - 1 - 4a) s^{*}(n - 4a) \} = 0 + 0 + 0 + 0 = 0, \\
+							\mathbb{E}\{x(n)x^{*}(n-1)\} &= \mathbb{E}\{ s(n - a) s^{*}(n - 1 - a) + s(n - a) s^{*}(n - 1 - 4a) + s(n - 4a) s^{*}(n - 1 - a) \\
+							&+ s(n - 4a) s^{*}(n - 1 - 4a) \} = 0 + 0 + 0 + 0 = 0, \\
+							\mathbb{E}\{x(n-1)x^{*}(n-1)\} &= \mathbb{E}\{ s(n - 1 -a) s^{*}(n - 1 - a) + s(n - 1 - a) s^{*}(n - 1 - 4a) \\
+							&+ s(n - 1 - 4a) s^{*}(n - 1 - a) + s(n - 1 - 4a) s^{*}(n - 1 - 4a) \} = \sigma^{2}_{s} + 0 + 0 + \sigma^{2}_{s} = 2\sigma^{2}_{s}, \\
+						\end{align*}
+
+						obtendo assim
+						
+						\begin{align} 
+							\mathbf{R}_{x} = 
+							\begin{bmatrix}
+								2 \sigma^{2}_{s} & 0 \\
+								0  & 2 \sigma^{2}_{s}
+							\end{bmatrix},
+						\end{align}
+
+						Entretanto, considerando que o processo $D(n)$ têm média nula então temos na verdade um vetor de correlação cruzada nulo. Desse modo, o filtro linear
+						ótimo para esse processo seria o próprio vetor nulo. Sendo assim
+
+						\begin{align} 
+							\mathbf{w}_{\text{opt}} = \mathbf{R}^{-1}_{x} \mathbf{p}_{xd} = 
+							\begin{bmatrix}
+								2 \sigma^{2}_{s} & 0 \\
+								0  & 2 \sigma^{2}_{s}
+							\end{bmatrix}
+							\begin{bmatrix}
+								0 \\
+								0 
+							\end{bmatrix} = 
+							\begin{bmatrix}
+								0 \\
+								0 
+							\end{bmatrix},  
+						\end{align}
+						
+
+
 					\item Calcule o preditor direto ótimo de passo unitário, com dois coeficientes, que fornece a solução ótima em relação ao erro médio quadrático.
 					
 						\textcolor{red}{Solução:}
-					
+						
+						O filtro preditor direto é aquele que utiliza o conhecimento de amostras passadas para predizer amostras futuras de algum processo. Desse modo, podemos definir o filtro direto de passo unitário como
+
+						\begin{align}
+							\hat{x}(n) &= \sum^{M + k - 1}_{i = k} w_{f,i} x(n - i) = \sum^{2}_{i = 1} w_{f,i} x(n - i), \\
+							\hat{x}(n) &= \mathbf{w}^{\text{T}}_{f} \mathbf{x}(n - 1),
+						\end{align}
+
+						onde o erro quadrático médio pode ser dado por
+
+						\begin{align}
+							\mathbb{E}\{e^{2}(n)\} = \mathbb{E}\{(x(n) - \hat{x}(n) )^{2}\} = \mathbf{r}_{x}(0) - 2 \mathbf{w}^{\text{T}}_{f} \mathbf{r}_{x,f} + \mathbf{w}^{\text{T}}_{f} \mathbf{R}_{x} \mathbf{w}_{f},
+						\end{align}
+
+						e, portanto, de forma similar a solução de Wiener para o filtro linear ótimo temos
+
+						\begin{align}
+							\mathbf{w}_{f,\text{opt}} = \mathbf{R}^{-1}_{x} \mathbf{r}_{x,f}.
+						\end{align}
+
+						Onde mais uma vez teremos a mesma matriz de autocorrelação definida no item anterior, mas agora teremos um vetor de correlação cruzada definido por
+
+						\begin{align}
+							\mathbf{r}_{x,f} = 
+							\begin{bmatrix}
+								r_{x}(1) \\
+								r_{x}(2)
+							\end{bmatrix} =
+							\begin{bmatrix}
+								\mathbb{E}\{x(n) x(n - 1)\} \\
+								\mathbb{E}\{x(n) x(n - 2)\}
+							\end{bmatrix} = 
+							\begin{bmatrix}
+								0 \\
+								0
+							\end{bmatrix}.
+						\end{align}
+						
+						Desse modo, temos resultado idêntico ao item anterior com a solução ótima sendo o próprio vetor nulor.
+
 					\item Compare as soluções dos dois.
 					
-						\textcolor{red}{Solução:}
+						\textcolor{red}{Solução:} 
+
+						Os resultados são contraintuitivos e exibem limitações de ordem técnica que podemos encontrar durante a solução de certos problemas. Talvez uma
+						solução para esse problema fosse de alguma forma obter as correlações reais entre amostras dos processos descritos por $X(n)$ e $D(n)$. Entretanto, não
+						consigo visualizar com tanta clareza como tal procedimento poderia ser realizado.
 					
 				\end{enumerate}
 			
@@ -670,9 +767,7 @@
 						Ao utilizar a solução fechada do problema chega-se ao seguinte vetor resultado
 						
 						\begin{align}
-							\mathbf{w}_{\text{opt}} &= \mathbf{R}^{-1}_{x} \mathbf{p}_{xd}, \\
-							\mathbf{w}_{\text{opt}} &=  \left[ \begin{matrix} 1 & 0 \\ 0 & 1 \end{matrix} \right]  \left[ \begin{matrix} 2 \\ 4.5 \end{matrix} \right], \\
-							\mathbf{w}_{\text{opt}} &= \left[ \begin{matrix} 2 \\ 4.5 \end{matrix} \right].
+							\mathbf{w}_{\text{opt}} &= \mathbf{R}^{-1}_{x} \mathbf{p}_{xd} = \left[ \begin{matrix} 1 & 0 \\ 0 & 1 \end{matrix} \right]  \left[ \begin{matrix} 2 \\ 4.5 \end{matrix} \right] = \left[ \begin{matrix} 2 \\ 4.5 \end{matrix} \right].
 						\end{align}
 					
 					\item A superfície definida por $J(\mathbf{w})$. Faça um gráfico da mesma.
@@ -682,8 +777,7 @@
 						Para obter a expressão que define a superfície basta desenvolver a expressão para o erro médio
 						
 						\begin{align}
-							\mathbf{J}(w) &= \mathbb{E}\{e^{2}(n)\}, \\
-							\mathbf{J}(w) &= \sigma^{2}_{d} - 2\mathbf{w}^{T}\mathbf{p}_{xd} + w^{T}\mathbf{R}_{X}\mathbf{w}. \label{eq:mse}   
+							\mathbf{J}(w) &= \mathbb{E}\{e^{2}(n)\} = \sigma^{2}_{d} - 2\mathbf{w}^{T}\mathbf{p}_{xd} + w^{T}\mathbf{R}_{X}\mathbf{w}. \label{eq:mse}   
 						\end{align}
 						
 						Substituindo os valores encontrados anteriormente na expressão da superfície
@@ -1015,8 +1109,75 @@
 					
 						\textcolor{red}{Solução:}
 
-						SLIDES 04.
-					
+						De forma semelhante ao abordado anteriormente temos que o filtro de predição direta de passo unitário é dado por
+						
+						\begin{align}
+							\hat{x}(n) &= \sum^{M + k - 1}_{i = k} w_{f,i} x(n - i) = \sum^{2}_{i = 1} w_{f,i} x(n - i) = \mathbf{w}^{\text{T}}_{f} \mathbf{x}(n - 1),
+						\end{align}
+
+						onde o erro quadrático médio é dado por
+
+						\begin{align}
+							\mathbb{E}\{e^{2}(n)\} = \mathbb{E}\{(x(n) - \hat{x}(n) )^{2}\} = \mathbf{r}_{x}(0) - 2 \mathbf{w}^{\text{T}}_{f} \mathbf{r}_{x,f} + \mathbf{w}^{\text{T}}_{f} \mathbf{R}_{x} \mathbf{w}_{f},
+						\end{align}
+
+						onde a solução ótima será dada por
+
+						\begin{align}
+							\mathbf{w}_{f,\text{opt}} = \mathbf{R}^{-1}_{x} \mathbf{r}_{x,f}.
+						\end{align}
+
+						Onde teremos que a mesma matriz de autocorrelação e o vetor de correlação cruzada serão definidos por
+
+						\begin{align}
+							\mathbf{R}_{y} &=
+							\begin{bmatrix}
+								3.56 & 1.60 \\
+								1.60 & 3.56
+							\end{bmatrix}, \\
+							\mathbf{r}_{y,f} &= 
+							\begin{bmatrix}
+								r_{y}(1) \\
+								r_{y}(2)
+							\end{bmatrix} =
+							\begin{bmatrix}
+								\mathbb{E}\{y(n) y(n - 1)\} \\
+								\mathbb{E}\{y(n) y(n - 2)\}
+							\end{bmatrix} = 
+							\begin{bmatrix}
+								1.60 \\
+								0
+							\end{bmatrix}.
+						\end{align}
+
+						Por essa razão temos
+
+						\begin{align}
+							\mathbf{w}_{f,\text{opt}} = 
+							\begin{bmatrix}
+								0.35 & -0.16 \\
+								-0.16 & 0.35
+							\end{bmatrix}
+							\begin{bmatrix}
+								1.60 \\
+								0
+							\end{bmatrix} =
+							\begin{bmatrix}
+								0.56 \\
+								-0.26
+							\end{bmatrix}.
+						\end{align}
+
+						Em seguida, podemos obter os zeros do filtro como
+
+						\begin{align}
+							W(z) &= 0.56 - 0.26 z^{-1}, \\
+							0 &= 0.56 - 0.26 z^{-1}, \\
+							z &= 0.45,
+						\end{align}
+
+						que é o mesmo zero do equalizador definido anteriormente.
+
 					\newpage
 					\item Obtenha as trajetórias sobre as curvas de nível, tendo condições iniciais nulas para os coeﬁcientes do equalizador, para os seguintes algoritmos: (a) Algoritmo de Newton, (b) Gradiente Determinístico, (c) Least Means Square e (d) Least Means Square Normalizado
 						
@@ -1118,17 +1279,102 @@
 					
 						\textcolor{red}{Solução:}
 					
+						Para garantirmos a estabilidade do algoritmo precisamos apenas obter o valor numérico do maior autovalor definido pela matriz de autocorrelação do problema.
+						Desse modo, podemos rearranjar a função de transferência acima para o seguinte formato
+
+						\begin{align}
+							H(z) &= \frac{1}{1 - z^{-1}} - \frac{z^{-12}}{1 - z^{-1}}, \\
+							H(z) &= \frac{z^{-1}}{z^{-1}} \frac{z}{z - 1} - \frac{z^{-1}}{z^{-1}}\frac{z^{-11}}{z - 1}, \\
+							H(z) &= \frac{z}{z - 1} - \frac{z^{-11}}{z - 1},
+						\end{align}
+
+						e assim podemos utilizar uma tabela de transformadas z para chegar na seguinte equação para a saída do canal
+
+						\begin{align}
+							y(n) &= x(n) - x(n - 12), 
+						\end{align}
+
+						Assim, temos uma vez mais um sinal gaussiano branco $x(n)$ e uma saída $y(n)$ cuja matriz de autocorrelação é dada por
+
+						\begin{align}
+							\mathbf{R}_{y} =
+							\begin{bmatrix}
+								\mathbb{E}\{y(n) y^{*}(n)\} & \mathbb{E}\{y(n) y^{*}(n - 1)\} \\
+								\mathbb{E}\{y(n - 1) y^{*}(n)\}  & \mathbb{E}\{y(n - 1) y^{*}(n - 1)\} 
+							\end{bmatrix},
+						\end{align}
+
+						onde temos
+
+						\begin{align*}
+							\mathbb{E}\{y(n) y^{*}(n)\} &= \mathbb{E}\{ x(n) x^{*}(n) - x(n) x^{*}(n - 12) - x(n - 12) x^{*}(n) \\
+							&+ x(n - 12) x^{*}(n - 12) \} = 1 - 0 - 0 + 1 = 2, \\
+							\mathbb{E}\{y(n) y^{*}(n - 1)\} &= \mathbb{E}\{ x(n) x^{*}(n - 1) - x(n) x^{*}(n - 13) - x(n - 12) x^{*}(n - 1) \\
+							&+ x(n - 12) x^{*}(n - 13) \} = 0 - 0 - 0 + 0 = 0, \\
+							\mathbb{E}\{y(n - 1) y^{*}(n)\} &= \mathbb{E}\{ x(n - 1) x^{*}(n) - x(n - 1) x^{*}(n - 12) - x(n - 13) x^{*}(n) \\
+							&+ x(n - 13) x^{*}(n - 12) \} = 0 - 0 - 0 + 0 = 0, \\
+							\mathbb{E}\{y(n - 1) y^{*}(n - 1)\} &= \mathbb{E}\{ x(n - 1) x^{*}(n - 1) - x(n - 1) x^{*}(n - 13) - x(n - 13) x^{*}(n - 1) \\
+							&+ x(n - 13) x^{*}(n - 13) \} = 1 - 0 - 0 + 1 = 2,
+						\end{align*}
+
+						resultando na seguinte matriz de autocorrelação
+
+						\begin{align}
+							\mathbf{R}_{y} =
+							\begin{bmatrix}
+								2 & 0 \\
+								0 & 2 
+							\end{bmatrix},
+						\end{align}
+
+						onde sabemos que os autovalores de $\mathbf{R}_{y}$ são $\lambda_{1} = 2$ e $\lambda_{2} = 2$. Portanto, o intervalo de convergência servirá
+
+						\begin{align}
+							0 < \mu < \frac{1}{\lambda_{\text{max}}} = 0.5,
+						\end{align}
+
+						e assim $\mu_{\text{max}} = \frac{1}{\lambda_{\text{max}}} = 0.5$.
+
 					\item Execute o algoritmo para $\frac{\mu_{\text{max}}}{2}$, $\frac{\mu_{\text{max}}}{10}$ e $\frac{\mu_{\text{max}}}{50}$. Comente sobre o comportamento da convergência de cada caso.
 						
 						\textcolor{red}{Solução:}
 
-					\item Meça o desajuste (misadjustment ) em cada exemplo e comparar com os resultados obtidos pela solução teórica (Eq. (3.50) do livro texto)					
+						Nas Figuras \ref{fig:mu_2}, \ref{fig:mu_10} e \ref{fig:mu_50} podemos verificar o comportamento da convergência para esse problema. Podemos notar que não existiu convergência para
+						os dois primeiros caso enquanto o terceiro podemos verificar a estabilização do filtro. Assim como explicado anteriormente na derivação dos limites de convergência do LMS, quando temos
+						uma matriz de autocorrelação com uma distribuição de autovalores desconcentrada demais, significando que o autovalor máximo não possuí a quase totalidade da energia, então o limiar de convergência
+						torna-se extremamente impreciso. Desse modo, deve-se considerar um valor consideravelmente menor do que o limite superior máximo. Assim, podemos explicar por qual motivo houve a convergência apenas 
+						para o caso no qual o passo de aprendizado se distanciou consideravelmente do limite superior estabelecido.
+
+					\item Meça o desajuste (misadjustment) em cada exemplo e comparar com os resultados obtidos pela solução teórica (Eq. (3.50) do livro texto)					
 
 						\textcolor{red}{Solução:}
+
+						O desajuste pode ser aproximado por
+
+						\begin{align}
+							M = \frac{\xi_{\text{excesso}}}{\xi_{\text{min}}} &\approx \frac{\mu \text{tr}(\mathbf{R}_{x})}{1 - \mu \text{tr}(\mathbf{R}_{x})}.
+						\end{align}
+
+						A partir disso a seguinte tabela é disponibilizada 
+
+						\begin{table}[!ht]
+							\centering
+							\begin{tabular}{|l|l|l|}
+								\hline
+							 	& Empírico & Téorico \\ \hline
+							 	$\frac{\mu_{\text{max}}}{2}$ & $-65.65$ &  $\infty$ \\ \hline
+							 	$\frac{\mu_{\text{max}}}{10}$ & $0.249$ & $0.25$ \\ \hline
+							 	$\frac{\mu_{\text{max}}}{50}$ & $0.044$ & $0.04 $ \\ \hline
+							\end{tabular}
+						\end{table}
+
+						Os resultados empíricos foram obtidos por software matemático e estão disponíveis juntamente com esse relatório.
 
 					\item Mostre o gráﬁco da resposta em frequência do ﬁltro FIR em qualquer uma das iterações após a convergência ser obtida e compare com o sistema desconhecido.
 					
 						\textcolor{red}{Solução:}
+
+						A resposta em frequência do filtro está disponível na Figura \ref{fig:filter_response}. 
 
 				\end{enumerate}
 			
@@ -1173,57 +1419,85 @@
 				\begin{figure}[!ht]
 					\centering
 					\includegraphics[width=0.75\textwidth]{figs/newton_contour.png}
-					\caption{Caminho de convergência na superficie MSE para o Método de Newton}
+					\caption{Caminho de convergência na superficie MSE para o Método de Newton. $\text{Amostras} = 5000$, $M = 2$, $\mu = 10^{-3}$}
 					\label{fig:newton_contour}
 				\end{figure}
 				
 				\begin{figure}[!ht]
 					\centering
 					\includegraphics[width=0.75\textwidth]{figs/gradient_contour.png}
-					\caption{Caminho de convergência na superficie MSE para o Gradiente Determinístico}
+					\caption{Caminho de convergência na superficie MSE para o Gradiente Determinístico. $\text{Amostras} = 5000$, $M = 2$, $\mu = 10^{-3}$}
 					\label{fig:gradient_contour}
 				\end{figure}
 
 				\begin{figure}[!ht]
 					\centering
 					\includegraphics[width=0.75\textwidth]{figs/lms_contour.png}
-					\caption{Caminho de convergência na superficie MSE para o LMS}
+					\caption{Caminho de convergência na superficie MSE para o LMS. $\text{Amostras} = 5000$, $M = 2$, $\mu = 10^{-3}$}
 					\label{fig:lms_contour}
 				\end{figure}
 
 				\begin{figure}[!ht]
 					\centering
 					\includegraphics[width=0.75\textwidth]{figs/nlms_contour.png}
-					\caption{Caminho de convergência na superficie MSE para o NLMS}
+					\caption{Caminho de convergência na superficie MSE para o NLMS. $\text{Amostras} = 5000$, $M = 2$, $\mu = 10^{-3}$}
 					\label{fig:nlms_contour}
 				\end{figure}
 
 				\begin{figure}[!ht]
 					\centering
 					\includegraphics[width=0.75\textwidth]{figs/newton_mse.png}
-					\caption{Caminho de convergência na superficie MSE para o Método de Newton}
+					\caption{Caminho de convergência na superficie MSE para o Método de Newton. $\text{Amostras} = 5000$, $M = 2$, $\mu = 10^{-3}$}
 					\label{fig:newton_mse}
 				\end{figure}
 				
 				\begin{figure}[!ht]
 					\centering
 					\includegraphics[width=0.75\textwidth]{figs/gradient_mse.png}
-					\caption{Caminho de convergência na superficie MSE para o Gradiente Determinístico}
+					\caption{Caminho de convergência na superficie MSE para o Gradiente Determinístico. $\text{Amostras} = 5000$, $M = 2$, $\mu = 10^{-3}$}
 					\label{fig:gradient_mse}
 				\end{figure}
 
 				\begin{figure}[!ht]
 					\centering
 					\includegraphics[width=0.75\textwidth]{figs/lms_mse.png}
-					\caption{Caminho de convergência na superficie MSE para o LMS}
+					\caption{Caminho de convergência na superficie MSE para o LMS. $\text{Amostras}  = 5000$, $M = 2$, $\mu = 10^{-3}$}
 					\label{fig:lms_mse}
 				\end{figure}
 
 				\begin{figure}[!ht]
 					\centering
 					\includegraphics[width=0.75\textwidth]{figs/nlms_mse.png}
-					\caption{Caminho de convergência na superficie MSE para o NLMS}
+					\caption{Caminho de convergência na superficie MSE para o NLMS. $\text{Amostras} = 5000$, $M = 2$, $\mu = 10^{-3}$}
 					\label{fig:nlms_mse}
+				\end{figure}
+
+				\begin{figure}[!ht]
+					\centering
+					\includegraphics[width=0.75\textwidth]{figs/L3Q5_mu_2.png}
+					\caption{$\text{Amostras} = 1500$, $M = 15$, $\mu = \frac{\mu_{\text{max}}}{2}$}
+					\label{fig:mu_2}
+				\end{figure}
+
+				\begin{figure}[!ht]
+					\centering
+					\includegraphics[width=0.75\textwidth]{figs/L3Q5_mu_10.png}
+					\caption{$\text{Amostras} = 1500$, $M = 15$, $\mu = \frac{\mu_{\text{max}}}{2}$}
+					\label{fig:mu_10}
+				\end{figure}
+
+				\begin{figure}[!ht]
+					\centering
+					\includegraphics[width=0.75\textwidth]{figs/L3Q5_mu_50.png}
+					\caption{$\text{Amostras} = 1500$, $M = 15$, $\mu = \frac{\mu_{\text{max}}}{2}$}
+					\label{fig:mu_50}
+				\end{figure}
+
+				\begin{figure}[!ht]
+					\centering
+					\includegraphics[width=0.75\textwidth]{figs/L3Q5_filter_response.png}
+					\caption{$\text{Amostras} = 1500$, $M = 15$, $\mu = \frac{\mu_{\text{max}}}{2}$}
+					\label{fig:filter_response}
 				\end{figure}
 
 		\end{enumerate}

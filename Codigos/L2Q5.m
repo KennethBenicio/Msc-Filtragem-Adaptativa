@@ -1,3 +1,4 @@
+%% Lista 2, Questao 5
 clc;
 clear all;
 close all;

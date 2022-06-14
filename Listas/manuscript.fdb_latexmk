@@ -1,6 +1,6 @@
 # Fdb version 3
-["pdflatex"] 1654812778 "/home/kenneth_benicio/Projects/Github/Msc-Filtragem-Adaptativa/Listas/manuscript.tex" "manuscript.pdf" "manuscript" 1654812779
-  "/home/kenneth_benicio/Projects/Github/Msc-Filtragem-Adaptativa/Listas/manuscript.tex" 1654812777 67456 c6811b251f3428ff13857d20d5eab818 ""
+["pdflatex"] 1655167911 "/home/kenneth_benicio/Projects/Github/Msc-Filtragem-Adaptativa/Listas/manuscript.tex" "manuscript.pdf" "manuscript" 1655167911
+  "/home/kenneth_benicio/Projects/Github/Msc-Filtragem-Adaptativa/Listas/manuscript.tex" 1655167910 79124 ee6e0f9840209be13d44ce83feda04d5 ""
   "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1650183167 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1650183167 1004 54797486969f23fa377b128694d548df ""
   "/usr/share/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm" 1650183167 916 f87d7c45f9c908e672703b83b72241a3 ""
@@ -61,6 +61,10 @@
   "/usr/share/texmf-dist/web2c/texmf.cnf" 1650183167 39911 2da6c67557ec033436fe5418a70a8a61 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1652447722 4274140 6ffef722bc1262edc9440643c3ef1781 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1652447705 2927660 d3c8a37f6e65a821ab2eaf136b52d860 ""
+  "figs/L3Q5_filter_response.png" 1655167761 38365 a06d801aa0a3a9eef6d8433498410df8 ""
+  "figs/L3Q5_mu_10.png" 1655164491 15725 fc4c6c4b0ec7722a199e3b5bf8c1aec8 ""
+  "figs/L3Q5_mu_2.png" 1655164526 20599 03baa222431b6d7b0bc4ea630f533ee7 ""
+  "figs/L3Q5_mu_50.png" 1655164565 25113 65c9a7e48d50ebba34e15f9f639c43a3 ""
   "figs/cancelamento_ruido.png" 1654010937 19792 853a118fef645f28f44775f379edd252 ""
   "figs/equalizador_linear.png" 1654171403 44996 53587424d7c498a8fff946e9b355051e ""
   "figs/gradient_contour.png" 1654812691 20093 fd0d69f46bedd8bb47c1f92c4c44e8ee ""
@@ -75,8 +79,8 @@
   "figs/plano_z.png" 1654545830 11153 61037f67579ce082c92a6e1ae9f29465 ""
   "figs/superficie-de-erro.png" 1654178640 77850 42b157578c0ea05233901eb71b147bc2 ""
   "front.tex" 1654709719 793 a79c79316279a6c03e0210b8edcca87e ""
-  "manuscript.aux" 1654812779 2444 cdc441d1567f258ef6943c3c3a4f41cb "pdflatex"
-  "manuscript.tex" 1654812777 67456 c6811b251f3428ff13857d20d5eab818 ""
+  "manuscript.aux" 1655167911 3737 2cc1ad42ea587d04eced4594c539f781 "pdflatex"
+  "manuscript.tex" 1655167910 79124 ee6e0f9840209be13d44ce83feda04d5 ""
   (generated)
   "manuscript.aux"
   "manuscript.log"
