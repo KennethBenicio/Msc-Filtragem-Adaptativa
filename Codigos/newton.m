@@ -24,15 +24,18 @@ noise = sqrt(variance_noise/2).*randn(Samples,1);
 
 % Generating the original signal.
 signal_d = randn(Samples,1);
-% Generating the noisy received signal.
-signal_x = signal_d + noise;
 
 % Convolving the channel and the signal.
 Hz = [1 1.6];
-signal_x = filter(Hz,1,signal_x);
+signal_x = filter(Hz,1,signal_d);
+
+% Generating the noisy received signal.
+signal_x = signal_x + noise;
+
 % Defining the autocorrelation matrix and the cross-correlation vector.
 Rx = [3.56, 1.60; 1.60, 3.56;];
 p = [1; 0;];
+
 % Obtaining the optimal wiener solution.
 wopt = inv(Rx)*p;
 

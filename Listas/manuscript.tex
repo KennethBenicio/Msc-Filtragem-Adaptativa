@@ -1398,20 +1398,28 @@
 								
 						\textcolor{red}{Solução:}
 
+						Os resultados estão nas Figuras \ref{fig:L3Q6A1} e \ref{fig:L3Q6A2}.
+
 					\item Para os mesmos parâmetros do item (a), plote e compare os gráﬁcos de evolução que seriam resultante se o equalizador fosse treinado com 150, 300 e 500 iterações. Use o LMS com um
 					$\mu = 0.001$.
 					
 						\textcolor{red}{Solução:}
+
+						Os resultados estão na Figura \ref{fig:L3Q6B}.
 
 					\item Assuma agora que os dados transmitidos foram gerados de uma constelação 256-QAM ao invés de 16-QAM. Plote os gráﬁcos da evolução do sinal na saída do equalizador quando treinado
 					usando o LMS-normalizado e 500 símbolos de treinamento.					
 					
 						\textcolor{red}{Solução:}
 
+						Os resultados estão nas Figuras \ref{fig:L3Q6C1} e \ref{fig:L3Q6C2}.
+
 					\item Gerar as curvas de taxa de erro de símbolo (SER, do inglês Symbol Error Rate) versus SNR na entrada do equalizador para símbolos de constelações 4, 16, 64 e 256-QAM. Faça SNR variar
 					de 5dB a 30dB.
 					
 						\textcolor{red}{Solução:}
+
+						Os resultados estão na Figura \ref{fig:L3Q6D}.
 
 				\end{enumerate}
 				
@@ -1482,14 +1490,14 @@
 				\begin{figure}[!ht]
 					\centering
 					\includegraphics[width=0.75\textwidth]{figs/L3Q5_mu_10.png}
-					\caption{$\text{Amostras} = 1500$, $M = 15$, $\mu = \frac{\mu_{\text{max}}}{2}$}
+					\caption{$\text{Amostras} = 1500$, $M = 15$, $\mu = \frac{\mu_{\text{max}}}{10}$}
 					\label{fig:mu_10}
 				\end{figure}
 
 				\begin{figure}[!ht]
 					\centering
 					\includegraphics[width=0.75\textwidth]{figs/L3Q5_mu_50.png}
-					\caption{$\text{Amostras} = 1500$, $M = 15$, $\mu = \frac{\mu_{\text{max}}}{2}$}
+					\caption{$\text{Amostras} = 1500$, $M = 15$, $\mu = \frac{\mu_{\text{max}}}{50}$}
 					\label{fig:mu_50}
 				\end{figure}
 
@@ -1498,6 +1506,48 @@
 					\includegraphics[width=0.75\textwidth]{figs/L3Q5_filter_response.png}
 					\caption{$\text{Amostras} = 1500$, $M = 15$, $\mu = \frac{\mu_{\text{max}}}{2}$}
 					\label{fig:filter_response}
+				\end{figure}
+
+				\begin{figure}[!ht]
+					\centering
+					\includegraphics[width=0.75\textwidth]{figs/L3Q6_A_mse.png}
+					\caption{$\text{Amostras} = 1500$, $M = 15$, $\mu = \frac{\mu_{\text{max}}}{2}$}
+					\label{fig:L3Q6A1}
+				\end{figure}
+
+				\begin{figure}[!ht]
+					\centering
+					\includegraphics[width=0.75\textwidth]{figs/L3Q6_A_t.png}
+					\caption{$\text{Amostras} = 5000$, $M = 15$, $\mu = 0.4$}
+					\label{fig:L3Q6A2}
+				\end{figure}
+
+				\begin{figure}[!ht]
+					\centering
+					\includegraphics[width=0.75\textwidth]{figs/L3Q6_B_t.png}
+					\caption{$\text{Amostras} = 5000$, $M = 15$, $\mu = 0.001$}
+					\label{fig:L3Q6B}
+				\end{figure}
+
+				\begin{figure}[!ht]
+					\centering
+					\includegraphics[width=0.75\textwidth]{figs/L3Q6_C_mse.png}
+					\caption{$\text{Amostras} = 5000$, $M = 15$, $\mu = 0.4$}
+					\label{fig:L3Q6C1}
+				\end{figure}
+
+				\begin{figure}[!ht]
+					\centering
+					\includegraphics[width=0.75\textwidth]{figs/L3Q6_C_t.png}
+					\caption{$\text{Amostras} = 5000$, $M = 15$, $\mu = 0.4$}
+					\label{fig:L3Q6C2}
+				\end{figure}
+
+				\begin{figure}[!ht]
+					\centering
+					\includegraphics[width=0.75\textwidth]{figs/L3Q6_D_ser.png}
+					\caption{$\text{Amostras} = 5000$, $M = 15$, $\mu = 0.4$}
+					\label{fig:L3Q6D}
 				\end{figure}
 
 		\end{enumerate}

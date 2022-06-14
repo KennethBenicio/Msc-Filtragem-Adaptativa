@@ -24,12 +24,14 @@ noise = sqrt(variance_noise/2).*randn(Samples,1);
 
 % Generating the original signal.
 signal_d = randn(Samples,1);
-% Generating the noisy received signal.
-signal_d = signal_d + noise;
 
 % Convolving the channel and the signal.
 Hz = [1 1.6];
 signal_x = filter(Hz,1,signal_d);
+
+% Generating the noisy received signal.
+signal_x = signal_x + noise;
+
 % Defining the autocorrelation matrix and the cross-correlation vector.
 Rx = [3.56, 1.60; 1.60, 3.56;];
 p = [1; 0;];
@@ -38,7 +40,7 @@ p = [1; 0;];
 % signal. After some hours of debug I found out that the filtered signal
 % was a shifted version of the desired signal.
 signal_d = signal_d(order:end,1); 
-for ss = 1:(Samples - order -1)
+for ss = 1:(Samples - order - 1)
     % Error between the desired signal and the filtered signal.
     error(ss) = signal_d(ss) - weights(:,ss)' * signal_x(ss:ss+order-1); 
     % Recursive expression.
@@ -53,7 +55,7 @@ title('LMS Behavior');
 xlabel('Samples');
 ylabel('MSE');
 grid on;
-%saveas(gcf,'lms_mse.png')
+saveas(gcf,'lms_mse.png')
 
 % Contour
 figure
@@ -79,4 +81,4 @@ title('LMS Contour');
 xlabel('W_1');
 ylabel('W_0');
 grid on;
-%saveas(gcf,'lms_contour.png')
+saveas(gcf,'lms_contour.png')

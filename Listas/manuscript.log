@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.5.13)  13 JUN 2022 21:51
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.5.13)  14 JUN 2022 20:17
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -282,77 +282,107 @@ Package pdftex.def Info: figs/equalizador_linear.png  used on input line 1391.
 <figs/newton_contour.png, id=108, 429.2838pt x 317.5062pt>
 File: figs/newton_contour.png Graphic file (type png)
 <use figs/newton_contour.png>
-Package pdftex.def Info: figs/newton_contour.png  used on input line 1421.
+Package pdftex.def Info: figs/newton_contour.png  used on input line 1429.
 (pdftex.def)             Requested size: 341.43306pt x 252.52763pt.
 <figs/gradient_contour.png, id=109, 429.2838pt x 317.5062pt>
 File: figs/gradient_contour.png Graphic file (type png)
 <use figs/gradient_contour.png>
-Package pdftex.def Info: figs/gradient_contour.png  used on input line 1428.
+Package pdftex.def Info: figs/gradient_contour.png  used on input line 1436.
 (pdftex.def)             Requested size: 341.43306pt x 252.52763pt.
 <figs/lms_contour.png, id=110, 429.2838pt x 317.5062pt>
 File: figs/lms_contour.png Graphic file (type png)
 <use figs/lms_contour.png>
-Package pdftex.def Info: figs/lms_contour.png  used on input line 1435.
+Package pdftex.def Info: figs/lms_contour.png  used on input line 1443.
 (pdftex.def)             Requested size: 341.43306pt x 252.52763pt.
 <figs/nlms_contour.png, id=111, 429.2838pt x 317.5062pt>
 File: figs/nlms_contour.png Graphic file (type png)
 <use figs/nlms_contour.png>
-Package pdftex.def Info: figs/nlms_contour.png  used on input line 1442.
+Package pdftex.def Info: figs/nlms_contour.png  used on input line 1450.
 (pdftex.def)             Requested size: 341.43306pt x 252.52763pt.
 <figs/newton_mse.png, id=112, 429.2838pt x 317.5062pt>
 File: figs/newton_mse.png Graphic file (type png)
 <use figs/newton_mse.png>
-Package pdftex.def Info: figs/newton_mse.png  used on input line 1449.
+Package pdftex.def Info: figs/newton_mse.png  used on input line 1457.
 (pdftex.def)             Requested size: 341.43306pt x 252.52763pt.
 <figs/gradient_mse.png, id=113, 429.2838pt x 317.5062pt>
 File: figs/gradient_mse.png Graphic file (type png)
 <use figs/gradient_mse.png>
-Package pdftex.def Info: figs/gradient_mse.png  used on input line 1456.
+Package pdftex.def Info: figs/gradient_mse.png  used on input line 1464.
 (pdftex.def)             Requested size: 341.43306pt x 252.52763pt.
 <figs/lms_mse.png, id=114, 429.2838pt x 317.5062pt>
 File: figs/lms_mse.png Graphic file (type png)
 <use figs/lms_mse.png>
-Package pdftex.def Info: figs/lms_mse.png  used on input line 1463.
+Package pdftex.def Info: figs/lms_mse.png  used on input line 1471.
 (pdftex.def)             Requested size: 341.43306pt x 252.52763pt.
 <figs/nlms_mse.png, id=115, 429.2838pt x 317.5062pt>
 File: figs/nlms_mse.png Graphic file (type png)
 <use figs/nlms_mse.png>
-Package pdftex.def Info: figs/nlms_mse.png  used on input line 1470.
+Package pdftex.def Info: figs/nlms_mse.png  used on input line 1478.
 (pdftex.def)             Requested size: 341.43306pt x 252.52763pt.
 <figs/L3Q5_mu_2.png, id=116, 429.2838pt x 317.5062pt>
 File: figs/L3Q5_mu_2.png Graphic file (type png)
 <use figs/L3Q5_mu_2.png>
-Package pdftex.def Info: figs/L3Q5_mu_2.png  used on input line 1477.
+Package pdftex.def Info: figs/L3Q5_mu_2.png  used on input line 1485.
 (pdftex.def)             Requested size: 341.43306pt x 252.52763pt.
 <figs/L3Q5_mu_10.png, id=117, 429.2838pt x 317.5062pt>
 File: figs/L3Q5_mu_10.png Graphic file (type png)
 <use figs/L3Q5_mu_10.png>
-Package pdftex.def Info: figs/L3Q5_mu_10.png  used on input line 1484.
+Package pdftex.def Info: figs/L3Q5_mu_10.png  used on input line 1492.
 (pdftex.def)             Requested size: 341.43306pt x 252.52763pt.
 <figs/L3Q5_mu_50.png, id=118, 429.2838pt x 317.5062pt>
 File: figs/L3Q5_mu_50.png Graphic file (type png)
 <use figs/L3Q5_mu_50.png>
-Package pdftex.def Info: figs/L3Q5_mu_50.png  used on input line 1491.
+Package pdftex.def Info: figs/L3Q5_mu_50.png  used on input line 1499.
 (pdftex.def)             Requested size: 341.43306pt x 252.52763pt.
 <figs/L3Q5_filter_response.png, id=119, 429.2838pt x 317.5062pt>
 File: figs/L3Q5_filter_response.png Graphic file (type png)
 <use figs/L3Q5_filter_response.png>
-Package pdftex.def Info: figs/L3Q5_filter_response.png  used on input line 1498.
+Package pdftex.def Info: figs/L3Q5_filter_response.png  used on input line 1506.
 (pdftex.def)             Requested size: 341.43306pt x 252.52763pt.
- [27 <./figs/newton_contour.png (PNG copy)> <./figs/gradient_contour.png (PNG copy)>] [28 <./figs/lms_contour.png (PNG copy)> <./figs/nlms_contour.png (PNG copy)>] [29 <./figs/newton_mse.png (PNG copy)> <./figs/gradient_mse.png (PNG copy)>] [30 <./figs/lms_mse.png (PNG copy)> <./figs/nlms_mse.png (PNG copy)>] [31 <./figs/L3Q5_mu_2.png (PNG copy)> <./figs/L3Q5_mu_10.png (PNG copy)>] [32 <./figs/L3Q5_mu_50.png (PNG copy)> <./figs/L3Q5_filter_response.png (PNG copy)>] (./manuscript.aux) ) 
+<figs/L3Q6_A_mse.png, id=120, 429.2838pt x 317.5062pt>
+File: figs/L3Q6_A_mse.png Graphic file (type png)
+<use figs/L3Q6_A_mse.png>
+Package pdftex.def Info: figs/L3Q6_A_mse.png  used on input line 1513.
+(pdftex.def)             Requested size: 341.43306pt x 252.52763pt.
+<figs/L3Q6_A_t.png, id=121, 429.2838pt x 317.5062pt>
+File: figs/L3Q6_A_t.png Graphic file (type png)
+<use figs/L3Q6_A_t.png>
+Package pdftex.def Info: figs/L3Q6_A_t.png  used on input line 1520.
+(pdftex.def)             Requested size: 341.43306pt x 252.52763pt.
+<figs/L3Q6_B_t.png, id=122, 429.2838pt x 317.5062pt>
+File: figs/L3Q6_B_t.png Graphic file (type png)
+<use figs/L3Q6_B_t.png>
+Package pdftex.def Info: figs/L3Q6_B_t.png  used on input line 1527.
+(pdftex.def)             Requested size: 341.43306pt x 252.52763pt.
+<figs/L3Q6_C_mse.png, id=123, 429.2838pt x 317.5062pt>
+File: figs/L3Q6_C_mse.png Graphic file (type png)
+<use figs/L3Q6_C_mse.png>
+Package pdftex.def Info: figs/L3Q6_C_mse.png  used on input line 1534.
+(pdftex.def)             Requested size: 341.43306pt x 252.52763pt.
+<figs/L3Q6_C_t.png, id=124, 429.2838pt x 317.5062pt>
+File: figs/L3Q6_C_t.png Graphic file (type png)
+<use figs/L3Q6_C_t.png>
+Package pdftex.def Info: figs/L3Q6_C_t.png  used on input line 1541.
+(pdftex.def)             Requested size: 341.43306pt x 252.52763pt.
+<figs/L3Q6_D_ser.png, id=125, 429.2838pt x 317.5062pt>
+File: figs/L3Q6_D_ser.png Graphic file (type png)
+<use figs/L3Q6_D_ser.png>
+Package pdftex.def Info: figs/L3Q6_D_ser.png  used on input line 1548.
+(pdftex.def)             Requested size: 341.43306pt x 252.52763pt.
+ [27 <./figs/newton_contour.png (PNG copy)> <./figs/gradient_contour.png (PNG copy)>] [28 <./figs/lms_contour.png (PNG copy)> <./figs/nlms_contour.png (PNG copy)>] [29 <./figs/newton_mse.png (PNG copy)> <./figs/gradient_mse.png (PNG copy)>] [30 <./figs/lms_mse.png (PNG copy)> <./figs/nlms_mse.png (PNG copy)>] [31 <./figs/L3Q5_mu_2.png (PNG copy)> <./figs/L3Q5_mu_10.png (PNG copy)>] [32 <./figs/L3Q5_mu_50.png (PNG copy)> <./figs/L3Q5_filter_response.png (PNG copy)>] [33 <./figs/L3Q6_A_mse.png (PNG copy)> <./figs/L3Q6_A_t.png (PNG copy)>] [34 <./figs/L3Q6_B_t.png (PNG copy)> <./figs/L3Q6_C_mse.png (PNG copy)>] [35 <./figs/L3Q6_C_t.png (PNG copy)> <./figs/L3Q6_D_ser.png (PNG copy)>] (./manuscript.aux) ) 
 Here is how much of TeX's memory you used:
- 4828 strings out of 478238
- 73893 string characters out of 5850456
- 400156 words of memory out of 5000000
- 23014 multiletter control sequences out of 15000+600000
+ 4876 strings out of 478238
+ 74875 string characters out of 5850456
+ 400216 words of memory out of 5000000
+ 23056 multiletter control sequences out of 15000+600000
  473096 words of font info for 43 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  55i,17n,62p,967b,506s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on manuscript.pdf (32 pages, 866298 bytes).
+Output written on manuscript.pdf (35 pages, 1090781 bytes).
 PDF statistics:
- 195 PDF objects out of 1000 (max. 8388607)
- 112 compressed objects within 2 object streams
+ 210 PDF objects out of 1000 (max. 8388607)
+ 118 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 86 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 116 words of extra memory for PDF output out of 10000 (max. 10000000)
 

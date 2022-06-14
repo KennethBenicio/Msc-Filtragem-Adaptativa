@@ -4,11 +4,11 @@ close all;
 clear all;
 
 % Learning rate
-mi = (0.5)/50;
+mi = (0.5)/2;
 % Filter order
 order = 15;
 % Number of samples
-Samples = 15000;
+Samples = 3000;
 % Defining the mse error and filter coeficients vectors.
 error = zeros(Samples,1);
 weights = zeros(order, Samples);
@@ -21,13 +21,14 @@ noise = sqrt(variance_noise/2).*randn(Samples,1);
 
 % Generating the original signal.
 signal_d = randn(Samples,1);
-% Generating the noisy received signal.
-signal_d = signal_d + noise;
 
 % Convolving the channel and the signal.
 Hz = [1 0 0 0 0 0 0 0 0 0 0 0 -1];
-%Hz = [1];
+%Hz = [1 1.6];
 signal_x = filter(Hz,1,signal_d);
+
+% Generating the noisy received signal.
+signal_x = signal_x + noise;
 
 % Since we have unitary variance then the covariance matrix is the same as
 % the correlation matrix then the autocorrelation can be obtained as
@@ -46,7 +47,7 @@ for ss = 1:(Samples - order -1)
     % Recursive expression.
     weights(:,ss+1) = weights(:,ss) + 2 * mi * error(ss) * signal_x(ss:ss+order-1);
 end
-weights = flip(weights); 
+%weights = flip(weights); 
 
 % MSE Curve
 figure
@@ -55,16 +56,16 @@ title('LMS Behavior');
 xlabel('Samples');
 ylabel('MSE');
 grid on;
-%saveas(gcf,'L3Q5_mu_50.png')
+saveas(gcf,'L3Q5_mu_2.png')
 
 % Filter Response
 % https://www.mathworks.com/matlabcentral/answers/514720-how-to-use-freqz-to-plot-filter-frequency-response
 figure
 Samples = 5e3;
-fhz = 1e3;
+fhz = 1e8;
 [h_filter, w_filter] = freqz(weights(:,ss+1).',1,Samples,fhz);
-[h_channel, w_channel] = freqz([1 0 0 0 0 0 0 0 0 0 0 -1],[1 -1],Samples,fhz);
-%[h_channel, w_channel] = freqz([1],[1],Samples,fhz);
+[h_channel, w_channel] = freqz([1 0 0 0 0 0 0 0 0 0 0 -1],1,Samples,fhz);
+%[h_channel, w_channel] = freqz([1 1.6],[1],Samples,fhz);
 txt = ['Filter Response'];
 plot(w_filter,abs(h_filter),'-','color', [0.3010 0.7450 0.9330], "linewidth", 2, "markersize", 8, "DisplayName", txt);
 hold on;
@@ -79,7 +80,7 @@ set(gca,'YScale','log')
 title('Filter Response')
 xlabel('Frequency (Hz)')
 ylabel('Filter Response')
-saveas(gcf,'L3Q5_filter_response.png')
+%saveas(gcf,'L3Q5_filter_response.png')
 
 % Filter Coefficients Convergence
 % figure
