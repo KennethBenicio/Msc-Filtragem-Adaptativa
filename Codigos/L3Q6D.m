@@ -23,7 +23,6 @@ for ii = 1:length(snrs)
         weights = zeros(order, Samples);
 
         % Defining the energy of the noise vector.
-        SNR = snrs(ii);
         QAM_train = 4;
         signal_d_train = randi([0,QAM_train - 1],[Samples 1]); % The same pilot for every pilot frame and block.
         signal_d_train = (1/sqrt(2)) * qammod(signal_d_train,QAM_train); % 4-QAM Pilot Signal.
@@ -33,7 +32,7 @@ for ii = 1:length(snrs)
         signal_x_train = filter(Hz,1,signal_d_train);
 
         % Training noise
-        snr = 10^(SNR/10);
+        snr = 10^(inf/10);
         energy_symbol = mean(abs(signal_x_train(:)).^2); % Energy symbol pilot. 
         var_noise = energy_symbol .*  1/snr; % Variance of the noise.
         noise = sqrt(var_noise/2) * (randn(Samples,1) + 1i*randn(Samples,1));
@@ -64,8 +63,8 @@ for ii = 1:length(snrs)
         Hz = [0.5 1.2 1.5 -1];
         signal_x = filter(Hz,1,signal_d);
 
-        % Training noise
-        snr = 10^(SNR/10);
+        % Transmission noise
+        snr = 10^(snrs(ii)/10);
         energy_symbol = mean(abs(signal_x(:)).^2); % Energy symbol pilot. 
         var_noise = energy_symbol .*  1/snr; % Variance of the noise.
         noise = sqrt(var_noise/2) * (randn(Samples,1) + 1i*randn(Samples,1));
@@ -107,7 +106,6 @@ for ii = 1:length(snrs)
         weights = zeros(order, Samples);
 
         % Defining the energy of the noise vector.
-        SNR = snrs(ii);
         QAM_train = 4;
         signal_d_train = randi([0,QAM_train - 1],[Samples 1]); % The same pilot for every pilot frame and block.
         signal_d_train = (1/sqrt(2)) * qammod(signal_d_train,QAM_train); % 4-QAM Pilot Signal.
@@ -117,7 +115,7 @@ for ii = 1:length(snrs)
         signal_x_train = filter(Hz,1,signal_d_train);
 
         % Training noise
-        snr = 10^(SNR/10);
+        snr = 10^(inf/10);
         energy_symbol = mean(abs(signal_x_train(:)).^2); % Energy symbol pilot. 
         var_noise = energy_symbol .*  1/snr; % Variance of the noise.
         noise = sqrt(var_noise/2) * (randn(Samples,1) + 1i*randn(Samples,1));
@@ -148,8 +146,8 @@ for ii = 1:length(snrs)
         Hz = [0.5 1.2 1.5 -1];
         signal_x = filter(Hz,1,signal_d);
 
-        % Training noise
-        snr = 10^(SNR/10);
+        % Transmission noise
+        snr = 10^(snrs(ii)/10);
         energy_symbol = mean(abs(signal_x(:)).^2); % Energy symbol pilot. 
         var_noise = energy_symbol .*  1/snr; % Variance of the noise.
         noise = sqrt(var_noise/2) * (randn(Samples,1) + 1i*randn(Samples,1));
@@ -190,7 +188,6 @@ for ii = 1:length(snrs)
         weights = zeros(order, Samples);
 
         % Defining the energy of the noise vector.
-        SNR = snrs(ii);
         QAM_train = 4;
         signal_d_train = randi([0,QAM_train - 1],[Samples 1]); % The same pilot for every pilot frame and block.
         signal_d_train = (1/sqrt(2)) * qammod(signal_d_train,QAM_train); % 4-QAM Pilot Signal.
@@ -200,7 +197,7 @@ for ii = 1:length(snrs)
         signal_x_train = filter(Hz,1,signal_d_train);
 
         % Training noise
-        snr = 10^(SNR/10);
+        snr = 10^(inf/10);
         energy_symbol = mean(abs(signal_x_train(:)).^2); % Energy symbol pilot. 
         var_noise = energy_symbol .*  1/snr; % Variance of the noise.
         noise = sqrt(var_noise/2) * (randn(Samples,1) + 1i*randn(Samples,1));
@@ -231,8 +228,8 @@ for ii = 1:length(snrs)
         Hz = [0.5 1.2 1.5 -1];
         signal_x = filter(Hz,1,signal_d);
 
-        % Training noise
-        snr = 10^(SNR/10);
+        % Transmission noise
+        snr = 10^(snrs(ii)/10);
         energy_symbol = mean(abs(signal_x(:)).^2); % Energy symbol pilot. 
         var_noise = energy_symbol .*  1/snr; % Variance of the noise.
         noise = sqrt(var_noise/2) * (randn(Samples,1) + 1i*randn(Samples,1));
@@ -272,7 +269,6 @@ for ii = 1:length(snrs)
         weights = zeros(order, Samples);
 
         % Defining the energy of the noise vector.
-        SNR = snrs(ii);
         QAM_train = 4;
         signal_d_train = randi([0,QAM_train - 1],[Samples 1]); % The same pilot for every pilot frame and block.
         signal_d_train = (1/sqrt(2)) * qammod(signal_d_train,QAM_train); % 4-QAM Pilot Signal.
@@ -282,7 +278,7 @@ for ii = 1:length(snrs)
         signal_x_train = filter(Hz,1,signal_d_train);
 
         % Training noise
-        snr = 10^(SNR/10);
+        snr = 10^(inf/10);
         energy_symbol = mean(abs(signal_x_train(:)).^2); % Energy symbol pilot. 
         var_noise = energy_symbol .*  1/snr; % Variance of the noise.
         noise = sqrt(var_noise/2) * (randn(Samples,1) + 1i*randn(Samples,1));
@@ -313,8 +309,8 @@ for ii = 1:length(snrs)
         Hz = [0.5 1.2 1.5 -1];
         signal_x = filter(Hz,1,signal_d);
 
-        % Training noise
-        snr = 10^(SNR/10);
+        % Transmission noise
+        snr = 10^(snrs(ii)/10);
         energy_symbol = mean(abs(signal_x(:)).^2); % Energy symbol pilot. 
         var_noise = energy_symbol .*  1/snr; % Variance of the noise.
         noise = sqrt(var_noise/2) * (randn(Samples,1) + 1i*randn(Samples,1));

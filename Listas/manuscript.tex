@@ -812,22 +812,41 @@
 				Podemos inicialmente definir a função erro para esse filtro como
 				
 				\begin{align}
-					\mathbf{e}(n) &= d(n) - y(n), \\
-					\mathbf{e}(n) &= d(n) - \mathbf{w}^{\text{T}}(n)\mathbf{x}(n),
+					e(n) &= d(n) - y(n), \\
+					e(n) &= d(n) - \mathbf{w}^{\text{T}}(n)\mathbf{x}(n),
 				\end{align}
 				
-				e em sequência define-se a seguinte função objetivo que podemos simplifcar utilizando expansão polinomial de newton em conjunto com propriedades do operador transposto
-				
-				\begin{align*}
-					\mathbb{E}\{e^{4}(n)\} &= \mathbb{E}\{\left[d(n) - \mathbf{w}^{\text{T}}(n)\mathbf{x}(n)\right]^{4}\}, \\
-					\mathbb{E}\{e^{4}(n)\} &= \mathbb{E}\{d^{4}(n)\} - 4\mathbb{E}\{d^{3}(n)\mathbf{w}^{\text{T}}(n)\mathbf{x}(n)\} + 6\mathbb{E}\{d^{2}(n)\left[\mathbf{w}^{\text{T}}(n)\mathbf{x}(n)\right]^{2}\} \\
-					&-4\mathbb{E}\{d(n)\left[\mathbf{w}^{\text{T}}(n)\mathbf{x}(n)\right]^{3}\} + \mathbb{E}\{\left[\mathbf{w}^{\text{T}}(n)\mathbf{x}(n)\right]^{4}\}, \\
-					\mathbb{E}\{e^{4}(n)\} &= \mathbb{E}\{d^{4}(n)\} - 4\mathbb{E}\{d^{3}(n)\mathbf{w}^{\text{T}}(n)\mathbf{x}(n)\} + 6\mathbb{E}\{d^{2}(n)\left[\mathbf{w}^{\text{T}}(n)\mathbf{x}(n) \mathbf{x}^{\text{T}}(n)\mathbf{w}(n)\right]\} \\&
-					-4 \mathbb{E}\{\mathbf{w}^{\text{T}}(n) d(n) \mathbf{x}(n) \mathbf{x}^{\text{T}}(n) \mathbf{x}(n) \mathbf{w}(n) \mathbf{w}^{\text{T}}(n) \} + \mathbb{E}\{\mathbf{w}^{\text{T}}(n)\mathbf{x}(n) \mathbf{x}^{\text{T}}(n) \mathbf{w}(n) \mathbf{w}^{\text{T}}(n)\mathbf{x}(n) \mathbf{x}^{\text{T}}(n)\mathbf{w}(n)\}, \\
-					\mathbb{E}\{e^{4}(n)\} &= \mathbb{E}\{d^{4}(n)\} - 4 \mathbf{w}^{\text{T}}(n)\mathbb{E}\{d^{3}(n)\mathbf{x}(n)\} + 6 \mathbf{w}^{\text{T}}(n) \mathbb{E}\{d^{2}(n)\mathbf{x}(n) \mathbf{x}^{\text{T}}(n)\} \mathbf{w}(n) \\
-					&- 4\mathbf{w}^{\text{T}}(n) \mathbb{E}\{d(n) \mathbf{x}(n) \mathbf{x}^{\text{T}}(n) \mathbf{x}(n)\} \mathbf{w}(n) \mathbf{w}^{\text{T}}(n) + \mathbf{w}^{\text{T}}(n) \mathbf{w}(n) \mathbb{E}\{\mathbf{x}(n) \mathbf{x}^{\text{T}}(n) \mathbf{x}(n) \mathbf{x}^{\text{T}}(n)\} \mathbf{w}^{\text{T}}(n) \mathbf{w}(n), \\
-				\end{align*}
+				e para obtermos a nova expressão de recurssão precisamos primeiro obter o equacionamento para o vetor gradiente instântaneo de $\mathbb{E}\{e^{4}(n)\}$. Isso pode ser prontamente obtido por
+
+				\begin{align}
+					\nabla_{\mathbf{w}} \mathbb{E}\{e^{4}(n)\} &= \frac{\partial \mathbb{E}\{e^{4}(n)\}}{\partial \mathbf{w}} = \mathbb{E}\{ \frac{\partial e^{4}(n)}{\partial \mathbf{w}}\} = \mathbb{E}\{4 e^{3}(n) \frac{\partial e(n) }{\partial \mathbf{w}}\}, \\
+					\nabla_{\mathbf{w}} \mathbb{E}\{e^{4}(n)\} &= \mathbb{E}\{4 e^{3}(n) \frac{\partial (d(n) - \mathbf{w}^{\text{T}}(n)\mathbf{x}(n)) }{\partial \mathbf{w}}\} = \mathbb{E}\{4 e^{3}(n) (0 - \mathbf{x}(n))\}, \\
+					\nabla_{\mathbf{w}} \mathbb{E}\{e^{4}(n)\} &= - 4 \mathbb{E}\{e^{3}(n) \mathbf{x}(n)\}.
+				\end{align}
 			
+				Desse modo, para que a minimização de $\mathbb{E}\{e^{4}(n)\}$ seja atingida precisamos garantir apenas que o vetor $x(n)$ tenha entradas ortogonais ao vetor erro $e(n)$. Assim, é necessário que a seguinte equação seja verdade
+
+				\begin{align}
+					\mathbb{E}\{e^{3}(n) \mathbf{x}(n)\} &= 0, \\
+					\mathbb{E}\{(d(n) - \mathbf{w}^{\text{T}}(n)\mathbf{x}(n))^{3} \mathbf{x}(n)\} &= 0, 
+				\end{align}
+
+				onde é possível demonstrar que existe convergência em média para essa expressão se definirmos o passo de aprendizado no seguinte intervalo\footnote{A demonstração da propriedade foi extensivamente explicada no artigo \textit{The Least Mean Square Fourth (LMF) Algorithm and Its Family} de 1984 por Eugene Walash e Bernard Widrow.}
+
+				\begin{align}
+					1 < \mu < \frac{1}{6 \sigma^{2}_{z} \lambda_{\text{max}}},
+				\end{align}
+
+				onde $\sigma^{2}_{z}$ é a variância do ruído presente e $\lambda_{\text{max}}$ é o maior autovalor da matriz de autocorrelação $\mathbf{R}_{x}$. Por fim, a partir dessas observações podemos escrever a expressão de recurssão para o LMF utilizando 
+				a expressão padrão para o algoritmo do gradiente descendente\footnote{Essa expressão é brevemente introduzida no livro texto da disciplina.}
+
+				\begin{align}
+					\mathbf{w}(n + 1) &= \mathbf{w}(n) - \mu \mathbf{g}_{w}(n), \\
+					\mathbf{w}(n + 1) &= \mathbf{w}(n) + 4 \mu e^{3}(n) \mathbf{x}(n),
+				\end{align}
+
+				onde sabemos que o erro é dado por $e(n) = d(n) - \mathbf{w}^{\text{T}}(n)\mathbf{x}(n)$.
+
 			\item Considere o uso de um a sequência de ruído branco com média nula e variância $\sigma^{2}$ como entrada do algoritmo LMS. Avalie
 				
 				\begin{enumerate}
