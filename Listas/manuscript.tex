@@ -816,10 +816,10 @@
 					e(n) &= d(n) - \mathbf{w}^{\text{T}}(n)\mathbf{x}(n),
 				\end{align}
 				
-				e para obtermos a nova expressão de recurssão precisamos primeiro obter o equacionamento para o vetor gradiente instântaneo de $\mathbb{E}\{e^{4}(n)\}$. Isso pode ser prontamente obtido por
+				e para obtermos a nova expressão de recurssão precisamos primeiro obter o equacionamento para o vetor gradiente instântaneo de $\mathbb{E}\{e^{4}(n)\}$. Isso pode ser prontamente obtido por meio do auxílio de uma derivação implícita
 
 				\begin{align}
-					\nabla_{\mathbf{w}} \mathbb{E}\{e^{4}(n)\} &= \frac{\partial \mathbb{E}\{e^{4}(n)\}}{\partial \mathbf{w}} = \mathbb{E}\{ \frac{\partial e^{4}(n)}{\partial \mathbf{w}}\} = \mathbb{E}\{4 e^{3}(n) \frac{\partial e(n) }{\partial \mathbf{w}}\}, \\
+					\nabla_{\mathbf{w}} \mathbb{E}\{e^{4}(n)\} &= \frac{\partial \mathbb{E}\{e^{4}(n)\}}{\partial \mathbf{w}} = \mathbb{E}\{ \frac{\partial e^{4}(n)}{\partial \mathbf{w}}\} = \mathbb{E}\{ \frac{\partial e^{4}(n)}{\partial e(n)} \frac{\partial e(n) }{\partial \mathbf{w}}\}, \\
 					\nabla_{\mathbf{w}} \mathbb{E}\{e^{4}(n)\} &= \mathbb{E}\{4 e^{3}(n) \frac{\partial (d(n) - \mathbf{w}^{\text{T}}(n)\mathbf{x}(n)) }{\partial \mathbf{w}}\} = \mathbb{E}\{4 e^{3}(n) (0 - \mathbf{x}(n))\}, \\
 					\nabla_{\mathbf{w}} \mathbb{E}\{e^{4}(n)\} &= - 4 \mathbb{E}\{e^{3}(n) \mathbf{x}(n)\}.
 				\end{align}
