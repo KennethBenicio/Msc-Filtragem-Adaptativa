@@ -1030,6 +1030,20 @@
 			\item Avalie a questão anterior para o caso do algoritmo LMS-Normalizado. Compare os dois casos.
 				
 			\textcolor{red}{Solução:}
+
+			Em acordância com o livro texto da disciplina a expressão de atualização dos coeficientes de filtro para o algoritmo NLMS é dada por
+
+			\begin{align}
+				\mathbf{w}(k+1) = \mathbf{w}(k) + \frac{\mu_{norm}}{\gamma + \mathbf{x}^{\text{T}}(k) \mathbf{x}(k)} \mathbf{e}(k) \mathbf{x}(k),
+			\end{align}
+
+			e considerando que o valor médio do passo de aprendizado aplicado na direção LMS $2 \mathbf{e}(k) \mathbf{x}(k)$ é descrito por $\frac{\mu_{norm}}{2 \text{tr}(\mathbf{R_{xx}})}$, então é possível chegar
+			no seguinte limite superior para o valor de convergência se compararmos diretamente as fórmulas de atualização do LMS padrão com o LMS normalizado
+
+			\begin{align}
+				0 &< \frac{\mu_{norm}}{2 \text{tr}(\mathbf{R_{xx}})} < \frac{1}{\text{tr}(\mathbf{R_{xx}})}, \\
+				0 &< \mu_{norm} < 2, 
+			\end{align}
 						
 			\item Considere um sinal branco gaussiano de variância unitária transmitido por um canal de comunicação de função de transferência $H(z) = 1 + 1.6z^{-1}$. Para compensar este
 			canal utiliza-se um equalizador dado por $W(z) = w_{0} + w_{1}z^{-1}$ .
@@ -1299,70 +1313,44 @@
 						\textcolor{red}{Solução:}
 					
 						Para garantirmos a estabilidade do algoritmo precisamos apenas obter o valor numérico do maior autovalor definido pela matriz de autocorrelação do problema.
-						Desse modo, podemos rearranjar a função de transferência acima para o seguinte formato
-
-						\begin{align}
-							H(z) &= \frac{1}{1 - z^{-1}} - \frac{z^{-12}}{1 - z^{-1}}, \\
-							H(z) &= \frac{z^{-1}}{z^{-1}} \frac{z}{z - 1} - \frac{z^{-1}}{z^{-1}}\frac{z^{-11}}{z - 1}, \\
-							H(z) &= \frac{z}{z - 1} - \frac{z^{-11}}{z - 1},
-						\end{align}
-
-						e assim podemos utilizar uma tabela de transformadas z para chegar na seguinte equação para a saída do canal
-
-						\begin{align}
-							y(n) &= x(n) - x(n - 12), 
-						\end{align}
-
-						Assim, temos uma vez mais um sinal gaussiano branco $x(n)$ e uma saída $y(n)$ cuja matriz de autocorrelação é dada por
-
-						\begin{align}
-							\mathbf{R}_{y} =
-							\begin{bmatrix}
-								\mathbb{E}\{y(n) y^{*}(n)\} & \mathbb{E}\{y(n) y^{*}(n - 1)\} \\
-								\mathbb{E}\{y(n - 1) y^{*}(n)\}  & \mathbb{E}\{y(n - 1) y^{*}(n - 1)\} 
-							\end{bmatrix},
-						\end{align}
-
-						onde temos
+						Desse modo, podemos simplificar a função de transferência por meio da seguinte manipulação algébrica
 
 						\begin{align*}
-							\mathbb{E}\{y(n) y^{*}(n)\} &= \mathbb{E}\{ x(n) x^{*}(n) - x(n) x^{*}(n - 12) - x(n - 12) x^{*}(n) \\
-							&+ x(n - 12) x^{*}(n - 12) \} = 1 - 0 - 0 + 1 = 2, \\
-							\mathbb{E}\{y(n) y^{*}(n - 1)\} &= \mathbb{E}\{ x(n) x^{*}(n - 1) - x(n) x^{*}(n - 13) - x(n - 12) x^{*}(n - 1) \\
-							&+ x(n - 12) x^{*}(n - 13) \} = 0 - 0 - 0 + 0 = 0, \\
-							\mathbb{E}\{y(n - 1) y^{*}(n)\} &= \mathbb{E}\{ x(n - 1) x^{*}(n) - x(n - 1) x^{*}(n - 12) - x(n - 13) x^{*}(n) \\
-							&+ x(n - 13) x^{*}(n - 12) \} = 0 - 0 - 0 + 0 = 0, \\
-							\mathbb{E}\{y(n - 1) y^{*}(n - 1)\} &= \mathbb{E}\{ x(n - 1) x^{*}(n - 1) - x(n - 1) x^{*}(n - 13) - x(n - 13) x^{*}(n - 1) \\
-							&+ x(n - 13) x^{*}(n - 13) \} = 1 - 0 - 0 + 1 = 2,
+							H(z) &= \frac{1 - z^{-12}}{1 - z^{-1}}, \\
+							H(z) &= \frac{(1 - z^{-1})(1 + z^{-1} + z^{-2} + z^{-3} + z^{-4} + z^{-5} + z^{-6} + z^{-7} + z^{-8} + z^{-9} + z^{-10} + z^{-11})}{1 - z^{-1}}, \\
+							H(z) &= 1 + z^{-1} + z^{-2} + z^{-3} + z^{-4} + z^{-5} + z^{-6} + z^{-7} + z^{-8} + z^{-9} + z^{-10} + z^{-11},
 						\end{align*}
 
-						resultando na seguinte matriz de autocorrelação
+						e tomando a transformada z inversa da função de transferência chega-se a seguinte saída de um sinal transmitido por esse canal
+
+						\begin{align*}
+							y(n) &= x(n) + x(n-1) + x(n-2) + x(n-3) + x(n-4) + x(n-5) + x(n-6) + x(n-7) \\
+							&+ x(n-8) + x(n-9) + x(n-10) - x(n-11), 
+						\end{align*}
+
+						Em sequência é possível utilizar um software matemático para a realizar a obtenção da matriz de autocorrelação estimada
+
+						\begin{figure}[ht!]
+							\centering
+							\includegraphics[width=1\textwidth]{figs/Rxx.png}
+						\caption{Matriz de autocorrelação estimada após 10000 realizações para retirada do comportamento médio}
+						\label{fig:rxx}
+						\end{figure}
+
+						onde a análise de autovalores de $\mathbf{R}_{xx}$ resulta no seguinte intervalo de convergência para o passo de 
+						aprendizado
 
 						\begin{align}
-							\mathbf{R}_{y} =
-							\begin{bmatrix}
-								2 & 0 \\
-								0 & 2 
-							\end{bmatrix},
+							0 < \mu < \frac{1}{\lambda_{\text{max}}} = \frac{1}{195} \approx 0.005,
 						\end{align}
 
-						onde sabemos que os autovalores de $\mathbf{R}_{y}$ são $\lambda_{1} = 2$ e $\lambda_{2} = 2$. Portanto, o intervalo de convergência servirá
-
-						\begin{align}
-							0 < \mu < \frac{1}{\lambda_{\text{max}}} = 0.5,
-						\end{align}
-
-						e assim $\mu_{\text{max}} = \frac{1}{\lambda_{\text{max}}} = 0.5$.
+						e assim $\mu_{\text{max}} \approx 0.005$.
 
 					\item Execute o algoritmo para $\frac{\mu_{\text{max}}}{2}$, $\frac{\mu_{\text{max}}}{10}$ e $\frac{\mu_{\text{max}}}{50}$. Comente sobre o comportamento da convergência de cada caso.
 						
 						\textcolor{red}{Solução:}
 
-						Nas Figuras \ref{fig:mu_2}, \ref{fig:mu_10} e \ref{fig:mu_50} podemos verificar o comportamento da convergência para esse problema. Podemos notar que não existiu convergência para
-						os dois primeiros caso enquanto o terceiro podemos verificar a estabilização do filtro. Assim como explicado anteriormente na derivação dos limites de convergência do LMS, quando temos
-						uma matriz de autocorrelação com uma distribuição de autovalores desconcentrada demais, significando que o autovalor máximo não possuí a quase totalidade da energia, então o limiar de convergência
-						torna-se extremamente impreciso. Desse modo, deve-se considerar um valor consideravelmente menor do que o limite superior máximo. Assim, podemos explicar por qual motivo houve a convergência apenas 
-						para o caso no qual o passo de aprendizado se distanciou consideravelmente do limite superior estabelecido.
+						Nas Figuras \ref{fig:mu_2}, \ref{fig:mu_10} e \ref{fig:mu_50} podemos verificar a convergência do algoritmo para esse problema. 
 
 					\item Meça o desajuste (misadjustment) em cada exemplo e comparar com os resultados obtidos pela solução teórica (Eq. (3.50) do livro texto)					
 
@@ -1371,23 +1359,23 @@
 						O desajuste pode ser aproximado por
 
 						\begin{align}
-							M = \frac{\xi_{\text{excesso}}}{\xi_{\text{min}}} &\approx \frac{\mu \text{tr}(\mathbf{R}_{x})}{1 - \mu \text{tr}(\mathbf{R}_{x})}.
+							M = \frac{\xi_{\text{excesso}}}{\xi_{\text{min}}} &\approx \frac{\mu \text{tr}(\mathbf{R}_{x})}{1 - \mu \text{tr}(\mathbf{R}_{x})},
 						\end{align}
 
-						A partir disso a seguinte tabela é disponibilizada 
+						e a partir dessa expressão foi possivel obter a seguinte tabela
 
 						\begin{table}[!ht]
 							\centering
 							\begin{tabular}{|l|l|l|}
 								\hline
 							 	& Empírico & Téorico \\ \hline
-							 	$\frac{\mu_{\text{max}}}{2}$ & $-65.65$ &  $\infty$ \\ \hline
-							 	$\frac{\mu_{\text{max}}}{10}$ & $0.249$ & $0.25$ \\ \hline
-							 	$\frac{\mu_{\text{max}}}{50}$ & $0.044$ & $0.04 $ \\ \hline
+							 	$\frac{\mu_{\text{max}}}{2}$ & $ -1.1618 $ &  $ -1.1613 $ \\ \hline
+							 	$\frac{\mu_{\text{max}}}{10}$ & $ -3.2938 $ & $ -3.2727 $ \\ \hline
+							 	$\frac{\mu_{\text{max}}}{50}$ & $ +0.4029 $ & $ +0.4045 $ \\ \hline
 							\end{tabular}
 						\end{table}
 
-						Os resultados empíricos foram obtidos por software matemático e estão disponíveis juntamente com esse relatório.
+						Os resultados foram obtidos por uso de software matemático e os códigos estão disponíveis juntamente com este relatório.
 
 					\item Mostre o gráﬁco da resposta em frequência do ﬁltro FIR em qualquer uma das iterações após a convergência ser obtida e compare com o sistema desconhecido.
 					
