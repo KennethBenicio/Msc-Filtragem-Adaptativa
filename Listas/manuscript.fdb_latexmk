@@ -1,6 +1,6 @@
 # Fdb version 3
-["pdflatex"] 1656448848 "/home/kenneth_benicio/Projects/Github/Msc-Filtragem-Adaptativa/Listas/manuscript.tex" "manuscript.pdf" "manuscript" 1656448848
-  "/home/kenneth_benicio/Projects/Github/Msc-Filtragem-Adaptativa/Listas/manuscript.tex" 1656448847 80609 fe61457256a59f6b2aed3063b50ccb4b ""
+["pdflatex"] 1656450283 "/home/kenneth_benicio/Projects/Github/Msc-Filtragem-Adaptativa/Listas/manuscript.tex" "manuscript.pdf" "manuscript" 1656450284
+  "/home/kenneth_benicio/Projects/Github/Msc-Filtragem-Adaptativa/Listas/manuscript.tex" 1656450282 80485 7606d10af56f87fc5c5d8551541932f5 ""
   "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1650183167 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1650183167 1004 54797486969f23fa377b128694d548df ""
   "/usr/share/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1650183167 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -101,8 +101,8 @@
   "figs/plano_z.png" 1654545830 11153 61037f67579ce082c92a6e1ae9f29465 ""
   "figs/superficie-de-erro.png" 1654178640 77850 42b157578c0ea05233901eb71b147bc2 ""
   "front.tex" 1656023476 793 d5a8c848561df167cb262a0a7eeabf92 ""
-  "manuscript.aux" 1656448848 5116 572bd9031a313336f748a10130414278 "pdflatex"
-  "manuscript.tex" 1656448847 80609 fe61457256a59f6b2aed3063b50ccb4b ""
+  "manuscript.aux" 1656450284 5116 572bd9031a313336f748a10130414278 "pdflatex"
+  "manuscript.tex" 1656450282 80485 7606d10af56f87fc5c5d8551541932f5 ""
   (generated)
   "manuscript.aux"
   "manuscript.log"

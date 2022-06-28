@@ -297,9 +297,7 @@
 					\mathbb{E}\{\mathbf{x} \mathbf{x}^{\text{H}}\mathbf{R}^{-1}_{x}\} = \mathbf{I}_{N}, \\
 				\end{align}
 				
-				onde a última passagem foi possível pois consideramos que, embora de naturaze aleatória, a matriz de autocorrelação possui medicões fixas 
-				após o término da coleta das amostas. Desse modo, podemos aplicar o operador traço de matriz e por meio das propriedades relevantes é possível
-				alterar de forma conveniente a ordem do produto dos termos, somente ao aplicarmos uma permutação cíclica, obtendo portanto o seguinte resultado
+				Desse modo, podemos aplicar o operador traço de matriz e por meio da propriedade de permutação cíclica desse operador chegamos ao seguinte resultado
 				
 				\begin{align}
 					\text{Tr}\{\mathbb{E}\{\mathbf{x} \mathbf{x}^{\text{H}}\mathbf{R}^{-1}_{x}\}\} = \text{Tr}\{\mathbf{I}_{N}\}, \\
@@ -307,6 +305,8 @@
 					\text{Tr}\{\mathbb{E}\{\mathbf{x}^{\text{H}}\mathbf{R}^{-1}_{x} \mathbf{x}\}\} = N,
 				\end{align}
 			
+				onde a ultima expressão se justifica pois temos uma matriz identidade de ordem $N$ no lado direito. Desse modo, seu traço é dado por $\sum^{N}_{i = 1} 1 = N$.
+				
 			\item Mostre que as matrizes de correlação e covariância satisfazem as relações abaixo:
 				
 				\begin{enumerate}
