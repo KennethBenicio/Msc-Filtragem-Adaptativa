@@ -4,7 +4,7 @@ close all;
 clear all;
 
 % Learning rate
-mi = (0.5)/2;
+mi = (0.005)/50;
 % Filter order
 order = 15;
 % Number of samples
@@ -56,7 +56,7 @@ title('LMS Behavior');
 xlabel('Samples');
 ylabel('MSE');
 grid on;
-saveas(gcf,'L3Q5_mu_2.png')
+%saveas(gcf,'L3Q5_mu_50.png')
 
 % Filter Response
 % https://www.mathworks.com/matlabcentral/answers/514720-how-to-use-freqz-to-plot-filter-frequency-response
@@ -80,7 +80,7 @@ set(gca,'YScale','log')
 title('Filter Response')
 xlabel('Frequency (Hz)')
 ylabel('Filter Response')
-%saveas(gcf,'L3Q5_filter_response.png')
+saveas(gcf,'L3Q5_filter_response.png')
 
 % Filter Coefficients Convergence
 % figure
