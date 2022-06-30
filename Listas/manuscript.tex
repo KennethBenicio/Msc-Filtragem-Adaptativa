@@ -2,6 +2,7 @@
 \usepackage[portuguese]{babel}
 
 \usepackage{cite}
+\usepackage{float}
 \usepackage{xcolor}
 \usepackage{graphicx}
 \usepackage{fancyhdr}
@@ -578,7 +579,7 @@
 			
 			\item Em várias aplicações práticas há uma necessidade de cancelar ruído que foi adicionado a um sinal. Por exemplo, se estamos usando o telefone celular dentro de um ruído e o ruído do carro ou rádio é adicionado à mensagem que estamos tentando transmitir. A Figura abaixo ilustra as situações de contaminação de ruído. Calcule o filtro de Wiener (filtro ótimo) de tal configuração em relação às estatísticas dos sinais envolvidos que você dispõe (conhece).
 			
-				\begin{figure}[!ht]
+				\begin{figure}[H]
 					\centering
 					\includegraphics[width=0.5\textwidth]{figs/cancelamento_ruido.png}
 					\caption{Estrutura de Equalização de Canal}
@@ -789,7 +790,7 @@
 						
 						Utilizando um software gráfico é possível obter a Figura \ref{fig:01} onde é traçada a superfície de erro MSE expressa na Equação (\ref{eq:mse}).
 					
-						\begin{figure}[!ht]
+						\begin{figure}[H]
 							\centering
 							\includegraphics[width=0.5\textwidth]{figs/superficie-de-erro.png}
 							\caption{Superfície de erro MSE}
@@ -1132,7 +1133,7 @@
 						
 						Por fim, abaixo segue o traçado para os zeros das funções de transferência tanto do canal quanto do filtro ótimo em azul e em vermelho, respectivamente.
 						
-						\begin{figure}[!ht]
+						\begin{figure}[H]
 							\centering
 							\includegraphics[width=0.5\textwidth]{figs/plano_z.png}
 							\caption{Zeros do canal e do equalizador no plano-z.}
@@ -1330,7 +1331,7 @@
 
 						Em sequência é possível utilizar um software matemático para a realizar a obtenção da matriz de autocorrelação estimada
 
-						\begin{figure}[ht!]
+						\begin{figure}[H]
 							\centering
 							\includegraphics[width=1\textwidth]{figs/Rxx.png}
 						\caption{Matriz de autocorrelação estimada após 10000 realizações para retirada do comportamento médio}
@@ -1364,7 +1365,7 @@
 
 						e a partir dessa expressão foi possivel obter a seguinte tabela
 
-						\begin{table}[!ht]
+						\begin{table}[H]
 							\centering
 							\begin{tabular}{|l|l|l|}
 								\hline
@@ -1393,7 +1394,7 @@
 				
 				e deseja-se projetar um equalizar para o mesmo. A estrutura do equalizador é mostrada na Figura abaixo. Os símbolos $s(n)$ são transmitidos através de um canal e corrompidos por ruído aditivo gaussiano branco complexo $v(n)$. O sinal recebido $x(n)$ é processado pelo equalizador FIR para gerar estimativas $\overset{\sim}{s}(n - \delta)$, as quais são passados por um dispositivo decisor gerando  símbolos $\hat{s}(n - \delta)$. O equalizador possui dois modos de operação: um modo de treinamento durante o qual uma versão atrasada e  replicada da sequência de entrada é usada como o sinal de referência (desejado) e um modo dirigido por decisão no qual a saída do dispositivo de decisão substitui a sequência de referência. O sinal de entrada $s(n)$ é escolhido de uma constelação QAM (por exemplo, 4-QAM, 16-QAM, 64-QAM ou 256-QAM).
 				
-				\begin{figure}[!ht]
+				\begin{figure}[H]
 					\centering
 					\includegraphics[width=0.85\textwidth]{figs/equalizador_linear.png}
 					\caption{Equalizador Linear}
@@ -1431,126 +1432,126 @@
 				\end{enumerate}
 				
 				\newpage
-				\begin{figure}[!ht]
+				\begin{figure}[H]
 					\centering
 					\includegraphics[width=0.75\textwidth]{figs/newton_contour.png}
 					\caption{Caminho de convergência na superficie MSE para o Método de Newton. $\text{Amostras} = 5000$, $M = 2$, $\mu = 10^{-3}$}
 					\label{fig:newton_contour}
 				\end{figure}
 				
-				\begin{figure}[!ht]
+				\begin{figure}[H]
 					\centering
 					\includegraphics[width=0.75\textwidth]{figs/gradient_contour.png}
 					\caption{Caminho de convergência na superficie MSE para o Gradiente Determinístico. $\text{Amostras} = 5000$, $M = 2$, $\mu = 10^{-3}$}
 					\label{fig:gradient_contour}
 				\end{figure}
 
-				\begin{figure}[!ht]
+				\begin{figure}[H]
 					\centering
 					\includegraphics[width=0.75\textwidth]{figs/lms_contour.png}
 					\caption{Caminho de convergência na superficie MSE para o LMS. $\text{Amostras} = 5000$, $M = 2$, $\mu = 10^{-3}$}
 					\label{fig:lms_contour}
 				\end{figure}
 
-				\begin{figure}[!ht]
+				\begin{figure}[H]
 					\centering
 					\includegraphics[width=0.75\textwidth]{figs/nlms_contour.png}
 					\caption{Caminho de convergência na superficie MSE para o NLMS. $\text{Amostras} = 5000$, $M = 2$, $\mu = 10^{-3}$}
 					\label{fig:nlms_contour}
 				\end{figure}
 
-				\begin{figure}[!ht]
+				\begin{figure}[H]
 					\centering
 					\includegraphics[width=0.75\textwidth]{figs/newton_mse.png}
 					\caption{Caminho de convergência na superficie MSE para o Método de Newton. $\text{Amostras} = 5000$, $M = 2$, $\mu = 10^{-3}$}
 					\label{fig:newton_mse}
 				\end{figure}
 				
-				\begin{figure}[!ht]
+				\begin{figure}[H]
 					\centering
 					\includegraphics[width=0.75\textwidth]{figs/gradient_mse.png}
 					\caption{Caminho de convergência na superficie MSE para o Gradiente Determinístico. $\text{Amostras} = 5000$, $M = 2$, $\mu = 10^{-3}$}
 					\label{fig:gradient_mse}
 				\end{figure}
 
-				\begin{figure}[!ht]
+				\begin{figure}[H]
 					\centering
 					\includegraphics[width=0.75\textwidth]{figs/lms_mse.png}
 					\caption{Caminho de convergência na superficie MSE para o LMS. $\text{Amostras}  = 5000$, $M = 2$, $\mu = 10^{-3}$}
 					\label{fig:lms_mse}
 				\end{figure}
 
-				\begin{figure}[!ht]
+				\begin{figure}[H]
 					\centering
 					\includegraphics[width=0.75\textwidth]{figs/nlms_mse.png}
 					\caption{Caminho de convergência na superficie MSE para o NLMS. $\text{Amostras} = 5000$, $M = 2$, $\mu = 10^{-3}$}
 					\label{fig:nlms_mse}
 				\end{figure}
 
-				\begin{figure}[!ht]
+				\begin{figure}[H]
 					\centering
 					\includegraphics[width=0.75\textwidth]{figs/L3Q5_mu_2.png}
 					\caption{$\text{Amostras} = 1500$, $M = 15$, $\mu = \frac{\mu_{\text{max}}}{2}$}
 					\label{fig:mu_2}
 				\end{figure}
 
-				\begin{figure}[!ht]
+				\begin{figure}[H]
 					\centering
 					\includegraphics[width=0.75\textwidth]{figs/L3Q5_mu_10.png}
 					\caption{$\text{Amostras} = 1500$, $M = 15$, $\mu = \frac{\mu_{\text{max}}}{10}$}
 					\label{fig:mu_10}
 				\end{figure}
 
-				\begin{figure}[!ht]
+				\begin{figure}[H]
 					\centering
 					\includegraphics[width=0.75\textwidth]{figs/L3Q5_mu_50.png}
 					\caption{$\text{Amostras} = 1500$, $M = 15$, $\mu = \frac{\mu_{\text{max}}}{50}$}
 					\label{fig:mu_50}
 				\end{figure}
 
-				\begin{figure}[!ht]
+				\begin{figure}[H]
 					\centering
 					\includegraphics[width=0.75\textwidth]{figs/L3Q5_filter_response.png}
 					\caption{$\text{Amostras} = 1500$, $M = 15$, $\mu = \frac{\mu_{\text{max}}}{2}$}
 					\label{fig:filter_response}
 				\end{figure}
 
-				\begin{figure}[!ht]
+				\begin{figure}[H]
 					\centering
 					\includegraphics[width=0.75\textwidth]{figs/L3Q6_A_mse.png}
 					\caption{$\text{Amostras} = 1500$, $M = 15$, $\mu = \frac{\mu_{\text{max}}}{2}$}
 					\label{fig:L3Q6A1}
 				\end{figure}
 
-				\begin{figure}[!ht]
+				\begin{figure}[H]
 					\centering
 					\includegraphics[width=0.75\textwidth]{figs/L3Q6_A_t.png}
 					\caption{$\text{Amostras} = 5000$, $M = 15$, $\mu = 0.4$}
 					\label{fig:L3Q6A2}
 				\end{figure}
 
-				\begin{figure}[!ht]
+				\begin{figure}[H]
 					\centering
 					\includegraphics[width=0.75\textwidth]{figs/L3Q6_B_t.png}
 					\caption{$\text{Amostras} = 5000$, $M = 15$, $\mu = 0.001$}
 					\label{fig:L3Q6B}
 				\end{figure}
 
-				\begin{figure}[!ht]
+				\begin{figure}[H]
 					\centering
 					\includegraphics[width=0.75\textwidth]{figs/L3Q6_C_mse.png}
 					\caption{$\text{Amostras} = 5000$, $M = 15$, $\mu = 0.4$}
 					\label{fig:L3Q6C1}
 				\end{figure}
 
-				\begin{figure}[!ht]
+				\begin{figure}[H]
 					\centering
 					\includegraphics[width=0.75\textwidth]{figs/L3Q6_C_t.png}
 					\caption{$\text{Amostras} = 5000$, $M = 15$, $\mu = 0.4$}
 					\label{fig:L3Q6C2}
 				\end{figure}
 
-				\begin{figure}[!ht]
+				\begin{figure}[H]
 					\centering
 					\includegraphics[width=0.75\textwidth]{figs/L3Q6_D_ser.png}
 					\caption{$\text{Amostras} = 5000$, $M = 15$, $\mu = 0.4$}
@@ -1559,5 +1560,160 @@
 
 		\end{enumerate}
 	
+	\newpage
+	\section*{Método de Mínimos Quadrados}
+
+		\begin{enumerate}
+			
+			\item O algoritmo RLS é utilizado para prever o sinal $x(n) = \text{cos} (\frac{\pi n}{3})$ usando um filtro FIR de segunda ordem com o primero 
+			coeficiente fixo em $1$. Dado $\lambda = 0.98$, calcule o sinal de saída $y(n)$ e os coeficientes do filtro nas primeiras $10$ iterações. 
+			Note que a meta é minimizar $\mathbb{E}\{y^{2}(n)\}$. Inicie com $\boldsymbol{w} = [1 0 0]^{\text{T}}$ e $\delta = 100$.
+ 
+				\textcolor{red}{Solução:}
+
+			\item Seja $\epsilon(n)$ que denota um erro de estimação a priori
+			
+				\begin{align}
+					\epsilon(n) = d(n) - \boldsymbol{w}^{\text{H}}(n - 1) \boldsymbol{x}(n),
+				\end{align}
+
+				em que $d(n)$ é a resposta desejada, $x(n)$ é o vetor de entrada do filtro e $\boldsymbol{w}(n - 1)$ é a estimativa
+				anterior do vetor de coeficientes do filtro. Seja $e(n)$ o erro de estimação a posteriori
+
+				\begin{align}
+					e(n) = d(n) - \boldsymbol{w}^{\text{H}}(n) \boldsymbol{x}(n),
+				\end{align}
+
+				em que $\boldsymbol{w}(n)$ é a estimativa atual do vetor de coeficientes do filtro. Para dados complexos ambos
+				$\epsilon(n)$ e $e(n)$ são de valores complexos. Mostre que o produto $\epsilon(n)e^{*}(n)$ é sempre de valor real.
+
+				\textcolor{red}{Solução:}
+
+			\item Seja um sinal $x(n)$ composto de uma senóide em meio à ruído. Simule um preditor adaptativo
+			de ordem 2 com um algoritmo RLS considerando $\text{SNR} = 3 dB$ e $\text{SNR} \rightarrow \infty$. Variando o fator
+			de esquecimento e/ou as condições iniciais verifique e comente sobre a ocorrência ou não de
+			instabilidade numérica. Repita o procedimento como preditor de ordem 3.
+
+				\textcolor{red}{Solução:}
+
+			\item Considere um sinal branco gaussiano de variância unitária transmitido por um canal de comunicação
+			de função de transferência $H(z) = 1 + 1.6z^{-1}$. Para compensar este canal utiliza-se um equalizador
+			dado por $W(z) = w_{0} + w_{1} z^{-1}$. (Problema da lista de exercícios no. 3).
+	
+				\begin{enumerate}
+					
+					\item Calcule a adaptação do algoritmo usando o RLS e mostre a evolução temporal dos coeficientes.
+				
+						\textcolor{red}{Solução:}
+
+						A evolução temporal dos coeficientes do filtro pode ser encontrada na Figura \ref{fig:rls_coefficient}.  
+
+					\item Obtenha as trajetórias sobre as curvas de nível, tendo condições iniciais nulas para os
+					coeficientes do equalizador. Verifique qual a melhor inicialização do algoritmo RLS. Compare
+					com os algoritmos LMS, LMS-Normalizado e Gauss-Newton.
+				
+						\textcolor{red}{Solução:}
+
+						As trajetórias dos algoritmos Newton, Gradiente, LMS e NLMS estão disponíveis nas Figuras \ref{fig:newton_contour}, \ref{fig:gradient_contour}, 
+						\ref{fig:lms_contour} e \ref{fig:nlms_contour}. Na Figura \ref{fig:rls_contour} é apresentado o traçado da trajetória de convergência para o RLS.
+
+					\item Obtenha também a evolução do erro quadrático médio para cada um dos algoritmos anteriores.
+				
+						\textcolor{red}{Solução:}
+
+						As evolução do erro quadrático medio para os algoritmos Newton, Gradiente, LMS e NLMS já foram abordadas na seção 
+						anterior e podem ser revisitadas nas Figuras \ref{fig:newton_mse}, \ref{fig:gradient_mse}, \ref{fig:lms_mse} e \ref{fig:nlms_mse}.
+						adicionalmente, o traçado MSE para o método RLS está presente na Figura \ref{fig:rls_mse}.
+
+				\end{enumerate}
+
+			\item Seja a questão 6 da lista de exercícios anterior (Algoritmos Recursivos - questão sobre Equalização
+			Adaptativa). Implemente o RLS para a equalização do sistema considerado na letra (a) da mesma.
+			Compare os resultados obtidos com o LMS. Verifique a velocidade de convergência para os casos de
+			$\lambda = 0.9$, $\lambda = 0.99$ e $\lambda = 0.999$.
+
+				\textcolor{red}{Solução:}
+
+				Assim como na questão da lista anterior foi considerado novamente que o filtro é de ordem $M = 15$.
+			
+				\newpage
+				\begin{figure}[H]
+					\centering
+					\includegraphics[width=0.825\textwidth]{figs/L4Q3_rls_mse_2_3_9.png}
+					\caption{SNR = 3 dB, M = 2 and $\lambda = 0.9$}
+					\label{fig:L4Q3_a1}
+				\end{figure}
+
+				\begin{figure}[H]
+					\centering
+					\includegraphics[width=0.825\textwidth]{figs/L4Q3_rls_mse_3_3_9.png}
+					\caption{SNR = 3 dB, M = 3 and $\lambda = 0.9$}
+					\label{fig:L4Q3_a2}
+				\end{figure}
+
+				\begin{figure}[H]
+					\centering
+					\includegraphics[width=0.825\textwidth]{figs/L4Q3_rls_mse_2_3_99.png}
+					\caption{SNR = 3 dB, M = 2 and $\lambda = 0.99$}
+					\label{fig:L4Q3_a3}
+				\end{figure}
+
+				\begin{figure}[H]
+					\centering
+					\includegraphics[width=0.825\textwidth]{figs/L4Q3_rls_mse_3_3_99.png}
+					\caption{SNR = 3 dB, M = 3 and $\lambda = 0.99$}
+					\label{fig:L4Q3_a4}
+				\end{figure}
+
+				\begin{figure}[H]
+					\centering
+					\includegraphics[width=0.825\textwidth]{figs/L4Q3_rls_mse_2_inf_9.png}
+					\caption{SNR = $\infty$ dB, M = 2 and $\lambda = 0.9$}
+					\label{fig:L4Q3_a5}
+				\end{figure}
+
+				\begin{figure}[H]
+					\centering
+					\includegraphics[width=0.825\textwidth]{figs/L4Q3_rls_mse_3_inf_9.png}
+					\caption{SNR = $\infty$ dB, M = 3 and $\lambda = 0.9$}
+					\label{fig:L4Q3_a6}
+				\end{figure}
+
+				\begin{figure}[H]
+					\centering
+					\includegraphics[width=0.825\textwidth]{figs/L4Q3_rls_mse_2_inf_99.png}
+					\caption{SNR = $\infty$ dB, M = 2 and $\lambda = 0.99$}
+					\label{fig:L4Q3_a7}
+				\end{figure}
+
+				\begin{figure}[H]
+					\centering
+					\includegraphics[width=0.825\textwidth]{figs/L4Q3_rls_mse_3_inf_99.png}
+					\caption{SNR = $\infty$ dB, M = 3 and $\lambda = 0.99$}
+					\label{fig:L4Q3_a8}
+				\end{figure}
+
+				\begin{figure}[H]
+					\centering
+					\includegraphics[width=0.75\textwidth]{figs/rls_coefficients.png}
+					\caption{Convergência dos coeficientes para o RLS. $\text{Amostras} = 5000$, $M = 2$, $\lambda = 0.99$}
+					\label{fig:rls_coefficient}
+				\end{figure}
+
+				\begin{figure}[H]
+					\centering
+					\includegraphics[width=0.75\textwidth]{figs/rls_contour.png}
+					\caption{Caminho de convergência na superficie MSE para o RLS. $\text{Amostras} = 5000$, $M = 2$, $\lambda = 0.99$}
+					\label{fig:rls_contour}
+				\end{figure}
+
+				\begin{figure}[H]
+					\centering
+					\includegraphics[width=0.75\textwidth]{figs/rls_mse.png}
+					\caption{Comportamento da evolução do MSE para o RLS. $\text{Amostras} = 5000$, $M = 2$, $\lambda = 0.99$}
+					\label{fig:rls_mse}
+				\end{figure}
+		\end{enumerate}
+
 \end{document}
 
