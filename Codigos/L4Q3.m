@@ -31,7 +31,7 @@ delta  = 1/(sum(signal_x.^2)/length(signal_x));
 
 % Deterministic correlation matrix initialization
 Rd = delta*eye(order); 
-signal_d = signal_d(order:end,1); 
+%signal_d = signal_d(order:end,1); 
 for ss = 2:(Samples - order - 1)
     % Deterministic correlation matrix inverse
     Rd = (1/lambda)*(Rd - (Rd*signal_x(ss:ss+order-1)*signal_x(ss:ss+order-1)'*Rd)/(lambda + signal_x(ss:ss+order-1)'*Rd*signal_x(ss:ss+order-1)));

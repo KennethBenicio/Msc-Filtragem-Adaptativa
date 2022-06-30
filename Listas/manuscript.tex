@@ -1596,6 +1596,8 @@
 
 				\textcolor{red}{Solução:}
 
+				Os resultados podem ser encontrados nas Figuras \ref{fig:L4Q3_a1} - \ref{fig:L4Q3_a8}.
+
 			\item Considere um sinal branco gaussiano de variância unitária transmitido por um canal de comunicação
 			de função de transferência $H(z) = 1 + 1.6z^{-1}$. Para compensar este canal utiliza-se um equalizador
 			dado por $W(z) = w_{0} + w_{1} z^{-1}$. (Problema da lista de exercícios no. 3).
@@ -1635,6 +1637,7 @@
 				\textcolor{red}{Solução:}
 
 				Assim como na questão da lista anterior foi considerado novamente que o filtro é de ordem $M = 15$.
+				Os resultados podem ser encontrados nas Figuras \ref{fig:L4Q5_a1}, \ref{fig:L4Q5_a2}, \ref{fig:L4Q5_a3} e \ref{fig:L4Q5_a4}.
 			
 				\newpage
 				\begin{figure}[H]
@@ -1713,6 +1716,35 @@
 					\caption{Comportamento da evolução do MSE para o RLS. $\text{Amostras} = 5000$, $M = 2$, $\lambda = 0.99$}
 					\label{fig:rls_mse}
 				\end{figure}
+
+				\begin{figure}[H]
+					\centering
+					\includegraphics[width=0.75\textwidth]{figs/L4Q5_lms.png}
+					\caption{Comportamento da evolução do MSE para o LMS. $\text{Amostras} = 500$, $M = 15$, $\mu = 0.001$}
+					\label{fig:L4Q5_a1}
+				\end{figure}
+
+				\begin{figure}[H]
+					\centering
+					\includegraphics[width=0.75\textwidth]{figs/L4Q5_rls_9.png}
+					\caption{Comportamento da evolução do MSE para o RLS. $\text{Amostras} = 500$, $M = 15$, $\lambda = 0.9$}
+					\label{fig:L4Q5_a2}
+				\end{figure}
+
+				\begin{figure}[H]
+					\centering
+					\includegraphics[width=0.75\textwidth]{figs/L4Q5_rls_99.png}
+					\caption{Comportamento da evolução do MSE para o RLS. $\text{Amostras} = 500$, $M = 15$, $\lambda = 0.99$}
+					\label{fig:L4Q5_a3}
+				\end{figure}
+
+				\begin{figure}[H]
+					\centering
+					\includegraphics[width=0.75\textwidth]{figs/L4Q5_rls_999.png}
+					\caption{Comportamento da evolução do MSE para o RLS. $\text{Amostras} = 500$, $M = 15$, $\lambda = 0.999$}
+					\label{fig:L4Q5_a4}
+				\end{figure}
+
 		\end{enumerate}
 
 \end{document}

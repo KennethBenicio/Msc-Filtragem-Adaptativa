@@ -1,6 +1,6 @@
 # Fdb version 3
-["pdflatex"] 1656616123 "/home/kenneth_benicio/Projects/Github/Msc-Filtragem-Adaptativa/Listas/manuscript.tex" "manuscript.pdf" "manuscript" 1656616124
-  "/home/kenneth_benicio/Projects/Github/Msc-Filtragem-Adaptativa/Listas/manuscript.tex" 1656616122 87003 2491809703c78c501d5584a27f944ef8 ""
+["pdflatex"] 1656618885 "/home/kenneth_benicio/Projects/Github/Msc-Filtragem-Adaptativa/Listas/manuscript.tex" "manuscript.pdf" "manuscript" 1656618885
+  "/home/kenneth_benicio/Projects/Github/Msc-Filtragem-Adaptativa/Listas/manuscript.tex" 1656618884 88263 cac19d6db5ae8160ff08b1156afc8bf1 ""
   "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1650183167 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm" 1650183167 1120 1e8878807317373affa7f7bba4cf2f6a ""
   "/usr/share/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy7.tfm" 1650183167 1120 7f9f170e8aa57527ad6c49feafd45d54 ""
@@ -102,6 +102,10 @@
   "figs/L4Q3_rls_mse_3_3_99.png" 1656614757 35653 7e6eebebe877726eea664e47c78ed856 ""
   "figs/L4Q3_rls_mse_3_inf_9.png" 1656614861 30708 bf823173a74bec0e1d104e7c2e15c9c0 ""
   "figs/L4Q3_rls_mse_3_inf_99.png" 1656614822 30210 15255254fc32e7c425ccf1b649119afa ""
+  "figs/L4Q5_lms.png" 1656617635 25870 216a221c08c2c345492c10a2a2d75e4c ""
+  "figs/L4Q5_rls_9.png" 1656618524 23144 3d8e8541ef55ca372f660660b08cb41d ""
+  "figs/L4Q5_rls_99.png" 1656618120 24410 d97b5764a959d684b765daa67049d275 ""
+  "figs/L4Q5_rls_999.png" 1656618135 23391 32ea1708c4a5abd1ea21f7dc47ced8da ""
   "figs/Rxx.png" 1656444547 30855 1cee3f6fbc81af0583ba011787810250 ""
   "figs/cancelamento_ruido.png" 1654010937 19792 853a118fef645f28f44775f379edd252 ""
   "figs/equalizador_linear.png" 1654171403 44996 53587424d7c498a8fff946e9b355051e ""
@@ -120,8 +124,8 @@
   "figs/rls_mse.png" 1656612882 28548 eb73f81fcaa0f66306ac4966ffa3e636 ""
   "figs/superficie-de-erro.png" 1654178640 77850 42b157578c0ea05233901eb71b147bc2 ""
   "front.tex" 1656023476 793 d5a8c848561df167cb262a0a7eeabf92 ""
-  "manuscript.aux" 1656616124 7282 236b006f01d1c9aeb7aac13ccd1060af "pdflatex"
-  "manuscript.tex" 1656616122 87003 2491809703c78c501d5584a27f944ef8 ""
+  "manuscript.aux" 1656618885 8231 9fd9bb54addc13dabab9a6f6b506bda6 "pdflatex"
+  "manuscript.tex" 1656618884 88263 cac19d6db5ae8160ff08b1156afc8bf1 ""
   (generated)
   "manuscript.aux"
   "manuscript.log"

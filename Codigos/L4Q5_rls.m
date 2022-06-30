@@ -3,8 +3,8 @@ close all;
 clear all;
 
 %% Training Stage  
-% Learning rate
-mi = 1e-3;
+% Forgeting rate
+lambda = 0.9;
 % Filter order
 order = 15;
 % Number of samples
@@ -31,12 +31,19 @@ noise = sqrt(var_noise/2) * (randn(Samples,1) + 1i*randn(Samples,1));
 
 % Generating the noisy received signal.
 signal_x_train = signal_x_train + noise;
+% Defining delta by the inverse of the signal energy
+delta  = 1/(sum(signal_x_train.^2)/length(signal_x_train));
 
-for s = order:Samples
-    aux = signal_x_train(s:-1:s-order+1);
-    error(s) = signal_d_train(s-order+1) - weights(:,s)'*aux;
+% Deterministic correlation matrix initialization
+Rd = delta*eye(order); 
+signal_d_train = signal_d_train(order:end,1); 
+for ss = 2:(Samples - order - 1)
+    % Deterministic correlation matrix inverse
+    Rd = (1/lambda)*(Rd - (Rd*signal_x_train(ss:ss+order-1)*signal_x_train(ss:ss+order-1)'*Rd)/(lambda + signal_x_train(ss:ss+order-1)'*Rd*signal_x_train(ss:ss+order-1)));
+    % Error between the desired signal and the filtered signal.
+    error(ss) = signal_d_train(ss) - weights(:,ss-1)' * signal_x_train(ss:ss+order-1); 
     % Recursive expression.
-    weights(:,s+1) = weights(:,s) + 2 * mi * conj(error(s)) * aux;
+    weights(:,ss) = weights(:,ss-1) + Rd*conj(error(ss))*signal_x_train(ss:ss+order-1);
 end
 
 %% Transmission Stage 
@@ -64,23 +71,30 @@ noise = sqrt(var_noise/2) * (randn(Samples,1) + 1i*randn(Samples,1));
 
 % Generating the noisy received signal.
 signal_x = signal_x + noise;
+% Defining delta by the inverse of the signal energy
+delta  = 1/(sum(signal_x.^2)/length(signal_x));
+
+% Deterministic correlation matrix initialization
+Rd = delta*eye(order); 
 signal_d_hat = zeros(size(signal_d));
-for s = order:Samples
-    aux = signal_x(s:-1:s-order+1);
-    signal_d_hat(s) = weights(:,s)'*aux;
-    error(s) = signal_d(s-order+1) - signal_d_hat(s);
+for ss = 2:(Samples - order - 1)
+    % Deterministic correlation matrix inverse
+    Rd = (1/lambda)*(Rd - (Rd*signal_x(ss:ss+order-1)*signal_x(ss:ss+order-1)'*Rd)/(lambda + signal_x(ss:ss+order-1)'*Rd*signal_x(ss:ss+order-1)));
+    signal_d_hat(ss) = weights(:,ss-1)' * signal_x(ss:ss+order-1);
+    % Error between the desired signal and the filtered signal.
+    error(ss) = signal_d(ss) - weights(:,ss-1)' * signal_x(ss:ss+order-1); 
     % Recursive expression.
-    weights(:,s+1) = weights(:,s) + 2 * mi * conj(error(s)) * aux;
+    weights(:,ss) = weights(:,ss-1) + Rd*conj(error(ss))*signal_x(ss:ss+order-1);
 end
 
 %% MSE Curve
 figure
 semilogy(1:Samples, abs(error).^2,'-','color', [0.3010 0.7450 0.9330], "linewidth", 1, "markersize", 8);
-title('LMS Behavior');
+title('RLS Behavior');
 xlabel('Samples');
 ylabel('MSE');
 grid on;
-saveas(gcf,'L4Q5_lms.png')
+saveas(gcf,'L4Q5_rls_9.png')
 
 %% Temporal Evolution
 % https://www.mathworks.com/help/comm/gs/examine-16-qam-using-matlab.html
@@ -109,4 +123,4 @@ title('Filtered Signal');
 xlabel('In Phase');
 ylabel('Quadrature');
 grid on;
-%saveas(gcf,'L4Q5_lms_t.png')
+%saveas(gcf,'L4Q5_rls_t.png')
