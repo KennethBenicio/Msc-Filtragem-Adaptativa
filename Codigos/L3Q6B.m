@@ -5,7 +5,11 @@ clear all;
 % Learning rate
 mi = 1e-3;
 % Filter order
-order = 15;
+% I first implemented thinking of python notation, later I found out that
+% the reference book defines the order a bit different from what I usually
+% work. So to make the code close to Diniz notation the 'order + 1' is
+% needed.
+order = 15 + 1;
 
 % If we want to evaluate the impact of the training size then we should
 % apply the same transmitted sequence to all the cases

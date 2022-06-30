@@ -6,10 +6,14 @@ clear all;
 mi = 0.4;
 gamma = 1e-3;
 % Filter order
-order = 15;
+% I first implemented thinking of python notation, later I found out that
+% the reference book defines the order a bit different from what I usually
+% work. So to make the code close to Diniz notation the 'order + 1' is
+% needed.
+order = 15 + 1;
 
 %% 4QAM
-QAM = 4;
+QAM = 4
 runs = 1000;
 snrs = [0 5 10 15 20 25 30];
 SER = zeros(length(snrs),1);
@@ -89,11 +93,11 @@ end
 SER = SER/runs;
 figure
 txt = ['4QAM Signal'];
-semilogy(snrs, SER,'-','color', [0.3010 0.7450 0.9330], "linewidth", 3, "markersize", 8, "DisplayName", txt);
+plot(snrs, SER,'-','color', [0.3010 0.7450 0.9330], "linewidth", 3, "markersize", 8, "DisplayName", txt);
 hold on;
 
 %% 16QAM 
-QAM = 16;
+QAM = 16
 snrs = [0 5 10 15 20 25 30];
 SER = zeros(length(snrs),1);
 for ii = 1:length(snrs)
@@ -171,11 +175,11 @@ for ii = 1:length(snrs)
 end
 SER = SER/runs;
 txt = ['16QAM Signal'];
-semilogy(snrs, SER,'-','color', [0 0.4470 0.7410], "linewidth", 3, "markersize", 8, "DisplayName", txt);
+plot(snrs, SER,'-','color', [0 0.4470 0.7410], "linewidth", 3, "markersize", 8, "DisplayName", txt);
 hold on;
 
 %% 64QAM 
-QAM = 64;
+QAM = 64
 snrs = [0 5 10 15 20 25 30];
 SER = zeros(length(snrs),1);
 for ii = 1:length(snrs)
@@ -252,11 +256,11 @@ for ii = 1:length(snrs)
 end
 SER = SER/runs;
 txt = ['64QAM Signal'];
-semilogy(snrs, SER,'-','color', [0.8500 0.3250 0.0980], "linewidth", 3, "markersize", 8, "DisplayName", txt);
+plot(snrs, SER,'-','color', [0.8500 0.3250 0.0980], "linewidth", 3, "markersize", 8, "DisplayName", txt);
 hold on;
 
 %% 256QAM 
-QAM = 256;
+QAM = 256
 snrs = [0 5 10 15 20 25 30];
 SER = zeros(length(snrs),1);
 for ii = 1:length(snrs)
@@ -334,9 +338,9 @@ for ii = 1:length(snrs)
 end
 SER = SER/runs;
 txt = ['256QAM Signal'];
-semilogy(snrs, SER,'-','color', [0.4660 0.6740 0.1880], "linewidth", 3, "markersize", 8, "DisplayName", txt);
+plot(snrs, SER,'-','color', [0.4660 0.6740 0.1880], "linewidth", 3, "markersize", 8, "DisplayName", txt);
 hold off;
-legend_copy = legend("location", "southwest");
+legend_copy = legend("location", "northeast");
 set (legend_copy, "fontsize", 12);
 grid on;
 title('SER vs. SNR for different constelattions');

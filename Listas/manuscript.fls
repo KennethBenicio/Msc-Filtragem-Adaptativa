@@ -443,6 +443,11 @@ INPUT /usr/share/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmmib5.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/cm/cmbsy10.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy7.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm
+INPUT ./figs/L4Q1.png
+INPUT ./figs/L4Q1.png
+INPUT figs/L4Q1.png
+INPUT ./figs/L4Q1.png
+INPUT ./figs/L4Q1.png
 INPUT ./figs/L4Q3_rls_mse_2_3_9.png
 INPUT ./figs/L4Q3_rls_mse_2_3_9.png
 INPUT figs/L4Q3_rls_mse_2_3_9.png

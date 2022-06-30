@@ -7,7 +7,11 @@ clear all;
 mi = 0.4;
 gamma = 1e-3;
 % Filter order
-order = 15;
+% I first implemented thinking of python notation, later I found out that
+% the reference book defines the order a bit different from what I usually
+% work. So to make the code close to Diniz notation the 'order + 1' is
+% needed.
+order = 15 + 1;
 % Number of samples
 Samples = 500;
 % Defining the mse error and filter coeficients vectors.
@@ -79,7 +83,7 @@ end
 %% MSE Curve
 figure
 semilogy(1:Samples, abs(error).^2,'-','color', [0.3010 0.7450 0.9330], "linewidth", 1, "markersize", 8);
-title('LMS Behavior');
+title('NLMS Behavior');
 xlabel('Samples');
 ylabel('MSE');
 grid on;

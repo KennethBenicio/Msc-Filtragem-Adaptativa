@@ -5,11 +5,11 @@ clear all;
 
 
 % Forgeting rate
-lambda = 0.9;
+lambda = 0.99;
 % Filter order
 order = 3;
 % SNR (dB) 
-SNR_dB = inf;
+SNR_dB = 3;
 
 
 % Number of samples
@@ -41,7 +41,10 @@ for ss = 2:(Samples - order - 1)
     weights(:,ss) = weights(:,ss-1) + Rd*error(ss)*signal_x(ss:ss+order-1);
 end
 weights = flip(weights); 
-
+% I first implemented thinking of python notation, later I found out that
+% the reference book defines the order a bit different from what I usually
+% work. So to make the code close to Diniz notation the 'order + 1' is
+% needed.
 % Coefficients Curve
 figure
 subplot(2,1,1)
@@ -68,4 +71,4 @@ xlim([0 1000]);
 ylabel('MSE');
 grid on;
 %order_snr_forgeting
-saveas(gcf,'L4Q3_rls_mse_3_inf_9.png')
+saveas(gcf,'L4Q3_rls_mse_3_3_99.png')

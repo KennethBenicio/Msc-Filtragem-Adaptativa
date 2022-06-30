@@ -4,11 +4,11 @@ close all;
 clear all;
 
 % Forgeting rate
-lambda = 0.9;
+lambda = 0.999;
 % Filter order
 order = 2;
 % Number of samples
-Samples = 5000;
+Samples = 1000;
 % Defining the mse error and filter coeficients vectors.
 error = zeros(Samples,1);
 weights = zeros(order, Samples);
