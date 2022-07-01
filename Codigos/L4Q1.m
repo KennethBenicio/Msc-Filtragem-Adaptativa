@@ -47,7 +47,7 @@ tabela = [aux(1,:);aux(2,:);aux(3,:);aux(4,:);aux(5,:);aux(6,:);aux(7,:);aux(8,:
 Tabela = array2table(tabela);
 Tabela.Properties.RowNames = {'i = 1' 'i = 2' 'i = 3' 'i = 4' 'i = 5' 'i = 6' 'i = 7' 'i = 8' 'i = 9' 'i = 10'};
 Tabela.Properties.VariableNames = {'1st Coeff' '2nd Coeff' '3rd Coeff'};
-table2latex(Tabela,'tabela.tex');
+%table2latex(Tabela,'tabela.tex');
 
 % MSE Curve
 figure
@@ -55,7 +55,7 @@ txt = ['Filtered Signal'];
 plot(y,'-','color', [0.4660 0.6740 0.1880], "linewidth", 2, "markersize", 8, "DisplayName", txt);
 hold on;
 txt = ['Source Signal'];
-plot(signal_d,'-','color', [0.3010 0.7450 0.9330], "linewidth", 2, "markersize", 8, "DisplayName", txt);
+plot(signal_x,'-','color', [0.3010 0.7450 0.9330], "linewidth", 2, "markersize", 8, "DisplayName", txt);
 hold off;
 title('Predicted Signal vs. Source Signal');
 xlabel('Samples');
@@ -63,4 +63,4 @@ ylabel('Magnitude');
 legend_copy = legend("location", "northeast");
 set (legend_copy, "fontsize", 12);
 grid on;
-saveas(gcf,'L4Q1.png')
+%saveas(gcf,'L4Q1.png')
