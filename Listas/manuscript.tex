@@ -810,7 +810,7 @@
 			
 				\textcolor{red}{Solução:}
 				
-				Podemos inicialmente definir a função erro para esse filtro como
+				\paragraph{}Podemos inicialmente definir a função erro para esse filtro como
 				
 				\begin{align}
 					e(n) &= d(n) - y(n), \\
@@ -825,7 +825,7 @@
 					\nabla_{\mathbf{w}} \mathbb{E}\{e^{4}(n)\} &= - 4 \mathbb{E}\{e^{3}(n) \mathbf{x}(n)\}.
 				\end{align}
 			
-				Desse modo, para que a minimização de $\mathbb{E}\{e^{4}(n)\}$ seja atingida precisamos garantir apenas que o vetor $x(n)$ tenha entradas ortogonais ao vetor erro $e(n)$. Assim, é necessário que a seguinte equação seja verdade
+				\paragraph{}Desse modo, para que a minimização de $\mathbb{E}\{e^{4}(n)\}$ seja atingida precisamos garantir apenas que o vetor $x(n)$ tenha entradas ortogonais ao vetor erro $e(n)$. Assim, é necessário que a seguinte equação seja verdade
 
 				\begin{align}
 					\mathbb{E}\{e^{3}(n) \mathbf{x}(n)\} &= 0, \\
@@ -856,7 +856,7 @@
 					
 						\textcolor{red}{Solução:}
 						
-						A condição de convergência está diretamente associada com o erro nos coeficientes do filtro adaptativo para cada iteração.
+						\paragraph{}A condição de convergência está diretamente associada com o erro nos coeficientes do filtro adaptativo para cada iteração.
 						Desse modo, podemos iniciar o estudo desse tópico com a seguinte expressão que relaciona o erro dos coeficientes do filtro de um iteração
 						$k$ para a solução ótima
 						
@@ -899,7 +899,7 @@
 							\mathbb{E}\{\Delta \mathbf{w}'(n + 1)\} &= \left( \mathbf{I} - 2 \mu \mathbf{\Lambda} \right) \mathbb{E}\{\Delta \mathbf{w}'(n)\}.
 						\end{align}
 
-						Podemos, por fim, expandir os termos à esquerda e chegar na seguinte expressão para a análise do comportamento de convergência dos coeficientes de filtro
+						\paragraph{}Podemos, por fim, expandir os termos à esquerda e chegar na seguinte expressão para a análise do comportamento de convergência dos coeficientes de filtro
 
 						\begin{align}
 							\mathbb{E}\{ \Delta \mathbf{w}'(n + 1) \} &= \left( \mathbf{I} - 2 \mu \mathbf{\Lambda} \right)^{n + 1} \mathbb{E}\{\Delta \mathbf{w}'(0)\}, \\
@@ -928,7 +928,7 @@
 					
 						\textcolor{red}{Solução:}
 						
-						O erro em excesso é normalmente ocasionado pelos termos ruidosos presentes no gradiente, impedindo que os coeficientes convirjam de forma exata para a solução ótima. 
+						\paragraph{}O erro em excesso é normalmente ocasionado pelos termos ruidosos presentes no gradiente, impedindo que os coeficientes convirjam de forma exata para a solução ótima. 
 						Podemos iniciar essa análise escrevendo a equação para o erro de estimação para um determinado instante $n$ como se segue
 
 						\begin{align}
@@ -1000,7 +1000,7 @@
 							v_{i}'(n + 1) &= (1 - 4 \mu \lambda_{i} + 8 \mu^{2} \lambda^{2}_{i}) v_{i}'(n) + 4 \mu^{2} \lambda_{i} \sum^{N}_{j = 0} \lambda_{j} v_{j}'(n) + 4 \mu^{2} \sigma^{2}_{z} \lambda_{i}.
 						\end{align}
 
-						Entretanto, se considerarmos que $v_{i}'(n + 1) \approx v_{i}'(n)$ quando $n \rightarrow \infty$ podemos simplificar a expressão, além de que 
+						\paragraph{}Entretanto, se considerarmos que $v_{i}'(n + 1) \approx v_{i}'(n)$ quando $n \rightarrow \infty$ podemos simplificar a expressão, além de que 
 						também podemos realizar uma operação de soma total dos parâmetros para obter o erro em excesso total
 
 						\begin{align}
@@ -1020,7 +1020,7 @@
 							\xi_{\text{excesso}} &= \underset{n \rightarrow \infty}{\text{lim}} \Delta \xi(n) \approx \frac{\mu \sigma^{2}_{z} \text{tr}(\mathbf{R}_{x})}{1 - \mu \text{tr}(\mathbf{R}_{x})}.
 						\end{align}
 
-						Vale ainda expor que podemos considerar $1 - \mu \text{tr}(\mathbf{R}_{x}) \approx 1$ para valores muito pequenos de $\mu$, obtendo assim uma versão aproximada para o erro em excesso dada por
+						\paragraph{}Vale ainda expor que podemos considerar $1 - \mu \text{tr}(\mathbf{R}_{x}) \approx 1$ para valores muito pequenos de $\mu$, obtendo assim uma versão aproximada para o erro em excesso dada por
 						
 						\begin{align}
 							\xi_{\text{excesso}} &= \underset{n \rightarrow \infty}{\text{lim}} \Delta \xi(n) \approx \mu \sigma^{2}_{z} \text{tr}(\mathbf{R}_{x}).
@@ -1032,7 +1032,7 @@
 				
 			\textcolor{red}{Solução:}
 
-			Em acordância com o livro texto da disciplina a expressão de atualização dos coeficientes de filtro para o algoritmo NLMS é dada por
+			\paragraph{}Em acordância com o livro texto da disciplina a expressão de atualização dos coeficientes de filtro para o algoritmo NLMS é dada por
 
 			\begin{align}
 				\mathbf{w}(k+1) = \mathbf{w}(k) + \frac{\mu_{norm}}{\gamma + \mathbf{x}^{\text{T}}(k) \mathbf{x}(k)} \mathbf{e}(k) \mathbf{x}(k),
@@ -1056,7 +1056,7 @@
 					
 						\textcolor{red}{Solução:}
 						
-						Considerando um sinal gaussiano branco $x(n)$ a saída do canal pode ser prontamente obtida por
+						\paragraph{}Considerando um sinal gaussiano branco $x(n)$ a saída do canal pode ser prontamente obtida por
 						
 						\begin{align}
 							y(n) = x(n) + 1.6 x(n - 1),
@@ -1107,7 +1107,7 @@
 							\end{bmatrix}.
 						\end{align}
 						
-						Já o vetor de correlação cruzada teórico pode ser descrito por
+						\paragraph{}Já o vetor de correlação cruzada teórico pode ser descrito por
 						
 						\begin{align}
 							\mathbf{p}_{yd} =
@@ -1131,7 +1131,7 @@
 							\end{bmatrix}.
 						\end{align}
 						
-						Por fim, abaixo segue o traçado para os zeros das funções de transferência tanto do canal quanto do filtro ótimo em azul e em vermelho, respectivamente.
+						\paragraph{}Por fim, abaixo segue o traçado para os zeros das funções de transferência tanto do canal quanto do filtro ótimo em azul e em vermelho, respectivamente.
 						
 						\begin{figure}[H]
 							\centering
@@ -1143,7 +1143,7 @@
 					
 						\textcolor{red}{Solução:}
 
-						De forma semelhante ao abordado anteriormente temos que o filtro de predição direta de passo unitário é dado por
+						\paragraph{}De forma semelhante ao abordado anteriormente temos que o filtro de predição direta de passo unitário é dado por
 						
 						\begin{align}
 							\hat{x}(n) &= \sum^{M + k - 1}_{i = k} w_{f,i} x(n - i) = \sum^{2}_{i = 1} w_{f,i} x(n - i) = \mathbf{w}^{\text{T}}_{f} \mathbf{x}(n - 1),
@@ -1161,7 +1161,7 @@
 							\mathbf{w}_{f,\text{opt}} = \mathbf{R}^{-1}_{x} \mathbf{r}_{x,f}.
 						\end{align}
 
-						Onde teremos que a mesma matriz de autocorrelação e o vetor de correlação cruzada serão definidos por
+						\paragraph{}Teremos assim que a mesma matriz de autocorrelação e o vetor de correlação cruzada serão definidos por
 
 						\begin{align}
 							\mathbf{R}_{y} &=
@@ -1184,7 +1184,7 @@
 							\end{bmatrix}.
 						\end{align}
 
-						Por essa razão temos
+						\paragraph{}Por essa razão temos
 
 						\begin{align}
 							\mathbf{w}_{f,\text{opt}} = 
@@ -1202,7 +1202,7 @@
 							\end{bmatrix}.
 						\end{align}
 
-						Em seguida, podemos obter os zeros do filtro como
+						\paragraph{}Em seguida, podemos obter os zeros do filtro como
 
 						\begin{align}
 							W(z) &= 0.56 - 0.26 z^{-1}, \\
@@ -1217,7 +1217,7 @@
 						
 						\textcolor{red}{Solução:}
 						
-						Antes de tudo é necessário definir a superfície de erro que servirá como referência para traçar as curvas de nível. Desse modo, podemos prontamente
+						\paragraph{}Antes de tudo é necessário definir a superfície de erro que servirá como referência para traçar as curvas de nível. Desse modo, podemos prontamente
 						definir a superfície MSE como
 						
 						\begin{align}
@@ -1225,19 +1225,35 @@
 							\mathbf{J}(w) &= \sigma^{2}_{d} - 2\mathbf{w}^{T}\mathbf{p}_{xd} + w^{T}\mathbf{R}_{X}\mathbf{w}. \label{mseopt}  
 						\end{align}
 						
-						Desse modo, nas Figuras \ref{fig:newton_contour}, \ref{fig:gradient_contour}, \ref{fig:lms_contour} e \ref{fig:nlms_contour} temos as curvas de convergência do algoritmo sobre a superficie MSE descrita na Equação (\ref{mseopt}). 
+						\paragraph{}Desse modo, nas Figuras \ref{fig:newton_contour}, \ref{fig:gradient_contour}, \ref{fig:lms_contour} e \ref{fig:nlms_contour} temos as curvas de convergência do algoritmo sobre a superficie MSE descrita na Equação (\ref{mseopt}). 
+						Como é possível visualizar para os métodos determinísticos a convergência ocorre de forma muito mais organizada e suave. Esse resultado é previsível visto que a convergência é guiada 
+						pelo conhecimento dos coeficientes ideais do filtro. Ademais, ainda é possível confirmar que o algoritmo do Gradiante Descendente de fato possue maior latência para convergir até o ponto 
+						ótimo quando comparado ao Método de Newton. Entretanto, apesar de convergir mais rapidamente o Método de Newton calcula diretamente uma inversão de matriz o que é computacionalmente custoso.
+						
+						\paragraph{}Já para os métodos estocásticos é possível ver uma certa desorientação na convergência dos coeficientes do filtro. Isso se deve pois os coeficientes são calculados com base numa aproximação das 
+						estatísticas instantâneas do sinal. Entre os dois algoritmos é possivel visualizar que o LMS apresenta um comportamento de convergência mais estável, enquanto é possível notar alguns outliers no NLMS que são resultados das 
+						iterações iniciais do filtro.
 
 					\item Obtenha também a evolução do erro quadrático médio para cada um dos algoritmos anteriores.
 						
 						\textcolor{red}{Solução:}
 
-						A evolução do erro quadrático médio está disponível nas Figuras \ref{fig:newton_mse}, \ref{fig:gradient_mse}, \ref{fig:lms_mse} e \ref{fig:nlms_mse} para cada um dos algoritmos requeridos.
+						\paragraph{}A evolução do erro quadrático médio está disponível nas Figuras \ref{fig:newton_mse}, \ref{fig:gradient_mse}, \ref{fig:lms_mse} e \ref{fig:nlms_mse} para cada um dos algoritmos requeridos.
+						Em relação à evolução do MSE todos os algoritmos apresentaram desempenhos similares, muito embora o NLMS tenha apresentado um desempenho levemente superior aos outros três. Existem algumas explicações que podem
+						ser alencadas para explicar tal comportamento dos métodos aplicados. Entre os mais evidentes é a presença do ruído no sistema, pois foi utilizado uma SNR de 30dB na transmissão do sinal e isso pode acarretar em 
+						falhas durante o processo de filtragem. Ademais, também posso citar a ordem utilizada para os filtros que foi definida como $M = 2$ e assim o algoritmo utiliza poucas informações para atualizar os seus coeficientes a cada iteração. 
+						
+						\paragraph{}Por fim, também é de suma importância citar os efeitos do canal para o processo de filtragem. O canal utilizado tem uma resposta em frequência com memória e isso prejudica o processo de filtragem. Isso pode ser visto com mais clareza
+						na Figura \ref{fig:nlms_awgn} onde tracei novamente a evolução do MSE para o NLMS mas agora considerando um cenário onde a resposta em frequência do canal é unitária e a SNR de transmissão se mantém em 30 dB. Nessa nova figura 
+						podemos visualizar um comportamento mais eficiente do filtro e assim confirmar o impacto que a transmissão pelo canal sugerido tem para os algoritmos de filtragem implementados. Dessa forma, é necessário analisar se os algoritmos aqui 
+						implementados de fato conseguem acompanhar a evolução do sistema desfazendo as alterações inseridas pelos mais diversos fenômenos. Uma forma interessante de analisar o desempenho da filtragem, e nao apenas a convergência dos coeficientes 
+						do filtro, seria a análise da taxa de erro símbolo (SER) ou taxa erro bit (BER). Entretanto, isso foge ao escopo do que foi pedido nesse problema.
 					
 					\item Qual o número de condicionamento para o problema em questão?
 					
 						\textcolor{red}{Solução:}
 						
-						o número de condicionamento pode ser prontamente obtido pela expressão
+						\paragraph{}O número de condicionamento pode ser prontamente obtido pela expressão
 
 						\begin{align}
 							\mathbb{C} (\mathbf{R}_{x}) = \frac{\lambda_{\text{max}}}{\lambda_{\text{min}}},
@@ -1262,7 +1278,7 @@
 					
 						\textcolor{red}{Solução:}
 						
-						Inicialmente podemos escrever a matriz de correlação contabilizando a contribuição dos coeficientes do canal para os elementos individuais
+						\paragraph{}Inicialmente podemos escrever a matriz de correlação contabilizando a contribuição dos coeficientes do canal para os elementos individuais
 						
 						\begin{align}
 							\mathbf{R}_{y} =
@@ -1313,7 +1329,7 @@
 					
 						\textcolor{red}{Solução:}
 					
-						Para garantirmos a estabilidade do algoritmo precisamos apenas obter o valor numérico do maior autovalor definido pela matriz de autocorrelação do problema.
+						\paragraph{}Para garantirmos a estabilidade do algoritmo precisamos apenas obter o valor numérico do maior autovalor definido pela matriz de autocorrelação do problema.
 						Desse modo, podemos simplificar a função de transferência por meio da seguinte manipulação algébrica
 
 						\begin{align*}
@@ -1329,7 +1345,7 @@
 							&+ x(n-8) + x(n-9) + x(n-10) - x(n-11), 
 						\end{align*}
 
-						Em sequência é possível utilizar um software matemático para a realizar a obtenção da matriz de autocorrelação estimada
+						\paragraph{}Em sequência é possível utilizar um software matemático para obter uma estimação para a matriz de autocorrelação
 
 						\begin{figure}[H]
 							\centering
@@ -1351,13 +1367,16 @@
 						
 						\textcolor{red}{Solução:}
 
-						Nas Figuras \ref{fig:mu_2}, \ref{fig:mu_10} e \ref{fig:mu_50} podemos verificar a convergência do algoritmo para esse problema. 
+						\paragraph{}Nas Figuras \ref{fig:mu_2}, \ref{fig:mu_10} e \ref{fig:mu_50} podemos verificar a convergência do algoritmo para esse problema. A príncipio é possível 
+						confirmar que existe uma diminuta piora quanto ao desempenho dos algoritmos a medida que o passo de aprendizado descrece. Isso pode ser explicado pois a medida que 
+						$\mu$ fica menor a flexibilidade de adaptação do algoritmo é reduzida. Assim, para passos de aprendizado muito pequenos é mais difícil para o filtro conseguir acompanhar
+						as mudanças no canal provocadas pelo impacto de componentes ruidosas e pela resposta em frequência do canal. 
 
 					\item Meça o desajuste (misadjustment) em cada exemplo e comparar com os resultados obtidos pela solução teórica (Eq. (3.50) do livro texto)					
 
 						\textcolor{red}{Solução:}
 
-						O desajuste pode ser aproximado por
+						\paragraph{}O desajuste pode ser aproximado por
 
 						\begin{align}
 							M = \frac{\xi_{\text{excesso}}}{\xi_{\text{min}}} &\approx \frac{\mu \text{tr}(\mathbf{R}_{x})}{1 - \mu \text{tr}(\mathbf{R}_{x})},
@@ -1376,13 +1395,16 @@
 							\end{tabular}
 						\end{table}
 
-						Os resultados foram obtidos por uso de software matemático e os códigos estão disponíveis juntamente com este relatório.
+						\paragraph{}Os resultados foram obtidos por uso de software matemático e os códigos estão disponíveis juntamente com este relatório.
 
 					\item Mostre o gráﬁco da resposta em frequência do ﬁltro FIR em qualquer uma das iterações após a convergência ser obtida e compare com o sistema desconhecido.
 					
 						\textcolor{red}{Solução:}
 
-						A resposta em frequência do filtro está disponível na Figura \ref{fig:filter_response}. 
+						\paragraph{}A resposta em frequência do filtro está disponível na Figura \ref{fig:filter_response}. É possível ver que a resposta em frequência do filtro
+						tende a se aproximar da resposta em frequência do sistema. Entretanto, existe um claro amortecimento na amplitute da resposta do filtro. Isso pode ser explicado
+						pela dificuldade do filtro em acompanhar a evolução do canal e poderia ser contornado aumentando a ordem do filtro ou utilizando algum método de trainamento para
+						iniciar o processo de filtragem.  
 
 				\end{enumerate}
 			
@@ -1406,28 +1428,39 @@
 								
 						\textcolor{red}{Solução:}
 
-						Os resultados estão nas Figuras \ref{fig:L3Q6A1} e \ref{fig:L3Q6A2}.
+						\paragraph{}Os resultados estão nas Figuras \ref{fig:L3Q6A1} e \ref{fig:L3Q6A2}. A evolução temporal do MSE apresenta comportamento similar aos resultados apresentados anteriormente com
+						o MSE possuindo uma grande variação mesmo após a convergência. Por fim, também é possível ver na figura seguinte o impacto no filtro na filtragem de um sinal modulado por 16-QAM. É visível 
+						que a estimação conseguiu separar o sinal transmitido em diferentes regiões de decisão e assim seria necessário ao fim desse processo passar esse sinal filtrado por um decisor para que fosse
+						obtida uma aproximação do sinal originalmente trnasmitido. Ademais, foi implementado um simples processo de aprendizado utilizando algumas amostras de sinais 4-QAM para o treinamento do filtro com
+						o objetivo de facilitar ou acelerar a convergência quando o sinal 16-QAM fosse filtrado.
 
 					\item Para os mesmos parâmetros do item (a), plote e compare os gráﬁcos de evolução que seriam resultante se o equalizador fosse treinado com 150, 300 e 500 iterações. Use o LMS com um
 					$\mu = 0.001$.
 					
 						\textcolor{red}{Solução:}
 
-						Os resultados estão na Figura \ref{fig:L3Q6B}.
+						\paragraph{}O resultado está na Figura \ref{fig:L3Q6B}. Particularmente não pude distinguir notáveis diferenças de desempenho ao considerar diferentes tamanhos de sequências de treinamento.
 
 					\item Assuma agora que os dados transmitidos foram gerados de uma constelação 256-QAM ao invés de 16-QAM. Plote os gráﬁcos da evolução do sinal na saída do equalizador quando treinado
 					usando o LMS-normalizado e 500 símbolos de treinamento.					
 					
 						\textcolor{red}{Solução:}
 
-						Os resultados estão nas Figuras \ref{fig:L3Q6C1} e \ref{fig:L3Q6C2}.
+						\paragraph{}Os resultados estão nas Figuras \ref{fig:L3Q6C1} e \ref{fig:L3Q6C2}. É possível verificar na primeira figura que a evolução do MSE aconteceu apesar de uma considerável variação ao final
+						da convergência. Já analisando a figura seguinte onde transmitimos um sinal 256-QAM e utilizamos um filtro treinado por um sinal 4-QAM é possível verificar que o espaçamento das regiões de decisão dos 
+						símbolos é consideravelmente menor do que no caso 16-QAM. Assim, podemos verificar que a situação do sinal filtrado se apresenta de forma bem mais desorganizada do que no caso anterior. Entretanto, para
+						realmente avaliar o desempenho seria necessário utilizar uma métrica como a SER ou BER e comparar o impacto de diferentes modulações no desempenho do algoritmo de filtragem. 
 
 					\item Gerar as curvas de taxa de erro de símbolo (SER, do inglês Symbol Error Rate) versus SNR na entrada do equalizador para símbolos de constelações 4, 16, 64 e 256-QAM. Faça SNR variar
 					de 5dB a 30dB.
 					
 						\textcolor{red}{Solução:}
 
-						Os resultados estão na Figura \ref{fig:L3Q6D}.
+						\paragraph{}Os resultados estão na Figura \ref{fig:L3Q6D}. Assim, podemos analisar o desempenho real do algoritmo quando utilizado para filtrar um sinal. É possível verificar que a medida
+						que a ordem de modulação aumenta o desempenho sofre uma considerável piora. Existem duas principais razões para explicar esse comportamento. A primeira vem justamente do tamanho das constelações 
+						digitais que a medida que a ordem aumenta tem uma menor regiao de decisão associada aos seus símbolos. Desse modo, o sinal transmitido fica sujeito a interferências de componentes ruidosas do canal pois
+						as divisórias entre as diversas regiões de decisão dos símbolos da modulação ficam menores e erros de decisão irão acontecer com maior frequência A segunda razão poderia ser explicada pelo fato do filtro
+						ter sido inicialmente treinado utilizando símbolos modulados com 4-QAM, mas provavelmente isso é insuficiente quando a ordem de modulação do sinal transmitido cresce.
 
 				\end{enumerate}
 				
@@ -1456,36 +1489,43 @@
 				\begin{figure}[H]
 					\centering
 					\includegraphics[width=0.75\textwidth]{figs/nlms_contour.png}
-					\caption{Caminho de convergência na superficie MSE para o NLMS. $\text{Amostras} = 1000$, $M = 2$, $\mu = 10^{-3}$}
+					\caption{Caminho de convergência na superficie MSE para o NLMS. $\text{Amostras} = 1000$, $M = 2$, $\mu = 0.5$}
 					\label{fig:nlms_contour}
 				\end{figure}
 
 				\begin{figure}[H]
 					\centering
 					\includegraphics[width=0.75\textwidth]{figs/newton_mse.png}
-					\caption{Caminho de convergência na superficie MSE para o Método de Newton. $\text{Amostras} = 1000$, $M = 2$, $\mu = 10^{-3}$}
+					\caption{Evolução do MSE para o Método de Newton. $\text{Amostras} = 1000$, $M = 2$, $\mu = 10^{-3}$}
 					\label{fig:newton_mse}
 				\end{figure}
 				
 				\begin{figure}[H]
 					\centering
 					\includegraphics[width=0.75\textwidth]{figs/gradient_mse.png}
-					\caption{Caminho de convergência na superficie MSE para o Gradiente Determinístico. $\text{Amostras} = 1000$, $M = 2$, $\mu = 10^{-3}$}
+					\caption{Evolução do MSE para o Gradiente Determinístico. $\text{Amostras} = 1000$, $M = 2$, $\mu = 10^{-3}$}
 					\label{fig:gradient_mse}
 				\end{figure}
 
 				\begin{figure}[H]
 					\centering
 					\includegraphics[width=0.75\textwidth]{figs/lms_mse.png}
-					\caption{Caminho de convergência na superficie MSE para o LMS. $\text{Amostras}  = 1000$, $M = 2$, $\mu = 10^{-3}$}
+					\caption{Evolução do MSE para o LMS. $\text{Amostras}  = 1000$, $M = 2$, $\mu = 10^{-3}$}
 					\label{fig:lms_mse}
 				\end{figure}
 
 				\begin{figure}[H]
 					\centering
 					\includegraphics[width=0.75\textwidth]{figs/nlms_mse.png}
-					\caption{Caminho de convergência na superficie MSE para o NLMS. $\text{Amostras} = 1000$, $M = 2$, $\mu = 10^{-3}$}
+					\caption{Evolução do MSE para o NLMS. $\text{Amostras} = 1000$, $M = 2$, $\mu = 0.5$}
 					\label{fig:nlms_mse}
+				\end{figure}
+
+				\begin{figure}[H]
+					\centering
+					\includegraphics[width=0.75\textwidth]{figs/nlms_awgn.png}
+					\caption{Evolução do MSE para o NLMS em um Canal AWGN 30dB. $\text{Amostras} = 1000$, $M = 15$, $\mu = 0.5$}
+					\label{fig:nlms_awgn}
 				\end{figure}
 
 				\begin{figure}[H]
@@ -1597,6 +1637,18 @@
 					\label{fig:L4Q1}
 				\end{figure}
 
+				\paragraph{} Na tabela acima foram disponibilizados os coeficientes de filtro para as 10 primeiras iterações como foi pedido. 
+				A tabela e o algoritmo de filtragem foram implementados utilzando software matemático e os códigos foram disponibilizados junto com 
+				o relatório. É possível observar nessas primeiras 10 iterações a convergência dos coeficientes de filtro rumo a estabilidade que poderia
+				ser observada se mais algumas iterações fossem disponibilizadas na tabela. 
+				
+				\paragraph{}Ademais, decidi apresentar o traçado do sinal senoidal transmitido 
+				comparando-o diretamente com o sinal filtrado na Figura \ref{fig:L4Q1}. É possível conferir que o sinal filtrado começa com uma amplitude bastante
+				distante do sinal verdadeiro, mas a meddida que mais amostras são utilizadas para a adaptação do sinal a resposta em aplitudade do sinal filtrado se
+				aproxima do comportamento ideal. Existem algumas oscilações ao longo das 100 amostras, mas sem mudanças abruptas. É necessário apenas chamar atenção 
+				para o comportamento repentino apresentado no final do processo que é uma consequência da minha implementação para o RLS. Considero que o filtro inicia 
+				com sua janela totalmente preenchida o que por consequência induz a interupção do algoritmo quando a janela chega a sua última seção onde está totalmente preenchida.
+
 			\item Seja $\epsilon(n)$ que denota um erro de estimação a priori
 			
 				\begin{align}
@@ -1622,7 +1674,7 @@
 
 				\textcolor{red}{Solução:}
 
-				Os resultados podem ser encontrados nas Figuras \ref{fig:L4Q3_a1} - \ref{fig:L4Q3_a8}.
+				\paragraph{}Os resultados podem ser encontrados nas Figuras \ref{fig:L4Q3_a1} - \ref{fig:L4Q3_a8}.
 
 			\item Considere um sinal branco gaussiano de variância unitária transmitido por um canal de comunicação
 			de função de transferência $H(z) = 1 + 1.6z^{-1}$. Para compensar este canal utiliza-se um equalizador
@@ -1634,7 +1686,10 @@
 				
 						\textcolor{red}{Solução:}
 
-						A evolução temporal dos coeficientes do filtro pode ser encontrada na Figura \ref{fig:rls_coefficient}.  
+						\paragraph{}A evolução temporal dos coeficientes do filtro pode ser encontrada na Figura \ref{fig:rls_coefficient}.  
+						Aqui é possível verificar a convergência e estabilização dos coeficientes do filtro partindo do zero a medida que o número 
+						de iterações cresce. Existem algumas oscilações ao final do processo, mas nada considerável. Caso o fator de esquecimento fosse
+						aumentado possivelmente haveriam oscilações com maiores magnitudes nos coeficientes de filtro. 
 
 					\item Obtenha as trajetórias sobre as curvas de nível, tendo condições iniciais nulas para os
 					coeficientes do equalizador. Verifique qual a melhor inicialização do algoritmo RLS. Compare
@@ -1642,16 +1697,20 @@
 				
 						\textcolor{red}{Solução:}
 
-						As trajetórias dos algoritmos Newton, Gradiente, LMS e NLMS estão disponíveis nas Figuras \ref{fig:newton_contour}, \ref{fig:gradient_contour}, 
+						\paragraph{}As trajetórias dos algoritmos Newton, Gradiente, LMS e NLMS estão disponíveis nas Figuras \ref{fig:newton_contour}, \ref{fig:gradient_contour}, 
 						\ref{fig:lms_contour} e \ref{fig:nlms_contour}. Na Figura \ref{fig:rls_contour} é apresentado o traçado da trajetória de convergência para o RLS.
+						É possível verificar que o RLS apresenta um comportamento de convergência na superfície MSE mais próximo do algoritmo LMS. Existem alguns outliers durante 
+						o processo de filtragem, mas de modo geral o filtro tende à solução ótima de uma forma mais organizada e estável do que o NLMS.
 
 					\item Obtenha também a evolução do erro quadrático médio para cada um dos algoritmos anteriores.
 				
 						\textcolor{red}{Solução:}
 
-						As evolução do erro quadrático medio para os algoritmos Newton, Gradiente, LMS e NLMS já foram abordadas na seção 
+						\paragraph{}As evolução do erro quadrático médio para os algoritmos Newton, Gradiente, LMS e NLMS já foram abordadas na seção 
 						anterior e podem ser revisitadas nas Figuras \ref{fig:newton_mse}, \ref{fig:gradient_mse}, \ref{fig:lms_mse} e \ref{fig:nlms_mse}.
-						adicionalmente, o traçado MSE para o método RLS está presente na Figura \ref{fig:rls_mse}.
+						adicionalmente, o traçado da evolução do MSE para o método RLS está presente na Figura \ref{fig:rls_mse}. Nessa figura podemos verificar
+						que o RLS apresenta uma latência de convergência menor que o LMS e NLMS, mas ao final do processo aparentemente o grau de estabilidade da
+						solução dos coeficientes de filtro parece ser menor do que quando comparamos com os quatro algoritmos de filtragem mencionados anteriormente.
 
 				\end{enumerate}
 
@@ -1662,8 +1721,19 @@
 
 				\textcolor{red}{Solução:}
 
-				Assim como na questão da lista anterior foi considerado novamente que o filtro é de ordem $M = 15$.
+				\paragraph{}Assim como na questão da lista anterior foi considerado novamente que o filtro é de ordem $M = 15$.
 				Os resultados podem ser encontrados nas Figuras \ref{fig:L4Q5_a1}, \ref{fig:L4Q5_a2}, \ref{fig:L4Q5_a3} e \ref{fig:L4Q5_a4}.
+				Inicialmente é possível confirmar uma evidente vantagem na velocidade de convergência do RLS quando o comparamos com o algoritmo LMS.
+				Independentemente do fator de esquecimento considerado todos apresentam uma vantagem considerável sobre o LMS quando se observa tanto a 
+				latência quanto o desempenho da evolução do MSE. Desse modo, o RLS tem menor latência e melhor desempenho MSE quando comparamos com o LMS.
+				
+				\paragraph{}Já quando voltamos nossa análise para o impacto do fator de esquecimento é possível verificar uma interessante característica do 
+				RLS. O fator de esquecimento atua de forma semelhante ao passo de aprendizado nos algoritmos LMS e NLMS, mas num sentido um  pouco diferente. Desse modo, quanto
+				maior o seu valor mais flexível torna-se o filtro para adaptar-se a novos estímulos. Assim, nas Figuras \ref{fig:L4Q5_a2} e \ref{fig:L4Q5_a3}, onde o 
+				fator de esquecimento é definido respectivamente por $\lambda = 0.9$ e $\lambda = 0.99$, é possível ver que o MSE apresenta oscilações de 
+				elevadas magnitudades mesmo após a convergência pois estamos restringindo a flexibilidade do RLS. Já na Figura \ref{fig:L4Q5_a4} onde temos um fator de esquecimento 
+				definido por $\lambda = 0.999$ temos oscilações de magnitudades consideravelmente menores quando comparamos com os dois casos anteriores. Já com relação ao valor de convergência
+				MSE não é possível notar grandes diferenças entre os casos considerados, visto que todos oscilam em torno de um valor aproximadamente igual.
 			
 				\newpage
 				\begin{figure}[H]

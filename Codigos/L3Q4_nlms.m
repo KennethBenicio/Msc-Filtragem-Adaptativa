@@ -5,8 +5,9 @@ clear all;
 
 % Learning rate
 mi = 0.5;
+gamma = 0.5;
 % Filter order
-order = 2;
+order = 15;
 % Number of samples
 Samples = 1000;
 % Defining the mse error and filter coeficients vectors.
@@ -42,7 +43,7 @@ p = [1; 0;];
 signal_d = signal_d(order:end,1); 
 for ss = 1:(Samples - order - 1)
     % Normalized learning rate.
-    mi_normalized = mi/(norm(signal_x));
+    mi_normalized = mi/(gamma + norm(signal_x));
     % Error between the desired signal and the filtered signal.
     error(ss) = signal_d(ss) - weights(:,ss)' * signal_x(ss:ss+order-1); 
     % Recursive expression.

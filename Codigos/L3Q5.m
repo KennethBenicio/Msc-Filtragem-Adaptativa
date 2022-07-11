@@ -28,7 +28,6 @@ signal_d = randn(Samples,1);
 
 % Convolving the channel and the signal.
 Hz = [1 0 0 0 0 0 0 0 0 0 0 0 -1];
-%Hz = [1 1.6];
 signal_x = filter(Hz,1,signal_d);
 
 % Generating the noisy received signal.

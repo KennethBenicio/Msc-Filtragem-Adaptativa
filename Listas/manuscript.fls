@@ -387,6 +387,11 @@ INPUT ./figs/nlms_mse.png
 INPUT figs/nlms_mse.png
 INPUT ./figs/nlms_mse.png
 INPUT ./figs/nlms_mse.png
+INPUT ./figs/nlms_awgn.png
+INPUT ./figs/nlms_awgn.png
+INPUT figs/nlms_awgn.png
+INPUT ./figs/nlms_awgn.png
+INPUT ./figs/nlms_awgn.png
 INPUT ./figs/L3Q5_mu_2.png
 INPUT ./figs/L3Q5_mu_2.png
 INPUT figs/L3Q5_mu_2.png
