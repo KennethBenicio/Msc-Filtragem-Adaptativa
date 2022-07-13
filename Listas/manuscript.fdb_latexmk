@@ -1,6 +1,6 @@
 # Fdb version 3
-["pdflatex"] 1657583461 "/home/kenneth_benicio/Projects/Github/Msc-Filtragem-Adaptativa/Listas/manuscript.tex" "manuscript.pdf" "manuscript" 1657583461
-  "/home/kenneth_benicio/Projects/Github/Msc-Filtragem-Adaptativa/Listas/manuscript.tex" 1657583460 100236 f06a3209da0b29fbc4143eaa4576591d ""
+["pdflatex"] 1657717609 "/home/kenneth_benicio/Projects/Github/Msc-Filtragem-Adaptativa/Listas/manuscript.tex" "manuscript.pdf" "manuscript" 1657717609
+  "/home/kenneth_benicio/Projects/Github/Msc-Filtragem-Adaptativa/Listas/manuscript.tex" 1657717608 100388 2ea372a8b3b91db17c1b46e30a248477 ""
   "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1650183167 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm" 1650183167 1120 1e8878807317373affa7f7bba4cf2f6a ""
   "/usr/share/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy7.tfm" 1650183167 1120 7f9f170e8aa57527ad6c49feafd45d54 ""
@@ -84,10 +84,10 @@
   "/usr/share/texmf-dist/web2c/texmf.cnf" 1650183167 39911 2da6c67557ec033436fe5418a70a8a61 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1652447722 4274140 6ffef722bc1262edc9440643c3ef1781 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1652447705 2927660 d3c8a37f6e65a821ab2eaf136b52d860 ""
-  "figs/L3Q5_filter_response.png" 1656679474 38743 060d57e7582d05a8c43e0c5df0a9033f ""
-  "figs/L3Q5_mu_10.png" 1656679474 25333 aa05fa6fc5171dee1dc968c212db6ab6 ""
-  "figs/L3Q5_mu_2.png" 1656679474 27290 75131b2e47c828e34a6c4f1bd461c30c ""
-  "figs/L3Q5_mu_50.png" 1656679474 25273 bd718659e0f65d86e6449c779e57983f ""
+  "figs/L3Q5_filter_response.png" 1657717301 84642 5ea56bc4f2d79ad76a69991b028eca2c ""
+  "figs/L3Q5_mu_10.png" 1657717284 79208 9c50e80a72652e7b70a5a8b251fbbd5c ""
+  "figs/L3Q5_mu_2.png" 1657717250 49993 ed830697d8852374932bbb9de2363f0a ""
+  "figs/L3Q5_mu_50.png" 1657717301 75308 7b3a692d20333c51632ffff4ebe04a05 ""
   "figs/L3Q6_A_mse.png" 1656679474 24189 98790d569b2cdd8e6e2905a52d4c7155 ""
   "figs/L3Q6_A_t.png" 1656679474 43263 fd89f22c785ecf90d3a05d642ec74ca7 ""
   "figs/L3Q6_B_t.png" 1656679474 46235 e75382fabb8a2d5c90ca1da35cb86939 ""
@@ -107,7 +107,7 @@
   "figs/L4Q5_rls_9.png" 1656679474 25300 c4aacfc119fc0b47b84ed01f5338a850 ""
   "figs/L4Q5_rls_99.png" 1656679474 24410 d97b5764a959d684b765daa67049d275 ""
   "figs/L4Q5_rls_999.png" 1656679474 23391 32ea1708c4a5abd1ea21f7dc47ced8da ""
-  "figs/Rxx.png" 1656679474 30855 1cee3f6fbc81af0583ba011787810250 ""
+  "figs/Rxx.png" 1657717558 52419 d6bf495167648e51fc1f5374a3b80c09 ""
   "figs/cancelamento_ruido.png" 1656679474 19792 853a118fef645f28f44775f379edd252 ""
   "figs/equalizador_linear.png" 1656679474 44996 53587424d7c498a8fff946e9b355051e ""
   "figs/gradient_contour.png" 1656679474 20077 6945ff756da8239920e1cce63b5bb2eb ""
@@ -126,8 +126,8 @@
   "figs/rls_mse.png" 1656679474 28130 a8160f8217cd6bd6c7177b1badada988 ""
   "figs/superficie-de-erro.png" 1656679474 77850 42b157578c0ea05233901eb71b147bc2 ""
   "front.tex" 1656679474 793 d5a8c848561df167cb262a0a7eeabf92 ""
-  "manuscript.aux" 1657583461 11563 c2a3f2badc9e246bd7eef9950ebfba4f "pdflatex"
-  "manuscript.tex" 1657583460 100236 f06a3209da0b29fbc4143eaa4576591d ""
+  "manuscript.aux" 1657717609 11563 c2a3f2badc9e246bd7eef9950ebfba4f "pdflatex"
+  "manuscript.tex" 1657717608 100388 2ea372a8b3b91db17c1b46e30a248477 ""
   (generated)
   "manuscript.aux"
   "manuscript.log"

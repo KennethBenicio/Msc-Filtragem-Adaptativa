@@ -2,9 +2,12 @@ clc;
 close all;
 clear all;
 
-% Learning rate
+% Simulation parameters
 mi = 0.4;
-gamma = 1e-3;
+gamma = 0.001;
+runs = 15000;
+QAM_train = 4;
+snrs = [0 10 20 30];
 % Filter order
 % I first implemented thinking of python notation, later I found out that
 % the reference book defines the order a bit different from what I usually
@@ -14,10 +17,9 @@ order = 15 + 1;
 
 %% 4QAM
 QAM = 4
-runs = 1000;
-snrs = [0 5 10 15 20 25 30];
 SER = zeros(length(snrs),1);
 for ii = 1:length(snrs)
+    snrs(ii)
     for rr = 1:runs
         %% Training Stage  
         % Number of samples
@@ -27,7 +29,6 @@ for ii = 1:length(snrs)
         weights = zeros(order, Samples);
 
         % Defining the energy of the noise vector.
-        QAM_train = 4;
         signal_d_train = randi([0,QAM_train - 1],[Samples 1]); % The same pilot for every pilot frame and block.
         signal_d_train = (1/sqrt(2)) * qammod(signal_d_train,QAM_train); % 4-QAM Pilot Signal.
 
@@ -36,7 +37,7 @@ for ii = 1:length(snrs)
         signal_x_train = filter(Hz,1,signal_d_train);
 
         % Training noise
-        snr = 10^(inf/10);
+        snr = 10^(30/10);
         energy_symbol = mean(abs(signal_x_train(:)).^2); % Energy symbol pilot. 
         var_noise = energy_symbol .*  1/snr; % Variance of the noise.
         noise = sqrt(var_noise/2) * (randn(Samples,1) + 1i*randn(Samples,1));
@@ -93,14 +94,14 @@ end
 SER = SER/runs;
 figure
 txt = ['4QAM Signal'];
-plot(snrs, SER,'-','color', [0.3010 0.7450 0.9330], "linewidth", 3, "markersize", 8, "DisplayName", txt);
+semilogy(snrs, SER,'-','color', [0.3010 0.7450 0.9330], "linewidth", 3, "markersize", 8, "DisplayName", txt);
 hold on;
 
 %% 16QAM 
 QAM = 16
-snrs = [0 5 10 15 20 25 30];
 SER = zeros(length(snrs),1);
 for ii = 1:length(snrs)
+    snrs(ii)
     for rr = 1:runs
         %% Training Stage  
         % Number of samples
@@ -110,7 +111,6 @@ for ii = 1:length(snrs)
         weights = zeros(order, Samples);
 
         % Defining the energy of the noise vector.
-        QAM_train = 4;
         signal_d_train = randi([0,QAM_train - 1],[Samples 1]); % The same pilot for every pilot frame and block.
         signal_d_train = (1/sqrt(2)) * qammod(signal_d_train,QAM_train); % 4-QAM Pilot Signal.
 
@@ -119,7 +119,7 @@ for ii = 1:length(snrs)
         signal_x_train = filter(Hz,1,signal_d_train);
 
         % Training noise
-        snr = 10^(inf/10);
+        snr = 10^(30/10);
         energy_symbol = mean(abs(signal_x_train(:)).^2); % Energy symbol pilot. 
         var_noise = energy_symbol .*  1/snr; % Variance of the noise.
         noise = sqrt(var_noise/2) * (randn(Samples,1) + 1i*randn(Samples,1));
@@ -175,14 +175,14 @@ for ii = 1:length(snrs)
 end
 SER = SER/runs;
 txt = ['16QAM Signal'];
-plot(snrs, SER,'-','color', [0 0.4470 0.7410], "linewidth", 3, "markersize", 8, "DisplayName", txt);
+semilogy(snrs, SER,'-','color', [0 0.4470 0.7410], "linewidth", 3, "markersize", 8, "DisplayName", txt);
 hold on;
 
 %% 64QAM 
 QAM = 64
-snrs = [0 5 10 15 20 25 30];
 SER = zeros(length(snrs),1);
 for ii = 1:length(snrs)
+    snrs(ii)
     for rr = 1:runs
         %% Training Stage  
         % Number of samples
@@ -192,7 +192,6 @@ for ii = 1:length(snrs)
         weights = zeros(order, Samples);
 
         % Defining the energy of the noise vector.
-        QAM_train = 4;
         signal_d_train = randi([0,QAM_train - 1],[Samples 1]); % The same pilot for every pilot frame and block.
         signal_d_train = (1/sqrt(2)) * qammod(signal_d_train,QAM_train); % 4-QAM Pilot Signal.
 
@@ -201,7 +200,7 @@ for ii = 1:length(snrs)
         signal_x_train = filter(Hz,1,signal_d_train);
 
         % Training noise
-        snr = 10^(inf/10);
+        snr = 10^(30/10);
         energy_symbol = mean(abs(signal_x_train(:)).^2); % Energy symbol pilot. 
         var_noise = energy_symbol .*  1/snr; % Variance of the noise.
         noise = sqrt(var_noise/2) * (randn(Samples,1) + 1i*randn(Samples,1));
@@ -256,14 +255,14 @@ for ii = 1:length(snrs)
 end
 SER = SER/runs;
 txt = ['64QAM Signal'];
-plot(snrs, SER,'-','color', [0.8500 0.3250 0.0980], "linewidth", 3, "markersize", 8, "DisplayName", txt);
+semilogy(snrs, SER,'-','color', [0.8500 0.3250 0.0980], "linewidth", 3, "markersize", 8, "DisplayName", txt);
 hold on;
 
 %% 256QAM 
 QAM = 256
-snrs = [0 5 10 15 20 25 30];
 SER = zeros(length(snrs),1);
 for ii = 1:length(snrs)
+    snrs(ii)
     for rr = 1:runs
         %% Training Stage  
         % Number of samples
@@ -273,7 +272,6 @@ for ii = 1:length(snrs)
         weights = zeros(order, Samples);
 
         % Defining the energy of the noise vector.
-        QAM_train = 4;
         signal_d_train = randi([0,QAM_train - 1],[Samples 1]); % The same pilot for every pilot frame and block.
         signal_d_train = (1/sqrt(2)) * qammod(signal_d_train,QAM_train); % 4-QAM Pilot Signal.
 
@@ -282,7 +280,7 @@ for ii = 1:length(snrs)
         signal_x_train = filter(Hz,1,signal_d_train);
 
         % Training noise
-        snr = 10^(inf/10);
+        snr = 10^(30/10);
         energy_symbol = mean(abs(signal_x_train(:)).^2); % Energy symbol pilot. 
         var_noise = energy_symbol .*  1/snr; % Variance of the noise.
         noise = sqrt(var_noise/2) * (randn(Samples,1) + 1i*randn(Samples,1));
@@ -338,9 +336,9 @@ for ii = 1:length(snrs)
 end
 SER = SER/runs;
 txt = ['256QAM Signal'];
-plot(snrs, SER,'-','color', [0.4660 0.6740 0.1880], "linewidth", 3, "markersize", 8, "DisplayName", txt);
+semilogy(snrs, SER,'-','color', [0.4660 0.6740 0.1880], "linewidth", 3, "markersize", 8, "DisplayName", txt);
 hold off;
-legend_copy = legend("location", "northeast");
+legend_copy = legend("location", "southwest");
 set (legend_copy, "fontsize", 12);
 grid on;
 title('SER vs. SNR for different constelattions');

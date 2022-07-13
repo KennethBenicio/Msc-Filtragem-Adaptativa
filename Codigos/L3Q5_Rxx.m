@@ -7,6 +7,8 @@ order = 12;
 Rxx = zeros(order,order);
 for k = 1:10000
     x = randn(10000,1) + randn(10000,1);
+    % It is necessary to centralize the data.
+    x = (x-mean(x))/std(x);
     y = zeros(length(x) + order - 1,1);
     for i = order:length(x)
        y(i + order - 1) = x(i) + x(i-1) + x(i-2) +  x(i-3) + x(i-4) + x(i-5) + x(i-6) +...

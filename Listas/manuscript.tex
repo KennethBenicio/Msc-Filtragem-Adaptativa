@@ -1358,19 +1358,20 @@
 						aprendizado
 
 						\begin{align}
-							0 < \mu < \frac{1}{\lambda_{\text{max}}} = \frac{1}{195} \approx 0.005,
+							0 < \mu < \frac{1}{\lambda_{\text{max}}} = \frac{1}{97} \approx 0.01,
 						\end{align}
 
-						e assim $\mu_{\text{max}} \approx 0.005$.
+						e assim $\mu_{\text{max}} \approx 0.01$.
 
 					\item Execute o algoritmo para $\frac{\mu_{\text{max}}}{2}$, $\frac{\mu_{\text{max}}}{10}$ e $\frac{\mu_{\text{max}}}{50}$. Comente sobre o comportamento da convergência de cada caso.
 						
 						\textcolor{red}{Solução:}
 
-						\paragraph{}Nas Figuras \ref{fig:mu_2}, \ref{fig:mu_10} e \ref{fig:mu_50} podemos verificar a convergência do algoritmo para esse problema. A príncipio é possível 
+						\paragraph{}Nas Figuras \ref{fig:mu_2}, \ref{fig:mu_10} e \ref{fig:mu_50} podemos verificar o comportamento da convergência do algoritmo para esse problema. A príncipio é possível 
 						confirmar que existe uma diminuta piora quanto ao desempenho dos algoritmos a medida que o passo de aprendizado descrece. Isso pode ser explicado pois a medida que 
 						$\mu$ fica menor a flexibilidade de adaptação do algoritmo é reduzida. Assim, para passos de aprendizado muito pequenos é mais difícil para o filtro conseguir acompanhar
-						as mudanças no canal provocadas pelo impacto de componentes ruidosas e pela resposta em frequência do canal. 
+						as mudanças no canal provocadas pelo impacto de componentes ruidosas e pela resposta em frequência do canal. Ademais, para o caso $\mu_{\text{max}}/2$ é possível verificar que não
+						há convergência para o MSE. Isso poderia ser explicado
 
 					\item Meça o desajuste (misadjustment) em cada exemplo e comparar com os resultados obtidos pela solução teórica (Eq. (3.50) do livro texto)					
 
@@ -1389,9 +1390,9 @@
 							\begin{tabular}{|l|l|l|}
 								\hline
 							 	& Empírico & Téorico \\ \hline
-							 	$\frac{\mu_{\text{max}}}{2}$ & $ -1.1618 $ &  $ -1.1613 $ \\ \hline
-							 	$\frac{\mu_{\text{max}}}{10}$ & $ -3.2938 $ & $ -3.2727 $ \\ \hline
-							 	$\frac{\mu_{\text{max}}}{50}$ & $ +0.4029 $ & $ +0.4045 $ \\ \hline
+							 	$\frac{\mu_{\text{max}}}{2}$  & $ -1.3865 $ &  $ -1.3846 $ \\ \hline
+							 	$\frac{\mu_{\text{max}}}{10}$ & $ +2.5392 $ & $ +2.5714 $ \\ \hline
+							 	$\frac{\mu_{\text{max}}}{50}$ & $ +0.1675 $ & $ +0.1682 $ \\ \hline
 							\end{tabular}
 						\end{table}
 
@@ -1704,7 +1705,7 @@
 
 					\item Obtenha também a evolução do erro quadrático médio para cada um dos algoritmos anteriores.
 				
-						\textcolor{red}{Solução:}
+						\textcolor{red}{Solução:} 
 
 						\paragraph{}As evolução do erro quadrático médio para os algoritmos Newton, Gradiente, LMS e NLMS já foram abordadas na seção 
 						anterior e podem ser revisitadas nas Figuras \ref{fig:newton_mse}, \ref{fig:gradient_mse}, \ref{fig:lms_mse} e \ref{fig:nlms_mse}.

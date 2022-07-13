@@ -4,7 +4,7 @@ close all;
 clear all;
 
 % Learning rate
-mi = (0.005)/50;
+mi = (0.01)/50;
 % Filter order
 % I first implemented thinking of python notation, later I found out that
 % the reference book defines the order a bit different from what I usually
@@ -27,7 +27,7 @@ noise = sqrt(variance_noise/2).*randn(Samples,1);
 signal_d = randn(Samples,1);
 
 % Convolving the channel and the signal.
-Hz = [1 0 0 0 0 0 0 0 0 0 0 0 -1];
+Hz = [1 1 1 1 1 1 1 1 1 1 1 1];
 signal_x = filter(Hz,1,signal_d);
 
 % Generating the noisy received signal.

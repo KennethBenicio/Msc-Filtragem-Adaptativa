@@ -19,6 +19,9 @@
 - [Lista 4, Problema 5: Impacto do Fator de Esquecimento do RLS](https://github.com/KennethBenicio/Msc-Filtragem-Adaptativa/blob/main/Codigos/L4Q5_rls.m)
 - [Lista 4, Problema 5: LMS para Comparação com RLS](https://github.com/KennethBenicio/Msc-Filtragem-Adaptativa/blob/main/Codigos/L4Q5_lms.m)
 
+## Compilado de Resultados Computacionais
+- [Resultados Obtidos ao Longo das Atividades](https://github.com/KennethBenicio/Msc-Filtragem-Adaptativa/blob/main/Imagens)
+- 
 ## Relatório de Ativades da Disciplina: Filtragem Adaptativa
 - [Relatório de Atividades da Disciplina: Filtragem Adaptativa](https://github.com/KennethBenicio/Msc-Filtragem-Adaptativa/blob/main/Listas/manuscript.pdf)
 
