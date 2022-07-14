@@ -5,7 +5,7 @@ clear all;
 % Simulation parameters
 mi = 0.4;
 gamma = 0.001;
-runs = 15000;
+runs = 100;
 QAM_train = 4;
 snrs = [0 10 20 30];
 % Filter order
@@ -329,7 +329,7 @@ for ii = 1:length(snrs)
             weights(:,s+1) = weights(:,s) + mi_normalized * conj(error(s)) * aux;
         end
         aux1 = qamdemod(signal_d,QAM);
-        aux1 = circshift(aux1,order-1);
+        aux1 = circshift(aux1,order + 1);
         aux2 = qamdemod(signal_d_hat,QAM);
         SER(ii,1) = SER(ii,1) + sum(aux1~=aux2)/length(aux1);
     end

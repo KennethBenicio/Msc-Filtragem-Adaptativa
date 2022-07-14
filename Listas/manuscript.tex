@@ -1370,8 +1370,7 @@
 						\paragraph{}Nas Figuras \ref{fig:mu_2}, \ref{fig:mu_10} e \ref{fig:mu_50} podemos verificar o comportamento da convergência do algoritmo para esse problema. A príncipio é possível 
 						confirmar que existe uma diminuta piora quanto ao desempenho dos algoritmos a medida que o passo de aprendizado descrece. Isso pode ser explicado pois a medida que 
 						$\mu$ fica menor a flexibilidade de adaptação do algoritmo é reduzida. Assim, para passos de aprendizado muito pequenos é mais difícil para o filtro conseguir acompanhar
-						as mudanças no canal provocadas pelo impacto de componentes ruidosas e pela resposta em frequência do canal. Ademais, para o caso $\mu_{\text{max}}/2$ é possível verificar que não
-						há convergência para o MSE. Isso poderia ser explicado
+						as mudanças no canal provocadas pelo impacto de componentes ruidosas e pela resposta em frequência do canal. 
 
 					\item Meça o desajuste (misadjustment) em cada exemplo e comparar com os resultados obtidos pela solução teórica (Eq. (3.50) do livro texto)					
 
@@ -1402,7 +1401,7 @@
 					
 						\textcolor{red}{Solução:}
 
-						\paragraph{}A resposta em frequência do filtro está disponível na Figura \ref{fig:filter_response}. É possível ver que a resposta em frequência do filtro
+						\paragraph{}A resposta em frequência do filtro está disponível na Figura \ref{fig:filter_response} para o caso $\frac{\mu_{\text{max}}}{50}$. É possível ver que a resposta em frequência do filtro
 						tende a se aproximar da resposta em frequência do sistema. Entretanto, existe um claro amortecimento na amplitute da resposta do filtro. Isso pode ser explicado
 						pela dificuldade do filtro em acompanhar a evolução do canal e poderia ser contornado aumentando a ordem do filtro ou utilizando algum método de trainamento para
 						iniciar o processo de filtragem.  
@@ -1433,7 +1432,12 @@
 						o MSE possuindo uma grande variação mesmo após a convergência. Por fim, também é possível ver na figura seguinte o impacto no filtro na filtragem de um sinal modulado por 16-QAM. É visível 
 						que a estimação conseguiu separar o sinal transmitido em diferentes regiões de decisão e assim seria necessário ao fim desse processo passar esse sinal filtrado por um decisor para que fosse
 						obtida uma aproximação do sinal originalmente trnasmitido. Ademais, foi implementado um simples processo de aprendizado utilizando algumas amostras de sinais 4-QAM para o treinamento do filtro com
-						o objetivo de facilitar ou acelerar a convergência quando o sinal 16-QAM fosse filtrado.
+						o objetivo de facilitar ou acelerar a convergência quando o sinal 16-QAM fosse filtrado. 
+						
+						\paragraph{}Além disso, na Figura \ref{fig:L3Q6A3} é possível acompanhar a evolução temporal do sinal filtrado e do sinal 
+						original para dois momentos distintos. No primeiro, temos a adaptação do filtro para as primeiras 100 amostras e previsivelmente confirmamos que o filtro possuí ainda dificuldades em acompanhar o canal 
+						nas primeiras amostras. Já no segundo momento temos as últimas 100 amostras do filtro e podemos entender a partir disso que o filtro agora tem capacidade de acompanhar o canal de forma mais eficiente, embora
+						ainda existam momentos onde erros ocorrem. Esses erros podem ser ocasionados pelas interferências ruidosas que provocam erros de detecção na hora de avaliar as constelações aproximadas que saem do processo de filtragem.
 
 					\item Para os mesmos parâmetros do item (a), plote e compare os gráﬁcos de evolução que seriam resultante se o equalizador fosse treinado com 150, 300 e 500 iterações. Use o LMS com um
 					$\mu = 0.001$.
@@ -1448,9 +1452,10 @@
 						\textcolor{red}{Solução:}
 
 						\paragraph{}Os resultados estão nas Figuras \ref{fig:L3Q6C1} e \ref{fig:L3Q6C2}. É possível verificar na primeira figura que a evolução do MSE aconteceu apesar de uma considerável variação ao final
-						da convergência. Já analisando a figura seguinte onde transmitimos um sinal 256-QAM e utilizamos um filtro treinado por um sinal 4-QAM é possível verificar que o espaçamento das regiões de decisão dos 
-						símbolos é consideravelmente menor do que no caso 16-QAM. Assim, podemos verificar que a situação do sinal filtrado se apresenta de forma bem mais desorganizada do que no caso anterior. Entretanto, para
-						realmente avaliar o desempenho seria necessário utilizar uma métrica como a SER ou BER e comparar o impacto de diferentes modulações no desempenho do algoritmo de filtragem. 
+						da convergência. Já em relação a figura seguinte, onde transmitimos um sinal 256-QAM e utilizamos um filtro treinado por um sinal 4-QAM, é possível verificar que inicialmente o filtro demonstrou dificuldade em acompanhar
+						a evolução do canal. Por fim, em um segundo momento é apresentado a evolução temporal considerando as ultimas amostras do sinal e aqui podemos visualizar que, embora ainda existam uma quantidade considerável de erros por se 
+						tratar de uma modulação de ordem elevada, o filtro consegue se aproximar com um pouco mais de facilidade do sinal original. Adicionalmente, para termos uma melhor interpretação do desempenho desse filtro seria necessário utilizar 
+						uma métrica como a SER ou BER e comparar o impacto de diferentes modulações no desempenho do algoritmo de filtragem. Tal procedimento será desenvolvido em sequência. 
 
 					\item Gerar as curvas de taxa de erro de símbolo (SER, do inglês Symbol Error Rate) versus SNR na entrada do equalizador para símbolos de constelações 4, 16, 64 e 256-QAM. Faça SNR variar
 					de 5dB a 30dB.
@@ -1532,14 +1537,14 @@
 				\begin{figure}[H]
 					\centering
 					\includegraphics[width=0.75\textwidth]{figs/L3Q5_mu_2.png}
-					\caption{$\text{Amostras} = 500$, $M = 15$, $\mu = \frac{\mu_{\text{max}}}{2}$}
+					\caption{$\text{Amostras} = 1000$, $M = 15$, $\mu = \frac{\mu_{\text{max}}}{2}$}
 					\label{fig:mu_2}
 				\end{figure}
 
 				\begin{figure}[H]
 					\centering
 					\includegraphics[width=0.75\textwidth]{figs/L3Q5_mu_10.png}
-					\caption{$\text{Amostras} = 500$, $M = 15$, $\mu = \frac{\mu_{\text{max}}}{10}$}
+					\caption{$\text{Amostras} = 1000$, $M = 15$, $\mu = \frac{\mu_{\text{max}}}{10}$}
 					\label{fig:mu_10}
 				\end{figure}
 
@@ -1553,7 +1558,7 @@
 				\begin{figure}[H]
 					\centering
 					\includegraphics[width=0.75\textwidth]{figs/L3Q5_filter_response.png}
-					\caption{$\text{Amostras} = 1000$, $M = 15$, $\mu = \frac{\mu_{\text{max}}}{50}$}
+					\caption{$\text{Amostras} = 1000$, $M = 15$, $\mu = \frac{\mu_{\text{max}}}{2}$}
 					\label{fig:filter_response}
 				\end{figure}
 
@@ -1566,9 +1571,16 @@
 
 				\begin{figure}[H]
 					\centering
-					\includegraphics[width=0.75\textwidth]{figs/L3Q6_A_t.png}
+					\includegraphics[width=0.75\textwidth]{figs/L3Q6_A_c.png}
 					\caption{$\text{Amostras} = 5000$, $M = 15$, $\mu = 0.4$}
 					\label{fig:L3Q6A2}
+				\end{figure}
+
+				\begin{figure}[H]
+					\centering
+					\includegraphics[width=0.75\textwidth]{figs/L3Q6_A_t.png}
+					\caption{$\text{Amostras} = 5000$, $M = 15$, $\mu = 0.4$}
+					\label{fig:L3Q6A3}
 				\end{figure}
 
 				\begin{figure}[H]
@@ -1675,7 +1687,22 @@
 
 				\textcolor{red}{Solução:}
 
-				\paragraph{}Os resultados podem ser encontrados nas Figuras \ref{fig:L4Q3_a1} - \ref{fig:L4Q3_a8}.
+				\paragraph{}Os resultados podem ser encontrados nas Figuras \ref{fig:L4Q3_a1} - \ref{fig:L4Q3_a8}. Nas figuras \ref{fig:L4Q3_a1} e \ref{fig:L4Q3_a2} temos a evolução
+				dos coeficientes de filtro e do MSE para o RLS com fator de esquecimento $\lambda = 0.9$, SNR = $3$ dB e ordens $M = 2$ e $M = 3$, respectivamente. Nesses cenários podemos 
+				ver que o RLS não atingiu a estabilidade em seus coeficientes de filtro embora tenha apresentado um comportamento MSE sem grandes variâncões de magnitude. Ademais, no segundo cenário
+				é possível verificar maior estabilidade na evolução do MSE graças ao incremento na ordem do RLS. Em sequência, nas Figuras \ref{fig:L4Q3_a3} e \ref{fig:L4Q3_a4} temos dois cenárioss similares, 
+				mas agora com um fator dde conhecimento igual a $\lambda = 0.99$. Diferentemente dos dois primeiros cenários agora é possível verificar que o RLS atingiu estabilidade em seus coeficientes de filtro, 
+				além de um melhor desempenho na evolução do MSE do que nos casos anteriores. Isso se deve pois, diferente do que ocorre com o passo de aprendizado nos algoritmos estudados anteriormente, a medida que
+				$\lambda$ cresce menos fléxivel torna-se o filtro. Desse modo, é mais fácil para esses novos cenários adaptem-se à evolução do canal com maior facilidade. Alem disso, novamente foi possível observar 
+				o impacto da ordem do RLS na estabilidade da evolução do MSE, onde para o cenário $M = 3$ foi verificado um melhor desempenho do que para o cenário $M = 2$.
+
+				\paragraph{}Por fim, nos resta analisar o impacto da SNR na estabilidade e desempenho do RLS. Nas Figuras \ref{fig:L4Q3_a5} e \ref{fig:L4Q3_a6} temos o equivalente ao primeiro par de cenários, mas agora 
+				com a diferença de que ambos os cenários são de SNR infinita. Para o primeiro caso com $M = 2$ vemos uma estabilização perfeita dos coeficientes do filtro e uma evolução do erro MSE que tende ao erro de
+				precisão da máquina. Dessa forma, podemos considerar esse um cenário ideal para o RLS. Sequencialmente, na figura seguinte consideramos um cenário $M = 3$ e podemos verificar que não existiu convergência para
+				esse cenário. Inicialmente existiu uma certa estabilização na evolução do MSE, mas apos algumas iterações o filtro perdeu a estabilidade e seus coeficientes "explodiram". Esse comportamento pode ser explicado 
+				tanto pelo aumento da ordem do filtro quanto pelo fator de esquecimento que torna o filtro muito pouco fléxivel e suscetível a instabilidades provocadas por mudanças repentinas. Por fim, nas Figuras \ref{fig:L4Q3_a7}
+				e \ref{fig:L4Q3_a8} temos dois resultados estáveis na evolução do MSE e nos coeficientes do filtro RLS. Isso se deve principalmente a um fator de esquecimento que fornece maior capacidade de resistir a instabilidades
+				geradas pelo canal.
 
 			\item Considere um sinal branco gaussiano de variância unitária transmitido por um canal de comunicação
 			de função de transferência $H(z) = 1 + 1.6z^{-1}$. Para compensar este canal utiliza-se um equalizador

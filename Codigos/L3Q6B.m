@@ -15,12 +15,12 @@ order = 15 + 1;
 % apply the same transmitted sequence to all the cases
 
 % Number of samples
-Samples = 5000;
+Samples = 5000 + 50;
 % Defining the energy of the noise vector.
 SNR = 30;
 QAM = 16;
-signal_d = randi([0,QAM - 1],[Samples 1]); % The same pilot for every pilot frame and block.
-signal_d = (1/sqrt(2)) * qammod(signal_d,QAM); % 4-QAM Pilot Signal.
+signal_d = randi([0,QAM - 1],[Samples 1]); 
+signal_d = (1/sqrt(2)) * qammod(signal_d,QAM);
 
 % Convolving the channel and the signal.
 Hz = [0.5 1.2 1.5 -1];
@@ -43,7 +43,6 @@ error = zeros(Samples,1);
 weights = zeros(order, Samples);
 
 % Defining the energy of the noise vector.
-SNR = 30;
 QAM_train = 4;
 signal_d_train = randi([0,QAM_train - 1],[Samples 1]); % The same pilot for every pilot frame and block.
 signal_d_train = (1/sqrt(2)) * qammod(signal_d_train,QAM_train); % 4-QAM Pilot Signal.
@@ -69,7 +68,7 @@ for s = order:Samples
 end
 
 % Number of samples
-Samples = 5000;
+Samples = 5000 + 50;
 % Defining the mse error and filter coeficients vectors.
 error = zeros(Samples,1);
 aux = weights(:,s);
@@ -93,7 +92,6 @@ error = zeros(Samples,1);
 weights = zeros(order, Samples);
 
 % Defining the energy of the noise vector.
-SNR = 30;
 QAM_train = 4;
 signal_d_train = randi([0,QAM_train - 1],[Samples 1]); % The same pilot for every pilot frame and block.
 signal_d_train = (1/sqrt(2)) * qammod(signal_d_train,QAM_train); % 4-QAM Pilot Signal.
@@ -119,7 +117,7 @@ for s = order:Samples
 end
 
 % Number of samples
-Samples = 5000;
+Samples = 5000 + 50;
 % Defining the mse error and filter coeficients vectors.
 error = zeros(Samples,1);
 aux = weights(:,s);
@@ -143,7 +141,6 @@ error = zeros(Samples,1);
 weights = zeros(order, Samples);
 
 % Defining the energy of the noise vector.
-SNR = 30;
 QAM_train = 4;
 signal_d_train = randi([0,QAM_train - 1],[Samples 1]); % The same pilot for every pilot frame and block.
 signal_d_train = (1/sqrt(2)) * qammod(signal_d_train,QAM_train); % 4-QAM Pilot Signal.
@@ -169,7 +166,7 @@ for s = order:Samples
 end
 
 % Number of samples
-Samples = 5000;
+Samples = 5000 + 50;
 % Defining the mse error and filter coeficients vectors.
 error = zeros(Samples,1);
 aux = weights(:,s);
@@ -193,7 +190,6 @@ error = zeros(Samples,1);
 weights = zeros(order, Samples);
 
 % Defining the energy of the noise vector.
-SNR = 30;
 QAM_train = 4;
 signal_d_train = randi([0,QAM_train - 1],[Samples 1]); % The same pilot for every pilot frame and block.
 signal_d_train = (1/sqrt(2)) * qammod(signal_d_train,QAM_train); % 4-QAM Pilot Signal.
@@ -219,7 +215,7 @@ for s = order:Samples
 end
 
 % Number of samples
-Samples = 5000;
+Samples = 5000 + 50;
 % Defining the mse error and filter coeficients vectors.
 error = zeros(Samples,1);
 aux = weights(:,s);
@@ -235,51 +231,125 @@ for s = order:Samples
     weights(:,s+1) = weights(:,s) + 2 * mi * conj(error(s)) * aux;
 end
 
-%% Temporal Evolution
-% https://www.mathworks.com/help/comm/gs/examine-16-qam-using-matlab.html
+%% Temporal Evolution 
+
+aux = qamdemod(signal_d_hat_50,QAM);
+aux = circshift(aux,1-order);
+aux_50 = aux(4900:5000);
+aux = qamdemod(signal_d_hat_150,QAM);
+aux = circshift(aux,1-order);
+aux_150 = aux(4900:5000);
+aux = qamdemod(signal_d_hat_300,QAM);
+aux = circshift(aux,1-order);
+aux_300 = aux(4900:5000);
+aux = qamdemod(signal_d_hat_500,QAM);
+aux = circshift(aux,1-order);
+aux_500 = aux(4900:5000);
+
 figure
 subplot(221)
-plot(signal_d_hat_50,'.','color', [0.3010 0.7450 0.9330],"markersize", 3);
+txt = ['Original Signal'];
+stem(4900:5000, qamdemod(signal_d(4900:5000),QAM),'-','color', [0.3010 0.7450 0.9330], "linewidth", 1, "markersize", 3, "DisplayName", txt);
 hold on;
-plot(signal_d,"*",'color', [1 0 0],"markersize", 9)
+txt = ['Estimated Signal'];
+stem(4900:5000, aux_50,'-','color', [0.4660 0.6740 0.1880], "linewidth", 1, "markersize", 3, "DisplayName", txt);
 hold off;
-xlim([-3 3]);
-ylim([-3 3]);
-title('Training with 50 Samples');
-xlabel('In Phase');
-ylabel('Quadrature');
+title('50 Training Samples');
+xlabel('Sample');
+xlim([4900 5000]);
+ylabel('Magnitude');
+legend_copy = legend("location", "southwest");
+set (legend_copy, "fontsize", 6);
 grid on;
 subplot(222)
-plot(signal_d_hat_150,'.','color', [0.3010 0.7450 0.9330],"markersize", 3);
+txt = ['Original Signal'];
+stem(4900:5000, qamdemod(signal_d(4900:5000),QAM),'-','color', [0.3010 0.7450 0.9330], "linewidth", 1, "markersize", 3, "DisplayName", txt);
 hold on;
-plot(signal_d,"*",'color', [1 0 0],"markersize", 9)
+txt = ['Estimated Signal'];
+stem(4900:5000, aux_150,'-','color', [0.4660 0.6740 0.1880], "linewidth", 1, "markersize", 3, "DisplayName", txt);
 hold off;
-xlim([-3 3]);
-ylim([-3 3]);
-title('Training with 150 Samples');
-xlabel('In Phase');
-ylabel('Quadrature');
+title('150 Training Samples');
+xlabel('Sample');
+xlim([4900 5000]);
+ylabel('Magnitude');
+legend_copy = legend("location", "southwest");
+set (legend_copy, "fontsize", 6);
 grid on;
 subplot(223)
-plot(signal_d_hat_300,'.','color', [0.3010 0.7450 0.9330],"markersize", 3);
+txt = ['Original Signal'];
+stem(4900:5000, qamdemod(signal_d(4900:5000),QAM),'-','color', [0.3010 0.7450 0.9330], "linewidth", 1, "markersize", 3, "DisplayName", txt);
 hold on;
-plot(signal_d,"*",'color', [1 0 0],"markersize", 9)
+txt = ['Estimated Signal'];
+stem(4900:5000, aux_300,'-','color', [0.4660 0.6740 0.1880], "linewidth", 1, "markersize", 3, "DisplayName", txt);
 hold off;
-xlim([-3 3]);
-ylim([-3 3]);
-title('Training with 300 Samples');
-xlabel('In Phase');
-ylabel('Quadrature');
+title('300 Training Samples');
+xlabel('Sample');
+xlim([4900 5000]);
+ylabel('Magnitude');
+legend_copy = legend("location", "southwest");
+set (legend_copy, "fontsize", 6);
 grid on;
 subplot(224)
-plot(signal_d_hat_500,'.','color', [0.3010 0.7450 0.9330],"markersize", 3);
+txt = ['Original Signal'];
+stem(4900:5000, qamdemod(signal_d(4900:5000),QAM),'-','color', [0.3010 0.7450 0.9330], "linewidth", 1, "markersize", 3, "DisplayName", txt);
 hold on;
-plot(signal_d,"*",'color', [1 0 0],"markersize", 9)
+txt = ['Estimated Signal'];
+stem(4900:5000, aux_500,'-','color', [0.4660 0.6740 0.1880], "linewidth", 1, "markersize", 3, "DisplayName", txt);
 hold off;
-xlim([-3 3]);
-ylim([-3 3]);
-title('Training with 500 Samples');
-xlabel('In Phase');
-ylabel('Quadrature');
+title('500 Training Samples');
+xlabel('Sample');
+xlim([4900 5000]);
+ylabel('Magnitude');
+legend_copy = legend("location", "southwest");
+set (legend_copy, "fontsize", 6);
 grid on;
 saveas(gcf,'L3Q6_B_t.png')
+
+%% Temporal Evolution
+% https://www.mathworks.com/help/comm/gs/examine-16-qam-using-matlab.html
+%figure
+%subplot(221)
+%plot(signal_d_hat_50,'.','color', [0.3010 0.7450 0.9330],"markersize", 3);
+%hold on;
+%plot(signal_d,"*",'color', [1 0 0],"markersize", 9)
+%hold off;
+%xlim([-3 3]);
+%ylim([-3 3]);
+%title('Training with 50 Samples');
+%xlabel('In Phase');
+%ylabel('Quadrature');
+%grid on;
+%subplot(222)
+%plot(signal_d_hat_150,'.','color', [0.3010 0.7450 0.9330],"markersize", 3);
+%hold on;
+%plot(signal_d,"*",'color', [1 0 0],"markersize", 9)
+%hold off;
+%xlim([-3 3]);
+%ylim([-3 3]);
+%title('Training with 150 Samples');
+%xlabel('In Phase');
+%ylabel('Quadrature');
+%grid on;
+%subplot(223)
+%plot(signal_d_hat_300,'.','color', [0.3010 0.7450 0.9330],"markersize", 3);
+%hold on;
+%plot(signal_d,"*",'color', [1 0 0],"markersize", 9)
+%hold off;
+%xlim([-3 3]);
+%ylim([-3 3]);
+%title('Training with 300 Samples');
+%xlabel('In Phase');
+%ylabel('Quadrature');
+%grid on;
+%subplot(224)
+%plot(signal_d_hat_500,'.','color', [0.3010 0.7450 0.9330],"markersize", 3);
+%hold on;
+%plot(signal_d,"*",'color', [1 0 0],"markersize", 9)
+%hold off;
+%xlim([-3 3]);
+%ylim([-3 3]);
+%title('Training with 500 Samples');
+%xlabel('In Phase');
+%ylabel('Quadrature');
+%grid on;
+%saveas(gcf,'L3Q6_B_t.png')

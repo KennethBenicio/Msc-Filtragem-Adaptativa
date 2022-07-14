@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.5.13)  13 JUL 2022 10:06
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.5.13)  13 JUL 2022 21:10
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -288,214 +288,220 @@ Package pdftex.def Info: figs/Rxx.png  used on input line 1352.
 <figs/equalizador_linear.png, id=113, 1183.42125pt x 477.785pt>
 File: figs/equalizador_linear.png Graphic file (type png)
 <use figs/equalizador_linear.png>
-Package pdftex.def Info: figs/equalizador_linear.png  used on input line 1422.
+Package pdftex.def Info: figs/equalizador_linear.png  used on input line 1421.
 (pdftex.def)             Requested size: 386.96024pt x 156.22603pt.
  [27 <./figs/equalizador_linear.png>] [28]
 <figs/newton_contour.png, id=121, 429.2838pt x 317.5062pt>
 File: figs/newton_contour.png Graphic file (type png)
 <use figs/newton_contour.png>
-Package pdftex.def Info: figs/newton_contour.png  used on input line 1471.
+Package pdftex.def Info: figs/newton_contour.png  used on input line 1476.
 (pdftex.def)             Requested size: 341.43306pt x 252.52763pt.
 <figs/gradient_contour.png, id=122, 429.2838pt x 317.5062pt>
 File: figs/gradient_contour.png Graphic file (type png)
 <use figs/gradient_contour.png>
-Package pdftex.def Info: figs/gradient_contour.png  used on input line 1478.
+Package pdftex.def Info: figs/gradient_contour.png  used on input line 1483.
 (pdftex.def)             Requested size: 341.43306pt x 252.52763pt.
 <figs/lms_contour.png, id=123, 429.2838pt x 317.5062pt>
 File: figs/lms_contour.png Graphic file (type png)
 <use figs/lms_contour.png>
-Package pdftex.def Info: figs/lms_contour.png  used on input line 1485.
+Package pdftex.def Info: figs/lms_contour.png  used on input line 1490.
 (pdftex.def)             Requested size: 341.43306pt x 252.52763pt.
  [29 <./figs/newton_contour.png (PNG copy)> <./figs/gradient_contour.png (PNG copy)>]
 <figs/nlms_contour.png, id=127, 562.2606pt x 421.575pt>
 File: figs/nlms_contour.png Graphic file (type png)
 <use figs/nlms_contour.png>
-Package pdftex.def Info: figs/nlms_contour.png  used on input line 1492.
+Package pdftex.def Info: figs/nlms_contour.png  used on input line 1497.
 (pdftex.def)             Requested size: 341.43306pt x 256.00247pt.
 <figs/newton_mse.png, id=128, 429.2838pt x 317.5062pt>
 File: figs/newton_mse.png Graphic file (type png)
 <use figs/newton_mse.png>
-Package pdftex.def Info: figs/newton_mse.png  used on input line 1499.
+Package pdftex.def Info: figs/newton_mse.png  used on input line 1504.
 (pdftex.def)             Requested size: 341.43306pt x 252.52763pt.
  [30 <./figs/lms_contour.png (PNG copy)> <./figs/nlms_contour.png (PNG copy)>]
 <figs/gradient_mse.png, id=132, 429.2838pt x 317.5062pt>
 File: figs/gradient_mse.png Graphic file (type png)
 <use figs/gradient_mse.png>
-Package pdftex.def Info: figs/gradient_mse.png  used on input line 1506.
+Package pdftex.def Info: figs/gradient_mse.png  used on input line 1511.
 (pdftex.def)             Requested size: 341.43306pt x 252.52763pt.
 <figs/lms_mse.png, id=133, 429.2838pt x 317.5062pt>
 File: figs/lms_mse.png Graphic file (type png)
 <use figs/lms_mse.png>
-Package pdftex.def Info: figs/lms_mse.png  used on input line 1513.
+Package pdftex.def Info: figs/lms_mse.png  used on input line 1518.
 (pdftex.def)             Requested size: 341.43306pt x 252.52763pt.
  [31 <./figs/newton_mse.png (PNG copy)> <./figs/gradient_mse.png (PNG copy)>]
 <figs/nlms_mse.png, id=138, 562.2606pt x 421.575pt>
 File: figs/nlms_mse.png Graphic file (type png)
 <use figs/nlms_mse.png>
-Package pdftex.def Info: figs/nlms_mse.png  used on input line 1520.
+Package pdftex.def Info: figs/nlms_mse.png  used on input line 1525.
 (pdftex.def)             Requested size: 341.43306pt x 256.00247pt.
 <figs/nlms_awgn.png, id=139, 562.2606pt x 421.575pt>
 File: figs/nlms_awgn.png Graphic file (type png)
 <use figs/nlms_awgn.png>
-Package pdftex.def Info: figs/nlms_awgn.png  used on input line 1527.
+Package pdftex.def Info: figs/nlms_awgn.png  used on input line 1532.
 (pdftex.def)             Requested size: 341.43306pt x 256.00247pt.
  [32 <./figs/lms_mse.png (PNG copy)> <./figs/nlms_mse.png (PNG copy)>]
 <figs/L3Q5_mu_2.png, id=143, 562.2606pt x 421.575pt>
 File: figs/L3Q5_mu_2.png Graphic file (type png)
 <use figs/L3Q5_mu_2.png>
-Package pdftex.def Info: figs/L3Q5_mu_2.png  used on input line 1534.
+Package pdftex.def Info: figs/L3Q5_mu_2.png  used on input line 1539.
 (pdftex.def)             Requested size: 341.43306pt x 256.00247pt.
 <figs/L3Q5_mu_10.png, id=144, 562.2606pt x 421.575pt>
 File: figs/L3Q5_mu_10.png Graphic file (type png)
 <use figs/L3Q5_mu_10.png>
-Package pdftex.def Info: figs/L3Q5_mu_10.png  used on input line 1541.
+Package pdftex.def Info: figs/L3Q5_mu_10.png  used on input line 1546.
 (pdftex.def)             Requested size: 341.43306pt x 256.00247pt.
  [33 <./figs/nlms_awgn.png (PNG copy)> <./figs/L3Q5_mu_2.png (PNG copy)>]
 <figs/L3Q5_mu_50.png, id=148, 562.2606pt x 421.575pt>
 File: figs/L3Q5_mu_50.png Graphic file (type png)
 <use figs/L3Q5_mu_50.png>
-Package pdftex.def Info: figs/L3Q5_mu_50.png  used on input line 1548.
+Package pdftex.def Info: figs/L3Q5_mu_50.png  used on input line 1553.
 (pdftex.def)             Requested size: 341.43306pt x 256.00247pt.
 <figs/L3Q5_filter_response.png, id=149, 562.2606pt x 421.575pt>
 File: figs/L3Q5_filter_response.png Graphic file (type png)
 <use figs/L3Q5_filter_response.png>
-Package pdftex.def Info: figs/L3Q5_filter_response.png  used on input line 1555.
+Package pdftex.def Info: figs/L3Q5_filter_response.png  used on input line 1560.
 (pdftex.def)             Requested size: 341.43306pt x 256.00247pt.
  [34 <./figs/L3Q5_mu_10.png (PNG copy)> <./figs/L3Q5_mu_50.png (PNG copy)>]
-<figs/L3Q6_A_mse.png, id=153, 429.2838pt x 317.5062pt>
+<figs/L3Q6_A_mse.png, id=153, 562.2606pt x 421.575pt>
 File: figs/L3Q6_A_mse.png Graphic file (type png)
 <use figs/L3Q6_A_mse.png>
-Package pdftex.def Info: figs/L3Q6_A_mse.png  used on input line 1562.
-(pdftex.def)             Requested size: 341.43306pt x 252.52763pt.
-<figs/L3Q6_A_t.png, id=154, 429.2838pt x 317.5062pt>
+Package pdftex.def Info: figs/L3Q6_A_mse.png  used on input line 1567.
+(pdftex.def)             Requested size: 341.43306pt x 256.00247pt.
+<figs/L3Q6_A_c.png, id=154, 562.2606pt x 421.575pt>
+File: figs/L3Q6_A_c.png Graphic file (type png)
+<use figs/L3Q6_A_c.png>
+Package pdftex.def Info: figs/L3Q6_A_c.png  used on input line 1574.
+(pdftex.def)             Requested size: 341.43306pt x 256.00247pt.
+ [35 <./figs/L3Q5_filter_response.png (PNG copy)> <./figs/L3Q6_A_mse.png (PNG copy)>]
+<figs/L3Q6_A_t.png, id=158, 562.2606pt x 421.575pt>
 File: figs/L3Q6_A_t.png Graphic file (type png)
 <use figs/L3Q6_A_t.png>
-Package pdftex.def Info: figs/L3Q6_A_t.png  used on input line 1569.
-(pdftex.def)             Requested size: 341.43306pt x 252.52763pt.
- [35 <./figs/L3Q5_filter_response.png (PNG copy)> <./figs/L3Q6_A_mse.png (PNG copy)>]
-<figs/L3Q6_B_t.png, id=158, 429.2838pt x 317.5062pt>
+Package pdftex.def Info: figs/L3Q6_A_t.png  used on input line 1581.
+(pdftex.def)             Requested size: 341.43306pt x 256.00247pt.
+<figs/L3Q6_B_t.png, id=159, 562.2606pt x 421.575pt>
 File: figs/L3Q6_B_t.png Graphic file (type png)
 <use figs/L3Q6_B_t.png>
-Package pdftex.def Info: figs/L3Q6_B_t.png  used on input line 1576.
-(pdftex.def)             Requested size: 341.43306pt x 252.52763pt.
-<figs/L3Q6_C_mse.png, id=159, 429.2838pt x 317.5062pt>
+Package pdftex.def Info: figs/L3Q6_B_t.png  used on input line 1588.
+(pdftex.def)             Requested size: 341.43306pt x 256.00247pt.
+ [36 <./figs/L3Q6_A_c.png (PNG copy)> <./figs/L3Q6_A_t.png (PNG copy)>]
+<figs/L3Q6_C_mse.png, id=163, 562.2606pt x 421.575pt>
 File: figs/L3Q6_C_mse.png Graphic file (type png)
 <use figs/L3Q6_C_mse.png>
-Package pdftex.def Info: figs/L3Q6_C_mse.png  used on input line 1583.
-(pdftex.def)             Requested size: 341.43306pt x 252.52763pt.
- [36 <./figs/L3Q6_A_t.png (PNG copy)> <./figs/L3Q6_B_t.png (PNG copy)>]
-<figs/L3Q6_C_t.png, id=163, 429.2838pt x 317.5062pt>
+Package pdftex.def Info: figs/L3Q6_C_mse.png  used on input line 1595.
+(pdftex.def)             Requested size: 341.43306pt x 256.00247pt.
+<figs/L3Q6_C_t.png, id=164, 562.2606pt x 421.575pt>
 File: figs/L3Q6_C_t.png Graphic file (type png)
 <use figs/L3Q6_C_t.png>
-Package pdftex.def Info: figs/L3Q6_C_t.png  used on input line 1590.
-(pdftex.def)             Requested size: 341.43306pt x 252.52763pt.
-<figs/L3Q6_D_ser.png, id=164, 429.2838pt x 317.5062pt>
+Package pdftex.def Info: figs/L3Q6_C_t.png  used on input line 1602.
+(pdftex.def)             Requested size: 341.43306pt x 256.00247pt.
+ [37 <./figs/L3Q6_B_t.png (PNG copy)> <./figs/L3Q6_C_mse.png (PNG copy)>]
+<figs/L3Q6_D_ser.png, id=169, 562.2606pt x 421.575pt>
 File: figs/L3Q6_D_ser.png Graphic file (type png)
 <use figs/L3Q6_D_ser.png>
-Package pdftex.def Info: figs/L3Q6_D_ser.png  used on input line 1597.
-(pdftex.def)             Requested size: 341.43306pt x 252.52763pt.
- [37 <./figs/L3Q6_C_mse.png (PNG copy)> <./figs/L3Q6_C_t.png (PNG copy)>] [38 <./figs/L3Q6_D_ser.png (PNG copy)>]
-<figs/L4Q1.png, id=172, 429.2838pt x 317.5062pt>
+Package pdftex.def Info: figs/L3Q6_D_ser.png  used on input line 1609.
+(pdftex.def)             Requested size: 341.43306pt x 256.00247pt.
+ [38 <./figs/L3Q6_C_t.png (PNG copy)> <./figs/L3Q6_D_ser.png (PNG copy)>]
+<figs/L4Q1.png, id=173, 429.2838pt x 317.5062pt>
 File: figs/L4Q1.png Graphic file (type png)
 <use figs/L4Q1.png>
-Package pdftex.def Info: figs/L4Q1.png  used on input line 1636.
+Package pdftex.def Info: figs/L4Q1.png  used on input line 1648.
 (pdftex.def)             Requested size: 341.43306pt x 252.52763pt.
- [39 <./figs/L4Q1.png (PNG copy)>] [40] [41]
-<figs/L4Q3_rls_mse_2_3_9.png, id=183, 429.2838pt x 317.5062pt>
+ [39 <./figs/L4Q1.png (PNG copy)>] [40] [41] [42]
+<figs/L4Q3_rls_mse_2_3_9.png, id=187, 429.2838pt x 317.5062pt>
 File: figs/L4Q3_rls_mse_2_3_9.png Graphic file (type png)
 <use figs/L4Q3_rls_mse_2_3_9.png>
-Package pdftex.def Info: figs/L4Q3_rls_mse_2_3_9.png  used on input line 1742.
+Package pdftex.def Info: figs/L4Q3_rls_mse_2_3_9.png  used on input line 1769.
 (pdftex.def)             Requested size: 375.57497pt x 277.77846pt.
-<figs/L4Q3_rls_mse_3_3_9.png, id=184, 429.2838pt x 317.5062pt>
+<figs/L4Q3_rls_mse_3_3_9.png, id=188, 429.2838pt x 317.5062pt>
 File: figs/L4Q3_rls_mse_3_3_9.png Graphic file (type png)
 <use figs/L4Q3_rls_mse_3_3_9.png>
-Package pdftex.def Info: figs/L4Q3_rls_mse_3_3_9.png  used on input line 1749.
+Package pdftex.def Info: figs/L4Q3_rls_mse_3_3_9.png  used on input line 1776.
 (pdftex.def)             Requested size: 375.57497pt x 277.77846pt.
-<figs/L4Q3_rls_mse_2_3_99.png, id=185, 429.2838pt x 317.5062pt>
+<figs/L4Q3_rls_mse_2_3_99.png, id=189, 429.2838pt x 317.5062pt>
 File: figs/L4Q3_rls_mse_2_3_99.png Graphic file (type png)
 <use figs/L4Q3_rls_mse_2_3_99.png>
-Package pdftex.def Info: figs/L4Q3_rls_mse_2_3_99.png  used on input line 1756.
+Package pdftex.def Info: figs/L4Q3_rls_mse_2_3_99.png  used on input line 1783.
 (pdftex.def)             Requested size: 375.57497pt x 277.77846pt.
- [42 <./figs/L4Q3_rls_mse_2_3_9.png (PNG copy)> <./figs/L4Q3_rls_mse_3_3_9.png (PNG copy)>]
-<figs/L4Q3_rls_mse_3_3_99.png, id=189, 429.2838pt x 317.5062pt>
+ [43 <./figs/L4Q3_rls_mse_2_3_9.png (PNG copy)> <./figs/L4Q3_rls_mse_3_3_9.png (PNG copy)>]
+<figs/L4Q3_rls_mse_3_3_99.png, id=194, 429.2838pt x 317.5062pt>
 File: figs/L4Q3_rls_mse_3_3_99.png Graphic file (type png)
 <use figs/L4Q3_rls_mse_3_3_99.png>
-Package pdftex.def Info: figs/L4Q3_rls_mse_3_3_99.png  used on input line 1763.
+Package pdftex.def Info: figs/L4Q3_rls_mse_3_3_99.png  used on input line 1790.
 (pdftex.def)             Requested size: 375.57497pt x 277.77846pt.
-<figs/L4Q3_rls_mse_2_inf_9.png, id=190, 429.2838pt x 317.5062pt>
+<figs/L4Q3_rls_mse_2_inf_9.png, id=195, 429.2838pt x 317.5062pt>
 File: figs/L4Q3_rls_mse_2_inf_9.png Graphic file (type png)
 <use figs/L4Q3_rls_mse_2_inf_9.png>
-Package pdftex.def Info: figs/L4Q3_rls_mse_2_inf_9.png  used on input line 1770.
+Package pdftex.def Info: figs/L4Q3_rls_mse_2_inf_9.png  used on input line 1797.
 (pdftex.def)             Requested size: 375.57497pt x 277.77846pt.
- [43 <./figs/L4Q3_rls_mse_2_3_99.png (PNG copy)> <./figs/L4Q3_rls_mse_3_3_99.png (PNG copy)>]
-<figs/L4Q3_rls_mse_3_inf_9.png, id=195, 429.2838pt x 317.5062pt>
+ [44 <./figs/L4Q3_rls_mse_2_3_99.png (PNG copy)> <./figs/L4Q3_rls_mse_3_3_99.png (PNG copy)>]
+<figs/L4Q3_rls_mse_3_inf_9.png, id=199, 429.2838pt x 317.5062pt>
 File: figs/L4Q3_rls_mse_3_inf_9.png Graphic file (type png)
 <use figs/L4Q3_rls_mse_3_inf_9.png>
-Package pdftex.def Info: figs/L4Q3_rls_mse_3_inf_9.png  used on input line 1777.
+Package pdftex.def Info: figs/L4Q3_rls_mse_3_inf_9.png  used on input line 1804.
 (pdftex.def)             Requested size: 375.57497pt x 277.77846pt.
-<figs/L4Q3_rls_mse_2_inf_99.png, id=196, 429.2838pt x 317.5062pt>
+<figs/L4Q3_rls_mse_2_inf_99.png, id=200, 429.2838pt x 317.5062pt>
 File: figs/L4Q3_rls_mse_2_inf_99.png Graphic file (type png)
 <use figs/L4Q3_rls_mse_2_inf_99.png>
-Package pdftex.def Info: figs/L4Q3_rls_mse_2_inf_99.png  used on input line 1784.
+Package pdftex.def Info: figs/L4Q3_rls_mse_2_inf_99.png  used on input line 1811.
 (pdftex.def)             Requested size: 375.57497pt x 277.77846pt.
- [44 <./figs/L4Q3_rls_mse_2_inf_9.png (PNG copy)> <./figs/L4Q3_rls_mse_3_inf_9.png (PNG copy)>]
-<figs/L4Q3_rls_mse_3_inf_99.png, id=200, 429.2838pt x 317.5062pt>
+ [45 <./figs/L4Q3_rls_mse_2_inf_9.png (PNG copy)> <./figs/L4Q3_rls_mse_3_inf_9.png (PNG copy)>]
+<figs/L4Q3_rls_mse_3_inf_99.png, id=204, 429.2838pt x 317.5062pt>
 File: figs/L4Q3_rls_mse_3_inf_99.png Graphic file (type png)
 <use figs/L4Q3_rls_mse_3_inf_99.png>
-Package pdftex.def Info: figs/L4Q3_rls_mse_3_inf_99.png  used on input line 1791.
+Package pdftex.def Info: figs/L4Q3_rls_mse_3_inf_99.png  used on input line 1818.
 (pdftex.def)             Requested size: 375.57497pt x 277.77846pt.
-<figs/rls_coefficients.png, id=201, 429.2838pt x 317.5062pt>
+<figs/rls_coefficients.png, id=205, 429.2838pt x 317.5062pt>
 File: figs/rls_coefficients.png Graphic file (type png)
 <use figs/rls_coefficients.png>
-Package pdftex.def Info: figs/rls_coefficients.png  used on input line 1798.
+Package pdftex.def Info: figs/rls_coefficients.png  used on input line 1825.
 (pdftex.def)             Requested size: 341.43306pt x 252.52763pt.
- [45 <./figs/L4Q3_rls_mse_2_inf_99.png (PNG copy)> <./figs/L4Q3_rls_mse_3_inf_99.png (PNG copy)>]
-<figs/rls_contour.png, id=205, 429.2838pt x 317.5062pt>
+ [46 <./figs/L4Q3_rls_mse_2_inf_99.png (PNG copy)> <./figs/L4Q3_rls_mse_3_inf_99.png (PNG copy)>]
+<figs/rls_contour.png, id=209, 429.2838pt x 317.5062pt>
 File: figs/rls_contour.png Graphic file (type png)
 <use figs/rls_contour.png>
-Package pdftex.def Info: figs/rls_contour.png  used on input line 1805.
+Package pdftex.def Info: figs/rls_contour.png  used on input line 1832.
 (pdftex.def)             Requested size: 341.43306pt x 252.52763pt.
-<figs/rls_mse.png, id=206, 429.2838pt x 317.5062pt>
+<figs/rls_mse.png, id=210, 429.2838pt x 317.5062pt>
 File: figs/rls_mse.png Graphic file (type png)
 <use figs/rls_mse.png>
-Package pdftex.def Info: figs/rls_mse.png  used on input line 1812.
+Package pdftex.def Info: figs/rls_mse.png  used on input line 1839.
 (pdftex.def)             Requested size: 341.43306pt x 252.52763pt.
- [46 <./figs/rls_coefficients.png (PNG copy)> <./figs/rls_contour.png (PNG copy)>]
-<figs/L4Q5_lms.png, id=210, 429.2838pt x 317.5062pt>
+ [47 <./figs/rls_coefficients.png (PNG copy)> <./figs/rls_contour.png (PNG copy)>]
+<figs/L4Q5_lms.png, id=214, 429.2838pt x 317.5062pt>
 File: figs/L4Q5_lms.png Graphic file (type png)
 <use figs/L4Q5_lms.png>
-Package pdftex.def Info: figs/L4Q5_lms.png  used on input line 1819.
+Package pdftex.def Info: figs/L4Q5_lms.png  used on input line 1846.
 (pdftex.def)             Requested size: 341.43306pt x 252.52763pt.
-<figs/L4Q5_rls_9.png, id=211, 421.575pt x 316.0608pt>
+<figs/L4Q5_rls_9.png, id=215, 421.575pt x 316.0608pt>
 File: figs/L4Q5_rls_9.png Graphic file (type png)
 <use figs/L4Q5_rls_9.png>
-Package pdftex.def Info: figs/L4Q5_rls_9.png  used on input line 1826.
+Package pdftex.def Info: figs/L4Q5_rls_9.png  used on input line 1853.
 (pdftex.def)             Requested size: 341.43306pt x 255.98373pt.
- [47 <./figs/rls_mse.png (PNG copy)> <./figs/L4Q5_lms.png (PNG copy)>]
-<figs/L4Q5_rls_99.png, id=215, 429.2838pt x 317.5062pt>
+ [48 <./figs/rls_mse.png (PNG copy)> <./figs/L4Q5_lms.png (PNG copy)>]
+<figs/L4Q5_rls_99.png, id=219, 429.2838pt x 317.5062pt>
 File: figs/L4Q5_rls_99.png Graphic file (type png)
 <use figs/L4Q5_rls_99.png>
-Package pdftex.def Info: figs/L4Q5_rls_99.png  used on input line 1833.
+Package pdftex.def Info: figs/L4Q5_rls_99.png  used on input line 1860.
 (pdftex.def)             Requested size: 341.43306pt x 252.52763pt.
-<figs/L4Q5_rls_999.png, id=216, 429.2838pt x 317.5062pt>
+<figs/L4Q5_rls_999.png, id=220, 429.2838pt x 317.5062pt>
 File: figs/L4Q5_rls_999.png Graphic file (type png)
 <use figs/L4Q5_rls_999.png>
-Package pdftex.def Info: figs/L4Q5_rls_999.png  used on input line 1840.
+Package pdftex.def Info: figs/L4Q5_rls_999.png  used on input line 1867.
 (pdftex.def)             Requested size: 341.43306pt x 252.52763pt.
- [48 <./figs/L4Q5_rls_9.png (PNG copy)> <./figs/L4Q5_rls_99.png (PNG copy)>] [49 <./figs/L4Q5_rls_999.png (PNG copy)>] (./manuscript.aux) ) 
+ [49 <./figs/L4Q5_rls_9.png (PNG copy)> <./figs/L4Q5_rls_99.png (PNG copy)>] [50 <./figs/L4Q5_rls_999.png (PNG copy)>] (./manuscript.aux) ) 
 Here is how much of TeX's memory you used:
- 5132 strings out of 478238
- 79998 string characters out of 5850456
- 400781 words of memory out of 5000000
- 23274 multiletter control sequences out of 15000+600000
+ 5147 strings out of 478238
+ 80251 string characters out of 5850456
+ 400791 words of memory out of 5000000
+ 23288 multiletter control sequences out of 15000+600000
  478999 words of font info for 64 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  55i,17n,62p,967b,511s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx5.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on manuscript.pdf (49 pages, 2117061 bytes).
+Output written on manuscript.pdf (50 pages, 2642938 bytes).
 PDF statistics:
- 306 PDF objects out of 1000 (max. 8388607)
- 169 compressed objects within 2 object streams
+ 310 PDF objects out of 1000 (max. 8388607)
+ 171 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 206 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 211 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -4,7 +4,7 @@ clear all;
 
 %% Training Stage  
 % Learning rate
-mi = 0.4;
+mi = 0.05;
 gamma = 1e-3;
 % Filter order
 % I first implemented thinking of python notation, later I found out that
@@ -47,7 +47,7 @@ end
 
 %% Transmission Stage 
 % Number of samples
-Samples = 5000;
+Samples = 5000 + order;
 % Defining the mse error and filter coeficients vectors.
 error = zeros(Samples,1);
 weights = zeros(order, Samples);
@@ -85,35 +85,71 @@ figure
 semilogy(1:Samples, abs(error).^2,'-','color', [0.3010 0.7450 0.9330], "linewidth", 1, "markersize", 8);
 title('NLMS Behavior');
 xlabel('Samples');
+xlim([0 5000]);
 ylabel('MSE');
 grid on;
 saveas(gcf,'L3Q6_A_mse.png')
 
 %% Temporal Evolution
+aux = qamdemod(signal_d_hat,QAM);
+aux = circshift(aux,1-order);
+aux1 = aux(1:100);
+aux2 = aux(4900:5000);
+
+figure
+subplot(211)
+txt = ['Original Signal'];
+stem(1:100, qamdemod(signal_d(1:100),QAM),'-','color', [0.3010 0.7450 0.9330], "linewidth", 1, "markersize", 3, "DisplayName", txt);
+hold on;
+txt = ['Estimated Signal'];
+stem(1:100, aux1,'-','color', [0.4660 0.6740 0.1880], "linewidth", 1, "markersize", 3, "DisplayName", txt);
+hold off;
+title('Temporal Evolution of First Samples');
+xlabel('Sample');
+ylabel('Magnitude');
+legend_copy = legend("location", "southwest");
+set (legend_copy, "fontsize", 6);
+grid on;
+subplot(212)
+txt = ['Original Signal'];
+stem(4900:5000, qamdemod(signal_d(4900:5000),QAM),'-','color', [0.3010 0.7450 0.9330], "linewidth", 1, "markersize", 3, "DisplayName", txt);
+hold on;
+txt = ['Estimated Signal'];
+stem(4900:5000, aux2,'-','color', [0.4660 0.6740 0.1880], "linewidth", 1, "markersize", 3, "DisplayName", txt);
+hold off;
+title('Temporal Evolution of Last Samples');
+xlabel('Sample');
+ylabel('Magnitude');
+legend_copy = legend("location", "southwest");
+set (legend_copy, "fontsize", 6);
+grid on;
+saveas(gcf,'L3Q6_A_t.png')
+
+%% Constellation
 % https://www.mathworks.com/help/comm/gs/examine-16-qam-using-matlab.html
 figure
 subplot(221)
-plot(signal_d_train,'.','color', [0.3010 0.7450 0.9330],"markersize", 3)
+plot(signal_d_train,'.','color', [0.3010 0.7450 0.9330],"markersize", 8)
 title('Training Signal');
 xlabel('In Phase');
 ylabel('Quadrature');
 grid on;
 subplot(222)
-plot(signal_d,'.','color', [0.3010 0.7450 0.9330],"markersize", 3)
+plot(signal_d,'.','color', [0.3010 0.7450 0.9330],"markersize", 8)
 title('Original Signal');
 xlabel('In Phase');
 ylabel('Quadrature');
 grid on;
 subplot(223)
-plot(signal_x,'.','color', [0.3010 0.7450 0.9330],"markersize", 3)
+plot(signal_x,'.','color', [0.3010 0.7450 0.9330],"markersize", 8)
 title('Transmitted Signal');
 xlabel('In Phase');
 ylabel('Quadrature');
 grid on;
 subplot(224)
-plot(signal_d_hat,'.','color', [0.3010 0.7450 0.9330],"markersize", 3)
+plot(signal_d_hat,'.','color', [0.3010 0.7450 0.9330],"markersize", 8)
 title('Filtered Signal');
 xlabel('In Phase');
 ylabel('Quadrature');
 grid on;
-saveas(gcf,'L3Q6_A_t.png')
+saveas(gcf,'L3Q6_A_c.png')

@@ -21,7 +21,7 @@ wiener = [0.35;-0.15];
 SNR_dB = inf;
 SNR_li = 10^(SNR_dB/10);
 variance_noise = 1/SNR_li;
-noise = sqrt(variance_noise/2).*randn(Samples,1);
+noise = sqrt(variance_noise).*randn(Samples,1);
 
 % Generating the original signal.
 signal_d = randn(Samples,1);
