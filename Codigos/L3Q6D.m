@@ -4,15 +4,11 @@ clear all;
 
 % Simulation parameters
 mi = 0.4;
-gamma = 0.001;
-runs = 100;
+gamma = 1e-3;
+runs = 1000;
 QAM_train = 4;
 snrs = [0 10 20 30];
 % Filter order
-% I first implemented thinking of python notation, later I found out that
-% the reference book defines the order a bit different from what I usually
-% work. So to make the code close to Diniz notation the 'order + 1' is
-% needed.
 order = 15 + 1;
 
 %% 4QAM
@@ -29,15 +25,15 @@ for ii = 1:length(snrs)
         weights = zeros(order, Samples);
 
         % Defining the energy of the noise vector.
-        signal_d_train = randi([0,QAM_train - 1],[Samples 1]); % The same pilot for every pilot frame and block.
-        signal_d_train = (1/sqrt(2)) * qammod(signal_d_train,QAM_train); % 4-QAM Pilot Signal.
+        signal_d_train = randi([0,QAM_train - 1],[Samples 1]);
+        signal_d_train = qammod(signal_d_train,QAM_train);
 
         % Convolving the channel and the signal.
         Hz = [0.5 1.2 1.5 -1];
-        signal_x_train = filter(Hz,1,signal_d_train);
+        signal_x_train = filtfilt(Hz,1,signal_d_train);
 
         % Training noise
-        snr = 10^(30/10);
+        snr = 10^(inf/10);
         energy_symbol = mean(abs(signal_x_train(:)).^2); % Energy symbol pilot. 
         var_noise = energy_symbol .*  1/snr; % Variance of the noise.
         noise = sqrt(var_noise/2) * (randn(Samples,1) + 1i*randn(Samples,1));
@@ -61,12 +57,12 @@ for ii = 1:length(snrs)
         weights = zeros(order, Samples);
 
         % Defining the energy of the noise vector.
-        signal_d = randi([0,QAM - 1],[Samples 1]); % The same pilot for every pilot frame and block.
-        signal_d = (1/sqrt(2)) * qammod(signal_d,QAM); % 4-QAM Pilot Signal.
+        signal_d = randi([0,QAM - 1],[Samples 1]);
+        signal_d = qammod(signal_d,QAM);
 
         % Convolving the channel and the signal.
         Hz = [0.5 1.2 1.5 -1];
-        signal_x = filter(Hz,1,signal_d);
+        signal_x = filtfilt(Hz,1,signal_d);
 
         % Transmission noise
         snr = 10^(snrs(ii)/10);
@@ -77,16 +73,18 @@ for ii = 1:length(snrs)
         % Generating the noisy received signal.
         signal_x = signal_x + noise;
         signal_d_hat = zeros(size(signal_d));
+        % NLMS algorithm
         for s = order:Samples
             aux = signal_x(s:-1:s-order+1);
             mi_normalized = mi/(gamma + norm(aux)^2);
-            signal_d_hat(s) = weights(:,s)'*aux;
-            error(s) = signal_d(s-order+1) - signal_d_hat(s);
+            % Filtering the signal
+            signal_d_hat(s-order+1) = weights(:,s)'*aux;
+            % The equalizer does not know the original signal
+            error(s) = qammod(qamdemod(signal_x(s-order+1),QAM),QAM) - weights(:,s)'*aux;
             % Recursive expression.
             weights(:,s+1) = weights(:,s) + mi_normalized * conj(error(s)) * aux;
         end
         aux1 = qamdemod(signal_d,QAM);
-        aux1 = circshift(aux1,order-1);
         aux2 = qamdemod(signal_d_hat,QAM);
         SER(ii,1) = SER(ii,1) + sum(aux1~=aux2)/length(aux1);
     end
@@ -111,15 +109,15 @@ for ii = 1:length(snrs)
         weights = zeros(order, Samples);
 
         % Defining the energy of the noise vector.
-        signal_d_train = randi([0,QAM_train - 1],[Samples 1]); % The same pilot for every pilot frame and block.
-        signal_d_train = (1/sqrt(2)) * qammod(signal_d_train,QAM_train); % 4-QAM Pilot Signal.
+        signal_d_train = randi([0,QAM_train - 1],[Samples 1]);
+        signal_d_train = qammod(signal_d_train,QAM_train);
 
         % Convolving the channel and the signal.
         Hz = [0.5 1.2 1.5 -1];
-        signal_x_train = filter(Hz,1,signal_d_train);
+        signal_x_train = filtfilt(Hz,1,signal_d_train);
 
         % Training noise
-        snr = 10^(30/10);
+        snr = 10^(inf/10);
         energy_symbol = mean(abs(signal_x_train(:)).^2); % Energy symbol pilot. 
         var_noise = energy_symbol .*  1/snr; % Variance of the noise.
         noise = sqrt(var_noise/2) * (randn(Samples,1) + 1i*randn(Samples,1));
@@ -143,12 +141,12 @@ for ii = 1:length(snrs)
         weights = zeros(order, Samples);
 
         % Defining the energy of the noise vector.
-        signal_d = randi([0,QAM - 1],[Samples 1]); % The same pilot for every pilot frame and block.
-        signal_d = (1/sqrt(2)) * qammod(signal_d,QAM); % 4-QAM Pilot Signal.
+        signal_d = randi([0,QAM - 1],[Samples 1]);
+        signal_d = qammod(signal_d,QAM);
 
         % Convolving the channel and the signal.
         Hz = [0.5 1.2 1.5 -1];
-        signal_x = filter(Hz,1,signal_d);
+        signal_x = filtfilt(Hz,1,signal_d);
 
         % Transmission noise
         snr = 10^(snrs(ii)/10);
@@ -159,16 +157,18 @@ for ii = 1:length(snrs)
         % Generating the noisy received signal.
         signal_x = signal_x + noise;
         signal_d_hat = zeros(size(signal_d));
+        % NLMS algorithm
         for s = order:Samples
             aux = signal_x(s:-1:s-order+1);
             mi_normalized = mi/(gamma + norm(aux)^2);
-            signal_d_hat(s) = weights(:,s)'*aux;
-            error(s) = signal_d(s-order+1) - signal_d_hat(s);
+            % Filtering the signal
+            signal_d_hat(s-order+1) = weights(:,s)'*aux;
+            % The equalizer does not know the original signal
+            error(s) = qammod(qamdemod(signal_x(s-order+1),QAM),QAM) - weights(:,s)'*aux;
             % Recursive expression.
             weights(:,s+1) = weights(:,s) + mi_normalized * conj(error(s)) * aux;
         end
         aux1 = qamdemod(signal_d,QAM);
-        aux1 = circshift(aux1,order-1);
         aux2 = qamdemod(signal_d_hat,QAM);
         SER(ii,1) = SER(ii,1) + sum(aux1~=aux2)/length(aux1);
     end
@@ -192,15 +192,15 @@ for ii = 1:length(snrs)
         weights = zeros(order, Samples);
 
         % Defining the energy of the noise vector.
-        signal_d_train = randi([0,QAM_train - 1],[Samples 1]); % The same pilot for every pilot frame and block.
-        signal_d_train = (1/sqrt(2)) * qammod(signal_d_train,QAM_train); % 4-QAM Pilot Signal.
+        signal_d_train = randi([0,QAM_train - 1],[Samples 1]);
+        signal_d_train = qammod(signal_d_train,QAM_train);
 
         % Convolving the channel and the signal.
         Hz = [0.5 1.2 1.5 -1];
-        signal_x_train = filter(Hz,1,signal_d_train);
+        signal_x_train = filtfilt(Hz,1,signal_d_train);
 
         % Training noise
-        snr = 10^(30/10);
+        snr = 10^(inf/10);
         energy_symbol = mean(abs(signal_x_train(:)).^2); % Energy symbol pilot. 
         var_noise = energy_symbol .*  1/snr; % Variance of the noise.
         noise = sqrt(var_noise/2) * (randn(Samples,1) + 1i*randn(Samples,1));
@@ -224,12 +224,12 @@ for ii = 1:length(snrs)
         weights = zeros(order, Samples);
 
         % Defining the energy of the noise vector.
-        signal_d = randi([0,QAM - 1],[Samples 1]); % The same pilot for every pilot frame and block.
-        signal_d = (1/sqrt(2)) * qammod(signal_d,QAM); % 4-QAM Pilot Signal.
+        signal_d = randi([0,QAM - 1],[Samples 1]);
+        signal_d = qammod(signal_d,QAM);
 
         % Convolving the channel and the signal.
         Hz = [0.5 1.2 1.5 -1];
-        signal_x = filter(Hz,1,signal_d);
+        signal_x = filtfilt(Hz,1,signal_d);
 
         % Transmission noise
         snr = 10^(snrs(ii)/10);
@@ -239,16 +239,18 @@ for ii = 1:length(snrs)
         % Generating the noisy received signal.
         signal_x = signal_x + noise;
         signal_d_hat = zeros(size(signal_d));
+        % NLMS algorithm
         for s = order:Samples
             aux = signal_x(s:-1:s-order+1);
             mi_normalized = mi/(gamma + norm(aux)^2);
-            signal_d_hat(s) = weights(:,s)'*aux;
-            error(s) = signal_d(s-order+1) - signal_d_hat(s);
+            % Filtering the signal
+            signal_d_hat(s-order+1) = weights(:,s)'*aux;
+            % The equalizer does not know the original signal
+            error(s) = qammod(qamdemod(signal_x(s-order+1),QAM),QAM) - weights(:,s)'*aux;
             % Recursive expression.
             weights(:,s+1) = weights(:,s) + mi_normalized * conj(error(s)) * aux;
         end
         aux1 = qamdemod(signal_d,QAM);
-        aux1 = circshift(aux1,order-1);
         aux2 = qamdemod(signal_d_hat,QAM);
         SER(ii,1) = SER(ii,1) + sum(aux1~=aux2)/length(aux1);
     end
@@ -272,15 +274,15 @@ for ii = 1:length(snrs)
         weights = zeros(order, Samples);
 
         % Defining the energy of the noise vector.
-        signal_d_train = randi([0,QAM_train - 1],[Samples 1]); % The same pilot for every pilot frame and block.
-        signal_d_train = (1/sqrt(2)) * qammod(signal_d_train,QAM_train); % 4-QAM Pilot Signal.
+        signal_d_train = randi([0,QAM_train - 1],[Samples 1]);
+        signal_d_train = qammod(signal_d_train,QAM_train);
 
         % Convolving the channel and the signal.
         Hz = [0.5 1.2 1.5 -1];
-        signal_x_train = filter(Hz,1,signal_d_train);
+        signal_x_train = filtfilt(Hz,1,signal_d_train);
 
         % Training noise
-        snr = 10^(30/10);
+        snr = 10^(inf/10);
         energy_symbol = mean(abs(signal_x_train(:)).^2); % Energy symbol pilot. 
         var_noise = energy_symbol .*  1/snr; % Variance of the noise.
         noise = sqrt(var_noise/2) * (randn(Samples,1) + 1i*randn(Samples,1));
@@ -304,12 +306,12 @@ for ii = 1:length(snrs)
         weights = zeros(order, Samples);
 
         % Defining the energy of the noise vector.
-        signal_d = randi([0,QAM - 1],[Samples 1]); % The same pilot for every pilot frame and block.
-        signal_d = (1/sqrt(2)) * qammod(signal_d,QAM); % 4-QAM Pilot Signal.
+        signal_d = randi([0,QAM - 1],[Samples 1]);
+        signal_d = qammod(signal_d,QAM);
 
         % Convolving the channel and the signal.
         Hz = [0.5 1.2 1.5 -1];
-        signal_x = filter(Hz,1,signal_d);
+        signal_x = filtfilt(Hz,1,signal_d);
 
         % Transmission noise
         snr = 10^(snrs(ii)/10);
@@ -320,16 +322,18 @@ for ii = 1:length(snrs)
         % Generating the noisy received signal.
         signal_x = signal_x + noise;
         signal_d_hat = zeros(size(signal_d));
+        % NLMS algorithm
         for s = order:Samples
             aux = signal_x(s:-1:s-order+1);
             mi_normalized = mi/(gamma + norm(aux)^2);
-            signal_d_hat(s) = weights(:,s)'*aux;
-            error(s) = signal_d(s-order+1) - signal_d_hat(s);
+            % Filtering the signal
+            signal_d_hat(s-order+1) = weights(:,s)'*aux;
+            % The equalizer does not know the original signal
+            error(s) = qammod(qamdemod(signal_x(s-order+1),QAM),QAM) - weights(:,s)'*aux;
             % Recursive expression.
             weights(:,s+1) = weights(:,s) + mi_normalized * conj(error(s)) * aux;
         end
         aux1 = qamdemod(signal_d,QAM);
-        aux1 = circshift(aux1,order + 1);
         aux2 = qamdemod(signal_d_hat,QAM);
         SER(ii,1) = SER(ii,1) + sum(aux1~=aux2)/length(aux1);
     end
