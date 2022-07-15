@@ -39,7 +39,7 @@
 				
 				\textcolor{red}{Solução:}
 				
-				Para o cálculo da média é possível escrever
+				\paragraph{}Para o cálculo da média é possível escrever
 				
 				\begin{align}
 					&E[x(n)] = E[v(n) + 3v(n-1)], 
@@ -51,7 +51,7 @@
 					&E[x(n)] = \mu + 3\mu = 4\mu.  
 				\end{align}
 				
-				De forma semelhante a variância pode ser obtida por 
+				\paragraph{}De forma semelhante a variância pode ser obtida por 
 				
 				\begin{align}
 					&\mathbb{E}\{[(x(n) - \mu_{X})]^2\}, \\
@@ -66,7 +66,7 @@
 					&\mathbb{E}\{[x(n) - 4\mu]^2\} = \sigma^{2} + 9\sigma^{2} + \mathbb{E}\{6[v(n) - \mu][v(n-1) - \mu]\}.
 				\end{align}
 				
-				Sabendo que os sinais são descorrelacionados uma vez que temos duas variáveis aleatórias independentes temos
+				\paragraph{}Sabendo que os sinais são descorrelacionados uma vez que temos duas variáveis aleatórias independentes temos
 				
 				\begin{align}
 					&6\mathbb{E}\{[v(n) - \mu][v(n-1) - \mu]\} = \mathbb{E}\{v(n)v(n-1) - \mu v(n) -\mu v(n-1) + \mu^{2}\}, \\
@@ -75,13 +75,13 @@
 					&6\mathbb{E}\{[v(n) - \mu][v(n-1) - \mu]\} = \mu^{2} - \mu^{2} = 0,
 				\end{align}
 				
-				Portanto, a média pode ser dada por
+				\paragraph{}Portanto, a média pode ser dada por
 				
 				\begin{align}
 					&\mathbb{E}\{[x(n) - 4\mu]^2\} = 10\sigma^{2}. 
 				\end{align}
 				
-				Além disso, a função de correlação pode ser adquirida por meio da seguinte operação 
+				\paragraph{}Além disso, a função de correlação pode ser adquirida por meio da seguinte operação 
 				
 				\begin{align}
 					&\mathbb{E}\{x(n)x^{*}(n)\} = \mathbb{E}\{[v(n) + 3v(n-1)][v(n) + 3v(n-1)]^{*}\}, \\
@@ -95,7 +95,7 @@
 					&\mathbb{E}\{x(n)x^{*}(n)\} = 16\mu^{2}.
 				\end{align}
 				
-				Uma vez que as estatísticas de primeira e de segunda ordem são independentes quanto ao deslocamento temporal é possível afirmar que o processo descrito é Estacionário no Sentido Amplo(WSS). Entretanto, não é possível afirmar que o processo é Estacionário no Sentido Estrito(SSS) uma vez que não se tem conhecimento da função que descreve a densidade de probabilidade desse sistema.
+				\paragraph{}Uma vez que as estatísticas de primeira e de segunda ordem são independentes quanto ao deslocamento temporal é possível afirmar que o processo descrito é Estacionário no Sentido Amplo(WSS). Entretanto, não é possível afirmar que o processo é Estacionário no Sentido Estrito(SSS) uma vez que não se tem conhecimento da função que descreve a densidade de probabilidade desse sistema.
 			
 			\item Sejam os processos aleatórios $x(n)$ e $y(n)$ definidos por
 			
@@ -112,7 +112,7 @@
 					
 						\textcolor{red}{Solução:}
 						
-						Antes de tudo é de interesse definir o processo estocástico de ruído branco. Um processo desse tipo é formado por um número qualquer de amostras
+						\paragraph{}Antes de tudo é de interesse definir o processo estocástico de ruído branco. Um processo desse tipo é formado por um número qualquer de amostras
 						independentes entre si e com média nula. Desse modo, uma vez que a média de processos de ruído branco são nulas é possível obter facilmente a média dos novos processos formados pela combinação dos ruídos
 						
 						\begin{align}
@@ -120,7 +120,7 @@
 							&\mathbb{E}\{y(n)\} = \mathbb{E}\{v_{2}(n+1) + 3v_{1}(n-1)\} = \mu_{2} + 3\mu_{1} = 0.
 						\end{align}
 						
-						Para a variância teremos uma resposta similar
+						\paragraph{}Para a variância teremos uma resposta similar
 						
 						\begin{align*}
 							&\mathbb{E}\{[x(n) - \mu]^{2}\} = \mathbb{E}\{[x(n) - 0]^{2}\} = \mathbb{E}\{[x(n)]^{2}\}, \\
@@ -129,7 +129,7 @@
 							&\mathbb{E}\{[y(n) - \mu]^{2}\} = \mathbb{E}\{[v_{2}(n+1) + 3v_{1}(n-1)]^{2}\} = \mathbb{E}\{ [v^{2}_{2}(n+1)] + 6[v_{2}(n+1)v_{1}(n-1)] + 9[v^{2}_{1}(n-1)]\}.
 						\end{align*}
 						
-						Rescrevendo a expressão para obter a formula da variância e utilizando o fato dos processos de ruído serem descorrelacionados uma nova expressão é obtida
+						\paragraph{}Rescrevendo a expressão para obter a formula da variância e utilizando o fato dos processos de ruído serem descorrelacionados uma nova expressão é obtida
 						
 						\begin{align}
 							&\mathbb{E}\{[x(n) - \mu]^{2}\} = \mathbb{E}\{ [v^{2}_{1}(n) - 0] + 0 + 9[v^{2}_{2}(n-1) - 0]\}, \\
@@ -138,14 +138,15 @@
 							&\mathbb{E}\{[y(n) - \mu]^{2}\} = \sigma^{2}_{2} + 9\sigma^{2}_{1} = 10*0.5 = 5.
 						\end{align}
 						
-						A função de autocorrelação para $X$ é calculada como se segue 
+						\paragraph{}A função de autocorrelação para $X$ é calculada como se segue 
+						
 						\begin{align}
 							r_{x}(\tau) &= \mathbb{E}\{x(n)x(n + \tau)\} = \mathbb{E}\{[v_{1}(n) + 3v_{2}(n-1)][v_{1}(n + \tau) + 3v_{2}(n-1 + \tau)]\}, \\
 							r_{x}(\tau) &= \mathbb{E}\{[v_{1}(n)v_{1}(n + \tau)] + 3[v_{1}(n)v_{2}(n-1 + \tau)] + 3[v_{2}(n-1)v_{1}(n + \tau)] \\ 
 							&+ 9[v_{2}(n-1)v_{2}(n-1 + \tau)] \}.    
 						\end{align}
 						
-						Sabendo que amostras de um mesmo processo são descorrelacionadas e que ambos os processos também são descorrelacionados, além de termos conhecimento 
+						\paragraph{}Sabendo que amostras de um mesmo processo são descorrelacionadas e que ambos os processos também são descorrelacionados, além de termos conhecimento 
 						de que ambos possuem média nula, então 
 						
 						\begin{align}
@@ -156,13 +157,13 @@
 							&r_{x}(\tau) = 0.
 						\end{align}
 						
-						Repetindo o procedimento para $Y$ e omitindo informações redundantes chega-se ao seguinte resultado
+						\paragraph{}Repetindo o procedimento para $Y$ e omitindo informações redundantes chega-se ao seguinte resultado
 						
 						\begin{align}
 							&r_{y}(\tau) = 0.
 						\end{align}
 						
-						Sendo as estatísticas de primeira e de segunda ordem independentes quanto ao tempo para os dois processos então é possível afirmar que eles são WSS.
+						\paragraph{}Sendo as estatísticas de primeira e de segunda ordem independentes quanto ao tempo para os dois processos então é possível afirmar que eles são WSS.
 					
 					\item Qual é a função de correlação cruzada $r_{xy}(n_1,n_0)$? Estes processos são conjuntamente estacionários (no sentido amplo)? Justifique.
 					
@@ -174,13 +175,13 @@
 							&+ 9[v_{2}(n_{1}-1)v^{*}_{1}(n_{0}-1)]\}.  
 						\end{align}
 						
-						Novamente considerando que os processos de ruído branco são descorrelacionadas entre si e que as amostras individuais são também independentes então podemos simplificar a expressão acima da seguinte forma
+						\paragraph{}Novamente considerando que os processos de ruído branco são descorrelacionadas entre si e que as amostras individuais são também independentes então podemos simplificar a expressão acima da seguinte forma
 						
 						\begin{align}
 							&r_{x,y}(n_{1},n_{0}) = 0 
 						\end{align}
 						
-						Sendo assim, os processos podem ser considerados conjuntamente estacionários uma vez que a correlação cruzada é independente do instante temporal e que os processos que compoem o processo conjunto podem 
+						\paragraph{}Sendo assim, os processos podem ser considerados conjuntamente estacionários uma vez que a correlação cruzada é independente do instante temporal e que os processos que compoem o processo conjunto podem 
 						ser considerados estacionários em sentido amplo isoladamente. Entretanto, vale notar que foi possível realizar tal afirmação apenas por termos conhecimento da relação de independência entre os processos 
 						de ruído branco, pois de outro modo não seria possível realizar afirmações quanto a correlação cruzada do processo conjunto.
 					
@@ -204,7 +205,7 @@
 					
 						\textcolor{red}{Solução:}
 						
-						Em suma, precisamos estar atentos às seguintes propriedades para garantir que temos em mãos uma matriz de autocorrelação válida
+						\paragraph{}Em suma, precisamos estar atentos às seguintes propriedades para garantir que temos em mãos uma matriz de autocorrelação válida
 						
 						
 						- $\mathbf{R_{x}} = \mathbf{R^{H}_{x}}$
@@ -213,7 +214,7 @@
 						
 						- $\mathbf{Ax} = \lambda \mathbf{x}, \forall \lambda \geq 0 \text{ and } \mathbf{x} \in \mathbb{R}$
 						
-						Desse modo, considerando um vetor aleatório bidimensional descrito por $\mathbf{X} = (x_{1},x_{2})$ podemos então
+						\paragraph{}Desse modo, considerando um vetor aleatório bidimensional descrito por $\mathbf{X} = (x_{1},x_{2})$ podemos então
 						
 						\begin{align}
 							\mathbf{R} &= \left[ 
@@ -228,14 +229,14 @@
 							\end{matrix} \right].
 						\end{align}
 						
-						Inicialmente, podemos garantir a simetria quanto ao hermitiano se fizermos 
+						\paragraph{}Inicialmente, podemos garantir a simetria quanto ao hermitiano se fizermos 
 						
 						\begin{align}
 							&\mathbb{E}\{[x_{1}x^{*}_{2}]\} \overset{\Delta}{=} \mathbb{E}\{[x_{2}x^{*}_{1}]\},
 							&\mathbb{E}\{[x_{2}x^{*}_{1}]\} \overset{\Delta}{=} \mathbb{E}\{[x_{1}x^{*}_{2}]\}.
 						\end{align}
 						
-						Entretanto, sabemos que o operador esperança é linear tornando assim as expressões acima equivalentes. Em continuidade do problema, podemos 
+						\paragraph{}Entretanto, sabemos que o operador esperança é linear tornando assim as expressões acima equivalentes. Em continuidade do problema, podemos 
 						considerar que a restrição as quais os autovalores estão submetidos pode ser facilmente atingida ao garantirmos que o determinante da matriz 
 						de correlação seja maior que a nulidade
 						
@@ -248,7 +249,7 @@
 					
 						\textcolor{red}{Solução:}
 						
-						Considerando um processo estocástico estacionário escalar do tipo $\mathbf{X}_{t} = x(t)$ e uma versão atrasada desse
+						\paragraph{}Considerando um processo estocástico estacionário escalar do tipo $\mathbf{X}_{t} = x(t)$ e uma versão atrasada desse
 						processo definida por $\mathbf{X}_{t + \tau} = x(t + \tau)$ temos que a matriz de correlação pode ser escrita da seguinte forma
 						
 						\begin{align}
@@ -265,7 +266,7 @@
 						\end{align}
 						
 						
-						Em sequência, podemos garantir a simetria quanto ao hermitiano se fizermos 
+						\paragraph{}Em sequência, podemos garantir a simetria quanto ao hermitiano se fizermos 
 						
 						\begin{align}
 							&\mathbb{E}\{[x(t)x^{*}(t + \tau)]\} \overset{\Delta}{=} \mathbb{E}\{[x(t + \tau)x^{*}(t)]\}, \\
@@ -289,7 +290,7 @@
 				
 				\textcolor{red}{Solução:}
 				
-				Inicialmente podemos escrever a expressão regular para a matriz de autocorrelação e supondo que de fato existe uma inversa bem definida 
+				\paragraph{}Inicialmente podemos escrever a expressão regular para a matriz de autocorrelação e supondo que de fato existe uma inversa bem definida 
 				para a matriz de autocorrelação
 				
 				\begin{align}
@@ -298,7 +299,7 @@
 					\mathbb{E}\{\mathbf{x} \mathbf{x}^{\text{H}}\mathbf{R}^{-1}_{x}\} = \mathbf{I}_{N}, \\
 				\end{align}
 				
-				Desse modo, podemos aplicar o operador traço de matriz e por meio da propriedade de permutação cíclica desse operador chegamos ao seguinte resultado
+				\paragraph{}Desse modo, podemos aplicar o operador traço de matriz e por meio da propriedade de permutação cíclica desse operador chegamos ao seguinte resultado
 				
 				\begin{align}
 					\text{Tr}\{\mathbb{E}\{\mathbf{x} \mathbf{x}^{\text{H}}\mathbf{R}^{-1}_{x}\}\} = \text{Tr}\{\mathbf{I}_{N}\}, \\
@@ -322,7 +323,7 @@
 						\end{align}
 						
 						
-						Considerando a matriz de correlação pode ser escrita por $R_{X} = \mathbb{E}\{[xx^{H}]\}$ e que o valor médio de um escalar é o próprio escalar temos
+						\paragraph{}Considerando a matriz de correlação pode ser escrita por $R_{X} = \mathbb{E}\{[xx^{H}]\}$ e que o valor médio de um escalar é o próprio escalar temos
 						
 						\begin{align}
 							&C_{X} = R_{X} - \mathbb{E}\{[x\mu^{H}]\} - \mathbb{E}\{[\mu x^{H}]\} + \mu \mu^{H}, \\
@@ -341,7 +342,7 @@
 							&\mathbf{C}_{\mathbf{x} + \mathbf{y}} = \mathbf{C}_{\mathbf{x}} + \mathbf{C}_{\mathbf{xy}} + \mathbf{C}_{\mathbf{yx}} + \mathbf{C}_{\mathbf{y}}.
 						\end{align}
 						
-						Onde os termos de correlação cruzada $\mathbf{C}_{\mathbf{xy}}$ e $\mathbf{C}_{\mathbf{yx}}$ podem ser obtidos  da seguinte maneira
+						\paragraph{}Onde os termos de correlação cruzada $\mathbf{C}_{\mathbf{xy}}$ e $\mathbf{C}_{\mathbf{yx}}$ podem ser obtidos  da seguinte maneira
 						
 						\begin{align}
 							&\mathbf{C_{xy}} = \mathbb{E}\{[x - \mu_{x}][y - \mu_{y}]\}, \\
@@ -359,7 +360,7 @@
 							&\mathbf{C_{yx}} = - \mu_{x} \mu_{y}.
 						\end{align}
 						
-						Portanto, é possível afirmar que a soma dos termos de correlação cruzada é nula e que a correlação da soma de dois vetores descorrelacionados é de fato 
+						\paragraph{}Portanto, é possível afirmar que a soma dos termos de correlação cruzada é nula e que a correlação da soma de dois vetores descorrelacionados é de fato 
 						dada por $\mathbf{C}_{\mathbf{x} + \mathbf{y}} = \mathbf{C}_{\mathbf{x}} + \mathbf{C}_{\mathbf{y}}$
 						
 						\begin{align}
@@ -384,11 +385,11 @@
 				 			x(n) = v_1(n) + 2v_1(n + 1) + 3v_2(n-1) ?
 				 		\end{align}
 				 		
-				 		Este é um processo WSS? Justifique.
+				 		\paragraph{}Este é um processo WSS? Justifique.
 				 		
 				 		\textcolor{red}{Solução:}
 				 		
-				 		Para simplificar o desenvolvimento iremos considerar que os processos possuem media nula e são descorrelacionados
+				 		\paragraph{}Para simplificar o desenvolvimento iremos considerar que os processos possuem media nula e são descorrelacionados
 				 		
 				 		\begin{align*}
 				 			r_{x} &= \mathbb{E}\{x(n) x^{*}(n)\}, \\
@@ -399,20 +400,20 @@
 				 			r_{x} &= r_{v}(n,n) + 2r_{v}(n,n+1) + 2r_{v}(n+1,n) + 4r_{v}(n+1,n+1) + 9r_{v}(n-1,n-1).
 				 		\end{align*}
 				 		
-				 		Após uma breve análise na expressão $r_{v}(n_{1},n_{0})$ é possível verificar que determinados termos anulam-se ao considerar um único momento temporal devido a presença da função degrau unitário, permitindo a seguinte simplificação:
+				 		\paragraph{}Após uma breve análise na expressão $r_{v}(n_{1},n_{0})$ é possível verificar que determinados termos anulam-se ao considerar um único momento temporal devido a presença da função degrau unitário, permitindo a seguinte simplificação:
 				 		
 				 		\begin{align}
 				 			&r_{x} = 2r_{v}(n,n+1) + 2r_{v}(n+1,n), \\
 				 			&r_{x} = \delta(n - n - 1) + \delta(n + 1 - n).
 				 		\end{align}
 				 		
-				 		Onde a generalização pode ser descrita por:
+				 		\paragraph{}Onde a generalização pode ser descrita por:
 				 		
 				 		\begin{align}
 				 			&r_{x}(n_{1}, n_{2})= \delta(n_{1} - n_{2}) + \delta(n_{2} - n_{1}).  
 				 		\end{align}
 				 		
-				 		Uma vez que a correlação é dependente apenas de um deslocamento temporal, então podemos classificar esse processo como WSS.
+				 		\paragraph{}Uma vez que a correlação é dependente apenas de um deslocamento temporal, então podemos classificar esse processo como WSS.
 			 		
 			 		\item Encontre a a matrix de correlação de um vetor aleatório consistindo de oito amostras consecutivas de
 			 		$x(n)$.
@@ -434,7 +435,7 @@
 				 			\right]
 				 		\end{align}
 				 		
-				 		Para chegar a esse resultado foi utilizado a expressão para a correlação obtida no item anterior. Uma vez que a função delta de dirac terá um valor não nulo apenas quando o argumento for zero, isso irá acontecer apenas quando os momentos $n_{1}$ e $n_{2}$ forem iguais e isso irá acontecer apenas com os elementos da diagonal principal.
+				 		\paragraph{}Para chegar a esse resultado foi utilizado a expressão para a correlação obtida no item anterior. Uma vez que a função delta de dirac terá um valor não nulo apenas quando o argumento for zero, isso irá acontecer apenas quando os momentos $n_{1}$ e $n_{2}$ forem iguais e isso irá acontecer apenas com os elementos da diagonal principal.
 			 		
 			 	\end{enumerate}
 		 	
@@ -452,7 +453,7 @@
 						1 & {0.5}  \\   {0.5} & 1  \\ \end{matrix} \right].
 				\end{align*}
 				
-				O vetor de correlação cruzada $\mathbf{p}_{\mathbf{x}d}$ entre o vetor de entrada $\mathbf{x}$ e a resposta desejada
+				\paragraph{}O vetor de correlação cruzada $\mathbf{p}_{\mathbf{x}d}$ entre o vetor de entrada $\mathbf{x}$ e a resposta desejada
 				$d(n)$ é
 				
 				\begin{align*}
@@ -465,7 +466,7 @@
 					
 						\textcolor{red}{Solução:}
 						
-						Isso pode ser realizado de forma simples pelo uso da equação do filtro ótimo de wiener
+						\paragraph{}Isso pode ser realizado de forma simples pelo uso da equação do filtro ótimo de wiener
 						
 						\begin{align}
 							\mathbf{w}_{\text{opt}} &= \mathbf{R}^{-1}_{X} \mathbf{p}_{xd}, \\
@@ -482,7 +483,7 @@
 							\mathbb{E}\{e^{2}(n)\}  &=\sigma^{2}_{d} - 2\mathbf{w}^{T}\mathbf{p}_{xd} + w^{T}\mathbf{R}_{X}\mathbf{w}      
 						\end{align}
 						
-						Ao aplicar o vetor descoberto no item anterior obtem-se o erro mínimo
+						\paragraph{}Ao aplicar o vetor descoberto no item anterior obtem-se o erro mínimo
 						
 						\begin{align}
 							e_{min}  &=\sigma^{2}_{d} - 2\mathbf{w}^{T}_{opt}\mathbf{p}_{xd} + w^{T}_{opt}\mathbf{R}_{X}\mathbf{w}_{\text{opt}}, \\
@@ -491,20 +492,20 @@
 							e_{min} &= \sigma^{2}_{d} - 0.25. 
 						\end{align}
 						
-						Dessa forma o erro é dependente da variância do sinal desejado.					
+						\paragraph{}Dessa forma o erro é dependente da variância do sinal desejado.					
 					
 					\item Formule uma representação do filtro de Wiener em termos dos autovalores da matriz $\mathbf{R}_{\mathbf{x}}$
 					e de seus autovetores associados.
 					
 						\textcolor{red}{Solução:}
 						
-						Utilizando a decomposição matricial em autovalores (EVD) é possível reescrever a matrix de correlação como abaixo
+						\paragraph{}Utilizando a decomposição matricial em autovalores (EVD) é possível reescrever a matrix de correlação como abaixo
 						
 						\begin{align}
 							\mathbf{R}_{X} &= \mathbf{Q} \mathbf{\Lambda} \mathbf{Q}^{-1}.
 						\end{align}
 						
-						A matriz $\mathbf{\Lambda}$ contémm os autovalores $\lambda_{i}$ e a matriz $\mathbf{Q}$ os respectivos autovetores. Em posse dessa relação é possível reescrever a equação do fitro ótimo de wiener como
+						\paragraph{}A matriz $\mathbf{\Lambda}$ contémm os autovalores $\lambda_{i}$ e a matriz $\mathbf{Q}$ os respectivos autovetores. Em posse dessa relação é possível reescrever a equação do fitro ótimo de wiener como
 						
 						\begin{align}
 							\mathbf{w}_{\text{opt}} &= \mathbf{R}^{-1}_{X} \mathbf{p}_{xd}, \\
@@ -512,7 +513,7 @@
 							\mathbf{w}_{\text{opt}} &= \mathbf{Q}^{-1} \mathbf{\Lambda}^{-1} \mathbf{Q} \mathbf{p}_{xd}.
 						\end{align}
 						
-						É possível verificar de imediato que essa propriedade é bem útil uma vez que a inversa de uma matriz diagonal é certamente menos custosa que a inversa da matriz de autocorrelação completa.
+						\paragraph{}É possível verificar de imediato que essa propriedade é bem útil uma vez que a inversa de uma matriz diagonal é certamente menos custosa que a inversa da matriz de autocorrelação completa.
 					
 				\end{enumerate}
 			
@@ -542,21 +543,21 @@
 				
 				\textcolor{red}{Solução:}
 				
-				Inicialmente deve-se calcular a matriz de correlação do vetor aumentado
+				\paragraph{}Inicialmente deve-se calcular a matriz de correlação do vetor aumentado
 				
 				\begin{align}
 					\mathbf{A} &= \mathbb{E} \{ \left[ \begin{matrix} d(n) \\ x(n) \end{matrix} \right] \left[ \begin{matrix} d(n)^{T} & x(n)^{T} \end{matrix} \right] \}, \\
 					\mathbf{A} &=   \left[ \begin{matrix} \mathbb{E}\{d(n) d(n)^{T}\} & \mathbb{E}\{d(n) x(n)^{T}\} \\ \mathbb{E}\{x(n) d(n)^{T}\} & \mathbb{E}\{x(n) x(n)^{T}\} \end{matrix} \right].
 				\end{align}
 				
-				Dando as devidas nomeações aos termos a expressão acima reduz-se a
+				\paragraph{}Dando as devidas nomeações aos termos a expressão acima reduz-se a
 				
 				\begin{align}
 					\mathbf{A} &=  \left[ \begin{matrix} \sigma^{2}_{d} & \mathbf{p}_{xd}^{T} \\
 						\mathbf{p}_{xd} & \mathbf{R}_{X} \end{matrix} \right].
 				\end{align}
 				
-				Multiplicando-se a expressão acima pelo vetor $[1 - \mathbf{w}]^{T}$
+				\paragraph{}Multiplicando-se a expressão acima pelo vetor $[1 - \mathbf{w}]^{T}$
 				
 				\begin{align}
 					\mathbf{A} \left[ \begin{matrix} 1 \\ -\mathbf{w} \end{matrix} \right] &=   \left[ \begin{matrix} \sigma^{2}_{d} & \mathbf{p}_{xd}^{T} \\
@@ -565,7 +566,7 @@
 						\mathbf{p}_{xd} - \mathbf{R}_{X}\mathbf{w} \end{matrix} \right].
 				\end{align}
 				
-				Por fim, resta apenas aplica a equação ótima do filtro de wiener $\mathbf{w}_{\text{opt}} = \mathbf{R}^{-1}_{X} \mathbf{p}_{xd}$
+				\paragraph{}Por fim, resta apenas aplica a equação ótima do filtro de wiener $\mathbf{w}_{\text{opt}} = \mathbf{R}^{-1}_{X} \mathbf{p}_{xd}$
 				
 				\begin{align}
 					\mathbf{A} \left[ \begin{matrix} 1 \\ -\mathbf{w} \end{matrix} \right] &=   \left[ \begin{matrix} \sigma^{2}_{d} - \mathbf{p}_{xd}^{T}\mathbf{R}^{-1}_{X} \mathbf{p}_{xd} \\
@@ -587,27 +588,27 @@
 				
 				\textcolor{red}{Solução:}
 				
-				Inicialmente é necessário calcular a equação de erro do sistema aqui proposto
+				\paragraph{}Inicialmente é necessário calcular a equação de erro do sistema aqui proposto
 				
 				\begin{align}
 					e(n) &= x(n) - \hat{v_{1}} = x(n) - \mathbf{w}^{T}v_{2}(n)
 				\end{align}
 				
-				Em seguida faz-necessário calcular a função mean square error(MSE) que é facilmente fornecida pela manipulação algébrica abaixo
+				\paragraph{}Em seguida faz-necessário calcular a função mean square error(MSE) que é facilmente fornecida pela manipulação algébrica abaixo
 				
 				\begin{align}
 					e^{2}(n) &= [x(n) - \mathbf{w}^{T}v_{2}(n)][x(n) - \mathbf{w}^{T}v_{2}(n)]^{T}, \\
 					e^{2}(n) &= x^{2}(n) - 2x(n)\mathbf{w}^{T}v_{2}(n) + \mathbf{w}^{T}v_{2}(n)v_{2}^{T}\mathbf{w}.
 				\end{align}
 				
-				Sendo considerado que o filtro apresenta coeficientes constantes é possível aplicar o operador Valor Esperado de forma a obter a seguinte relação
+				\paragraph{}Sendo considerado que o filtro apresenta coeficientes constantes é possível aplicar o operador Valor Esperado de forma a obter a seguinte relação
 				
 				\begin{align}
 					\mathbb{E}\{e^{2}(n)\} = \mathbb{E}\{x^{2}(n)\} - 2\mathbf{w}^{T}\mathbb{E}\{x(n) v_{2}(n)\} + \mathbf{w}^{T}\mathbb{E}\{v_{2}(n)v_{2}(n)^{T}\} \mathbf{w},& \\
 					\mathbb{E}\{e^{2}(n)\} = \sigma^{2}_{x} - 2\mathbf{w}^{T}\mathbf{p}_{xv_{2}} + \mathbf{w}^{T}\mathbf{R}_{v_{2}} \mathbf{w}.&
 				\end{align}
 				
-				Por fim, basta encontrar o $\mathbf{w}$ que minimiza o MSE acima. Para chegar a esse fim, calcula-se o gradiante quanto ao $\mathbf{w}$ igualando-se o resultado da operação a zero
+				\paragraph{}Por fim, basta encontrar o $\mathbf{w}$ que minimiza o MSE acima. Para chegar a esse fim, calcula-se o gradiante quanto ao $\mathbf{w}$ igualando-se o resultado da operação a zero
 				
 				\begin{align}
 					\nabla_{\mathbf{w}} \mathbb{E}\{e^{2}(n)\} = - 2\mathbf{p}_{xv_{2}} + 2\mathbf{R}_{v_{2}} \mathbf{w} = 0,& \\
@@ -615,7 +616,7 @@
 					\mathbf{R}_{v_{2}} \mathbf{w} = \mathbf{p}_{xv_{2}}.&
 				\end{align}
 				
-				Utilizando a identidade matricial abaixo é possível resolver a equação acima para obter o seguinte resultado
+				\paragraph{}Utilizando a identidade matricial abaixo é possível resolver a equação acima para obter o seguinte resultado
 				
 				\begin{align}
 					\mathbf{R}^{-1}_{v_{2}}\mathbf{R}_{v_{2}} \mathbf{w} &= \mathbf{R}^{-1}_{v_{2}}\mathbf{p}_{xv_{2}}, \\
@@ -623,7 +624,7 @@
 					\mathbf{w} &= \mathbf{R}^{-1}_{v_{2}}\mathbf{p}_{xv_{2}}. 
 				\end{align}
 				
-				Onde é possível reescrever o termo final como
+				\paragraph{}Onde é possível reescrever o termo final como
 				
 				\begin{align}
 					\mathbf{w} = \mathbf{R}^{-1}_{v_{2}}(\mathbf{p}_{d} + \mathbf{p}_{v_{1}} + \mathbf{p}_{v_{2}}) 
@@ -643,7 +644,7 @@
 					
 						\textcolor{red}{Solução:}
 
-						O filtro linear ótimo que minimiza o erro médio quadrático é descrito pela solução das equações de Wiener. Portanto, inicialmente definir a matriz de autocorrelação para o processo descrito por $x(n)$
+						\paragraph{}O filtro linear ótimo que minimiza o erro médio quadrático é descrito pela solução das equações de Wiener. Portanto, inicialmente definir a matriz de autocorrelação para o processo descrito por $x(n)$
 
 						\begin{align} 
 							\mathbf{R}_{x} = 
@@ -673,10 +674,10 @@
 							\begin{bmatrix}
 								2 \sigma^{2}_{s} & 0 \\
 								0  & 2 \sigma^{2}_{s}
-							\end{bmatrix},
+							\end{bmatrix}.
 						\end{align}
 
-						Entretanto, considerando que o processo $D(n)$ têm média nula então temos na verdade um vetor de correlação cruzada nulo. Desse modo, o filtro linear
+						\paragraph{}Entretanto, considerando que o processo $D(n)$ têm média nula então temos na verdade um vetor de correlação cruzada nulo. Desse modo, o filtro linear
 						ótimo para esse processo seria o próprio vetor nulo. Sendo assim
 
 						\begin{align} 
@@ -701,7 +702,7 @@
 					
 						\textcolor{red}{Solução:}
 						
-						O filtro preditor direto é aquele que utiliza o conhecimento de amostras passadas para predizer amostras futuras de algum processo. Desse modo, podemos definir o filtro direto de passo unitário como
+						\paragraph{}O filtro preditor direto é aquele que utiliza o conhecimento de amostras passadas para predizer amostras futuras de algum processo. Desse modo, podemos definir o filtro direto de passo unitário como
 
 						\begin{align}
 							\hat{x}(n) &= \sum^{M + k - 1}_{i = k} w_{f,i} x(n - i) = \sum^{2}_{i = 1} w_{f,i} x(n - i), \\
@@ -720,7 +721,7 @@
 							\mathbf{w}_{f,\text{opt}} = \mathbf{R}^{-1}_{x} \mathbf{r}_{x,f}.
 						\end{align}
 
-						Onde mais uma vez teremos a mesma matriz de autocorrelação definida no item anterior, mas agora teremos um vetor de correlação cruzada definido por
+						\paragraph{}Onde mais uma vez teremos a mesma matriz de autocorrelação definida no item anterior, mas agora teremos um vetor de correlação cruzada definido por
 
 						\begin{align}
 							\mathbf{r}_{x,f} = 
@@ -738,13 +739,13 @@
 							\end{bmatrix}.
 						\end{align}
 						
-						Desse modo, temos resultado idêntico ao item anterior com a solução ótima sendo o próprio vetor nulor.
+						\paragraph{}Desse modo, temos resultado idêntico ao item anterior com a solução ótima sendo o próprio vetor nulor.
 
 					\item Compare as soluções dos dois.
 					
 						\textcolor{red}{Solução:} 
 
-						Os resultados são contraintuitivos e exibem limitações de ordem técnica que podemos encontrar durante a solução de certos problemas. Talvez uma
+						\paragraph{}Os resultados são contraintuitivos e exibem limitações de ordem técnica que podemos encontrar durante a solução de certos problemas. Talvez uma
 						solução para esse problema fosse de alguma forma obter as correlações reais entre amostras dos processos descritos por $X(n)$ e $D(n)$. Entretanto, não
 						consigo visualizar com tanta clareza como tal procedimento poderia ser realizado.
 					
@@ -759,13 +760,13 @@
 					
 						\textcolor{red}{Solução:}
 						
-						A partir dos coeficientes fornecidos é possível escrever a matrix de correlação necessário para o filtro ótimo de wiener como uma matriz identidade de ordem 2
+						\paragraph{}A partir dos coeficientes fornecidos é possível escrever a matrix de correlação necessário para o filtro ótimo de wiener como uma matriz identidade de ordem 2
 						
 						\begin{align}
 							\mathbf{R}_{X} = \left[ \begin{matrix} 1 & 0 \\ 0 & 1 \end{matrix} \right]
 						\end{align}
 						
-						Ao utilizar a solução fechada do problema chega-se ao seguinte vetor resultado
+						\paragraph{}Ao utilizar a solução fechada do problema chega-se ao seguinte vetor resultado
 						
 						\begin{align}
 							\mathbf{w}_{\text{opt}} &= \mathbf{R}^{-1}_{x} \mathbf{p}_{xd} = \left[ \begin{matrix} 1 & 0 \\ 0 & 1 \end{matrix} \right]  \left[ \begin{matrix} 2 \\ 4.5 \end{matrix} \right] = \left[ \begin{matrix} 2 \\ 4.5 \end{matrix} \right].
@@ -775,20 +776,20 @@
 					
 						\textcolor{red}{Solução:}
 						
-						Para obter a expressão que define a superfície basta desenvolver a expressão para o erro médio
+						\paragraph{}Para obter a expressão que define a superfície basta desenvolver a expressão para o erro médio
 						
 						\begin{align}
 							\mathbf{J}(w) &= \mathbb{E}\{e^{2}(n)\} = \sigma^{2}_{d} - 2\mathbf{w}^{T}\mathbf{p}_{xd} + w^{T}\mathbf{R}_{X}\mathbf{w}. \label{eq:mse}   
 						\end{align}
 						
-						Substituindo os valores encontrados anteriormente na expressão da superfície
+						\paragraph{}Substituindo os valores encontrados anteriormente na expressão da superfície
 						
 						\begin{align}
 							\mathbf{J}(w_{0}, w_{1}) &= 24.40 - 2 \left[ \begin{matrix} w_{0}  w_{1} \end{matrix} \right] \left[ \begin{matrix} 2 \\ 4.5 \end{matrix} \right] + \left[ \begin{matrix} w_{0}  w_{1} \end{matrix} \right] \left[ \begin{matrix} 1 & 0 \\ 0 & 1 \end{matrix} \right]  \left[ \begin{matrix} w_{0}  \\ w_{1} \end{matrix} \right], \\
 							\mathbf{J}(w_{0},w_{1}) &= 24.40 - 4w_{0} - 9w_{1} + w^{2}_{0} + w^{2}_{1}.
 						\end{align}
 						
-						Utilizando um software gráfico é possível obter a Figura \ref{fig:01} onde é traçada a superfície de erro MSE expressa na Equação (\ref{eq:mse}).
+						\paragraph{}Utilizando um software gráfico é possível obter a Figura \ref{fig:01} onde é traçada a superfície de erro MSE expressa na Equação (\ref{eq:mse}).
 					
 						\begin{figure}[H]
 							\centering
@@ -1401,10 +1402,10 @@
 					
 						\textcolor{red}{Solução:}
 
-						\paragraph{}A resposta em frequência do filtro está disponível na Figura \ref{fig:filter_response} para o caso $\frac{\mu_{\text{max}}}{50}$. É possível ver que a resposta em frequência do filtro
-						tende a se aproximar da resposta em frequência do sistema. Entretanto, existe um claro amortecimento na amplitute da resposta do filtro. Isso pode ser explicado
-						pela dificuldade do filtro em acompanhar a evolução do canal e poderia ser contornado aumentando a ordem do filtro ou utilizando algum método de trainamento para
-						iniciar o processo de filtragem.  
+						\paragraph{}A resposta em frequência do filtro está disponível nas Figuras \ref{fig:filter_response_2}, \ref{fig:filter_response_10} e \ref{fig:filter_response_50} para os casos $\frac{\mu_{\text{max}}}{2}$, $\frac{\mu_{\text{max}}}{10}$ e $\frac{\mu_{\text{max}}}{50}$, respectivamente. 
+						É possível ver que a resposta em frequência do filtro tende a se aproximar da resposta em frequência do sistema quanto maior o passo de aprendizado, pois quanto maior $\mu$ mais facilidade tem o filtro em acompanhar as variações do canal. 
+						No caso extremo onde temos um passo de aprendizado $\frac{\mu_{\text{max}}}{50}$ é possível verificar que a resposta em frequência do filtro é uma versão consideravelmente amortecida da resposta original do canal. 
+						Ademais, na Figura \ref{fig:L3Q5_t} vemos a evolução temporal do filtro para as primeiras 100 amostras quando temos a resposta em frequência dada na Figura \ref{fig:filter_response_2}.
 
 				\end{enumerate}
 			
@@ -1454,19 +1455,24 @@
 						\paragraph{}Os resultados estão nas Figuras \ref{fig:L3Q6C1} e \ref{fig:L3Q6C2}. É possível verificar na primeira figura que a evolução do MSE aconteceu apesar de uma considerável variação ao final
 						da convergência. Já em relação a figura seguinte, onde transmitimos um sinal 256-QAM e utilizamos um filtro treinado por um sinal 4-QAM, é possível verificar que inicialmente o filtro demonstrou dificuldade em acompanhar
 						a evolução do canal. Por fim, em um segundo momento é apresentado a evolução temporal considerando as ultimas amostras do sinal e aqui podemos visualizar que, embora ainda existam uma quantidade considerável de erros por se 
-						tratar de uma modulação de ordem elevada, o filtro consegue se aproximar com um pouco mais de facilidade do sinal original. Adicionalmente, para termos uma melhor interpretação do desempenho desse filtro seria necessário utilizar 
-						uma métrica como a SER ou BER e comparar o impacto de diferentes modulações no desempenho do algoritmo de filtragem. Tal procedimento será desenvolvido em sequência. 
+						tratar de uma modulação de ordem elevada, o filtro consegue se aproximar com um pouco mais de facilidade do sinal original. 
+						
+						\paragraph{}Adicionalmente, para termos uma melhor interpretação do desempenho desse filtro seria necessário utilizar 
+						uma métrica como a SER ou BER e comparar o impacto de diferentes modulações no desempenho do algoritmo de filtragem. Isso se deve pois quando utilizamos um decisor o símbolo filtrado pode ser alocado para uma região da constelação
+						da modulação a qual não pertence. Entretanto, tais erros de decisão so são aparente quando utilizamos uma métrica capaz de capturar tal fenômeno.
 
 					\item Gerar as curvas de taxa de erro de símbolo (SER, do inglês Symbol Error Rate) versus SNR na entrada do equalizador para símbolos de constelações 4, 16, 64 e 256-QAM. Faça SNR variar
 					de 5dB a 30dB.
 					
 						\textcolor{red}{Solução:}
 
-						\paragraph{}Os resultados estão na Figura \ref{fig:L3Q6D}. Assim, podemos analisar o desempenho real do algoritmo quando utilizado para filtrar um sinal. É possível verificar que a medida
-						que a ordem de modulação aumenta o desempenho sofre uma considerável piora. Existem duas principais razões para explicar esse comportamento. A primeira vem justamente do tamanho das constelações 
-						digitais que a medida que a ordem aumenta tem uma menor regiao de decisão associada aos seus símbolos. Desse modo, o sinal transmitido fica sujeito a interferências de componentes ruidosas do canal pois
-						as divisórias entre as diversas regiões de decisão dos símbolos da modulação ficam menores e erros de decisão irão acontecer com maior frequência A segunda razão poderia ser explicada pelo fato do filtro
-						ter sido inicialmente treinado utilizando símbolos modulados com 4-QAM, mas provavelmente isso é insuficiente quando a ordem de modulação do sinal transmitido cresce.
+						\paragraph{}Os resultados estão na Figura \ref{fig:L3Q6D}. Assim, podemos analisar o real desempenho do filtro quando associado a um equalizador que desconhece o sinal verdadeiro. 
+						É possível verificar que a medida que a ordem de modulação aumenta o desempenho sofre uma considerável piora. Existem duas principais razões para explicar esse comportamento. A primeira vem justamente 
+						do tamanho das constelações digitais que a medida que a ordem aumenta tem uma menor regiao de decisão associada aos seus símbolos. Desse modo, o sinal transmitido fica sujeito a interferências de componentes 
+						ruidosas do canal pois as divisórias entre as diversas regiões de decisão dos símbolos da modulação ficam menores e erros de decisão irão acontecer com maior frequência A segunda razão poderia ser explicada pelo 
+						fato do filtro ter sido inicialmente treinado utilizando símbolos modulados com 4-QAM, mas provavelmente isso é insuficiente quando a ordem de modulação do sinal transmitido cresce.
+						Ademais, vale ressaltar que não houve erros para SNR $= 30$ dB quando se transmitiu sinais 4-QAM, entretanto como foram utilizados apenas 1000 realizações de Monte Carlo não foi
+						possível capturar erros para esse ponto específico de SNR. 
 
 				\end{enumerate}
 				
@@ -1557,9 +1563,30 @@
 
 				\begin{figure}[H]
 					\centering
-					\includegraphics[width=0.75\textwidth]{figs/L3Q5_filter_response.png}
+					\includegraphics[width=0.75\textwidth]{figs/L3Q5_filter_response_2.png}
 					\caption{$\text{Amostras} = 1000$, $M = 15$, $\mu = \frac{\mu_{\text{max}}}{2}$}
-					\label{fig:filter_response}
+					\label{fig:filter_response_2}
+				\end{figure}
+
+				\begin{figure}[H]
+					\centering
+					\includegraphics[width=0.75\textwidth]{figs/L3Q5_filter_response_10.png}
+					\caption{$\text{Amostras} = 1000$, $M = 15$, $\mu = \frac{\mu_{\text{max}}}{10}$}
+					\label{fig:filter_response_10}
+				\end{figure}
+
+				\begin{figure}[H]
+					\centering
+					\includegraphics[width=0.75\textwidth]{figs/L3Q5_filter_response_50.png}
+					\caption{$\text{Amostras} = 1000$, $M = 15$, $\mu = \frac{\mu_{\text{max}}}{50}$}
+					\label{fig:L3Q5_t}
+				\end{figure}
+
+				\begin{figure}[H]
+					\centering
+					\includegraphics[width=0.75\textwidth]{figs/L3Q5_t.png}
+					\caption{$\text{Amostras} = 1000$, $M = 15$, $\mu = \frac{\mu_{\text{max}}}{2}$}
+					\label{fig:filter_response_50}
 				\end{figure}
 
 				\begin{figure}[H]
@@ -1763,6 +1790,13 @@
 				definido por $\lambda = 0.999$ temos oscilações de magnitudades consideravelmente menores quando comparamos com os dois casos anteriores. Já com relação ao valor de convergência
 				MSE não é possível notar grandes diferenças entre os casos considerados, visto que todos oscilam em torno de um valor aproximadamente igual.
 			
+				\paragraph{}Por fim, nas Figuras \ref{fig:L4Q5_a5} e \ref{fig:L4Q5_a6} são traçados os gráficos da evolução temporal e da resposta em frequência para
+				o cenário proposto, respectivamente. Na primeira figura vemos a adaptação do algoritmo RLS a medida que o número de iterações progride e, apesar do
+				equalizador desconhecer o sinal verdadeiro, existe uma aparente melhora de desempenho a medida que o filtro progride. Já na figura seguinte são comparados
+				diretamente as repostas em frequência dos filtros LMS e RLS em relação ao sistema desconhecido com $\mu = 0.001$ e $\lambda = 0.999$, respectivamente.
+				A partir de tal resultado podemos verificar que o filtro RLS consegue adaptar-se mais facilmente ao sistema desconhecido enquanto o filtro LMS apresenta
+				intensas variações que possivelmente prejudicariam o processo de filtragem.
+
 				\newpage
 				\begin{figure}[H]
 					\centering
@@ -1869,7 +1903,20 @@
 					\label{fig:L4Q5_a4}
 				\end{figure}
 
+				\begin{figure}[H]
+					\centering
+					\includegraphics[width=0.75\textwidth]{figs/L4Q5_rls_t.png}
+					\caption{Evolução temporal para o RLS. $\text{Amostras} = 500$, $M = 15$, $\lambda = 0.999$}
+					\label{fig:L4Q5_a5}
+				\end{figure}
+
+				\begin{figure}[H]
+					\centering
+					\includegraphics[width=0.75\textwidth]{figs/L4Q5_filter_response.png}
+					\caption{Comparativo da resposta em frequência para LMS e RLS. $\text{Amostras} = 500$, $M = 15$, $\lambda = 0.999$}
+					\label{fig:L4Q5_a6}
+				\end{figure}
+
 		\end{enumerate}
 
 \end{document}
-
