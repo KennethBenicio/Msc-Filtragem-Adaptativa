@@ -473,6 +473,11 @@ INPUT ./figs/L4Q1.png
 INPUT figs/L4Q1.png
 INPUT ./figs/L4Q1.png
 INPUT ./figs/L4Q1.png
+INPUT ./figs/L4Q2.png
+INPUT ./figs/L4Q2.png
+INPUT figs/L4Q2.png
+INPUT ./figs/L4Q2.png
+INPUT ./figs/L4Q2.png
 INPUT ./figs/L4Q3_rls_mse_2_3_9.png
 INPUT ./figs/L4Q3_rls_mse_2_3_9.png
 INPUT figs/L4Q3_rls_mse_2_3_9.png

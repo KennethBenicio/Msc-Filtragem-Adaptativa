@@ -818,7 +818,7 @@
 					e(n) &= d(n) - \mathbf{w}^{\text{T}}(n)\mathbf{x}(n),
 				\end{align}
 				
-				e para obtermos a nova expressão de recurssão precisamos primeiro obter o equacionamento para o vetor gradiente instântaneo de $\mathbb{E}\{e^{4}(n)\}$. Isso pode ser prontamente obtido por meio do auxílio de uma derivação implícita
+				e para obtermos a nova expressão de recurssão precisamos primeiro obter o equacionamento para o vetor gradiente instantâneo de $\mathbb{E}\{e^{4}(n)\}$. Isso pode ser prontamente obtido por meio do auxílio de uma derivação implícita
 
 				\begin{align}
 					\nabla_{\mathbf{w}} \mathbb{E}\{e^{4}(n)\} &= \frac{\partial \mathbb{E}\{e^{4}(n)\}}{\partial \mathbf{w}} = \mathbb{E}\{ \frac{\partial e^{4}(n)}{\partial \mathbf{w}}\} = \mathbb{E}\{ \frac{\partial e^{4}(n)}{\partial e(n)} \frac{\partial e(n) }{\partial \mathbf{w}}\}, \\
@@ -1672,8 +1672,8 @@
 
 				\begin{figure}[H]
 					\centering
-					\includegraphics[width=0.75\textwidth]{figs/L4Q1.png}
-					\caption{$\text{Amostras} = 100$, $M = 2$, $\lambda = 0.98$}
+					\includegraphics[width=0.65\textwidth]{figs/L4Q1.png}
+					\caption{Primeiro coeficiente livre para adaptação com $\text{Amostras} = 100$, $M = 2$, $\lambda = 0.98$}
 					\label{fig:L4Q1}
 				\end{figure}
 
@@ -1688,6 +1688,37 @@
 				aproxima do comportamento ideal. Existem algumas oscilações ao longo das 100 amostras, mas sem mudanças abruptas. É necessário apenas chamar atenção 
 				para o comportamento repentino apresentado no final do processo que é uma consequência da minha implementação para o RLS. Considero que o filtro inicia 
 				com sua janela totalmente preenchida o que por consequência induz a interupção do algoritmo quando a janela chega a sua última seção onde está totalmente preenchida.
+
+				\paragraph{}Por fim, na tabela abaixo e na Figura \ref{fig:L4Q2} apresento os resultados para o cenário onde o primeiro coeficiente do filtro RLS é mantido fixo em 1.
+				Podemos ver de mais imediato que os coeficientes que estão livres para a adaptação apresentam considerável instabilidade quando comparados com o cenário onde os três 
+				coeficientes estão livres. Consequentemente, o filtro tem uma dificuldade bem maior em acompanhar as mudanças do sinal de referência quando comparamos com o
+				resultado da Figura \ref{fig:L4Q1}.
+
+				\begin{table}[H]
+					\centering
+					\begin{tabular}{|l|l|l|l|}
+						\hline
+						Iterations & $w_{0}$ & $w_{1}$ & $w_{2}$ \\ 
+						\hline 
+						i = 1 & 1 & 0 & 0 \\ \hline 
+						i = 2 & 1 & -0.043423 & -0.044953 \\ \hline 
+						i = 3 & 1 & -0.031108 & -0.038147 \\ \hline 
+						i = 4 & 1 & -0.030954 & -0.037966 \\ \hline 
+						i = 5 & 1 & -0.021256 & -0.027157 \\ \hline 
+						i = 6 & 1 & -0.016635 & -0.01361 \\ \hline 
+						i = 7 & 1 & -0.0091408 & -0.0052317 \\ \hline 
+						i = 8 & 1 & -0.011328 & -0.0066525 \\ \hline 
+						i = 9 & 1 & -0.017649 & -0.00074347 \\ \hline 
+						i = 10 & 1 & -0.0095932 & -0.012379 \\ \hline 
+					\end{tabular}
+				\end{table}
+				
+				\begin{figure}[H]
+					\centering
+					\includegraphics[width=0.65\textwidth]{figs/L4Q2.png}
+					\caption{Primeiro coeficiente fixo com $\text{Amostras} = 100$, $M = 2$, $\lambda = 0.98$}
+					\label{fig:L4Q2}
+				\end{figure}
 
 			\item Seja $\epsilon(n)$ que denota um erro de estimação a priori
 			
@@ -1706,6 +1737,43 @@
 				$\epsilon(n)$ e $e(n)$ são de valores complexos. Mostre que o produto $\epsilon(n)e^{*}(n)$ é sempre de valor real.
 
 				\textcolor{red}{Solução:}
+
+				\paragraph{}Primeiramente é necessário reescrever $e(n)$ em termos de $\epsilon(n)$. Inicialmente podemos escrever os coeficientes de filtro do instante $n$,
+				utilizando o erro a priori, da seguinte forma
+
+				\begin{align}
+					\boldsymbol{w}(n) = \boldsymbol{w}(n-1) + \epsilon(n) \boldsymbol{S}_{D}(n) \boldsymbol{x}(n),
+				\end{align}
+
+				e em seguida substituímos a expressão acima na definição do erro de estimação instantâneo e obtemos 
+
+				\begin{align}
+					e(n) &= d(n) - \boldsymbol{w}^{\text{H}}(n) \boldsymbol{x}(n), \\
+					e(n) &= d(n) - \boldsymbol{x}^{\text{H}}(n) \boldsymbol{w}(n), \\
+					e(n) &= d(n) - \boldsymbol{x}^{\text{H}}(n) \left[\boldsymbol{w}(n-1) + \epsilon(n) \boldsymbol{S}_{D}(n) \boldsymbol{x}(n)\right], \\
+					e(n) &= d(n) - \boldsymbol{x}^{\text{H}}(n) \boldsymbol{w}(n-1) - \boldsymbol{x}^{\text{H}}(n) \epsilon(n) \boldsymbol{S}_{D}(n) \boldsymbol{x}(n), \\
+					e(n) &= \underbrace{d(n) - \boldsymbol{x}^{\text{H}}(n) \boldsymbol{w}(n-1)}_{\epsilon(n)} - \epsilon(n) \boldsymbol{x}^{\text{H}}(n) \boldsymbol{S}_{D}(n) \boldsymbol{x}(n), \\
+					e(n) &= \epsilon(n) - \epsilon(n) \boldsymbol{x}^{\text{H}}(n) \boldsymbol{S}_{D}(n) \boldsymbol{x}(n), \\
+				\end{align}
+
+				e em sequência desenvolvemos o conjugado de $e(n)$ do seguinte modo
+
+				\begin{align}
+					e^{*}(n) &= \epsilon^{*}(n) - \epsilon^{*}(n) \boldsymbol{x}^{\text{H}}(n) \boldsymbol{S}_{D}(n) \boldsymbol{x}(n),
+				\end{align}
+
+				onde o termo $\boldsymbol{x}^{\text{H}}(n) \boldsymbol{S}_{D}(n) \boldsymbol{x}(n)$ é a distância de Mahalanobis que será sempre real e positiva.
+				Desse modo, ao fazermos $\epsilon(n) e^{*}(n)$ obtemos 
+
+				\begin{align}
+					\epsilon(n) e^{*}(n) &= \epsilon(n) \left[\epsilon^{*}(n) - \epsilon^{*}(n) \boldsymbol{x}^{\text{H}}(n) \boldsymbol{S}_{D}(n) \boldsymbol{x}(n)\right], \\
+					\epsilon(n) e^{*}(n) &= \epsilon(n) \epsilon^{*}(n) - \epsilon(n) \epsilon^{*}(n) \boldsymbol{x}^{\text{H}}(n) \boldsymbol{S}_{D}(n) \boldsymbol{x}(n), \\
+					\epsilon(n) e^{*}(n) &= \epsilon(n) \epsilon^{*}(n) \left(1 - \boldsymbol{x}^{\text{H}}(n) \boldsymbol{S}_{D}(n) \boldsymbol{x}(n)\right).
+				\end{align}
+
+				\paragraph{}Dessa forma, sabemos que o termos $\left(1 - \boldsymbol{x}^{\text{H}}(n) \boldsymbol{S}_{D}(n) \boldsymbol{x}(n)\right)$ será sempre real, embora nem sempre positivo,
+				e $\epsilon(n) \epsilon^{*}(n)$ pode simplesmente ser visto como uma norma dada por $||\epsilon(n)||^{2} = \epsilon(n) \epsilon^{*}(n)$, demonstrando assim que sempre 
+				teremos um valor real para $\epsilon(n) e^{*}(n)$.
 
 			\item Seja um sinal $x(n)$ composto de uma senóide em meio à ruído. Simule um preditor adaptativo
 			de ordem 2 com um algoritmo RLS considerando $\text{SNR} = 3 dB$ e $\text{SNR} \rightarrow \infty$. Variando o fator

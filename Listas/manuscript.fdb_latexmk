@@ -1,6 +1,6 @@
 # Fdb version 3
-["pdflatex"] 1657889366 "/home/kenneth_benicio/Projects/Github/Msc-Filtragem-Adaptativa/Listas/manuscript.tex" "manuscript.pdf" "manuscript" 1657889367
-  "/home/kenneth_benicio/Projects/Github/Msc-Filtragem-Adaptativa/Listas/manuscript.tex" 1657889365 108139 d756618aadea19d9e84274f04e55f98e ""
+["pdflatex"] 1658188364 "/home/kenneth_benicio/Projects/Github/Msc-Filtragem-Adaptativa/Listas/manuscript.tex" "manuscript.pdf" "manuscript" 1658188364
+  "/home/kenneth_benicio/Projects/Github/Msc-Filtragem-Adaptativa/Listas/manuscript.tex" 1658188362 112250 fde05b9252fdac7918ae6c572d5c4564 ""
   "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1650183167 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm" 1650183167 1120 1e8878807317373affa7f7bba4cf2f6a ""
   "/usr/share/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy7.tfm" 1650183167 1120 7f9f170e8aa57527ad6c49feafd45d54 ""
@@ -99,6 +99,7 @@
   "figs/L3Q6_C_t.png" 1657873452 127284 aabd5b04cf374f8c0c88dd02ec67096e ""
   "figs/L3Q6_D_ser.png" 1657881396 57801 db7decbc98d3d2fbe1153c6ce510e383 ""
   "figs/L4Q1.png" 1656679474 30428 cccdfa79afa13625a05701ed3467af6d ""
+  "figs/L4Q2.png" 1658186532 79057 ca73fdeb964a4a0ac52014a36a97f436 ""
   "figs/L4Q3_rls_mse_2_3_9.png" 1656679474 37526 a548b43a41683f8673dfe1c893a66ae6 ""
   "figs/L4Q3_rls_mse_2_3_99.png" 1656679474 34372 234769c61562a62d2eaf4a94aef98bda ""
   "figs/L4Q3_rls_mse_2_inf_9.png" 1656679474 30336 287676d6363d5922f6abd1c5b422e76a ""
@@ -132,8 +133,8 @@
   "figs/rls_mse.png" 1656679474 28130 a8160f8217cd6bd6c7177b1badada988 ""
   "figs/superficie-de-erro.png" 1656679474 77850 42b157578c0ea05233901eb71b147bc2 ""
   "front.tex" 1656679474 793 d5a8c848561df167cb262a0a7eeabf92 ""
-  "manuscript.aux" 1657889367 17723 8011571ffe290efabfcbbd7b318153fa "pdflatex"
-  "manuscript.tex" 1657889365 108139 d756618aadea19d9e84274f04e55f98e ""
+  "manuscript.aux" 1658188364 18216 237aecf903355e05fa63a2cae11e5a11 "pdflatex"
+  "manuscript.tex" 1658188362 112250 fde05b9252fdac7918ae6c572d5c4564 ""
   (generated)
   "manuscript.aux"
   "manuscript.log"

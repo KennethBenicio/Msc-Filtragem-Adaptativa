@@ -21,9 +21,6 @@
 
 ## Compilado de Resultados Computacionais
 - [Resultados Obtidos ao Longo das Atividades](https://github.com/KennethBenicio/Msc-Filtragem-Adaptativa/blob/main/Imagens)
-- 
+  
 ## Relatório de Ativades da Disciplina: Filtragem Adaptativa
 - [Relatório de Atividades da Disciplina: Filtragem Adaptativa](https://github.com/KennethBenicio/Msc-Filtragem-Adaptativa/blob/main/Listas/manuscript.pdf)
-
-## Relatório de Ativades da Disciplina: Filtragem em Kernel
-- [Relatório de Atividades da Disciplina: Filtragem em Kernel](https://github.com/KennethBenicio/Msc-Filtragem-Adaptativa/blob/main/Listas/manuscript.pdf)
